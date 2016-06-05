@@ -4,7 +4,7 @@ Tool to generate heterogeneity AML files  for data integration.
 
 ## Important Dependencies
 
-AML2RDF needs Java 1.7, Maven 3.0. Download Java SE from  
+HeterogeneityGenerator needs Java 1.7, Maven 3.0. Download Java SE from  
 http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 
