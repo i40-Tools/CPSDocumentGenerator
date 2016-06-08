@@ -10,7 +10,8 @@ http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 ## What is HeterogeneityGenerator?
 
-HeterogeneityGenerator  is a java based tool , which generates  heterogeneity AML files (based on XML) based on probability and document containing number of child nodes. It perform XML data partition for heterogeneity such as different Granularity levels. The goal of this project is to automate process of creating data heterogeneity in AML files based on randomness and probability.The tool tool takes input an AML file and outputs 2 heterogeneity generated files. 
+HeterogeneityGenerator  is a Java based tool , which generates heterogeneity AML files (XML) based on probability and AML document containing number of child nodes. Heterogeneity such as  different Granularity, It perform XML data partition in to two files keeping syntactical consistency of the obtained files against the AutomationML XSD schema. 
+The goal of this project is to automate process of creating data heterogeneity in AML files based on randomness and probability.The tool takes input an 'AML file' and outputs 2 files with different heterogeneity which can be used as input for data integration. The integration tool output can then be compared with the orignal input of this tool thus making the process to achieve recall and precision for the obtatined result.
 
 
 ## Build and Setup  
