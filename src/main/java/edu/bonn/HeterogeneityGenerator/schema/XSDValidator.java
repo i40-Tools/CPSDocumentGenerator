@@ -10,6 +10,8 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 /**
@@ -20,12 +22,22 @@ public class XSDValidator {
 
 	protected String schemaFilePath = "CAEX_ClassModel_V2.15.xsd"; // XSD schema
 	protected String xmlFilePath;
+	final static Logger logger = LoggerFactory.getLogger(XSDValidator.class);
 
+	/**
+	 * 
+	 * @param xmlFilePath
+	 */
 	public XSDValidator(String xmlFilePath) {
 
 		this.xmlFilePath = xmlFilePath;
 	}
 
+	/**
+	 * Validates the XSD for Automation ML files.
+	 * 
+	 * @return
+	 */
 	public boolean schemaValidate() {
 
 		Source schemaPath = new StreamSource(
@@ -35,14 +47,14 @@ public class XSDValidator {
 		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		try {
 			Schema schema = schemaFactory.newSchema(schemaPath);
-			Validator validator = schema.newValidator();
+			Validator xsdValidator = schema.newValidator();
 
-			validator.validate(xmlPath);
-			System.out.println(xmlPath.getSystemId() + " is valid");
+			xsdValidator.validate(xmlPath);
+			System.out.println(xmlPath.getSystemId() + " is valid generated file");
 		} catch (SAXException | IOException e) {
 
-			System.out.println(xmlPath.getSystemId() + " is NOT valid");
-			System.out.println("Reason: " + e.getLocalizedMessage());
+			System.out.println(xmlPath.getSystemId() + " is NOT valid generated file");
+			System.out.println("Because: " + e.getLocalizedMessage());
 			return false;
 		}
 

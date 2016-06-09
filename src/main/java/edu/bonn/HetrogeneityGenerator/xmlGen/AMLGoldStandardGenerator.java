@@ -41,34 +41,6 @@ public class AMLGoldStandardGenerator {
 	final static Logger logger = LoggerFactory.getLogger(AMLGoldStandardGenerator.class);
 
 	/**
-	 * 
-	 * @param inputFile
-	 * @param outputfile
-	 * @param directory
-	 *            This method renames final XML files, in the CAEXFilename tag
-	 *            and changes its names accordingly.
-	 * 
-	 */
-	void renameFiles(String inputFile, String outputFile, String directory) {
-		FileWriter output;
-		String xmlString = null;
-
-		try {
-			InputStream res = new FileInputStream(
-					new File(System.getProperty("user.dir") + "//" + directory + "//" + outputFile));
-			xmlString = IOUtils.toString(res);
-			output = new FileWriter((System.getProperty("user.dir") + "//" + directory + "//" + outputFile));
-			// renames files accordingly to new file
-			xmlString = xmlString.replaceAll(inputFile, outputFile);
-			output.write(xmlString);
-			output.close();
-		} catch (IOException | NullPointerException e) {
-			logger.error("Error File not Found " + inputFile);
-			e.printStackTrace();
-		}
-	}
-
-	/**
 	 * This method Takes input file and perform heterogenity.Using the RDF
 	 * configuration file we identify which heterogeneity needs to be called.
 	 * 
@@ -126,7 +98,7 @@ public class AMLGoldStandardGenerator {
 				} catch (TransformerFactoryConfigurationError | TransformerException | IOException
 						| ParsingException e) {
 					// TODO Auto-generated catch block
-					logger.error("Failed " + e.getMessage());
+					logger.error("Failed " + e.getLocalizedMessage());
 					e.printStackTrace();
 				}
 				// renames the CAEXFile name attribute wiht new files
@@ -201,6 +173,34 @@ public class AMLGoldStandardGenerator {
 		output.write(out1.toString());
 		output.close();
 
+	}
+
+	/**
+	 * 
+	 * @param inputFile
+	 * @param outputfile
+	 * @param directory
+	 *            This method renames final XML files, in the CAEXFilename tag
+	 *            and changes its names accordingly.
+	 * 
+	 */
+	void renameFiles(String inputFile, String outputFile, String directory) {
+		FileWriter output;
+		String xmlString = null;
+
+		try {
+			InputStream res = new FileInputStream(
+					new File(System.getProperty("user.dir") + "//" + directory + "//" + outputFile));
+			xmlString = IOUtils.toString(res);
+			output = new FileWriter((System.getProperty("user.dir") + "//" + directory + "//" + outputFile));
+			// renames files accordingly to new file
+			xmlString = xmlString.replaceAll(inputFile, outputFile);
+			output.write(xmlString);
+			output.close();
+		} catch (IOException | NullPointerException e) {
+			logger.error("Error File not Found " + inputFile);
+			e.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) {
