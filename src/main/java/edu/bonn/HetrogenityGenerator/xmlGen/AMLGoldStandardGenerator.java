@@ -34,12 +34,12 @@ import nu.xom.ValidityException;
 
 /**
  * @author omar
- * @todo purpose of the class
+ * This Class Automatically Generate Gold Standard Files to check for different types of heterogeneity in AutomationML(ML) files 
  */
 
-public class XmlGenerator {
+public class AMLGoldStandardGenerator {
 
-	final static Logger logger = LoggerFactory.getLogger(XmlGenerator.class);
+	final static Logger logger = LoggerFactory.getLogger(AMLGoldStandardGenerator.class);
 	private FileWriter output;
 
 	/**
@@ -202,8 +202,8 @@ public class XmlGenerator {
 
 	public static void main(String[] args) {
 
-		new XmlGenerator().granularityGenerator("Integration.aml", "Granularity-1.aml", 2);
-		new XmlGenerator().granularityGenerator("Integration.aml", "Granularity-2.aml", 3);
+		new AMLGoldStandardGenerator().granularityGenerator("Integration.aml", "Granularity-1.aml", 2);
+		new AMLGoldStandardGenerator().granularityGenerator("Integration.aml", "Granularity-2.aml", 3);
 
 	}
 }
