@@ -1,4 +1,4 @@
-package edu.bonn.HeterogeneityGenerator.schema;
+package edu.bonn.AMLGoldStandardGenerator.schema;
 
 import java.io.File;
 import java.io.IOException;

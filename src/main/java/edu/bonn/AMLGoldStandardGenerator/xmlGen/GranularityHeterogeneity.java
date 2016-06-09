@@ -1,4 +1,4 @@
-package edu.bonn.HetrogeneityGenerator.xmlGen;
+package edu.bonn.AMLGoldStandardGenerator.xmlGen;
 
 import java.util.Random;
 
@@ -120,12 +120,7 @@ public class GranularityHeterogeneity {
 	 * @param baseElmntAttr
 	 * @return
 	 */
-	/**
-	 * Testing for git hub line the code should move to next line
-	 * 
-	 * @param baseElmntAttr
-	 * @return
-	 */
+
 	boolean ignoreAttributes(NamedNodeMap baseElmntAttr) {
 		for (int i = 0; i < baseElmntAttr.getLength(); ++i) {
 			Node attr = baseElmntAttr.item(i);
