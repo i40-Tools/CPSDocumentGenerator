@@ -4,6 +4,13 @@
   <artifactId>1.0</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
+<!-- http://mvnrepository.com/artifact/com.hp.hpl.jena/jena -->
+<dependency>
+    <groupId>com.hp.hpl.jena</groupId>
+    <artifactId>jena</artifactId>
+    <version>2.6.4</version>
+</dependency>
+
   	<dependency>
   		<groupId>commons-io</groupId>
   		<artifactId>commons-io</artifactId>
