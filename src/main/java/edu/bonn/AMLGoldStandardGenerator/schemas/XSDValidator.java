@@ -1,4 +1,4 @@
-package edu.bonn.amlgoldstandardgenerator.schema;
+package edu.bonn.AMLGoldStandardGenerator.schemas;
 
 import java.io.File;
 import java.io.IOException;
