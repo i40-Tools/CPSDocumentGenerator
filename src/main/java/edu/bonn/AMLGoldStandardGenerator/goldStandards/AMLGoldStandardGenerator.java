@@ -1,4 +1,4 @@
-package edu.bonn.AMLGoldStandardGenerator.goldStandard;
+package edu.bonn.AMLGoldStandardGenerator.goldStandards;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
