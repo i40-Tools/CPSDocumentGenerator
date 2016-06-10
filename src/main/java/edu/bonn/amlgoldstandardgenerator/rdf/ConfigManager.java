@@ -1,4 +1,4 @@
-package edu.bonn.AMLGoldStandardGenerator.rdf;
+package edu.bonn.amlgoldstandardgenerator.rdf;
 
 /**
  * @Copyright EIS University of Bonn
