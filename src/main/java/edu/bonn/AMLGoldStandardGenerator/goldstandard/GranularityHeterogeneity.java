@@ -1,4 +1,4 @@
-package edu.bonn.AMLGoldStandardGenerator.goldstandards;
+package edu.bonn.AMLGoldStandardGenerator.goldstandard;
 
 import java.util.Random;
 

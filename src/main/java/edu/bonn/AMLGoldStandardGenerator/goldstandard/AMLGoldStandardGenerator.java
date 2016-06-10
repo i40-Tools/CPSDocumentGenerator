@@ -1,4 +1,4 @@
-package edu.bonn.AMLGoldStandardGenerator.goldstandards;
+package edu.bonn.AMLGoldStandardGenerator.goldstandard;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -25,7 +25,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import edu.bonn.AMLGoldStandardGenerator.schemas.XSDValidator;
+import edu.bonn.AMLGoldStandardGenerator.schema.XSDValidator;
 import nu.xom.Builder;
 import nu.xom.ParsingException;
 import nu.xom.Serializer;
