@@ -10,6 +10,13 @@
     <artifactId>jena</artifactId>
     <version>2.6.4</version>
 </dependency>
+<!-- http://mvnrepository.com/artifact/commons-collections/commons-collections -->
+<!-- http://mvnrepository.com/artifact/com.google.guava/guava -->
+<dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>19.0</version>
+</dependency>
 
   	<dependency>
   		<groupId>commons-io</groupId>

@@ -1,0 +1,21 @@
+@prefix aml:  <http://iais.fraunhofer.de/aml#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ebucore:  <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#>.
+
+aml:Granularity
+     aml:hasName "Granulariy";
+     aml:hasID   "M2";
+     aml:hasInputPath   "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\Integration.aml";
+     aml:hasOutputPath  "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\Granularity";
+     ebucore:filename   "Integration.aml";
+     rdf:type           aml:Heterogeneity .
+
+
+aml:schema
+     aml:hasName "schema";
+     aml:hasID   "M1";
+     aml:hasInputPath   "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\Integration.aml";
+     aml:hasOutputPath  "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\Schema";
+     ebucore:filename   "Integration.aml";
+     rdf:type           aml:Heterogeneity .
