@@ -21,7 +21,7 @@ public class GranularityHeterogeneity {
 	public GranularityHeterogeneity(Element element, Document doc, int mod) {
 		this.element = element;
 		this.doc = doc;
-		this.mod = mod;
+		this.mod = mod + 1;
 	}
 
 	/**

@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -42,13 +41,14 @@ import nu.xom.ValidityException;
 
 public class AMLGoldStandardGenerator {
 
-	private static HashMap<String, String> outputPath;
-	private static String inputPath;
-	private static HashMap<String, String> outputName;
-	private static ArrayList<String> heterogeneityID;
-	private static String inputName;
+	private ArrayList<String> outputPath;
+	private ArrayList<String> inputPath;
+	private ArrayList<String> heterogeneityID;
+
+	private static ArrayList<String> inputName;
 
 	final static Logger logger = LoggerFactory.getLogger(AMLGoldStandardGenerator.class);
+	private String fileName;
 
 	/**
 	 * This method Takes input file and perform heterogenity.Using the RDF
@@ -68,8 +68,6 @@ public class AMLGoldStandardGenerator {
 
 		con.loadConfig("configuration.ttl");
 
-		outputName = con.getOutputName();
-
 		heterogeneityID = con.getHeterogeneityID();
 
 		outputPath = con.getOutputPath();
@@ -80,21 +78,32 @@ public class AMLGoldStandardGenerator {
 
 	}
 
-	void heterogeneityGenerator(String inputFile, ArrayList<String> mod) {
+	void heterogeneityGenerator(ArrayList<String> inputFiles, ArrayList<String> mod) {
 
 		String outputFile = null;
 		String directory = null;
 
-		int i = 1;
+		int i = 0;
 
 		// reads the input from rdf configuration for type of heterogeneity
-		for (String input : mod) {
+		for (int m = 0; m < mod.size(); m++) {
+
+			if (inputName.get(m) != null) {
+
+				fileName = inputName.get(m).replace(".aml", "");
+			} else {
+				fileName = "default" + m;
+
+			}
+			String input = mod.get(m).toString();
+			String inputFile = inputFiles.get(m).toString();
 
 			// Twice loop because for integration we need two files.
-			while (i <= 2) {
+			while (i < 2) {
 
 				if (inputFile == null) {
 					logger.error("cannot find inputfile");
+					logger.error("Please check configuration file");
 					System.exit(0);
 				}
 
@@ -114,19 +123,26 @@ public class AMLGoldStandardGenerator {
 						doc = new GranularityHeterogeneity(baseElmnt, doc, i).granularityGenerator();
 
 						// formats the output file
-						outputFile = outputName.get(input) + "-" + i + ".aml";
-						directory = outputPath.get(input);
+						outputFile = fileName + "-" + "Granularity" + "-" + i + ".aml";
+						if (outputPath.get(m) != null) {
+							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M1-Granularity";
+						} else {
+							System.out.println("output Path not found using default c:\\output");
+							directory = "c:\\output";
+						}
 						break;
 
 					case "M1":
 
 						// formats the output file
-						if (outputName.get(input) == null || outputPath.get(input) == null) {
-							logger.error("cannot find outputfile");
-							System.exit(0);
+						outputFile = fileName + "-" + "Schema" + "-" + i + ".aml";
+						if (outputPath.get(m) != null) {
+
+							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M2";
+						} else {
+							System.out.println("output Path not found using default c:\\output");
+							directory = "c:\\output";
 						}
-						outputFile = outputName.get(input) + "-" + i + ".aml";
-						directory = outputPath.get(input);
 
 						break;
 					}
@@ -151,13 +167,14 @@ public class AMLGoldStandardGenerator {
 					e.printStackTrace();
 				}
 				// renames the CAEXFile name attribute wiht new files
-				renameFiles(inputName, outputFile, directory);
+				renameFiles(inputName.get(m), outputFile, directory);
 				i++;
 			}
-			i = 1;
+			outputInputFile(inputFile, directory, inputName.get(m));
+
+			i = 0;
 
 			// saves input file to output folder.
-			outputInputFile(directory);
 		}
 
 	}
@@ -181,6 +198,7 @@ public class AMLGoldStandardGenerator {
 
 		} catch (SAXException | IOException | ParserConfigurationException e) {
 			logger.error("Error File not Found " + inputFile);
+			logger.error("Please check configuration file");
 			e.printStackTrace();
 		}
 		return doc;
@@ -209,8 +227,13 @@ public class AMLGoldStandardGenerator {
 
 		// checks for output directory and creates it
 		if (!dir.exists()) {
-			dir.mkdir();
-			System.out.println("Creating output directory");
+			if (dir.mkdirs()) {
+				System.out.println("Creating output directory");
+			} else {
+				logger.error("cannot create output directories Please check permission");
+				System.exit(0);
+			}
+
 		}
 		StreamResult result = new StreamResult(new File(directory + "//" + file));
 
@@ -267,11 +290,11 @@ public class AMLGoldStandardGenerator {
 	 * 
 	 * @param directory
 	 */
-	private void outputInputFile(String directory) {
+	private void outputInputFile(String inputFile, String directory, String inputName) {
 		// TODO Auto-generated method stub
 		InputStream res;
 		try {
-			res = new FileInputStream(new File(inputPath));
+			res = new FileInputStream(new File(inputFile));
 			String xmlString = IOUtils.toString(res);
 			FileWriter output = new FileWriter((directory + "//" + inputName));
 			output.write(xmlString);
@@ -291,8 +314,9 @@ public class AMLGoldStandardGenerator {
 		// give input file name and heterogeneity mode
 		// 1- Granularity
 		// 2- Schema
-
-		new AMLGoldStandardGenerator().heterogeneityGenerator(inputPath, heterogeneityID);
+		AMLGoldStandardGenerator goldStandard = new AMLGoldStandardGenerator();
+		goldStandard.heterogeneityGenerator(goldStandard.inputPath, goldStandard.heterogeneityID);
+		new IntegrationValidator().validate();
 
 	}
 }

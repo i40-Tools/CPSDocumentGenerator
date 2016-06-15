@@ -11,13 +11,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 
 import org.apache.commons.io.IOUtils;
 
+import com.hp.hpl.jena.n3.turtle.TurtleParseException;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.FileManager;
 
@@ -36,15 +38,34 @@ public class ConfigManager {
 	private static ConfigManager manager;
 	private static RDFNode literal;
 	private static RDFNode predicate;
-	public static ArrayList<RDFNode> literals, predicates;
-	private static Model model;
-	private HashMap<String, String> outputName;
-	private ArrayList<String> heterogeneityID;
-	private HashMap<String, String> outputPath;
-	private String inputPath;
-	private String inputName;
+	private static Resource subject;
 
-	public final static String HET_NAMESPACE = "http://iais.fraunhofer.de/aml#";
+	public static ArrayList<RDFNode> literals, predicates;
+	ArrayList<Resource> subjects;
+	private static Model model;
+	private ArrayList<String> heterogeneityID;
+	private ArrayList<String> outputPath;
+
+	private ArrayList<String> inputPath;
+	private ArrayList<String> inputName;
+	private ArrayList<String> integratedFile;
+	private ArrayList<String> goldStandard;
+
+	/**
+	 * @return the integratedFile
+	 */
+	public ArrayList<String> getIntegratedFile() {
+		return integratedFile;
+	}
+
+	/**
+	 * @return the goldStandard
+	 */
+	public ArrayList<String> getGoldStandard() {
+		return goldStandard;
+	}
+
+	boolean flag;
 
 	public static ConfigManager getInstance() {
 
@@ -61,7 +82,20 @@ public class ConfigManager {
 	public void loadConfig(String filePath) {
 		try {
 
+			// initializing files
 			File configFile = new File(filePath);
+
+			literals = new ArrayList<RDFNode>();
+
+			predicates = new ArrayList<RDFNode>();
+
+			subjects = new ArrayList<Resource>();
+
+			outputPath = new ArrayList<String>();
+
+			inputPath = new ArrayList<String>();
+
+			inputName = new ArrayList<String>();
 
 			if (configFile.isFile() == false) {
 				System.out.println("Please especify the configuration file");
@@ -74,32 +108,85 @@ public class ConfigManager {
 			// parses an InputStream assuming RDF in Turtle format
 			model.read(new InputStreamReader(inputStream), null, "TURTLE");
 
-			literals = new ArrayList<RDFNode>();
-			predicates = new ArrayList<RDFNode>();
-
+			// gets only the subjects so we can get every triple seperately
 			StmtIterator iterator = model.listStatements();
 
 			while (iterator.hasNext()) {
 
 				com.hp.hpl.jena.rdf.model.Statement stmt = iterator.nextStatement();
 
-				predicate = stmt.getPredicate();
-				predicates.add(predicate);
-				literal = stmt.getObject();
-				literals.add(literal);
+				subject = stmt.getSubject();
+				if (!subjects.contains(subject)) {
+					subjects.add(subject);
+				}
 
 			}
-			// sets all values.
+
+			// for every subject we gets it triple
+			for (int i = 0; i < subjects.size(); i++) {
+
+				String key = null;
+
+				// predicates and literals for only one subject.
+				ArrayList<Object> triplePredicates = new ArrayList<>();
+				ArrayList<Object> tripleLiterals = new ArrayList<>();
+
+				// reading the subject predicate and object
+				StmtIterator stmts = model.listStatements(subjects.get(i), null, (RDFNode) null);
+
+				// goes through its statements
+				while (stmts.hasNext()) {
+
+					com.hp.hpl.jena.rdf.model.Statement stmt = stmts.next();
+					predicate = stmt.getPredicate();
+
+					predicates.add(predicate);
+
+					triplePredicates.add(predicate);
+
+					literal = stmt.getObject();
+
+					literals.add(literal);
+
+					tripleLiterals.add(literal);
+
+				}
+
+				// our main loop depends on number heterogenity seperated by ","
+				for (int j = 0; j < triplePredicates.size(); j++) {
+
+					String uri = getUri(triplePredicates, j);
+
+					if (triplePredicates.get(j).toString().equals(uri + "hasHeterogeneity")) {
+						key = tripleLiterals.get(j).toString();
+					}
+				}
+
+				// for every heterogenity identified we takes its input and
+				// output path
+				addValues(triplePredicates, tripleLiterals, "hasOutputPath", key, outputPath);
+				addValues(triplePredicates, tripleLiterals, "hasInputPath", key, inputPath);
+				addValues(triplePredicates, tripleLiterals, "filename", key, inputName);
+
+			}
+			// sets rest of values.
 			setValues();
 
-		} catch (Exception e) {
+		} catch (TurtleParseException e) {
 
+			if (flag == true) {
+				System.exit(0);
+			}
 			// if exception occurs it means files path is not formatted.
 			// formats file paths.
+			flag = true;
 			formatFilePath(filePath);
-
 			// reruns the function after fixing exception.
 			loadConfig(filePath);
+
+		} catch (NullPointerException e) {
+			System.out.println("Some issue with configuration file , Please check its fields ");
+
 		}
 
 	}
@@ -109,74 +196,66 @@ public class ConfigManager {
 	 * duplicate keys ArrayList is used to get all values. This methods gets all
 	 * the file paths and sets its values.
 	 */
-	void setValues() {
 
-		// takes Output fileName
-		outputName = new HashMap<String, String>();
+	void setValues() {
 
 		// takes Type of heterogeneity.
 		heterogeneityID = new ArrayList<String>();
-
-		// tell outputFolder.
-		outputPath = new HashMap<String, String>();
-
-		// holds value of output path for key pair.
-		String filePath = null;
-
-		// holds heterogeneity id for key pair.
-		String id = null;
+		goldStandard = new ArrayList<String>();
+		integratedFile = new ArrayList<String>();
 
 		// loops through all predicates and matches its values.
 		for (int i = 0; i < predicates.size(); i++) {
 
-			// This makes pair of ID and output Name.
-			if (predicates.get(i).toString().equals(HET_NAMESPACE + "hasName")) {
+			String uri = getUri(predicates, i);
 
-				// checks if id value came first or not.
-				if (id == null) {
-					System.out.println("failed output came first");
-					System.exit(0);
-				}
+			if (predicates.get(i).toString().equals(uri + "hasHeterogeneity")) {
 
-				// puts the associated key pair value with id,outputName.
-				outputName.put(id, literals.get(i).toString());
+				String hetID = literals.get(i).toString();
+
+				// adds all heterogeneity id's seperated by ","
+				heterogeneityID.addAll(Arrays.asList(hetID.split(",")));
 
 			}
 
-			// This makes pair of ID and output path.
-			if (predicates.get(i).toString().equals(HET_NAMESPACE + "hasID")) {
-
-				// checks if output Path came first or not.
-				heterogeneityID.add(literals.get(i).toString());
-				if (filePath == null) {
-					System.out.println("failed ID came first");
-					System.exit(0);
-				}
-
-				// This makes pair of ID and output path.
-				outputPath.put(literals.get(i).toString(), filePath);
-
-				// keeps id value for other pair.
-				id = literals.get(i).toString();
-
-			}
-			// sets OutputPath
-			if (predicates.get(i).toString().equals(HET_NAMESPACE + "hasOutputPath")) {
-				filePath = literals.get(i).toString();
-
+			if (predicates.get(i).toString().equals(uri + "hasResults")) {
+				integratedFile.add(literals.get(i).toString());
 			}
 
-			// sets InputPath
-			if (predicates.get(i).toString().equals(HET_NAMESPACE + "hasInputPath")) {
-				inputPath = literals.get(i).toString();
+			if (predicates.get(i).toString().equals(uri + "hasGoldStandard")) {
+				goldStandard.add(literals.get(i).toString());
 			}
-
-			// sets Input File name
-			if (predicates.get(i).toString().equals("http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#filename")) {
-				inputName = literals.get(i).toString();
-			}
-
 		}
+
+	}
+
+	/**
+	 * This function add's input and output path for every heterogeneity
+	 * identified. If there are
+	 * 
+	 * @param predicate
+	 * @param literal
+	 * @param match
+	 * @param key
+	 * @param path
+	 * @return
+	 */
+
+	ArrayList<String> addValues(ArrayList<Object> predicate, ArrayList<Object> literal, String match, String key,
+			ArrayList<String> path) {
+		for (int j = 0; j < predicate.size(); j++) {
+			String uri = getUri(predicate, j);
+			if (predicate.get(j).toString().equals(uri + match)) {
+
+				String keys[] = key.split(",");
+				int k = 0;
+				while (k < keys.length) {
+					path.add(literal.get(j).toString());
+					k++;
+				}
+			}
+		}
+		return path;
 
 	}
 
@@ -193,7 +272,11 @@ public class ConfigManager {
 			String xml = IOUtils.toString(res);
 
 			// replace '/' with //
+
+			xml = xml.replaceAll("[\\\\]+", "%");
+			xml = xml.replace("%", "\\");
 			xml = xml.replace("\\", "\\\\");
+
 			FileWriter output = new FileWriter((new File(fileName)));
 			System.out.println(xml);
 			output.write(xml.toString());
@@ -206,14 +289,27 @@ public class ConfigManager {
 
 	}
 
+	/**
+	 * This method returns the uri of current predicate or literal for matching
+	 * 
+	 * @param predicates
+	 * @param index
+	 * @return
+	 */
+	String getUri(ArrayList<?> predicates, int index) {
+
+		String uri = predicates.get(index).toString();
+
+		// removes everything after #
+		uri = uri.replaceAll("([#])[A-Za-z0-9 ]+", "#");
+		return uri;
+	}
+
 	/*
 	 * Provides getters for all the fields.*
 	 * 
 	 * @return the outputName
 	 */
-	public HashMap<String, String> getOutputName() {
-		return outputName;
-	}
 
 	/**
 	 * @return the heterogeneityID
@@ -225,21 +321,21 @@ public class ConfigManager {
 	/**
 	 * @return the outputPath
 	 */
-	public HashMap<String, String> getOutputPath() {
+	public ArrayList<String> getOutputPath() {
 		return outputPath;
 	}
 
 	/**
 	 * @return the inputPath
 	 */
-	public String getInputPath() {
+	public ArrayList<String> getInputPath() {
 		return inputPath;
 	}
 
 	/**
 	 * @return the inputName
 	 */
-	public String getInputName() {
+	public ArrayList<String> getInputName() {
 		return inputName;
 	}
 
