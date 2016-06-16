@@ -13,8 +13,6 @@
 #aml:hasGoldStandard         needs path of GoldStandard file #
 #aml:hasResults              needs path of folder which have files for current Gold standard#
 
-
-
 aml:M1 
    rdfs:lable  "M1"; 
    schema:name "Data types"@en;
