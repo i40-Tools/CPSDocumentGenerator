@@ -41,7 +41,6 @@ aml:Heterogeneity-2
      aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\seed-2.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-2.aml";
-     aml:hasIntegrationFile   "";
      aml:generateFiles       "true";      
      aml:hasID               "Heterogeneity-2";
      rdf:type                aml:Heterogeneity .
@@ -51,7 +50,6 @@ aml:Heterogeneity-3
      aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\seed-3.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-3.aml";
-     aml:hasIntegrationFile   "";
      aml:generateFiles       "true"; 
      aml:hasID               "Heterogeneity-3";
      rdf:type                aml:Heterogeneity .
