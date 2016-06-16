@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import org.apache.commons.io.IOUtils;
 
@@ -97,6 +96,8 @@ public class ConfigManager {
 
 			inputName = new ArrayList<String>();
 
+			heterogeneityID = new ArrayList<String>();
+
 			if (configFile.isFile() == false) {
 				System.out.println("Please especify the configuration file");
 				System.exit(0);
@@ -158,15 +159,20 @@ public class ConfigManager {
 					String uri = getUri(triplePredicates, j);
 
 					if (triplePredicates.get(j).toString().equals(uri + "hasHeterogeneity")) {
+
 						key = tripleLiterals.get(j).toString();
+						key = key.replaceAll(uri, "");
+						heterogeneityID.add(key);
+
 					}
+
 				}
 
 				// for every heterogenity identified we takes its input and
 				// output path
-				addValues(triplePredicates, tripleLiterals, "hasOutputPath", key, outputPath);
-				addValues(triplePredicates, tripleLiterals, "hasInputPath", key, inputPath);
-				addValues(triplePredicates, tripleLiterals, "filename", key, inputName);
+				addValues(triplePredicates, tripleLiterals, "hasOutputPath", heterogeneityID, outputPath);
+				addValues(triplePredicates, tripleLiterals, "hasInputPath", heterogeneityID, inputPath);
+				addValues(triplePredicates, tripleLiterals, "filename", heterogeneityID, inputName);
 
 			}
 			// sets rest of values.
@@ -200,7 +206,6 @@ public class ConfigManager {
 	void setValues() {
 
 		// takes Type of heterogeneity.
-		heterogeneityID = new ArrayList<String>();
 		goldStandard = new ArrayList<String>();
 		integratedFile = new ArrayList<String>();
 
@@ -208,15 +213,6 @@ public class ConfigManager {
 		for (int i = 0; i < predicates.size(); i++) {
 
 			String uri = getUri(predicates, i);
-
-			if (predicates.get(i).toString().equals(uri + "hasHeterogeneity")) {
-
-				String hetID = literals.get(i).toString();
-
-				// adds all heterogeneity id's seperated by ","
-				heterogeneityID.addAll(Arrays.asList(hetID.split(",")));
-
-			}
 
 			if (predicates.get(i).toString().equals(uri + "hasResults")) {
 				integratedFile.add(literals.get(i).toString());
@@ -241,21 +237,19 @@ public class ConfigManager {
 	 * @return
 	 */
 
-	ArrayList<String> addValues(ArrayList<Object> predicate, ArrayList<Object> literal, String match, String key,
+	void addValues(ArrayList<Object> predicate, ArrayList<Object> literal, String match, ArrayList<String> key,
 			ArrayList<String> path) {
 		for (int j = 0; j < predicate.size(); j++) {
 			String uri = getUri(predicate, j);
 			if (predicate.get(j).toString().equals(uri + match)) {
 
-				String keys[] = key.split(",");
 				int k = 0;
-				while (k < keys.length) {
+				while (k < key.size()) {
 					path.add(literal.get(j).toString());
 					k++;
 				}
 			}
 		}
-		return path;
 
 	}
 

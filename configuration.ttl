@@ -2,6 +2,7 @@
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ebucore:  <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#>.
+@prefix schema:  <http://schema.org/>.
 
 #aml:hasHeterogeneity can have multiple heterogeneites seperate by ","#
 
@@ -13,31 +14,46 @@
 #aml:hasResults              needs path of folder which have files for current Gold standard#
 
 
-aml:seed-1
-     aml:hasHeterogeneity   "M1,M2";
-     aml:hasInputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\seed-1.aml";
-     aml:hasOutputPath      "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
-     ebucore:filename       "seed-1.aml";
-     aml:generateFiles      "true";
-     rdf:type               aml:Heterogeneity .
+
+aml:M1 
+   rdfs:lable  "M1"; 
+   schema:name "Data types"@en;
+   rdf:type   aml:Heterogeneity.
+
+aml:M2 
+   rdfs:lable  "M2"; 
+   schema:name "Granularity" @en;
+   rdf:type   aml:Heterogeneity.
 
 
-aml:seed-2
-     aml:hasHeterogeneity    "M1,M2";
+aml:Heterogeneity-1
+     aml:hasHeterogeneity    aml:M1,aml:M2;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\seed-1.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-1.aml";
+     aml:generateFiles       "true";
+     aml:hasID               "Heterogeneity-1";
+	 rdf:type                aml:Heterogeneity .
+
+
+aml:Heterogeneity-2
+     aml:hasHeterogeneity    aml:M1,aml:M2;
      aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\seed-2.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-2.aml";
      aml:hasIntegrationFile   "";
      aml:generateFiles       "true";      
+     aml:hasID               "Heterogeneity-2";
      rdf:type                aml:Heterogeneity .
 
-aml:seed-3
-     aml:hasHeterogeneity    "M2";
+aml:Heterogeneity-3
+     aml:hasHeterogeneity    aml:M1;
      aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\seed-3.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-3.aml";
      aml:hasIntegrationFile   "";
      aml:generateFiles       "true"; 
+     aml:hasID               "Heterogeneity-3";
      rdf:type                aml:Heterogeneity .
 
 
@@ -46,4 +62,3 @@ aml:Integration-1
     aml:hasGoldStandard      "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\seed-1.aml";
     aml:hasResults           "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\IntegrationsFiles\\seed-1";
     rdf:type                  aml:Integration.
-
