@@ -8,6 +8,8 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import edu.bonn.AMLGoldStandardGenerator.xml.XmlParser;
+
 /**
  * @author omar This Class provides provides method for generation of
  *         Granularity heterogeneity of AutomationML(ML) files
@@ -60,24 +62,6 @@ public class GranularityHeterogeneity {
 	}
 
 	/**
-	 * Counts number of child of a given node.
-	 * 
-	 * @return
-	 */
-	int getChildCount(NodeList childNodes) {
-		// counting number of children
-		int count = 0;
-		for (int i = 0; i < childNodes.getLength(); i++) {
-			// must be Element node.
-			if (childNodes.item(i).getNodeType() == Node.ELEMENT_NODE) {
-				count++;
-
-			}
-		}
-		return count;
-	}
-
-	/**
 	 * Partitions the data into two files, ignoring ecl@ss semantics , its based
 	 * on probability and does new partition based on number of childs.
 	 * partition variable represent the minimum number of childs a node must
@@ -89,7 +73,7 @@ public class GranularityHeterogeneity {
 	Document xmlPartition(int partition) {
 
 		NodeList childNodes = element.getChildNodes();
-		int count = getChildCount(childNodes);
+		int count = new XmlParser().getChildCount(childNodes);
 
 		if (count >= partition && !doc.getDocumentElement().equals(element)) {
 			for (int i = 0; i < childNodes.getLength(); i++) {

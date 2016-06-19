@@ -4,6 +4,11 @@
   <artifactId>1.0</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
+  <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
 <!-- http://mvnrepository.com/artifact/com.hp.hpl.jena/jena -->
 <dependency>
     <groupId>com.hp.hpl.jena</groupId>

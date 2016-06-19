@@ -1,6 +1,5 @@
 package edu.bonn.AMLGoldStandardGenerator.goldstandard;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,15 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.TransformerFactoryConfigurationError;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -25,14 +17,11 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import edu.bonn.AMLGoldStandardGenerator.rdf.ConfigManager;
 import edu.bonn.AMLGoldStandardGenerator.schema.XSDValidator;
-import nu.xom.Builder;
+import edu.bonn.AMLGoldStandardGenerator.xml.XmlParser;
 import nu.xom.ParsingException;
-import nu.xom.Serializer;
-import nu.xom.ValidityException;
 
 /**
  * @author omar This Class Automatically Generate Gold Standard Files to check
@@ -108,7 +97,7 @@ public class AMLGoldStandardGenerator {
 				}
 
 				// Initialized input file to read its nodes and elements.
-				Document doc = initInput(inputFile);
+				Document doc = new XmlParser().initInput(inputFile);
 
 				// getting all elements. * represents starts from base.
 				NodeList baseElmntLst = doc.getElementsByTagName("*");
@@ -151,7 +140,7 @@ public class AMLGoldStandardGenerator {
 				// outputs the modified XML data to file.
 				try {
 
-					formatXML(doc, outputFile, directory);
+					new XmlParser().formatXML(doc, outputFile, directory);
 
 					// validates XML Schema
 					if (!new XSDValidator(directory + "\\" + outputFile).schemaValidate()) {
@@ -176,83 +165,6 @@ public class AMLGoldStandardGenerator {
 
 			// saves input file to output folder.
 		}
-
-	}
-
-	/**
-	 * This function initialize the input file for data heterogeneity. It Uses
-	 * Dom to read the input file
-	 * 
-	 * @param inputFile
-	 * @return
-	 */
-	Document initInput(String inputFile) {
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		dbFactory.setValidating(false);
-		DocumentBuilder dBuilder;
-		Document doc = null;
-		try {
-			dBuilder = dbFactory.newDocumentBuilder();
-			doc = dBuilder.parse(new FileInputStream(new File(inputFile)));
-			doc.getDocumentElement().normalize();
-
-		} catch (SAXException | IOException | ParserConfigurationException e) {
-			logger.error("Error File not Found " + inputFile);
-			logger.error("Please check configuration file");
-			e.printStackTrace();
-		}
-		return doc;
-	}
-
-	/**
-	 * Outputs the modified partition data into files.
-	 * 
-	 * @param doc
-	 * @param file
-	 * @param directory
-	 * @throws TransformerFactoryConfigurationError
-	 * @throws TransformerException
-	 * @throws IOException
-	 * @throws ParsingException
-	 * @throws ValidityException
-	 * @throws Exception
-	 */
-	private void formatXML(Document doc, String file, String directory) throws TransformerFactoryConfigurationError,
-			TransformerException, IOException, ValidityException, ParsingException {
-
-		// Takes input file
-		Transformer transformer = TransformerFactory.newInstance().newTransformer();
-		DOMSource source = new DOMSource(doc);
-		File dir = new File(directory);
-
-		// checks for output directory and creates it
-		if (!dir.exists()) {
-			if (dir.mkdirs()) {
-				System.out.println("Creating output directory");
-			} else {
-				logger.error("cannot create output directories Please check permission");
-				System.exit(0);
-			}
-
-		}
-		StreamResult result = new StreamResult(new File(directory + "//" + file));
-
-		// outputs result
-		transformer.transform(source, result);
-
-		// reads output for formatting
-		FileInputStream res = new FileInputStream(new File(directory + "//" + file));
-		ByteArrayOutputStream out1 = new ByteArrayOutputStream();
-		String xml = IOUtils.toString(res);
-
-		// formatting the XML
-		Serializer serializer = new Serializer(out1);
-		serializer.setIndent(4); // or whatever you like
-		serializer.write(new Builder().build(xml.toString(), ""));
-
-		FileWriter output = new FileWriter((new File(directory + "//" + file)));
-		output.write(out1.toString());
-		output.close();
 
 	}
 
