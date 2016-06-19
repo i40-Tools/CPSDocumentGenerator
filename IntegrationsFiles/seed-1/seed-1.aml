@@ -17,9 +17,6 @@
 			</WriterProjectID>
 		</WriterHeader>
 	</AdditionalInformation>
-
-
-
 	<ExternalReference Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml" Alias="BaseRoleClassLib" />
 	<ExternalReference Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml" Alias="BaseInterfaceClassLib" />
 	<InstanceHierarchy Name="InstanceHierarchy1">

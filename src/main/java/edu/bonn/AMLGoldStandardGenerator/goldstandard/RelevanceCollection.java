@@ -187,7 +187,7 @@ public class RelevanceCollection extends XmlParser {
 	boolean checkParent(Node goldStandard, Node generated) {
 
 		// loops until there are no more parents.
-		while (goldStandard.getParentNode() != null || generated.getParentNode() != null) {
+		while (goldStandard.getParentNode() != null && generated.getParentNode() != null) {
 
 			// compares parents name
 			if (goldStandard.getParentNode().getNodeName().equals(generated.getParentNode().getNodeName())) {
