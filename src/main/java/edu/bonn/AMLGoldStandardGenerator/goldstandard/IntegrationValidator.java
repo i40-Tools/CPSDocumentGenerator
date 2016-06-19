@@ -86,9 +86,17 @@ public class IntegrationValidator {
 	 * @param file
 	 */
 	void getPrecisionRecall(File file) {
+		System.out.println("**************************************************");
 		System.out.println("Precision and Recal for File :" + file.getName());
 		System.out.println("Recall is:=" + getRecall());
 		System.out.println("Precision is:=" + getPrecision());
+
+		System.out.println("Relevant Text Found=" + rc.getRelevantTextFound());
+
+		System.out.println("Total Text=" + rc.getTotalTextFound());
+
+		System.out.println("Relevant Text=" + rc.getRelevantText());
+		System.out.println("**************************************************");
 
 	}
 

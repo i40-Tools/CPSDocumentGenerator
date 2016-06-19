@@ -1,6 +1,7 @@
 package edu.bonn.AMLGoldStandardGenerator.goldstandard;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import org.w3c.dom.Document;
@@ -20,6 +21,7 @@ public class RelevanceCollection extends XmlParser {
 	protected int relevantTextFound;
 	protected int relevantText;
 	protected int totalTextFound;
+	HashMap<String, Integer> occurances;
 
 	public RelevanceCollection() {
 	}
@@ -57,6 +59,22 @@ public class RelevanceCollection extends XmlParser {
 	}
 
 	/**
+	 * Finds all occurances count for not keeping duplicate nodes as relevant.
+	 * 
+	 * @param doc
+	 * @return
+	 */
+
+	HashMap<String, Integer> getOccurunces(Document doc) {
+		ArrayList<String> nodes = getNodeName(getAllNodes(doc));
+		occurances = new HashMap<String, Integer>();
+		for (int i = 0; i < nodes.size(); i++) {
+			occurances.put(nodes.get(i), Collections.frequency(nodes, nodes.get(i)));
+		}
+		return occurances;
+	}
+
+	/**
 	 * Sets the total Text
 	 * 
 	 * @param doc
@@ -85,6 +103,8 @@ public class RelevanceCollection extends XmlParser {
 
 		// gets generated file path
 		Document generated = initInput(resultPath);
+
+		getOccurunces(goldStandard);
 
 		// compares nodes with Attributes
 		checkNodeWithAttribute(goldStandard, generated);
@@ -238,6 +258,24 @@ public class RelevanceCollection extends XmlParser {
 	}
 
 	/**
+	 * This function checks if the node is duplicated in the result. if its a
+	 * duplicated it should not be relevant
+	 * 
+	 * @param n
+	 * @return
+	 */
+	boolean checkDuplicate(Node n) {
+
+		Integer count = occurances.get(n.getNodeName().trim());
+		if (count > 0) {
+			count--;
+			occurances.put(n.getNodeName().trim(), count);
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * This function checkNodes with values, compare them and also check its
 	 * parents for semantic correctness.
 	 * 
@@ -280,8 +318,13 @@ public class RelevanceCollection extends XmlParser {
 
 							// System.out.println(generated.get(i).getNodeName().trim());
 
-							// if everything matches its relevant.
-							relevantTextFound++;
+							// checks its not a duplicate.
+							if (checkDuplicate(generated.get(i))) {
+
+								// if everything matches its relevant.
+
+								relevantTextFound++;
+							}
 
 						}
 					}
@@ -323,11 +366,14 @@ public class RelevanceCollection extends XmlParser {
 						// compares its parent for semantic
 						if (checkParent(generated.get(i), goldStandard.get(j))) {
 
-							// its a relevant text
-							relevantTextFound++;
+							// compares if duplicate
+							if (checkDuplicate(generated.get(i))) {
 
-							// System.out.println(generated.get(i).getNodeName().trim());
+								// its a relevant text
+								relevantTextFound++;
 
+								// System.out.println(generated.get(i).getNodeName().trim());
+							}
 						}
 					}
 				}
@@ -369,10 +415,13 @@ public class RelevanceCollection extends XmlParser {
 						// check its parent for semantic correctness
 						if (checkParent(generated.get(z), goldStandard.get(k))) {
 
-							// if found its relevant
-							relevantTextFound++;
+							// compares if duplicate
+							if (checkDuplicate(generated.get(z))) {
 
-							// System.out.println(generated.get(z).getNodeName());
+								// if found its relevant
+								relevantTextFound++;
+
+							} // System.out.println(generated.get(z).getNodeName());
 						}
 					}
 				}

@@ -281,6 +281,24 @@ public class XmlParser {
 	}
 
 	/**
+	 * Functions returns node names
+	 * 
+	 * @param n
+	 * @return
+	 */
+	public ArrayList<String> getNodeName(ArrayList<Node> n) {
+
+		ArrayList<String> temp = new ArrayList<String>();
+
+		for (int i = 0; i < n.size(); i++) {
+
+			temp.add(n.get(i).getNodeName().trim());
+
+		}
+		return temp;
+	}
+
+	/**
 	 * This function gets all those nodes which doesnt have attributes.
 	 * 
 	 * @param n1
