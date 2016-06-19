@@ -88,9 +88,11 @@ public class RelevanceCollection extends XmlParser {
 	/**
 	 * This functions process the gold standard document and generated result
 	 * document and find its relevant text. This function first starts with file
-	 * paths. Then it calculate relevant and non relevant text on nodes with
-	 * attributes. Then it calculates relevance for nodes with no attributes.
-	 * And lastly it get relevant text count for Elements which have values.
+	 * paths.Then it counts the number of counts the nodes has in gold standard
+	 * so that one node should not be mark relevant if its a duplicate. Then it
+	 * calculate relevant and non relevant text on nodes with attributes. Then
+	 * it calculates relevance for nodes with no attributes. And lastly it get
+	 * relevant text count for Elements which have values.
 	 * 
 	 * @param goldStandardFilePath
 	 * @param resultPath
