@@ -1,0 +1,137 @@
+@prefix aml:  <http://iais.fraunhofer.de/aml#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ebucore:  <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#>.
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix schema:  <http://schema.org/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+aml:Heterogeneity
+      rdf:type owl:Class ;
+      rdfs:comment "Type of Heterogeneity in AML files"@en ;
+      rdfs:label "Heterogeneity"@en ;
+      rdfs:subClassOf aml:GoldStandard .
+      
+aml:Integration    
+      rdf:type owl:Class ;
+      rdfs:comment "Contains files which has gold standard and generated files from integration process"@en ;
+      rdfs:label "Integration"@en ;
+	  rdfs:subClassOf aml:GoldStandard .
+      
+aml:M1 
+      rdf:type owl:Class ;
+      rdfs:comment "Mapping function that takes a property value on the source side as an input and returns a property value for the target side as an output"@en ;
+      rdfs:label "M1"@en ;
+	  schema:name "Value processing"@en.
+  
+aml:M1.1 
+      rdf:type owl:Class ;
+      rdfs:comment "This type of mapping requires using special functions on string values, e.g., 'concat', 'substring', 'regex'"@en ;
+      rdfs:label "M1.1"@en ;
+	  rdfs:subClassOf aml:M1 ;
+	  schema:name "String processing"@en.
+	    
+aml:M1.2 
+      rdf:type owl:Class ;
+      rdfs:comment "Semantically the same entities can be modeled using different data types"@en ;
+      rdfs:label "M1.2"@en ;
+	  rdfs:subClassOf aml:M1 ;
+	  schema:name "Data type transformation"@en.
+
+aml:M1.3 
+      rdf:type owl:Class ;
+      rdfs:comment "A mappings processing can be specified by some mathematical or physical formula"@en ;
+      rdfs:label "M1.3"@en ;
+	  rdfs:subClassOf aml:M1 ;
+	  schema:name "Math functions"@en.
+
+aml:M1.4 
+      rdf:type owl:Class ;
+      rdfs:comment "This mapping type comprises functions that are not supported by the used technology, but must be additionally implemented"@en ;
+      rdfs:label "M1.4"@en ;
+	  rdfs:subClassOf aml:M1 ;
+	  schema:name "External function calls"@en.
+
+aml:M2 
+      rdf:type owl:Class ;
+      rdfs:comment "This mapping type is required if the same real-life objects were modeled on different levels of detail"@en ;
+      rdfs:label "M2"@en ;
+	  schema:name "Granularity"@en.
+
+aml:M3 
+      rdf:type owl:Class ;
+      rdfs:comment "This type of mappings implies that there are substantial differences in the way how the same semantics is represented in the source and target models"@en ;
+      rdfs:label "M3"@en ;
+	  schema:name "Schematic differences"@en.
+
+aml:M4 
+      rdf:type owl:Class ;
+      rdfs:comment "This mapping type is needed if a relation between the entities in source and target models exists if and only if a certain condition holds on the source side"@en ;
+      rdfs:label "M4"@en ;
+	  schema:name "Conditional mappings"@en.
+
+aml:M5 
+      rdf:type owl:Class ;
+      rdfs:comment "mapping specified in a direction from source to target and vice versa"@en ;
+      rdfs:label "M5"@en ;
+	  schema:name "Bidirectional mappings"@en.
+
+aml:M6 
+      rdf:type owl:Class ;
+      rdfs:comment "Group or/and aggregate objects on the source side in order to set the relation to the target model"@en ;
+      rdfs:label "M6"@en ;
+	  schema:name "Grouping and aggregation"@en.
+
+aml:M7 
+      rdf:type owl:Class ;
+      rdfs:comment "Property must always have a value"@en ;
+      rdfs:label "M7"@en ;
+	  schema:name "Restrictions on values"@en.
+
+aml:generateFiles
+      rdf:type owl:DatatypeProperty ;
+      rdfs:comment "Option to enable or disable generation of heterogeneity files";
+      rdfs:domain aml:Heterogeneity ;
+      rdfs:label "Generate Files" ;
+      rdfs:range  xsd:boolean.    
+
+aml:hasGoldStandard 
+      rdf:type owl:DatatypeProperty ;
+      rdfs:comment "An input path file for gold standard";
+      rdfs:domain aml:Integration ;
+      rdfs:label "has Gold Standard Path" ;
+      rdfs:range  xsd:string.    
+
+aml:hasHeterogeneity
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain aml:Heterogeneity ;
+      rdfs:label "has Heterogeneity" ;
+      rdfs:range aml:M1,aml:M2,aml:M3,aml:M4,aml:M4,aml:M5,aml:M6,aml:M7 .    
+
+aml:hasInputPath 
+      rdf:type owl:DatatypeProperty ;
+      rdfs:comment "An input path file for gold standard";
+      rdfs:domain aml:Heterogeneity ;
+      rdfs:label "has Input Path" ;
+      rdfs:range  xsd:string.    
+
+aml:hasID
+      rdf:type owl:DatatypeProperty ;
+      rdfs:comment "A id for the heterogeneity";
+      rdfs:label "has ID" ;
+      rdfs:range  xsd:string.    
+	  
+aml:hasOutputPath
+      rdf:type owl:DatatypeProperty ;
+      rdfs:comment "An output path for generated heterogeniety files ";
+      rdfs:domain aml:Heterogeneity ;
+      rdfs:label "has Output Path" ;
+      rdfs:range  xsd:string.    
+
+aml:hasResults 
+      rdf:type owl:DatatypeProperty ;
+      rdfs:comment "An input folder path for integration files";
+      rdfs:domain aml:Integration ;
+      rdfs:label "has Results" ;
+      rdfs:range  xsd:string.    
+	   
