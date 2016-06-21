@@ -40,11 +40,11 @@ public class EclassParser {
 
 		Dataset dataset = DatasetFactory.create();
 		dataset.setDefaultModel(modelY);
-		dataset.addNamedModel("http://www.example.com/eclass#" + "M1.2", modelY);
+		dataset.addNamedModel("http://www.example.com/eclass#" + "eclass", modelY);
 		String queryString = null;
 
 		// Query to read all the graph values
-		try (InputStream res = (EclassParser.class.getResourceAsStream("/M12query.rq"))) {
+		try (InputStream res = (EclassParser.class.getResourceAsStream("/eclass.rq"))) {
 			try {
 				queryString = IOUtils.toString(res);
 			} catch (IOException e) {

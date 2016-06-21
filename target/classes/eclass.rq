@@ -5,5 +5,5 @@ prefix schema:<http://schema.org/>
 prefix xsd:<http://www.w3.org/2001/XMLSchema#> 
 
 Select *
-from named<http://www.example.com/eclass#M1.2>
+from named<http://www.example.com/eclass#eclass>
 where {?subject ?predicate ?object}
