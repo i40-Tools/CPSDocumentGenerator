@@ -1,0 +1,9 @@
+prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix eclass:<http://www.example.com/eclass#>
+prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+prefix schema:<http://schema.org/>
+prefix xsd:<http://www.w3.org/2001/XMLSchema#> 
+
+Select *
+from named<http://www.example.com/eclass#M1.2>
+where {?subject ?predicate ?object}

@@ -114,7 +114,7 @@ public class AMLGoldStandardGenerator {
 						// formats the output file
 						outputFile = fileName + "-" + "Granularity" + "-" + i + ".aml";
 						if (outputPath.get(m) != null) {
-							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M1-Granularity";
+							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M2-Granularity";
 						} else {
 							System.out.println("output Path not found using default c:\\output");
 							directory = "c:\\output";
@@ -127,7 +127,7 @@ public class AMLGoldStandardGenerator {
 						outputFile = fileName + "-" + "Schema" + "-" + i + ".aml";
 						if (outputPath.get(m) != null) {
 
-							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M2";
+							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M1";
 						} else {
 							System.out.println("output Path not found using default c:\\output");
 							directory = "c:\\output";
