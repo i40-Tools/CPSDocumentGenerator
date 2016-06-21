@@ -25,7 +25,7 @@ import org.apache.jena.util.FileManager;
  * @author omar
  *
  */
-public class EclassParser {
+public class EClassParser {
 
 	/**
 	 * @param args
@@ -44,7 +44,7 @@ public class EclassParser {
 		String queryString = null;
 
 		// Query to read all the graph values
-		try (InputStream res = (EclassParser.class.getResourceAsStream("/eclass.rq"))) {
+		try (InputStream res = (EClassParser.class.getResourceAsStream("/eclass.rq"))) {
 			try {
 				queryString = IOUtils.toString(res);
 			} catch (IOException e) {
@@ -88,7 +88,7 @@ public class EclassParser {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new EclassParser().eClassQuery();
+		new EClassParser().eClassQuery();
 
 	}
 
