@@ -97,6 +97,7 @@ public class ConfigManager {
 			inputName = new ArrayList<String>();
 
 			heterogeneityID = new ArrayList<String>();
+			int size = 0;
 
 			if (configFile.isFile() == false) {
 				System.out.println("Please especify the configuration file");
@@ -163,6 +164,7 @@ public class ConfigManager {
 						key = tripleLiterals.get(j).toString();
 						key = key.replaceAll(uri, "");
 						heterogeneityID.add(key);
+						size++;
 
 					}
 
@@ -170,13 +172,16 @@ public class ConfigManager {
 
 				// for every heterogenity identified we takes its input and
 				// output path
-				addValues(triplePredicates, tripleLiterals, "hasOutputPath", heterogeneityID, outputPath);
-				addValues(triplePredicates, tripleLiterals, "hasInputPath", heterogeneityID, inputPath);
-				addValues(triplePredicates, tripleLiterals, "filename", heterogeneityID, inputName);
+				addValues(triplePredicates, tripleLiterals, "hasOutputPath", size, outputPath);
+				addValues(triplePredicates, tripleLiterals, "hasInputPath", size, inputPath);
+				addValues(triplePredicates, tripleLiterals, "filename", size, inputName);
+				size = 0;
 
 			}
 			// sets rest of values.
 			setValues();
+			System.out.println(heterogeneityID);
+			System.out.println(inputPath);
 
 		} catch (TurtleParseException e) {
 
@@ -237,19 +242,21 @@ public class ConfigManager {
 	 * @return
 	 */
 
-	void addValues(ArrayList<Object> predicate, ArrayList<Object> literal, String match, ArrayList<String> key,
+	void addValues(ArrayList<Object> predicate, ArrayList<Object> literal, String match, int size,
 			ArrayList<String> path) {
 		for (int j = 0; j < predicate.size(); j++) {
 			String uri = getUri(predicate, j);
 			if (predicate.get(j).toString().equals(uri + match)) {
-
 				int k = 0;
-				while (k < key.size()) {
+				while (k < size) {
 					path.add(literal.get(j).toString());
+					System.out.println(literal.get(j).toString());
+
 					k++;
 				}
 			}
 		}
+		System.out.println("finish");
 
 	}
 
