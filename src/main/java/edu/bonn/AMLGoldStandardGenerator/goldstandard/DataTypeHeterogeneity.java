@@ -57,57 +57,44 @@ public class DataTypeHeterogeneity {
 
 								switch (value) {
 
-								case "xs:float": {
+								case "xs:float":
 									// do nothing let if be float
 
 									if (mod > 1) {
-
 										break;
 									}
 
 									// convert it to integer
 									setInteger(childNodes.item(i));
-
 									break;
-								}
 
-								case "xs:double": {
-
+								case "xs:double":
 									if (mod > 1) {
 
 										// make it float
 										setFloat(childNodes.item(i));
 										break;
-
 									}
 
 									// make it integer
 									setInteger(childNodes.item(i));
 									break;
 
-								}
-
-								case "xs:string": {
+								case "xs:string":
 									if (mod > 1) {
 										setFloat(childNodes.item(i));
 										break;
-
 									}
 
 									setInteger(childNodes.item(i));
 									break;
 
-								}
-
-								case "xs:integer": {
+								case "xs:integer":
 									if (mod > 1) {
 										setFloat(childNodes.item(i));
 										break;
-
 									}
-
 									break;
-								}
 								}
 							}
 						}
@@ -122,17 +109,17 @@ public class DataTypeHeterogeneity {
 	/**
 	 * converts the value to integer
 	 * 
-	 * @param n
+	 * @param node
 	 */
-	void setInteger(Node n) {
+	void setInteger(Node node) {
 
 		try {
 			// check if its numeric value
-			double temp = Double.parseDouble(n.getFirstChild().getNodeValue().trim().toString());
+			double temp = Double.parseDouble(node.getFirstChild().getNodeValue().trim().toString());
 			int value = (int) temp;
 
 			// gets first child and set its value
-			n.getFirstChild().setNodeValue(String.valueOf(value));
+			node.getFirstChild().setNodeValue(String.valueOf(value));
 			element.setAttribute("AttributeDataType", "xs:integer");
 
 		} catch (Exception e) {
@@ -144,16 +131,16 @@ public class DataTypeHeterogeneity {
 	/**
 	 * converts the value to float
 	 * 
-	 * @param n
+	 * @param node
 	 */
-	void setFloat(Node n) {
+	void setFloat(Node node) {
 
 		try {
-			float temp = Float.parseFloat(n.getFirstChild().getNodeValue().trim().toString());
+			float temp = Float.parseFloat(node.getFirstChild().getNodeValue().trim().toString());
 			System.out.println(temp);
 
 			// gets first child and set its value
-			n.getFirstChild().setNodeValue(String.valueOf(temp));
+			node.getFirstChild().setNodeValue(String.valueOf(temp));
 			element.setAttribute("AttributeDataType", "xs:float");
 
 		} catch (Exception e) {
@@ -165,13 +152,13 @@ public class DataTypeHeterogeneity {
 	/**
 	 * Converts to double data type
 	 * 
-	 * @param n
+	 * @param node
 	 */
-	void setDouble(Node n) {
+	void setDouble(Node node) {
 
 		try {
-			double temp = Double.parseDouble(n.getFirstChild().getNodeValue().trim().toString());
-			n.getFirstChild().setNodeValue(String.valueOf(temp));
+			double temp = Double.parseDouble(node.getFirstChild().getNodeValue().trim().toString());
+			node.getFirstChild().setNodeValue(String.valueOf(temp));
 			element.setAttribute("AttributeDataType", "xs:double");
 
 		} catch (Exception e) {
