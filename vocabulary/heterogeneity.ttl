@@ -17,71 +17,67 @@ aml:Integration
       rdfs:label "Integration"@en.
       
 aml:M1 
-      rdf:type owl:Class ;
+      rdf:type aml:Heterogeneity;
       rdfs:comment "Mapping function that takes a property value on the source side as an input and returns a property value for the target side as an output"@en ;
       rdfs:label "M1"@en ;
 	  schema:name "Value processing"@en.
   
 aml:M1.1 
-      rdf:type owl:Class ;
+      rdf:type aml:Heterogeneity;
       rdfs:comment "This type of mapping requires using special functions on string values, e.g., 'concat', 'substring', 'regex'"@en ;
       rdfs:label "M1.1"@en ;
-	  rdfs:subClassOf aml:M1 ;
 	  schema:name "String processing"@en.
 	    
 aml:M1.2 
-      rdf:type owl:Class ;
+      rdf:type aml:Heterogeneity;
       rdfs:comment "Semantically the same entities can be modeled using different data types"@en ;
       rdfs:label "M1.2"@en ;
-	  rdfs:subClassOf aml:M1 ;
 	  schema:name "Data type transformation"@en.
 
 aml:M1.3 
-      rdf:type owl:Class ;
+      rdf:type aml:Heterogeneity;
       rdfs:comment "A mappings processing can be specified by some mathematical or physical formula"@en ;
       rdfs:label "M1.3"@en ;
-	  rdfs:subClassOf aml:M1 ;
 	  schema:name "Math functions"@en.
 
 aml:M1.4 
-      rdf:type owl:Class ;
+      rdf:type aml:Heterogeneity;
       rdfs:comment "This mapping type comprises functions that are not supported by the used technology, but must be additionally implemented"@en ;
       rdfs:label "M1.4"@en ;
-	  rdfs:subClassOf aml:M1 ;
 	  schema:name "External function calls"@en.
 
 aml:M2 
-      rdf:type owl:Class ;
+      rdf:type aml:Heterogeneity;
       rdfs:comment "This mapping type is required if the same real-life objects were modeled on different levels of detail"@en ;
       rdfs:label "M2"@en ;
 	  schema:name "Granularity"@en.
 
 aml:M3 
-      rdf:type owl:Class ;
+      rdf:type aml:Heterogeneity;
       rdfs:comment "This type of mappings implies that there are substantial differences in the way how the same semantics is represented in the source and target models"@en ;
       rdfs:label "M3"@en ;
 	  schema:name "Schematic differences"@en.
 
 aml:M4 
-      rdf:type owl:Class ;
+      rdf:type aml:Heterogeneity;
       rdfs:comment "This mapping type is needed if a relation between the entities in source and target models exists if and only if a certain condition holds on the source side"@en ;
       rdfs:label "M4"@en ;
 	  schema:name "Conditional mappings"@en.
 
 aml:M5 
-      rdf:type owl:Class ;
+      rdf:type aml:Heterogeneity;
       rdfs:comment "mapping specified in a direction from source to target and vice versa"@en ;
       rdfs:label "M5"@en ;
 	  schema:name "Bidirectional mappings"@en.
 
 aml:M6 
-      rdf:type owl:Class ;
+      rdf:type aml:Heterogeneity;
       rdfs:comment "Group or/and aggregate objects on the source side in order to set the relation to the target model"@en ;
       rdfs:label "M6"@en ;
 	  schema:name "Grouping and aggregation"@en.
 
 aml:M7 
-      rdf:type owl:Class ;
+      rdf:type aml:Heterogeneity;
       rdfs:comment "Property must always have a value"@en ;
       rdfs:label "M7"@en ;
 	  schema:name "Restrictions on values"@en.
