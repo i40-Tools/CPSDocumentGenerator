@@ -13,11 +13,9 @@
     <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
     <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
     <InstanceHierarchy Name="InstanceHierarchy1">
-        <Version>1.0.0</Version>
         <InternalElement ID="3fc3ade7-aa58-44a4-ab37-fa7e7665a74e" Name="InstanceMyMotor"/>
     </InstanceHierarchy>
     <RoleClassLib Name="ExampleEClassRoleClassLib">
-        <Version>1.0.0</Version>
         <RoleClass Name="BASIC_27-02-25-01 DC engine (IEC)">
             <Attribute AttributeDataType="xs:string" Name="eClassVersion">
                 <Value>9.0</Value>
@@ -29,7 +27,6 @@
                 <Value>0173-1---BASIC_1_1#01-ABW077#009</Value>
             </Attribute>
             <Attribute AttributeDataType="xs:string" Name="Cooling type">
-                <Description>Summary of various types of cooling, for use as search criteria that limit a selection</Description>
                 <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAE122#006"/>
             </Attribute>
         </RoleClass>

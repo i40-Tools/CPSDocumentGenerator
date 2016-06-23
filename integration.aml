@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <AdditionalInformation AutomationMLVersion="2.0"/>
+    <AdditionalInformation>
+        <WriterHeader>
+            <LastWritingDateTime>2012-02-20</LastWritingDateTime>
+            <WriterID>AutomationMLe.V.</WriterID>
+            <WriterName>AutomationMLe.V.</WriterName>
+            <WriterProjectID>AutomationMLTutorialExamples</WriterProjectID>
+            <WriterProjectTitle>AutomationMLTutorialExamples</WriterProjectTitle>
+            <WriterRelease>1.0</WriterRelease>
+            <WriterVendor>AutomationMLe.V.</WriterVendor>
+            <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+            <WriterVersion>1.0</WriterVersion>
+        </WriterHeader>
+    </AdditionalInformation>
+    <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClassLibraries/AutomationMLInterfaceClassLib.aml"/>
+    <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClassLibraries/AutomationMLBaseRoleClassLib.aml"/>
+    <InstanceHierarchy>
+        <InternalElement>
+            <Attribute AttributeDataType="xs:double" Name="length">
+                <Value>35.00</Value>
+                <Value2>35.00</Value2>
+            </Attribute>
+        </InternalElement>
+    </InstanceHierarchy>
+</CAEXFile>

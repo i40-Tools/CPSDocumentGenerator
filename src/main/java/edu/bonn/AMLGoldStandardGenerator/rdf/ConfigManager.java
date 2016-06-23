@@ -180,8 +180,6 @@ public class ConfigManager {
 			}
 			// sets rest of values.
 			setValues();
-			System.out.println(heterogeneityID);
-			System.out.println(inputPath);
 
 		} catch (TurtleParseException e) {
 
@@ -256,7 +254,6 @@ public class ConfigManager {
 				}
 			}
 		}
-		System.out.println("finish");
 
 	}
 

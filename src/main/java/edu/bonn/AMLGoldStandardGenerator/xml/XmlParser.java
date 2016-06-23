@@ -320,6 +320,24 @@ public class XmlParser {
 	}
 
 	/**
+	 * Ignore semantic field of ecl@ss
+	 * 
+	 * @param baseElmntAttr
+	 * @return
+	 */
+
+	public boolean ignoreAttributes(NamedNodeMap baseElmntAttr) {
+		for (int i = 0; i < baseElmntAttr.getLength(); ++i) {
+			Node attr = baseElmntAttr.item(i);
+			if (attr.getNodeValue().equals("eClassVersion") || attr.getNodeValue().equals("eClassClassificationClass")
+					|| attr.getNodeValue().equals("eClassIRDI")) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
 	 * Outputs the modified partition data into files.
 	 * 
 	 * @param doc

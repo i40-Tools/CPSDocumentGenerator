@@ -4,18 +4,23 @@
     <AdditionalInformation AutomationMLVersion="2.0"/>
     <AdditionalInformation>
         <WriterHeader>
+            <WriterName>AutomationML e.V.</WriterName>
             <WriterID>AutomationML e.V.</WriterID>
+            <WriterVendor>AutomationML e.V.</WriterVendor>
             <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+            <WriterVersion>1.0</WriterVersion>
             <WriterRelease>1.0</WriterRelease>
+            <LastWritingDateTime>2012-02-20 </LastWritingDateTime>
             <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+            <WriterProjectID>AutomationML Tutorial Examples </WriterProjectID>
         </WriterHeader>
     </AdditionalInformation>
     <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
     <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
     <InstanceHierarchy Name="MechatronicEngineering">
         <InternalElement ID="74d0c8ef-ab53-462a-8225-306ed22dc0f3" Name="AMLObject" RefBaseSystemUnitPath="">
-            <Attribute AttributeDataType="xs:float" Name="length">
-                <Value>35.00</Value>
+            <Attribute AttributeDataType="xs:integer" Name="length">
+                <Value>35</Value>
             </Attribute>
         </InternalElement>
     </InstanceHierarchy>

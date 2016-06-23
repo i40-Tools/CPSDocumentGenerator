@@ -4,7 +4,6 @@ import java.util.Random;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -19,11 +18,12 @@ public class GranularityHeterogeneity {
 	private Element element;
 	private Document doc;
 	int mod;
+	XmlParser xml;
 
-	public GranularityHeterogeneity(Element element, Document doc, int mod) {
-		this.element = element;
+	public GranularityHeterogeneity(Document doc, int mod) {
 		this.doc = doc;
 		this.mod = mod + 1;
+		xml = new XmlParser();
 	}
 
 	/**
@@ -42,7 +42,10 @@ public class GranularityHeterogeneity {
 	Document granularityGenerator() {
 
 		// three probabilities for number of childs
+
+		// already based on uniform distribution
 		double probability = new Random().nextDouble();
+
 		if (probability <= 0.03) {
 
 			// partitions for node having atleast two child
@@ -72,23 +75,30 @@ public class GranularityHeterogeneity {
 	 */
 	Document xmlPartition(int partition) {
 
-		NodeList childNodes = element.getChildNodes();
-		int count = new XmlParser().getChildCount(childNodes);
+		// main loop gets the root attribute
+		NodeList baseElmntLst = doc.getElementsByTagName("*");
+		for (int k = 0; k < baseElmntLst.getLength(); k++) {
+			element = (Element) baseElmntLst.item(k);
 
-		if (count >= partition && !doc.getDocumentElement().equals(element)) {
-			for (int i = 0; i < childNodes.getLength(); i++) {
+			NodeList childNodes = element.getChildNodes();
+			int count = new XmlParser().getChildCount(childNodes);
 
-				// mod differentiates data between two files.
-				if (i % mod != 0) {
-					if (childNodes.item(i).getNodeType() == Node.ELEMENT_NODE) {
-						if (ignoreAttributes(childNodes.item(i).getAttributes())) {
-							Node nNode = childNodes.item(i);
+			// split the nodes
+			if (count >= partition && !doc.getDocumentElement().equals(element)) {
+				for (int i = 0; i < childNodes.getLength(); i++) {
 
-							// removes nodes for partition
-							nNode.getParentNode().removeChild(nNode);
+					// mod differentiates data between two files.
+					if (i % mod != 0) {
+						if (childNodes.item(i).getNodeType() == Node.ELEMENT_NODE) {
+							if (xml.ignoreAttributes(childNodes.item(i).getAttributes())) {
+								Node nNode = childNodes.item(i);
 
-							// removes blank space after remove
-							doc.normalize();
+								// removes nodes for partition
+								nNode.getParentNode().removeChild(nNode);
+
+								// removes blank space after remove
+								doc.normalize();
+							}
 						}
 					}
 				}
@@ -96,24 +106,6 @@ public class GranularityHeterogeneity {
 		}
 		return doc;
 
-	}
-
-	/**
-	 * Ignore semantic field of ecl@ss
-	 * 
-	 * @param baseElmntAttr
-	 * @return
-	 */
-
-	boolean ignoreAttributes(NamedNodeMap baseElmntAttr) {
-		for (int i = 0; i < baseElmntAttr.getLength(); ++i) {
-			Node attr = baseElmntAttr.item(i);
-			if (attr.getNodeValue().equals("eClassVersion") || attr.getNodeValue().equals("eClassClassificationClass")
-					|| attr.getNodeValue().equals("eClassIRDI")) {
-				return false;
-			}
-		}
-		return true;
 	}
 
 }

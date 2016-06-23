@@ -22,6 +22,11 @@
 	<InstanceHierarchy Name="InstanceHierarchy1">
 		<Version>1.0.0</Version>
 		<InternalElement Name="InstanceMyMotor" ID="3fc3ade7-aa58-44a4-ab37-fa7e7665a74e"></InternalElement>
+<InternalElement Name="AMLObject" RefBaseSystemUnitPath="" ID="74d0c8ef-ab53-462a-8225-306ed22dc0f3">
+			<Attribute Name="length" AttributeDataType="xs:float">
+				<Value>35.00</Value>
+			</Attribute>
+		</InternalElement>
 	</InstanceHierarchy>
 	<RoleClassLib Name="ExampleEClassRoleClassLib">
 		<Version>1.0.0</Version>
