@@ -9,14 +9,12 @@
 aml:Heterogeneity
       rdf:type owl:Class ;
       rdfs:comment "Type of Heterogeneity in AML files"@en ;
-      rdfs:label "Heterogeneity"@en ;
-      rdfs:subClassOf aml:GoldStandard .
+      rdfs:label "Heterogeneity"@en.
       
 aml:Integration    
       rdf:type owl:Class ;
       rdfs:comment "Contains files which has gold standard and generated files from integration process"@en ;
-      rdfs:label "Integration"@en ;
-	  rdfs:subClassOf aml:GoldStandard .
+      rdfs:label "Integration"@en.
       
 aml:M1 
       rdf:type owl:Class ;
