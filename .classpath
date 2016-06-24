@@ -27,5 +27,15 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/jlibs-core.jar"/>
+	<classpathentry kind="lib" path="lib/jlibs-examples.jar"/>
+	<classpathentry kind="lib" path="lib/jlibs-greplog.jar"/>
+	<classpathentry kind="lib" path="lib/jlibs-jdbc.jar"/>
+	<classpathentry kind="lib" path="lib/jlibs-nblr.jar"/>
+	<classpathentry kind="lib" path="lib/jlibs-nbp.jar"/>
+	<classpathentry kind="lib" path="lib/jlibs-swing.jar"/>
+	<classpathentry kind="lib" path="lib/jlibs-wadl.jar"/>
+	<classpathentry kind="lib" path="lib/jlibs-xml.jar"/>
+	<classpathentry kind="lib" path="lib/jlibs-xmldog.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
