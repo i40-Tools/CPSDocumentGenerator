@@ -25,8 +25,8 @@ aml:M2
 
 
 aml:Heterogeneity-1
-     aml:hasHeterogeneity    aml:M1,aml:M2;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\seed-1.aml";
+     aml:hasHeterogeneity     aml:M2;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M2\\seed-1.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-1.aml";
      aml:generateFiles       "true";
@@ -35,8 +35,8 @@ aml:Heterogeneity-1
 
 
 aml:Heterogeneity-2
-     aml:hasHeterogeneity    aml:M1,aml:M2;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\seed-2.aml";
+     aml:hasHeterogeneity    aml:M1;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M1\\seed-2.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-2.aml";
      aml:generateFiles       "true";      
@@ -44,17 +44,44 @@ aml:Heterogeneity-2
      rdf:type                aml:Heterogeneity .
 
 aml:Heterogeneity-3
-     aml:hasHeterogeneity    aml:M1;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\seed-3.aml";
+     aml:hasHeterogeneity    aml:M3;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M3-Schematic\\seed-3.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-3.aml";
      aml:generateFiles       "true"; 
      aml:hasID               "Heterogeneity-3";
      rdf:type                aml:Heterogeneity .
 
+aml:Heterogeneity-4
+     aml:hasHeterogeneity    aml:M3;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M3-Schematic\\seed-4.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-4.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Heterogeneity-4";
+     rdf:type                aml:Heterogeneity .
+
+
+aml:Heterogeneity-5
+     aml:hasHeterogeneity    aml:M6;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M6-Grouping\\seed-5.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-5.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Heterogeneity-5";
+     rdf:type                aml:Heterogeneity .
+
+aml:Heterogeneity-6
+     aml:hasHeterogeneity    aml:M6;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M6-Grouping\\seed-6.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-6.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Heterogeneity-6";
+     rdf:type                aml:Heterogeneity .
 
 aml:Integration-1
     aml:hasID                "Integration-1";
-    aml:hasGoldStandard      "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\seed-1.aml";
+    aml:hasGoldStandard      "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M2\\seed-1.aml";
     aml:hasResults           "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\IntegrationsFiles\\seed-1";
     rdf:type                  aml:Integration.

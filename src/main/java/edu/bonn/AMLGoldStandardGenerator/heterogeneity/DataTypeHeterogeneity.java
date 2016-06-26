@@ -1,11 +1,9 @@
-package edu.bonn.AMLGoldStandardGenerator.goldstandard;
+package edu.bonn.AMLGoldStandardGenerator.heterogeneity;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import edu.bonn.AMLGoldStandardGenerator.xml.XmlParser;
 
 /**
  * This class is used for generating Data Type heterogeneity
@@ -14,20 +12,14 @@ import edu.bonn.AMLGoldStandardGenerator.xml.XmlParser;
  *
  */
 
-public class DataTypeHeterogeneity {
-
-	private Element element;
-	private Document doc;
-	private int mod;
-	XmlParser xml;
+public class DataTypeHeterogeneity extends Heterogeneity {
 
 	public DataTypeHeterogeneity(Document doc, int mod) {
-		this.doc = doc;
-		this.mod = mod + 1;
-		xml = new XmlParser();
+
+		super(doc, mod);
 	}
 
-	Document dataTypeGenerator() {
+	public Document dataTypeGenerator() {
 
 		// main loop gets root node
 		NodeList baseElmntLst = doc.getElementsByTagName("*");

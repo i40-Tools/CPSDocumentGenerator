@@ -6,6 +6,7 @@ package edu.bonn.AMLGoldStandardGenerator.xml;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,11 +16,13 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.io.IOUtils;
 import org.w3c.dom.Document;
@@ -350,42 +353,106 @@ public class XmlParser {
 	 * @throws ValidityException
 	 * @throws Exception
 	 */
-	public void formatXML(Document doc, String file, String directory) throws TransformerFactoryConfigurationError,
-			TransformerException, IOException, ValidityException, ParsingException {
+
+	public void formatXML(Document doc, String file, String directory) {
 
 		// Takes input file
-		Transformer transformer = TransformerFactory.newInstance().newTransformer();
-		DOMSource source = new DOMSource(doc);
-		File dir = new File(directory);
+		Transformer transformer;
+		try {
+			transformer = TransformerFactory.newInstance().newTransformer();
+			DOMSource source = new DOMSource(doc);
+			File dir = new File(directory);
 
-		// checks for output directory and creates it
-		if (!dir.exists()) {
-			if (dir.mkdirs()) {
-				System.out.println("Creating output directory");
-			} else {
-				System.out.println("cannot create output directories Please check permission");
-				System.exit(0);
+			// checks for output directory and creates it
+			if (!dir.exists()) {
+				if (dir.mkdirs()) {
+					System.out.println("Creating output directory");
+				} else {
+					System.out.println("cannot create output directories Please check permission");
+					System.exit(0);
+				}
+
 			}
+			StreamResult result = new StreamResult(new File(directory + "//" + file));
 
+			// outputs result
+			transformer.transform(source, result);
+
+			// reads output for formatting
+			FileInputStream res = new FileInputStream(new File(directory + "//" + file));
+			ByteArrayOutputStream out1 = new ByteArrayOutputStream();
+			String xml = IOUtils.toString(res);
+
+			// formatting the XML
+			Serializer serializer = new Serializer(out1);
+			serializer.setIndent(4); // or whatever you like
+			serializer.write(new Builder().build(xml.toString(), ""));
+
+			FileWriter output = new FileWriter((new File(directory + "//" + file)));
+			output.write(out1.toString());
+			output.close();
+		} catch (TransformerConfigurationException | TransformerFactoryConfigurationError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TransformerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ValidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParsingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		StreamResult result = new StreamResult(new File(directory + "//" + file));
 
-		// outputs result
-		transformer.transform(source, result);
+	}
 
-		// reads output for formatting
-		FileInputStream res = new FileInputStream(new File(directory + "//" + file));
-		ByteArrayOutputStream out1 = new ByteArrayOutputStream();
-		String xml = IOUtils.toString(res);
+	/**
+	 * 
+	 * @param doc
+	 * @param file
+	 * @param directory
+	 * @return
+	 */
 
-		// formatting the XML
-		Serializer serializer = new Serializer(out1);
-		serializer.setIndent(4); // or whatever you like
-		serializer.write(new Builder().build(xml.toString(), ""));
+	public Document sortXML(Document doc, String file, String directory) {
 
-		FileWriter output = new FileWriter((new File(directory + "//" + file)));
-		output.write(out1.toString());
-		output.close();
+		// Takes input file
+		Transformer transformer;
+		try {
+			transformer = TransformerFactory.newInstance()
+					.newTransformer(new StreamSource(getClass().getClassLoader().getResourceAsStream("sort.xsl")));
+			DOMSource source = new DOMSource(doc);
+			File dir = new File(directory);
+
+			// checks for output directory and creates it
+			if (!dir.exists()) {
+				if (dir.mkdirs()) {
+					System.out.println("Creating output directory");
+				} else {
+					System.out.println("cannot create output directories Please check permission");
+					System.exit(0);
+				}
+
+			}
+			StreamResult result = new StreamResult(new File(directory + "//" + file));
+
+			// outputs result
+
+			transformer.transform(source, result);
+			doc = initInput(directory + "//" + file);
+
+		} catch (TransformerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return doc;
 
 	}
 

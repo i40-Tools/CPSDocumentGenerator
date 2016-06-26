@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 
 import org.apache.commons.io.IOUtils;
@@ -16,10 +15,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
+import Test.ModelRepair;
+import edu.bonn.AMLGoldStandardGenerator.heterogeneity.DataTypeHeterogeneity;
+import edu.bonn.AMLGoldStandardGenerator.heterogeneity.GranularityHeterogeneity;
+import edu.bonn.AMLGoldStandardGenerator.heterogeneity.GroupingHeterogeneity;
+import edu.bonn.AMLGoldStandardGenerator.heterogeneity.SchematicHeterogeneity;
 import edu.bonn.AMLGoldStandardGenerator.rdf.ConfigManager;
 import edu.bonn.AMLGoldStandardGenerator.schema.XSDValidator;
 import edu.bonn.AMLGoldStandardGenerator.xml.XmlParser;
-import nu.xom.ParsingException;
 
 /**
  * @author omar This Class Automatically Generate Gold Standard Files to check
@@ -75,13 +78,11 @@ public class AMLGoldStandardGenerator {
 		// reads the input from rdf configuration for type of heterogeneity
 		for (int m = 0; m < mod.size(); m++) {
 
-			if (inputName.get(m) != null) {
-
+			if (inputName.get(m) != null)
 				fileName = inputName.get(m).replace(".aml", "");
-			} else {
+			else
 				fileName = "default" + m;
 
-			}
 			String input = mod.get(m).toString();
 			String inputFile = inputFiles.get(m).toString();
 
@@ -117,6 +118,7 @@ public class AMLGoldStandardGenerator {
 				case "M1":
 
 					doc = new DataTypeHeterogeneity(doc, i).dataTypeGenerator();
+
 					// formats the output file
 					outputFile = fileName + "-" + "DataTypeTransoformation" + "-" + i + ".aml";
 					if (outputPath.get(m) != null) {
@@ -146,6 +148,37 @@ public class AMLGoldStandardGenerator {
 
 					break;
 
+				// calls schematic heterogeneity generator
+				case "M3":
+					doc = new SchematicHeterogeneity(doc, i).schematicGenerator();
+
+					// formats the output file
+					outputFile = fileName + "-" + "Schematic" + "-" + i + ".aml";
+					if (outputPath.get(m) != null) {
+						directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M3-Schematic";
+					} else {
+						System.out.println("output Path not found using default c:\\output");
+						directory = "c:\\output";
+					}
+					doc = new XmlParser().sortXML(doc, outputFile, directory);
+
+					break;
+
+				// calls Grouping/Aggregation heterogeneity generator
+
+				case "M6":
+					doc = new GroupingHeterogeneity(doc, i).groupingGenerator();
+
+					// formats the output file
+					outputFile = fileName + "-" + "Grouping" + "-" + i + ".aml";
+					if (outputPath.get(m) != null) {
+						directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M6-Grouping";
+					} else {
+						System.out.println("output Path not found using default c:\\output");
+						directory = "c:\\output";
+					}
+					break;
+
 				}
 
 				// outputs the modified XML data to file.
@@ -155,17 +188,20 @@ public class AMLGoldStandardGenerator {
 
 					// validates XML Schema
 					if (!new XSDValidator(directory + "\\" + outputFile).schemaValidate()) {
-						logger.error("Schema did not Validated");
-						System.exit(0);
-						break;
+						System.out.println("Repairing and Rechecking");
+						ModelRepair.testRoundTrip(directory + "\\" + outputFile);
+						if (!new XSDValidator(directory + "\\" + outputFile).schemaValidate()) {
+							logger.error("Schema did not Validated for " + outputFile);
+							break;
+						}
 					}
 
-				} catch (TransformerFactoryConfigurationError | TransformerException | IOException
-						| ParsingException e) {
+				} catch (TransformerFactoryConfigurationError | Exception e) {
 					// TODO Auto-generated catch block
 					logger.error("Failed " + e.getLocalizedMessage());
 					e.printStackTrace();
 				}
+
 				// renames the CAEXFile name attribute wiht new files
 				renameFiles(inputName.get(m), outputFile, directory);
 				i++;

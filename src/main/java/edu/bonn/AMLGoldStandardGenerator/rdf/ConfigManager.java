@@ -118,9 +118,8 @@ public class ConfigManager {
 				com.hp.hpl.jena.rdf.model.Statement stmt = iterator.nextStatement();
 
 				subject = stmt.getSubject();
-				if (!subjects.contains(subject)) {
+				if (!subjects.contains(subject))
 					subjects.add(subject);
-				}
 
 			}
 
@@ -183,9 +182,9 @@ public class ConfigManager {
 
 		} catch (TurtleParseException e) {
 
-			if (flag == true) {
+			if (flag == true)
 				System.exit(0);
-			}
+
 			// if exception occurs it means files path is not formatted.
 			// formats file paths.
 			flag = true;
@@ -194,7 +193,8 @@ public class ConfigManager {
 			loadConfig(filePath);
 
 		} catch (NullPointerException e) {
-			System.out.println("Some issue with configuration file , Please check its fields ");
+
+			System.out.println(e.getMessage() + "Some issue with configuration file , Please check its fields ");
 
 		}
 
@@ -217,13 +217,12 @@ public class ConfigManager {
 
 			String uri = getUri(predicates, i);
 
-			if (predicates.get(i).toString().equals(uri + "hasResults")) {
+			if (predicates.get(i).toString().equals(uri + "hasResults"))
 				integratedFile.add(literals.get(i).toString());
-			}
 
-			if (predicates.get(i).toString().equals(uri + "hasGoldStandard")) {
+			if (predicates.get(i).toString().equals(uri + "hasGoldStandard"))
 				goldStandard.add(literals.get(i).toString());
-			}
+
 		}
 
 	}
@@ -243,12 +242,14 @@ public class ConfigManager {
 	void addValues(ArrayList<Object> predicate, ArrayList<Object> literal, String match, int size,
 			ArrayList<String> path) {
 		for (int j = 0; j < predicate.size(); j++) {
+
 			String uri = getUri(predicate, j);
+
 			if (predicate.get(j).toString().equals(uri + match)) {
 				int k = 0;
+
 				while (k < size) {
 					path.add(literal.get(j).toString());
-					System.out.println(literal.get(j).toString());
 
 					k++;
 				}
@@ -276,7 +277,6 @@ public class ConfigManager {
 			xml = xml.replace("\\", "\\\\");
 
 			FileWriter output = new FileWriter((new File(fileName)));
-			System.out.println(xml);
 			output.write(xml.toString());
 			output.close();
 
@@ -306,7 +306,6 @@ public class ConfigManager {
 	/*
 	 * Provides getters for all the fields.*
 	 * 
-	 * @return the outputName
 	 */
 
 	/**

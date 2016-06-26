@@ -1,4 +1,4 @@
-package edu.bonn.AMLGoldStandardGenerator.goldstandard;
+package edu.bonn.AMLGoldStandardGenerator.heterogeneity;
 
 import java.util.Random;
 
@@ -13,21 +13,14 @@ import edu.bonn.AMLGoldStandardGenerator.xml.XmlParser;
  * @author omar This Class provides provides method for generation of
  *         Granularity heterogeneity of AutomationML(ML) files
  */
-public class GranularityHeterogeneity {
-
-	private Element element;
-	private Document doc;
-	int mod;
-	XmlParser xml;
+public class GranularityHeterogeneity extends Heterogeneity {
 
 	public GranularityHeterogeneity(Document doc, int mod) {
-		this.doc = doc;
-		this.mod = mod + 1;
-		xml = new XmlParser();
+		super(doc, mod);
 	}
 
 	/**
-	 * This method is used for granulrity partitions data accordingly to the
+	 * This method is used for granularity partitions data accordingly to the
 	 * following conditions based on probability one of two conditions would be
 	 * true: if child nodes are greater than 3 if child nodes are greater than 1
 	 * if child nodes are greater than 5. Mod value is used to partition data so
@@ -39,7 +32,7 @@ public class GranularityHeterogeneity {
 	 * @param mod
 	 * @return
 	 */
-	Document granularityGenerator() {
+	public Document granularityGenerator() {
 
 		// three probabilities for number of childs
 

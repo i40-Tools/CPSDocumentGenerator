@@ -37,5 +37,6 @@
 	<classpathentry kind="lib" path="lib/jlibs-wadl.jar"/>
 	<classpathentry kind="lib" path="lib/jlibs-xml.jar"/>
 	<classpathentry kind="lib" path="lib/jlibs-xmldog.jar"/>
+	<classpathentry kind="lib" path="lib/aml-repair.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

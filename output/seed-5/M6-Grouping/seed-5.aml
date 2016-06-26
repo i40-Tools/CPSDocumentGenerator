@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Mit XMLSpy v2011 rel. 3 (http://www.altova.com) von Josef Prinz (INPRO) bearbeitet -->
+<CAEXFile FileName="group-orignal.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AdditionalInformation AutomationMLVersion="2.0" />
+	<AdditionalInformation>
+		<WriterHeader>
+			<WriterName>AutomationML e.V.</WriterName>
+			<WriterID>AutomationML e.V.</WriterID>
+			<WriterVendor>AutomationML e.V.</WriterVendor>
+			<WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+			<WriterVersion>1.0</WriterVersion>
+			<WriterRelease>1.0</WriterRelease>
+			<LastWritingDateTime>2012-03-27
+			</LastWritingDateTime>
+			<WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+			<WriterProjectID>AutomationML Tutorial Examples
+			</WriterProjectID>
+		</WriterHeader>
+	</AdditionalInformation>
+	<InstanceHierarchy Name="ConveyorSystem">
+		<InternalElement Name="Conveyor1" ID="45e20f8e-7351-4af9-bdfd-3c019674de55">
+			<Attribute Name="maxConveyingSpeed" AttributeDataType="xs:double" Unit="m/s" />
+			<Attribute Name="maxTransportationWeight" AttributeDataType="xs:double" Unit="kg">
+				<Value>10</Value>
+			</Attribute>
+			<RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port" />
+		</InternalElement>
+		<InternalElement Name="Conveyor2" ID="11b59bf6-44f6-4650-939f-d8e2551912a7">
+			<Attribute Name="maxConveyingSpeed" AttributeDataType="xs:double" Unit="m/s">
+				<DefaultValue>10</DefaultValue>
+			</Attribute>
+			<Attribute Name="maxTransportationWeight" AttributeDataType="xs:double" Unit="kg" />
+			<RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port" />
+		</InternalElement>
+		<InternalElement Name="ConveyorGroup" ID="33bb9cd2-e6b5-44bd-8aef-a2d25250374d">
+			<InternalElement Name="Conveyor" ID="6797c68e-bdbf-485f-9292-4a3b0fe3ff23">
+				<Attribute Name="maxTransportationWeight" AttributeDataType="xs:double" Unit="kg">
+					<Value>20</Value>
+				</Attribute>
+				<Attribute Name="maxConveyingSpeed" AttributeDataType="xs:double" Unit="m/s" />
+			</InternalElement>
+		</InternalElement>
+	</InstanceHierarchy>
+</CAEXFile>
