@@ -16,8 +16,8 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
 import Test.ModelRepair;
-import edu.bonn.AML.GoldStandardGenerator.aml.GenericElement;
-import edu.bonn.AML.GoldStandardGenerator.aml.InternalElement;
+import edu.bonn.AMLGoldStandardGenerator.aml.GenericElement;
+import edu.bonn.AMLGoldStandardGenerator.aml.InternalElement;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.DataTypeHeterogeneity;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.GranularityHeterogeneity;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.GroupingHeterogeneity;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.bonn.AML.GoldStandardGenerator.aml;
+package edu.bonn.AMLGoldStandardGenerator.aml;
 
 /**
  * @author omar
