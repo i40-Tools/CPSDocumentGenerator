@@ -220,7 +220,7 @@ public class XmlParser {
 	 * @param doc
 	 * @return
 	 */
-	Element findElement(String name, Document doc) {
+	public Element findElement(String name, Document doc) {
 
 		// starts by root
 		NodeList baseElmntLst = doc.getElementsByTagName("*");
@@ -237,6 +237,66 @@ public class XmlParser {
 		}
 
 		return null;
+	}
+
+	/**
+	 * This functions finds Element by name in a given xml file.
+	 * 
+	 * @param name
+	 * @param doc
+	 * @return
+	 */
+
+	/**
+	 * copies one node to another document.
+	 * 
+	 * @param name
+	 * @param doc
+	 * @return
+	 */
+	public ArrayList<Node> migrateElement(String name, Document doc, Document migrateDoc) {
+
+		ArrayList<Node> migrateNodes = new ArrayList<Node>();
+
+		// starts by root
+		NodeList baseElmntLst = doc.getElementsByTagName("*");
+
+		// loop throug all elements
+		for (int k = 0; k < baseElmntLst.getLength(); k++) {
+
+			Element baseElmnt = (Element) baseElmntLst.item(k);
+
+			// if found return that element
+			if (baseElmnt.getNodeName().equals(name)) {
+				migrateNodes.add(migrateDoc.importNode(baseElmnt, true));
+			}
+		}
+
+		return migrateNodes;
+	}
+
+	/**
+	 * Adds node to Any tag with minimum childs and given number of repetition
+	 * 
+	 * @param node
+	 * @param min
+	 * @param child
+	 * @param parent
+	 */
+	public void addNodes(ArrayList<Node> node, int min, int child, Node parent) {
+
+		for (int i = 0; i < min; i++) {
+
+			while (node.get(i).hasChildNodes()) {
+				node.get(i).removeChild(node.get(i).getFirstChild());
+				if (new XmlParser().getChildCount(node.get(i).getChildNodes()) < child) {
+					break;
+				}
+			}
+			if (parent != null)
+				parent.appendChild(node.get(i));
+		}
+
 	}
 
 	/**

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile FileName="seed-1-Granularity-0.aml" SchemaVersion="2.15">
+  <AdditionalInformation AutomationMLVersion="2.0">
+    <attributes name="AutomationMLVersion" value="2.0"/>
+  </AdditionalInformation>
+  <AdditionalInformation>
+    <WriterHeader>
+      <WriterName>AutomationML e.V.</WriterName>
+      <WriterID>AutomationML e.V.</WriterID>
+      <WriterVendor>AutomationML e.V.</WriterVendor>
+      <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+      <WriterVersion>1.0</WriterVersion>
+      <WriterRelease>1.0</WriterRelease>
+      <LastWritingDateTime>2012-02-20</LastWritingDateTime>
+      <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+      <WriterProjectID>AutomationML Tutorial Examples</WriterProjectID>
+    </WriterHeader>
+  </AdditionalInformation>
+  <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
+  <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
+  <ExternalReference Alias="Alias1" Path="Path1"/>
+  <ExternalReference Alias="Alias2" Path="Path2"/>
+  <ExternalReference Alias="Alias3" Path="Path3"/>
+  <ExternalReference Alias="Alias4" Path="Path4"/>
+  <ExternalReference Alias="Alias5" Path="Path5"/>
+  <InstanceHierarchy Name="InstanceHierarchy1">
+    <Version>1.0.0</Version>
+    <InternalElement ID="3fc3ade7-aa58-44a4-ab37-fa7e7665a74e" Name="InstanceMyMotor"/>
+    <InternalElement ID="ID2" Name="Name2" RefBaseSystemUnitPath="RefBaseSystemUnitPath1"/>
+    <InternalElement ID="ID3" Name="Name3" RefBaseSystemUnitPath="RefBaseSystemUnitPath2"/>
+  </InstanceHierarchy>
+  <InstanceHierarchy ID="ID1" Name="Name1"/>
+  <InstanceHierarchy ID="ID7" Name="Name7"/>
+  <InstanceHierarchy ID="ID13" Name="Name13"/>
+  <InstanceHierarchy ID="ID19" Name="Name19"/>
+  <InstanceHierarchy ID="ID25" Name="Name25"/>
+  <InterfaceClassLib ID="ID31" Name="Name31">
+    <InterfaceClass ID="ID32" Name="Name32" RefBaseClassPath="RefBaseClassPath1"/>
+    <InterfaceClass ID="ID33" Name="Name33" RefBaseClassPath="RefBaseClassPath2"/>
+    <InterfaceClass ID="ID34" Name="Name34" RefBaseClassPath="RefBaseClassPath3"/>
+    <InterfaceClass ID="ID35" Name="Name35" RefBaseClassPath="RefBaseClassPath4"/>
+    <InterfaceClass ID="ID36" Name="Name36" RefBaseClassPath="RefBaseClassPath5"/>
+  </InterfaceClassLib>
+  <InterfaceClassLib ID="ID37" Name="Name37"/>
+  <InterfaceClassLib ID="ID43" Name="Name43"/>
+  <InterfaceClassLib ID="ID49" Name="Name49"/>
+  <InterfaceClassLib ID="ID55" Name="Name55"/>
+  <RoleClassLib Name="ExampleEClassRoleClassLib">
+    <Version>1.0.0</Version>
+    <RoleClass Name="BASIC_27-02-25-01 DC engine (IEC)">
+      <Attribute Name="eClassVersion" AttributeDataType="xs:string">
+        <Value>9.0</Value>
+      </Attribute>
+      <Attribute Name="eClassClassificationClass" AttributeDataType="xs:string">
+        <Value>27022501</Value>
+      </Attribute>
+      <Attribute Name="eClassIRDI" AttributeDataType="xs:string">
+        <Value>0173-1---BASIC_1_1#01-ABW077#009</Value>
+      </Attribute>
+      <Attribute Name="Construction form of DC motor" AttributeDataType="xs:string">
+        <Description>Arrangement of machine parts in reference to anchorage, arrangement of bearings and shafts</Description>
+        <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAE069#007"/>
+      </Attribute>
+      <Attribute Name="Cooling type" AttributeDataType="xs:string">
+        <Description>Summary of various types of cooling, for use as search criteria that limit a selection</Description>
+        <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAE122#006"/>
+      </Attribute>
+      <Attribute Name="GTIN" AttributeDataType="xs:string">
+        <Description>internationally unique and unambiguous article number for products and services (Global Trade Item Number, formerly EAN)</Description>
+        <RefSemantic CorrespondingAttributePath="0173-1#02-AAO663#002"/>
+      </Attribute>
+    </RoleClass>
+    <RoleClass ID="ID62" Name="Name62" RefBaseClassPath="RefBaseClassPath26"/>
+    <RoleClass ID="ID63" Name="Name63" RefBaseClassPath="RefBaseClassPath27"/>
+    <RoleClass ID="ID64" Name="Name64" RefBaseClassPath="RefBaseClassPath28"/>
+    <RoleClass ID="ID65" Name="Name65" RefBaseClassPath="RefBaseClassPath29"/>
+    <RoleClass ID="ID66" Name="Name66" RefBaseClassPath="RefBaseClassPath30"/>
+  </RoleClassLib>
+  <RoleClassLib ID="ID61" Name="Name61"/>
+  <RoleClassLib ID="ID67" Name="Name67"/>
+  <RoleClassLib ID="ID73" Name="Name73"/>
+  <RoleClassLib ID="ID79" Name="Name79"/>
+  <RoleClassLib ID="ID85" Name="Name85"/>
+  <SystemUnitClassLib ID="ID91" Name="Name91">
+    <SystemUnitClass ID="ID92" Name="Name92" RefBaseClassPath="RefBaseClassPath51"/>
+    <SystemUnitClass ID="ID93" Name="Name93" RefBaseClassPath="RefBaseClassPath52"/>
+    <SystemUnitClass ID="ID94" Name="Name94" RefBaseClassPath="RefBaseClassPath53"/>
+    <SystemUnitClass ID="ID95" Name="Name95" RefBaseClassPath="RefBaseClassPath54"/>
+    <SystemUnitClass ID="ID96" Name="Name96" RefBaseClassPath="RefBaseClassPath55"/>
+  </SystemUnitClassLib>
+  <SystemUnitClassLib ID="ID97" Name="Name97"/>
+  <SystemUnitClassLib ID="ID103" Name="Name103"/>
+  <SystemUnitClassLib ID="ID109" Name="Name109"/>
+  <SystemUnitClassLib ID="ID115" Name="Name115"/>
+</CAEXFile>

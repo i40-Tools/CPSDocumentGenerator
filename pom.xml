@@ -6,6 +6,27 @@
   <dependencies>
 
 <dependency>
+    <groupId>in.jlibs</groupId>
+    <artifactId>jlibs-xmldog</artifactId>
+    <version>2.2.1</version>
+</dependency> 
+<dependency>
+    <groupId>in.jlibs</groupId>
+    <artifactId>jlibs-jdbc</artifactId>
+    <version>2.2.1</version>
+</dependency> 
+<dependency>
+    <groupId>in.jlibs</groupId>
+    <artifactId>jlibs-xsd</artifactId>
+    <version>2.2.1</version>
+</dependency> 
+<dependency>
+    <groupId>in.jlibs</groupId>
+    <artifactId>jlibs-xml-binding</artifactId>
+    <version>2.2.1</version>
+</dependency> 
+
+<dependency>
     <groupId>xml-apis</groupId>
     <artifactId>xml-apis</artifactId>
     <version>1.4.01</version>

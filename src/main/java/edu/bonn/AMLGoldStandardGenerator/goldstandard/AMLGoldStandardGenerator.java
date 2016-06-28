@@ -16,6 +16,8 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
 import Test.ModelRepair;
+import edu.bonn.AML.GoldStandardGenerator.aml.GenericElement;
+import edu.bonn.AML.GoldStandardGenerator.aml.InternalElement;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.DataTypeHeterogeneity;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.GranularityHeterogeneity;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.GroupingHeterogeneity;
@@ -204,6 +206,31 @@ public class AMLGoldStandardGenerator {
 
 				// renames the CAEXFile name attribute wiht new files
 				renameFiles(inputName.get(m), outputFile, directory);
+
+				// sets all elements generation
+
+				GenericElement.minimumElementsGenerated = 5;
+				GenericElement.elementChild = 5;
+
+				/** individual properties could be set like this **/
+				InternalElement.minimumInternalGenerated = 2;
+				// InternalElement.internalChild = 5;
+				// InstanceHierarchy.minimumInstanceGenerated = 10;
+				// InstanceHierarchy.instanceChild = 5;
+				// ExternalReference.minimumExternalGenerated = 5;
+				// ExternalReference.externalChild = 2;
+				// InterfaceClassLib.minimumInterfaceGenerated = 15;
+				// InterfaceClassLib.interfaceChild = 10;
+				// SystemUnitClassLib.minimumSystemUnitGenerated = 10;
+				// SystemUnitClassLib.systemChild = 10;
+				// RoleClassLib.minimumRoleGenerated = 20;
+				// RoleClassLib.roleChild = 10;
+				// RoleClass.minimum = 2;
+				// InterfaceClass.minimum = 2;
+
+				String enlargeFile = outputFile.replace(".aml", "-enlarge.aml");
+				GenericElement.generate(directory + "//" + outputFile, directory + "//", enlargeFile);
+
 				i++;
 			}
 			outputInputFile(inputFile, directory, inputName.get(m));
