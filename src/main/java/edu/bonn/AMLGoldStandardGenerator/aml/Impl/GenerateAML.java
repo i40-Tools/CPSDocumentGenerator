@@ -20,7 +20,7 @@ public class GenerateAML {
 
 	public void generate(String inputPath, String outputPath) {
 		try {
-			JAXBContext jaxbContext = JAXBContext.newInstance("edu.bonn.AMLGolStandardGenerator.aml");
+			JAXBContext jaxbContext = JAXBContext.newInstance("edu.bonn.AMLGoldStandardGenerator.aml");
 			Marshaller marshaller = jaxbContext.createMarshaller();
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
