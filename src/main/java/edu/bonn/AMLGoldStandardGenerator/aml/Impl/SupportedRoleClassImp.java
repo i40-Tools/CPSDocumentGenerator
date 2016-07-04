@@ -1,6 +1,3 @@
-/**
- * 
- */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
 import java.util.ArrayList;
@@ -35,7 +32,8 @@ public class SupportedRoleClassImp extends GenericElement {
 
 	}
 
-	public static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass type, int i) {
+	public static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass type,
+			int i) {
 
 		type.setRefRoleClassPath("RefBasePath=" + i);
 		type.setCopyright(Copyright.setSingleObject());

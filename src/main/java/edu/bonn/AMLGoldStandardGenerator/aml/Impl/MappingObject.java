@@ -1,10 +1,7 @@
-/**
- * 
- */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
-import edu.bonn.AMLGoldStandardGenerator.aml.MappingType;
 import edu.bonn.AMLGoldStandardGenerator.aml.InternalElementType.RoleRequirements;
+import edu.bonn.AMLGoldStandardGenerator.aml.MappingType;
 
 /**
  * @author omar

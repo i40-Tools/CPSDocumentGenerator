@@ -1,6 +1,3 @@
-/**
- * 
- */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
 import edu.bonn.AMLGoldStandardGenerator.aml.ObjectFactory;

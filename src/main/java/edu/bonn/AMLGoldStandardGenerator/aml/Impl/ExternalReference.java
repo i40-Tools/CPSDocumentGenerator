@@ -1,6 +1,3 @@
-/**
- * 
- */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
 import java.util.ArrayList;
@@ -33,7 +30,8 @@ public class ExternalReference extends GenericElement {
 
 	}
 
-	private static void setAttributeValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.ExternalReference type, int i) {
+	private static void setAttributeValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.ExternalReference type,
+			int i) {
 		type.setAlias("Alias" + i);
 		type.setPath("Path" + i);
 		type.setCopyright(Copyright.setSingleObject());

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
 import java.util.ArrayList;
@@ -32,7 +29,8 @@ public class AttributeNameMapping extends GenericElement {
 
 	}
 
-	public static void setAttributeValues(edu.bonn.AMLGoldStandardGenerator.aml.MappingType.AttributeNameMapping type, int i) {
+	public static void setAttributeValues(edu.bonn.AMLGoldStandardGenerator.aml.MappingType.AttributeNameMapping type,
+			int i) {
 
 		type.setRoleAttributeName("RoleAttribute-Name" + i);
 		type.setSystemUnitAttributeName("System Unit Attribute" + i);

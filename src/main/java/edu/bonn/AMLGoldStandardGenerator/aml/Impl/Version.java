@@ -1,6 +1,3 @@
-/**
- * 
- */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
 import edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject;
@@ -17,7 +14,8 @@ public class Version extends GenericElement {
 		// TODO Auto-generated method stub
 		if (minimum != 0) {
 
-			edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Version version = factory.createCAEXBasicObjectVersion();
+			edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Version version = factory
+					.createCAEXBasicObjectVersion();
 			version.setValue("Eis 2016 version 1.0");
 			return version;
 

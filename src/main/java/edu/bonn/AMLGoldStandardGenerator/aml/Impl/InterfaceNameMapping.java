@@ -1,6 +1,3 @@
-/**
- * 
- */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
 import java.util.ArrayList;
@@ -33,7 +30,8 @@ public class InterfaceNameMapping extends GenericElement {
 
 	}
 
-	public static void setAttributeValues(edu.bonn.AMLGoldStandardGenerator.aml.MappingType.InterfaceNameMapping interfaceNameMapping, int i) {
+	public static void setAttributeValues(
+			edu.bonn.AMLGoldStandardGenerator.aml.MappingType.InterfaceNameMapping interfaceNameMapping, int i) {
 
 		interfaceNameMapping.setCopyright(Copyright.setSingleObject());
 		interfaceNameMapping.setDescription(Description.setSingleObject());
