@@ -5,7 +5,7 @@ package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
 import java.util.ArrayList;
 
-import edu.bonn.AMLGolStandardGenerator.aml.InternalElementType;
+import edu.bonn.AMLGoldStandardGenerator.aml.InternalElementType;
 
 /**
  * @author omar

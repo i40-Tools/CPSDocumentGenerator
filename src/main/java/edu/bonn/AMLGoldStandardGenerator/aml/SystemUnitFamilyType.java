@@ -6,7 +6,7 @@
 //
 
 
-package edu.bonn.AMLGolStandardGenerator.aml;
+package edu.bonn.AMLGoldStandardGenerator.aml;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,18 +18,18 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Shall be used for InterfaceClass definition, provides base structures for an interface class definition.
+ * Defines base structures for a hierarchical SystemUnitClass tree. The hierarchical structure of a SystemUnit library has organizational character only.  
  * 
- * <p>Java class for InterfaceClassType complex type.
+ * <p>Java class for SystemUnitFamilyType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="InterfaceClassType">
+ * &lt;complexType name="SystemUnitFamilyType">
  *   &lt;complexContent>
- *     &lt;extension base="{}CAEXObject">
+ *     &lt;extension base="{}SystemUnitClassType">
  *       &lt;sequence minOccurs="0">
- *         &lt;element name="Attribute" type="{}AttributeType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="SystemUnitClass" type="{}SystemUnitFamilyType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="RefBaseClassPath" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/extension>
@@ -40,45 +40,45 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "InterfaceClassType", propOrder = {
-    "attribute"
+@XmlType(name = "SystemUnitFamilyType", propOrder = {
+    "systemUnitClass"
 })
-public class InterfaceClassType
-    extends CAEXObject
+public class SystemUnitFamilyType
+    extends SystemUnitClassType
 {
 
-    @XmlElement(name = "Attribute", required = true)
-    protected List<AttributeType> attribute;
+    @XmlElement(name = "SystemUnitClass", required = true)
+    protected List<SystemUnitFamilyType> systemUnitClass;
     @XmlAttribute(name = "RefBaseClassPath")
     protected String refBaseClassPath;
 
     /**
-     * Gets the value of the attribute property.
+     * Gets the value of the systemUnitClass property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the attribute property.
+     * This is why there is not a <CODE>set</CODE> method for the systemUnitClass property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getAttribute().add(newItem);
+     *    getSystemUnitClass().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link AttributeType }
+     * {@link SystemUnitFamilyType }
      * 
      * 
      */
-    public List<AttributeType> getAttribute() {
-        if (attribute == null) {
-            attribute = new ArrayList<AttributeType>();
+    public List<SystemUnitFamilyType> getSystemUnitClass() {
+        if (systemUnitClass == null) {
+            systemUnitClass = new ArrayList<SystemUnitFamilyType>();
         }
-        return this.attribute;
+        return this.systemUnitClass;
     }
 
     /**

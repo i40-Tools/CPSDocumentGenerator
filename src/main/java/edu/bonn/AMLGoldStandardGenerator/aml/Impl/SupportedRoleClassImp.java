@@ -19,11 +19,11 @@ public class SupportedRoleClassImp extends GenericElement {
 	public static int setVersion = -1;
 	public static int setMappingObject = -1;
 
-	public static ArrayList<edu.bonn.AMLGolStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass> setObject() {
+	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass> setObject() {
 		// TODO Auto-generated method stub
 		setNoOfElements();
 
-		ArrayList<edu.bonn.AMLGolStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass> supportedRole = new ArrayList<edu.bonn.AMLGolStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass>();
+		ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass> supportedRole = new ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass>();
 		for (int j = 0; j < minimum; j++) {
 
 			supportedRole.add(GenerateAML.factory.createSystemUnitClassTypeSupportedRoleClass());
@@ -35,7 +35,7 @@ public class SupportedRoleClassImp extends GenericElement {
 
 	}
 
-	public static void setValues(edu.bonn.AMLGolStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass type, int i) {
+	public static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass type, int i) {
 
 		type.setRefRoleClassPath("RefBasePath=" + i);
 		type.setCopyright(Copyright.setSingleObject());

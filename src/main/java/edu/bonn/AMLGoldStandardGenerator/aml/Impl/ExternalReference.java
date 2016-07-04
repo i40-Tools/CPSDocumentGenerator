@@ -17,11 +17,11 @@ public class ExternalReference extends GenericElement {
 	public static int setRevision = -1;
 	public static int setVersion = -1;
 
-	public static ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.ExternalReference> setObject() {
+	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.ExternalReference> setObject() {
 		// TODO Auto-generated method stub
 		setNoOfElements();
 
-		ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.ExternalReference> external = new ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.ExternalReference>();
+		ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.ExternalReference> external = new ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.ExternalReference>();
 		for (int j = 0; j < minimum; j++) {
 
 			external.add(factory.createCAEXFileExternalReference());
@@ -33,7 +33,7 @@ public class ExternalReference extends GenericElement {
 
 	}
 
-	private static void setAttributeValues(edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.ExternalReference type, int i) {
+	private static void setAttributeValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.ExternalReference type, int i) {
 		type.setAlias("Alias" + i);
 		type.setPath("Path" + i);
 		type.setCopyright(Copyright.setSingleObject());

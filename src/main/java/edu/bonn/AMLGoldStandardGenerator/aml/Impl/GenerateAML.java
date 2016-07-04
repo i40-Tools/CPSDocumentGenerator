@@ -7,8 +7,8 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXFile;
-import edu.bonn.AMLGolStandardGenerator.aml.ObjectFactory;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile;
+import edu.bonn.AMLGoldStandardGenerator.aml.ObjectFactory;
 
 /**
  * @author omar This class generates Automation ML files based on JAXB

@@ -19,10 +19,10 @@ public class InterfaceClassLib extends GenericElement {
 	public static int setVersion = -1;
 	public static int setInterfaceClassAttribute = -1;
 
-	public static ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InterfaceClassLib> setObject() {
+	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InterfaceClassLib> setObject() {
 		// TODO Auto-generated method stub
 		setNoOfElements();
-		ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InterfaceClassLib> interfaceClass = new ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InterfaceClassLib>();
+		ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InterfaceClassLib> interfaceClass = new ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InterfaceClassLib>();
 		for (int j = 0; j < minimum; j++) {
 
 			interfaceClass.add(factory.createCAEXFileInterfaceClassLib());
@@ -34,7 +34,7 @@ public class InterfaceClassLib extends GenericElement {
 
 	}
 
-	private static void setValues(edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InterfaceClassLib type, int i) {
+	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InterfaceClassLib type, int i) {
 		type.setID("141929fsafa-34-5-5-" + i);
 		type.setName("interface class Lib Name " + i);
 		type.getInterfaceClass().addAll(InterfaceClass.setObject());

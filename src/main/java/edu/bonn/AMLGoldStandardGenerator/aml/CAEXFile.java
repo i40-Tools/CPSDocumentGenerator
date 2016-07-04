@@ -6,7 +6,7 @@
 //
 
 
-package edu.bonn.AMLGolStandardGenerator.aml;
+package edu.bonn.AMLGoldStandardGenerator.aml;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +17,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.ExternalReference;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InstanceHierarchy;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InterfaceClassLib;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.RoleClassLib;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.SystemUnitClassLib;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.ExternalReference;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InstanceHierarchy;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InterfaceClassLib;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.RoleClassLib;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.SystemUnitClassLib;
 
 
 /**

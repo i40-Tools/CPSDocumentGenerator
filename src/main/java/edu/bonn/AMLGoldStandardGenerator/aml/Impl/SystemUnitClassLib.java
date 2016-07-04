@@ -27,11 +27,11 @@ public class SystemUnitClassLib extends GenericElement {
 	public static int setInternalSupportedRoleClass = -1;
 	public static int setInternalAttribute = -1;
 
-	public static ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.SystemUnitClassLib> setObject() {
+	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.SystemUnitClassLib> setObject() {
 		// TODO Auto-generated method stub
 		setNoOfElements();
 
-		ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.SystemUnitClassLib> systemUnit = new ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.SystemUnitClassLib>();
+		ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.SystemUnitClassLib> systemUnit = new ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.SystemUnitClassLib>();
 		for (int j = 0; j < minimum; j++) {
 
 			systemUnit.add(factory.createCAEXFileSystemUnitClassLib());
@@ -43,7 +43,7 @@ public class SystemUnitClassLib extends GenericElement {
 
 	}
 
-	private static void setValues(edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.SystemUnitClassLib type, int i) {
+	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.SystemUnitClassLib type, int i) {
 		type.setID("11-31-31-31-1-1-" + i);
 		type.setName("System Unit class Lib Name " + i);
 		type.setCopyright(Copyright.setSingleObject());

@@ -6,7 +6,7 @@
 //
 
 
-package edu.bonn.AMLGolStandardGenerator.aml;
+package edu.bonn.AMLGoldStandardGenerator.aml;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +18,10 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject.Copyright;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject.Description;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject.Revision;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject.Version;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Copyright;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Description;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Revision;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Version;
 
 
 /**

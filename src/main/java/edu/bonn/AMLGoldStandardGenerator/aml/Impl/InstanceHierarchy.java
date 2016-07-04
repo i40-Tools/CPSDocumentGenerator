@@ -25,11 +25,11 @@ public class InstanceHierarchy extends GenericElement {
 	public static int setInternalSupportedRoleClass = -1;
 	public static int setInternalAttribute = -1;
 
-	public static ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InstanceHierarchy> setValue() {
+	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InstanceHierarchy> setValue() {
 		// TODO Auto-generated method stub
 		setNoOfElements();
 
-		ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InstanceHierarchy> instance = new ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InstanceHierarchy>();
+		ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InstanceHierarchy> instance = new ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InstanceHierarchy>();
 
 		for (int j = 0; j < minimum; j++) {
 
@@ -136,7 +136,7 @@ public class InstanceHierarchy extends GenericElement {
 		}
 	}
 
-	public static void setValues(edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InstanceHierarchy type, int i) {
+	public static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InstanceHierarchy type, int i) {
 
 		type.setID("0000-" + i);
 		type.setName("Instance Name-" + i);

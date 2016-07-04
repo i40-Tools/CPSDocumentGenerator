@@ -3,7 +3,7 @@
  */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
-import edu.bonn.AMLGolStandardGenerator.aml.InternalElementType.RoleRequirements;
+import edu.bonn.AMLGoldStandardGenerator.aml.InternalElementType.RoleRequirements;
 
 /**
  * @author omar

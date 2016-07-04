@@ -6,29 +6,29 @@
 //
 
 
-package edu.bonn.AMLGolStandardGenerator.aml;
+package edu.bonn.AMLGoldStandardGenerator.aml;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
-import edu.bonn.AMLGolStandardGenerator.aml.AttributeType.RefSemantic;
-import edu.bonn.AMLGolStandardGenerator.aml.AttributeValueRequirementType.NominalScaledType;
-import edu.bonn.AMLGolStandardGenerator.aml.AttributeValueRequirementType.OrdinalScaledType;
-import edu.bonn.AMLGolStandardGenerator.aml.AttributeValueRequirementType.UnknownType;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject.Copyright;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject.Description;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject.Revision;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject.Version;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.ExternalReference;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InstanceHierarchy;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.InterfaceClassLib;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.RoleClassLib;
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.SystemUnitClassLib;
-import edu.bonn.AMLGolStandardGenerator.aml.InternalElementType.RoleRequirements;
-import edu.bonn.AMLGolStandardGenerator.aml.MappingType.AttributeNameMapping;
-import edu.bonn.AMLGolStandardGenerator.aml.MappingType.InterfaceNameMapping;
-import edu.bonn.AMLGolStandardGenerator.aml.RoleClassType.ExternalInterface;
-import edu.bonn.AMLGolStandardGenerator.aml.SystemUnitClassType.InternalLink;
-import edu.bonn.AMLGolStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass;
+import edu.bonn.AMLGoldStandardGenerator.aml.AttributeType.RefSemantic;
+import edu.bonn.AMLGoldStandardGenerator.aml.AttributeValueRequirementType.NominalScaledType;
+import edu.bonn.AMLGoldStandardGenerator.aml.AttributeValueRequirementType.OrdinalScaledType;
+import edu.bonn.AMLGoldStandardGenerator.aml.AttributeValueRequirementType.UnknownType;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Copyright;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Description;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Revision;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Version;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.ExternalReference;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InstanceHierarchy;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InterfaceClassLib;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.RoleClassLib;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.SystemUnitClassLib;
+import edu.bonn.AMLGoldStandardGenerator.aml.InternalElementType.RoleRequirements;
+import edu.bonn.AMLGoldStandardGenerator.aml.MappingType.AttributeNameMapping;
+import edu.bonn.AMLGoldStandardGenerator.aml.MappingType.InterfaceNameMapping;
+import edu.bonn.AMLGoldStandardGenerator.aml.RoleClassType.ExternalInterface;
+import edu.bonn.AMLGoldStandardGenerator.aml.SystemUnitClassType.InternalLink;
+import edu.bonn.AMLGoldStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass;
 
 
 /**

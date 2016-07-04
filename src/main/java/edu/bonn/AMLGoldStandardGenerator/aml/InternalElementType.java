@@ -6,7 +6,7 @@
 //
 
 
-package edu.bonn.AMLGolStandardGenerator.aml;
+package edu.bonn.AMLGoldStandardGenerator.aml;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import edu.bonn.AMLGolStandardGenerator.aml.InternalElementType.RoleRequirements;
+import edu.bonn.AMLGoldStandardGenerator.aml.InternalElementType.RoleRequirements;
 
 
 /**

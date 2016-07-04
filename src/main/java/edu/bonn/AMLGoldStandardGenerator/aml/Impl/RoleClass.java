@@ -20,10 +20,10 @@ public class RoleClass extends GenericElement {
 	public static int setAttribute = -1;
 	public static int setExternalInterface = -1;
 
-	public static ArrayList<edu.bonn.AMLGolStandardGenerator.aml.RoleFamilyType> setObject() {
+	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.RoleFamilyType> setObject() {
 		// TODO Auto-generated method stub
 
-		ArrayList<edu.bonn.AMLGolStandardGenerator.aml.RoleFamilyType> roleClass = new ArrayList<edu.bonn.AMLGolStandardGenerator.aml.RoleFamilyType>();
+		ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.RoleFamilyType> roleClass = new ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.RoleFamilyType>();
 		setNoOfElements();
 
 		for (int j = 0; j < minimum; j++) {
@@ -36,7 +36,7 @@ public class RoleClass extends GenericElement {
 
 	}
 
-	private static void setValues(edu.bonn.AMLGolStandardGenerator.aml.RoleClassType type, int i) {
+	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.RoleClassType type, int i) {
 		type.setID("143-3-3-34-5-5-" + i);
 		type.setName("Role class Name " + i);
 		type.setRefBaseClassPath("Ref base path" + i);

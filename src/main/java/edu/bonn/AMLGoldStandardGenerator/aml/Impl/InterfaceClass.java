@@ -19,10 +19,10 @@ public class InterfaceClass extends GenericElement {
 	public static int setVersion = -1;
 	public static int setAttribute = -1;
 
-	public static ArrayList<edu.bonn.AMLGolStandardGenerator.aml.InterfaceFamilyType> setObject() {
+	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.InterfaceFamilyType> setObject() {
 		// TODO Auto-generated method stub
 
-		ArrayList<edu.bonn.AMLGolStandardGenerator.aml.InterfaceFamilyType> interfaceClass = new ArrayList<edu.bonn.AMLGolStandardGenerator.aml.InterfaceFamilyType>();
+		ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.InterfaceFamilyType> interfaceClass = new ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.InterfaceFamilyType>();
 
 		setNoOfElements();
 		for (int j = 0; j < minimum; j++) {
@@ -36,7 +36,7 @@ public class InterfaceClass extends GenericElement {
 
 	}
 
-	private static void setValues(edu.bonn.AMLGolStandardGenerator.aml.InterfaceClassType type, int i) {
+	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.InterfaceClassType type, int i) {
 		type.setID("141929fsafa-34-5-5-" + i);
 		type.setName("interface class Name " + i);
 		type.setRefBaseClassPath("Ref base path" + i);

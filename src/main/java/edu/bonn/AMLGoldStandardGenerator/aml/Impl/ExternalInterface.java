@@ -19,11 +19,11 @@ public class ExternalInterface extends GenericElement {
 	public static int setVersion = -1;
 	public static int setAttribute = -1;
 
-	public static ArrayList<edu.bonn.AMLGolStandardGenerator.aml.RoleClassType.ExternalInterface> setObject() {
+	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.RoleClassType.ExternalInterface> setObject() {
 		// TODO Auto-generated method stub
 		setNoOfElements();
 
-		ArrayList<edu.bonn.AMLGolStandardGenerator.aml.RoleClassType.ExternalInterface> external = new ArrayList<edu.bonn.AMLGolStandardGenerator.aml.RoleClassType.ExternalInterface>();
+		ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.RoleClassType.ExternalInterface> external = new ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.RoleClassType.ExternalInterface>();
 		for (int j = 0; j < minimum; j++) {
 
 			external.add(factory.createRoleClassTypeExternalInterface());
@@ -35,7 +35,7 @@ public class ExternalInterface extends GenericElement {
 
 	}
 
-	public static void setValues(edu.bonn.AMLGolStandardGenerator.aml.RoleClassType.ExternalInterface type, int i) {
+	public static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.RoleClassType.ExternalInterface type, int i) {
 		type.setID("00220-1--1" + i);
 		type.setName("External Interface" + i);
 		type.setRefBaseClassPath("RefBasePath" + i);

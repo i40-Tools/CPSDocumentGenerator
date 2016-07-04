@@ -3,7 +3,7 @@
  */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject;
 
 /**
  * @author omar
@@ -16,7 +16,7 @@ public class Description extends GenericElement {
 		// TODO Auto-generated method stub
 		if (minimum != 0) {
 
-			edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject.Description desc = factory.createCAEXBasicObjectDescription();
+			edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Description desc = factory.createCAEXBasicObjectDescription();
 			desc.setValue("Eis 2016");
 			return desc;
 

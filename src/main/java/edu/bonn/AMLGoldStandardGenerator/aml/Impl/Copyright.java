@@ -3,7 +3,7 @@
  */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
-import edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject;
+import edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject;
 
 /**
  * @author omar
@@ -17,7 +17,7 @@ public class Copyright extends GenericElement {
 		// TODO Auto-generated method stub
 		if (minimum != 0) {
 
-			edu.bonn.AMLGolStandardGenerator.aml.CAEXBasicObject.Copyright copy = factory.createCAEXBasicObjectCopyright();
+			edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Copyright copy = factory.createCAEXBasicObjectCopyright();
 			copy.setValue("Eis 2016");
 			return copy;
 

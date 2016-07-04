@@ -18,11 +18,11 @@ public class InterfaceNameMapping extends GenericElement {
 	public static int setDescription = -1;
 	public static int setAdditionalInformation = -1;
 
-	public static ArrayList<edu.bonn.AMLGolStandardGenerator.aml.MappingType.InterfaceNameMapping> setValue() {
+	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.MappingType.InterfaceNameMapping> setValue() {
 		// TODO Auto-generated method stub
 		setNoOfElements();
 
-		ArrayList<edu.bonn.AMLGolStandardGenerator.aml.MappingType.InterfaceNameMapping> attribute = new ArrayList<edu.bonn.AMLGolStandardGenerator.aml.MappingType.InterfaceNameMapping>();
+		ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.MappingType.InterfaceNameMapping> attribute = new ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.MappingType.InterfaceNameMapping>();
 		for (int j = 0; j < minimum; j++) {
 
 			attribute.add(GenerateAML.factory.createMappingTypeInterfaceNameMapping());
@@ -33,7 +33,7 @@ public class InterfaceNameMapping extends GenericElement {
 
 	}
 
-	public static void setAttributeValues(edu.bonn.AMLGolStandardGenerator.aml.MappingType.InterfaceNameMapping interfaceNameMapping, int i) {
+	public static void setAttributeValues(edu.bonn.AMLGoldStandardGenerator.aml.MappingType.InterfaceNameMapping interfaceNameMapping, int i) {
 
 		interfaceNameMapping.setCopyright(Copyright.setSingleObject());
 		interfaceNameMapping.setDescription(Description.setSingleObject());

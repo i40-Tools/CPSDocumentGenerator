@@ -20,10 +20,10 @@ public class RoleClassLib extends GenericElement {
 	private static int setRoleClassAttribute = -1;
 	private static int setRoleClassExternalInterface = -1;
 
-	public static ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.RoleClassLib> setObject() {
+	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.RoleClassLib> setObject() {
 		// TODO Auto-generated method stub
 		setNoOfElements();
-		ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.RoleClassLib> roleClass = new ArrayList<edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.RoleClassLib>();
+		ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.RoleClassLib> roleClass = new ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.RoleClassLib>();
 		for (int j = 0; j < minimum; j++) {
 
 			roleClass.add(factory.createCAEXFileRoleClassLib());
@@ -35,7 +35,7 @@ public class RoleClassLib extends GenericElement {
 
 	}
 
-	private static void setValues(edu.bonn.AMLGolStandardGenerator.aml.CAEXFile.RoleClassLib type, int i) {
+	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.RoleClassLib type, int i) {
 		type.setID("14-32-34-34-5-5-" + i);
 		type.setName("Role class Lib Name " + i);
 		type.getRoleClass().addAll(RoleClass.setObject());

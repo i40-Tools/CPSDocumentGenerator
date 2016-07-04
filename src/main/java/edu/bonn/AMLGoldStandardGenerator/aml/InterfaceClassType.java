@@ -6,7 +6,7 @@
 //
 
 
-package edu.bonn.AMLGolStandardGenerator.aml;
+package edu.bonn.AMLGoldStandardGenerator.aml;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,30 +16,20 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import edu.bonn.AMLGolStandardGenerator.aml.RoleClassType.ExternalInterface;
-
 
 /**
- * Shall be used for RoleClass definition, provides base structures for a role class definition.
+ * Shall be used for InterfaceClass definition, provides base structures for an interface class definition.
  * 
- * <p>Java class for RoleClassType complex type.
+ * <p>Java class for InterfaceClassType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="RoleClassType">
+ * &lt;complexType name="InterfaceClassType">
  *   &lt;complexContent>
  *     &lt;extension base="{}CAEXObject">
  *       &lt;sequence minOccurs="0">
  *         &lt;element name="Attribute" type="{}AttributeType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="ExternalInterface" maxOccurs="unbounded" minOccurs="0">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;extension base="{}InterfaceClassType">
- *               &lt;/extension>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
  *       &lt;/sequence>
  *       &lt;attribute name="RefBaseClassPath" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/extension>
@@ -50,18 +40,15 @@ import edu.bonn.AMLGolStandardGenerator.aml.RoleClassType.ExternalInterface;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RoleClassType", propOrder = {
-    "attribute",
-    "externalInterface"
+@XmlType(name = "InterfaceClassType", propOrder = {
+    "attribute"
 })
-public class RoleClassType
+public class InterfaceClassType
     extends CAEXObject
 {
 
     @XmlElement(name = "Attribute", required = true)
     protected List<AttributeType> attribute;
-    @XmlElement(name = "ExternalInterface", required = true)
-    protected List<ExternalInterface> externalInterface;
     @XmlAttribute(name = "RefBaseClassPath")
     protected String refBaseClassPath;
 
@@ -95,35 +82,6 @@ public class RoleClassType
     }
 
     /**
-     * Gets the value of the externalInterface property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the externalInterface property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getExternalInterface().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link ExternalInterface }
-     * 
-     * 
-     */
-    public List<ExternalInterface> getExternalInterface() {
-        if (externalInterface == null) {
-            externalInterface = new ArrayList<ExternalInterface>();
-        }
-        return this.externalInterface;
-    }
-
-    /**
      * Gets the value of the refBaseClassPath property.
      * 
      * @return
@@ -145,32 +103,6 @@ public class RoleClassType
      */
     public void setRefBaseClassPath(String value) {
         this.refBaseClassPath = value;
-    }
-
-
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;extension base="{}InterfaceClassType">
-     *     &lt;/extension>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
-     * </pre>
-     * 
-     * 
-     */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "")
-    public static class ExternalInterface
-        extends InterfaceClassType
-    {
-
-
     }
 
 }

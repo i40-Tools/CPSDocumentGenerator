@@ -18,10 +18,10 @@ public class AttributeNameMapping extends GenericElement {
 	public static int setDescription = -1;
 	public static int setAdditionalInformation = -1;
 
-	public static ArrayList<edu.bonn.AMLGolStandardGenerator.aml.MappingType.AttributeNameMapping> setValue() {
+	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.MappingType.AttributeNameMapping> setValue() {
 		// TODO Auto-generated method stub
 		setNoOfElements();
-		ArrayList<edu.bonn.AMLGolStandardGenerator.aml.MappingType.AttributeNameMapping> attribute = new ArrayList<edu.bonn.AMLGolStandardGenerator.aml.MappingType.AttributeNameMapping>();
+		ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.MappingType.AttributeNameMapping> attribute = new ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.MappingType.AttributeNameMapping>();
 		for (int j = 0; j < minimum; j++) {
 
 			attribute.add(GenerateAML.factory.createMappingTypeAttributeNameMapping());
@@ -32,7 +32,7 @@ public class AttributeNameMapping extends GenericElement {
 
 	}
 
-	public static void setAttributeValues(edu.bonn.AMLGolStandardGenerator.aml.MappingType.AttributeNameMapping type, int i) {
+	public static void setAttributeValues(edu.bonn.AMLGoldStandardGenerator.aml.MappingType.AttributeNameMapping type, int i) {
 
 		type.setRoleAttributeName("RoleAttribute-Name" + i);
 		type.setSystemUnitAttributeName("System Unit Attribute" + i);
