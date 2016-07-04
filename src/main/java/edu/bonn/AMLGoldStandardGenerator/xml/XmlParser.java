@@ -81,7 +81,7 @@ public class XmlParser {
 	 * @return
 	 */
 
-	public int getChildCount(NodeList childNodes) {
+	public static int getChildCount(NodeList childNodes) {
 
 		// counting number of children
 		int count = 0;
@@ -95,6 +95,21 @@ public class XmlParser {
 			}
 		}
 		return count;
+	}
+
+	public ArrayList<Node> getChildNodes(NodeList childNodes) {
+
+		// counting number of children
+		ArrayList<Node> child = new ArrayList<Node>();
+		for (int i = 0; i < childNodes.getLength(); i++) {
+
+			// must be Element node.
+			if (childNodes.item(i).getNodeType() == Node.ELEMENT_NODE) {
+				child.add(childNodes.item(i));
+
+			}
+		}
+		return child;
 	}
 
 	/**
@@ -283,13 +298,51 @@ public class XmlParser {
 	 * @param child
 	 * @param parent
 	 */
-	public void addNodes(ArrayList<Node> node, int min, int child, Node parent) {
+
+	private static void removeAllChildNodes(Node node, int child) {
+		NodeList childNodes = node.getChildNodes();
+		int length = childNodes.getLength();
+		for (int i = 0; i < length; i++) {
+			Node childNode = childNodes.item(i);
+			if (childNode instanceof Element) {
+				if (childNode.hasChildNodes()) {
+					while (childNode.hasChildNodes()) {
+
+						if (getChildCount(childNode.getChildNodes()) <= child) {
+							break;
+
+						} else {
+							childNode.removeChild(childNode.getFirstChild());
+
+						}
+					}
+				}
+			}
+
+			removeAllChildNodes(childNode, child);
+		}
+
+	}
+
+	/**
+	 * Adds nodes with given parameters for generation.
+	 * 
+	 * @param node
+	 * @param min
+	 * @param child
+	 * @param parent
+	 * @param depth
+	 */
+	public void addNodes(ArrayList<Node> node, int min, int child, Node parent, int depth) {
 
 		for (int i = 0; i < min; i++) {
 
 			while (node.get(i).hasChildNodes()) {
 				node.get(i).removeChild(node.get(i).getFirstChild());
-				if (new XmlParser().getChildCount(node.get(i).getChildNodes()) < child) {
+				if (depth != -1) {
+					removeAllChildNodes(node.get(i), depth);
+				}
+				if (getChildCount(node.get(i).getChildNodes()) <= child) {
 					break;
 				}
 			}
@@ -297,6 +350,38 @@ public class XmlParser {
 				parent.appendChild(node.get(i));
 		}
 
+	}
+
+	/**
+	 * Removes child nodes to given child value
+	 * 
+	 * @param node
+	 * @param child
+	 */
+	public void removeChilds(int child, ArrayList<Node> n, String name) {
+
+		for (int z = 0; z < n.size(); z++) {
+			NodeList baseElmntLst = n.get(z).getChildNodes();
+
+			// loop throug all elements
+			for (int k = 0; k < baseElmntLst.getLength(); k++) {
+
+				Element baseElmnt = (Element) baseElmntLst.item(k);
+
+				for (int i = 0; i <= child; i++) {
+
+					while (baseElmnt.hasChildNodes()) {
+						if (new XmlParser().getChildCount(baseElmnt.getChildNodes()) < child) {
+
+							break;
+						}
+
+						baseElmnt.removeChild(baseElmnt.getFirstChild());
+
+					}
+				}
+			}
+		}
 	}
 
 	/**

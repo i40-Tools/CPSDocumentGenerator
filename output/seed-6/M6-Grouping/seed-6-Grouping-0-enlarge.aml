@@ -1,131 +1,224 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CAEXFile FileName="ExampleInstanceHierarchyGroup.aml" SchemaVersion="2.15">
-  <AdditionalInformation AutomationMLVersion="2.0">
-    <attributes name="AutomationMLVersion" value="2.0"/>
-  </AdditionalInformation>
-  <AdditionalInformation>
-    <WriterHeader>
-      <WriterName>AutomationML e.V.</WriterName>
-      <WriterID>AutomationML e.V.</WriterID>
-      <WriterVendor>AutomationML e.V.</WriterVendor>
-      <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
-      <WriterVersion>1.0</WriterVersion>
-      <WriterRelease>1.0</WriterRelease>
-      <LastWritingDateTime>2012-02-20</LastWritingDateTime>
-      <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
-      <WriterProjectID>AutomationML Tutorial Examples</WriterProjectID>
-    </WriterHeader>
-  </AdditionalInformation>
-  <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
-  <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
-  <ExternalReference Alias="Alias1" Path="Path1"/>
-  <ExternalReference Alias="Alias2" Path="Path2"/>
-  <ExternalReference Alias="Alias3" Path="Path3"/>
-  <ExternalReference Alias="Alias4" Path="Path4"/>
-  <ExternalReference Alias="Alias5" Path="Path5"/>
-  <InstanceHierarchy Name="AssemblySystem">
-    <InternalElement ID="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" Name="LiftUpGate" RefBaseSystemUnitPath="Resources/RollerConveyor">
-      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
-    </InternalElement>
-    <InternalElement ID="{71fc6d29-7797-4e3f-a659-ac69198e464f}" Name="TransferToSubAssembly" RefBaseSystemUnitPath="Resources/RollerConveyor">
-      <ExternalInterface ID="{4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}" Name="Product" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector"/>
-      <InternalElement ID="{571dae74-81ef-41cb-baaa-87de44f1aa82}" Name="DriveControl">
-        <ExternalInterface ID="{8e422f26-c2ea-49f2-a0bd-1ab410901fb4}" Name="Information" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication"/>
-        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
-      </InternalElement>
-      <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly"/>
-      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
-    </InternalElement>
-    <InternalElement ID="{ac026999-a2e2-4a86-8c97-39685607e49a}" Name="SubAssembly" RefBaseSystemUnitPath="Resources/AssemblyStation">
-      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
-    </InternalElement>
-    <InternalElement ID="{9facd06a-1725-4d18-95f7-4814ba2e4cf8}" Name="TransferToMainAssembly" RefBaseSystemUnitPath="Resources/RollerConveyor">
-      <ExternalInterface ID="{b743533f-0730-479a-9db1-98f38199644c}" Name="Product" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector"/>
-      <InternalElement ID="{18d0c126-772b-40bd-be11-5a5a18600eb4}" Name="DriveControl">
-        <ExternalInterface ID="{cd6536ac-4004-43ae-82cc-ddc40731805a}" Name="Information" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication"/>
-        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
-      </InternalElement>
-      <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly"/>
-      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
-    </InternalElement>
-    <InternalElement ID="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" Name="MainAssemblyStation" RefBaseSystemUnitPath="Resources/AssemblyStation">
-      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
-    </InternalElement>
-    <InternalElement ID="{72bf71e8-15fd-4882-9d35-00a12d1aa995}" Name="EndStop" RefBaseSystemUnitPath="Resources/RollerConveyor">
-      <ExternalInterface ID="{b0b6b4bd-753b-484b-ac71-0893faf7dbac}" Name="Product" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector"/>
-      <InternalElement ID="{97eaa90d-510a-44f5-bc66-4a4b7fcc9242}" Name="DriveControl">
-        <ExternalInterface ID="{4cf5d16a-7794-4665-a461-5519694c290b}" Name="Information" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication"/>
-        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
-      </InternalElement>
-      <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly"/>
-      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
-    </InternalElement>
-    <InternalElement ID="{aa490a5b-1ee8-42ea-bd48-8aff922ee835}" Name="ConveyorGroup">
-      <Attribute Name="AssociatedFacet"/>
-      <InternalElement ID="{8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" Name="LiftUpGate" RefBaseSystemUnitPath="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}"/>
-      <InternalElement ID="{2dd897fb-92ea-48ec-af81-84252f1d91ca}" Name="TransferToSubAssembly" RefBaseSystemUnitPath="{71fc6d29-7797-4e3f-a659-ac69198e464f}"/>
-      <InternalElement ID="{f3e48d15-571f-4376-aeea-189235f6b671}" Name="TransferToMainAssembly" RefBaseSystemUnitPath="{9facd06a-1725-4d18-95f7-4814ba2e4cf8}"/>
-      <InternalElement ID="{176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" Name="EndStop" RefBaseSystemUnitPath="{72bf71e8-15fd-4882-9d35-00a12d1aa995}"/>
-      <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group"/>
-      <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
-      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group"/>
-    </InternalElement>
-    <InternalElement ID="{7b74d01b-de35-43a4-96bc-4897276adada}" Name="AssemblyStationGroup">
-      <Attribute Name="AssociatedFacet"/>
-      <InternalElement ID="{eb7af72e-a31c-4b99-b627-8249d19b73bb}" Name="SubAssembly" RefBaseSystemUnitPath="{ac026999-a2e2-4a86-8c97-39685607e49a}"/>
-      <InternalElement ID="{62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" Name="MainAssemblyStation" RefBaseSystemUnitPath="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}"/>
-      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group"/>
-    </InternalElement>
-    <InternalElement ID="ID2" Name="Name2" RefBaseSystemUnitPath="RefBaseSystemUnitPath1"/>
-    <InternalElement ID="ID3" Name="Name3" RefBaseSystemUnitPath="RefBaseSystemUnitPath2"/>
-  </InstanceHierarchy>
-  <InstanceHierarchy ID="ID1" Name="Name1"/>
-  <InstanceHierarchy ID="ID7" Name="Name7"/>
-  <InstanceHierarchy ID="ID13" Name="Name13"/>
-  <InstanceHierarchy ID="ID19" Name="Name19"/>
-  <InstanceHierarchy ID="ID25" Name="Name25"/>
-  <InterfaceClassLib ID="ID31" Name="Name31">
-    <InterfaceClass ID="ID32" Name="Name32" RefBaseClassPath="RefBaseClassPath1"/>
-    <InterfaceClass ID="ID33" Name="Name33" RefBaseClassPath="RefBaseClassPath2"/>
-    <InterfaceClass ID="ID34" Name="Name34" RefBaseClassPath="RefBaseClassPath3"/>
-    <InterfaceClass ID="ID35" Name="Name35" RefBaseClassPath="RefBaseClassPath4"/>
-    <InterfaceClass ID="ID36" Name="Name36" RefBaseClassPath="RefBaseClassPath5"/>
-  </InterfaceClassLib>
-  <InterfaceClassLib ID="ID37" Name="Name37"/>
-  <InterfaceClassLib ID="ID43" Name="Name43"/>
-  <InterfaceClassLib ID="ID49" Name="Name49"/>
-  <InterfaceClassLib ID="ID55" Name="Name55"/>
-  <RoleClassLib ID="ID61" Name="Name61">
-    <RoleClass ID="ID62" Name="Name62" RefBaseClassPath="RefBaseClassPath26"/>
-    <RoleClass ID="ID63" Name="Name63" RefBaseClassPath="RefBaseClassPath27"/>
-    <RoleClass ID="ID64" Name="Name64" RefBaseClassPath="RefBaseClassPath28"/>
-    <RoleClass ID="ID65" Name="Name65" RefBaseClassPath="RefBaseClassPath29"/>
-    <RoleClass ID="ID66" Name="Name66" RefBaseClassPath="RefBaseClassPath30"/>
-  </RoleClassLib>
-  <RoleClassLib ID="ID67" Name="Name67"/>
-  <RoleClassLib ID="ID73" Name="Name73"/>
-  <RoleClassLib ID="ID79" Name="Name79"/>
-  <RoleClassLib ID="ID85" Name="Name85"/>
-  <SystemUnitClassLib Name="Resources">
-    <Version>1.0</Version>
-    <SystemUnitClass Name="RollerConveyor">
-      <ExternalInterface ID="{dbaad283-b832-45c5-9c13-5d158fd88488}" Name="Product" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector"/>
-      <InternalElement ID="{26ba29ca-2420-4618-8d0e-b85f4b5681f4}" Name="DriveControl">
-        <ExternalInterface ID="{f2f15585-de4a-4bc3-996a-50957b56dc17}" Name="Information" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication"/>
-        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
-      </InternalElement>
-      <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly"/>
-    </SystemUnitClass>
-    <SystemUnitClass Name="AssemblyStation"/>
-    <SystemUnitClass ID="ID92" Name="Name92" RefBaseClassPath="RefBaseClassPath51"/>
-    <SystemUnitClass ID="ID93" Name="Name93" RefBaseClassPath="RefBaseClassPath52"/>
-    <SystemUnitClass ID="ID94" Name="Name94" RefBaseClassPath="RefBaseClassPath53"/>
-    <SystemUnitClass ID="ID95" Name="Name95" RefBaseClassPath="RefBaseClassPath54"/>
-    <SystemUnitClass ID="ID96" Name="Name96" RefBaseClassPath="RefBaseClassPath55"/>
-  </SystemUnitClassLib>
-  <SystemUnitClassLib ID="ID91" Name="Name91"/>
-  <SystemUnitClassLib ID="ID97" Name="Name97"/>
-  <SystemUnitClassLib ID="ID103" Name="Name103"/>
-  <SystemUnitClassLib ID="ID109" Name="Name109"/>
-  <SystemUnitClassLib ID="ID115" Name="Name115"/>
+<CAEXFile FileName="file-1.aml" SchemaVersion="2.15">
+    <AdditionalInformation AutomationMLVersion="2.0"/>
+    <AdditionalInformation>
+        <WriterHeader>
+            <WriterName>AutomationML e.V.</WriterName>
+            <WriterID>AutomationML e.V.</WriterID>
+            <WriterVendor>AutomationML e.V.</WriterVendor>
+            <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+            <WriterVersion>1.0</WriterVersion>
+            <WriterRelease>1.0</WriterRelease>
+            <LastWritingDateTime>2012-02-20 </LastWritingDateTime>
+            <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+            <WriterProjectID>AutomationML Tutorial Examples </WriterProjectID>
+        </WriterHeader>
+    </AdditionalInformation>
+    <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
+    <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
+    <ExternalReference Alias="Alias0" Path="Path0"/>
+    <InstanceHierarchy Name="AssemblySystem">
+        <InternalElement ID="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" Name="LiftUpGate" RefBaseSystemUnitPath="Resources/RollerConveyor">
+            <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
+        </InternalElement>
+        <InternalElement ID="{71fc6d29-7797-4e3f-a659-ac69198e464f}" Name="TransferToSubAssembly" RefBaseSystemUnitPath="Resources/RollerConveyor">
+            <ExternalInterface ID="{4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}" Name="Product" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector"/>
+            <InternalElement ID="{571dae74-81ef-41cb-baaa-87de44f1aa82}" Name="DriveControl">
+                <ExternalInterface ID="{8e422f26-c2ea-49f2-a0bd-1ab410901fb4}" Name="Information" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication"/>
+                <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
+            </InternalElement>
+            <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly"/>
+            <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
+        </InternalElement>
+        <InternalElement ID="{ac026999-a2e2-4a86-8c97-39685607e49a}" Name="SubAssembly" RefBaseSystemUnitPath="Resources/AssemblyStation">
+            <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
+        </InternalElement>
+        <InternalElement ID="{9facd06a-1725-4d18-95f7-4814ba2e4cf8}" Name="TransferToMainAssembly" RefBaseSystemUnitPath="Resources/RollerConveyor">
+            <ExternalInterface ID="{b743533f-0730-479a-9db1-98f38199644c}" Name="Product" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector"/>
+            <InternalElement ID="{18d0c126-772b-40bd-be11-5a5a18600eb4}" Name="DriveControl">
+                <ExternalInterface ID="{cd6536ac-4004-43ae-82cc-ddc40731805a}" Name="Information" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication"/>
+                <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
+            </InternalElement>
+            <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly"/>
+            <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
+        </InternalElement>
+        <InternalElement ID="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" Name="MainAssemblyStation" RefBaseSystemUnitPath="Resources/AssemblyStation">
+            <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
+        </InternalElement>
+        <InternalElement ID="{72bf71e8-15fd-4882-9d35-00a12d1aa995}" Name="EndStop" RefBaseSystemUnitPath="Resources/RollerConveyor">
+            <ExternalInterface ID="{b0b6b4bd-753b-484b-ac71-0893faf7dbac}" Name="Product" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector"/>
+            <InternalElement ID="{97eaa90d-510a-44f5-bc66-4a4b7fcc9242}" Name="DriveControl">
+                <ExternalInterface ID="{4cf5d16a-7794-4665-a461-5519694c290b}" Name="Information" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication"/>
+                <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
+            </InternalElement>
+            <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly"/>
+            <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
+        </InternalElement>
+        <InternalElement ID="{aa490a5b-1ee8-42ea-bd48-8aff922ee835}" Name="ConveyorGroup">
+            <Attribute Name="AssociatedFacet"/>
+            <InternalElement ID="{8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" Name="LiftUpGate" RefBaseSystemUnitPath="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}"/>
+            <InternalElement ID="{2dd897fb-92ea-48ec-af81-84252f1d91ca}" Name="TransferToSubAssembly" RefBaseSystemUnitPath="{71fc6d29-7797-4e3f-a659-ac69198e464f}"/>
+            <InternalElement ID="{f3e48d15-571f-4376-aeea-189235f6b671}" Name="TransferToMainAssembly" RefBaseSystemUnitPath="{9facd06a-1725-4d18-95f7-4814ba2e4cf8}"/>
+            <InternalElement ID="{176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" Name="EndStop" RefBaseSystemUnitPath="{72bf71e8-15fd-4882-9d35-00a12d1aa995}"/>
+            <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group"/>
+            <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
+            <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group"/>
+        </InternalElement>
+        <InternalElement ID="{7b74d01b-de35-43a4-96bc-4897276adada}" Name="AssemblyStationGroup">
+            <Attribute Name="AssociatedFacet"/>
+            <InternalElement ID="{eb7af72e-a31c-4b99-b627-8249d19b73bb}" Name="SubAssembly" RefBaseSystemUnitPath="{ac026999-a2e2-4a86-8c97-39685607e49a}"/>
+            <InternalElement ID="{62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" Name="MainAssemblyStation" RefBaseSystemUnitPath="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}"/>
+            <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group"/>
+        </InternalElement>
+    </InstanceHierarchy>
+    <InstanceHierarchy ID="0000-0" Name="Instance Name-0">
+        <InternalElement ChangeMode="state" ID="0000-0" Name="AML Object-0" RefBaseSystemUnitPath="RefbasePath-0">
+            <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                <RefSemantic CorrespondingAttributePath="eclass-default"/>
+            </Attribute>
+            <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                <RefSemantic CorrespondingAttributePath="eclass-default"/>
+            </Attribute>
+            <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
+                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+            </ExternalInterface>
+            <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1">
+                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+            </ExternalInterface>
+            <InternalElement ID="0000-0" Name="AML Object-0" RefBaseSystemUnitPath="RefbasePath-0">
+                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+                <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
+                    <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                        <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                    </Attribute>
+                    <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                        <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                    </Attribute>
+                </ExternalInterface>
+                <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1">
+                    <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                        <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                    </Attribute>
+                    <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                        <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                    </Attribute>
+                </ExternalInterface>
+                <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
+                <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
+            </InternalElement>
+            <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
+            <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
+        </InternalElement>
+    </InstanceHierarchy>
+    <InterfaceClassLib ID="141929fsafa-34-5-5-0" Name="interface class Lib Name 0">
+        <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
+        <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+    </InterfaceClassLib>
+    <InterfaceClassLib ID="141929fsafa-34-5-5-1" Name="interface class Lib Name 1">
+        <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
+        <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+    </InterfaceClassLib>
+    <RoleClassLib ID="14-32-34-34-5-5-0" Name="Role class Lib Name 0">
+        <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+            <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                <RefSemantic CorrespondingAttributePath="eclass-default"/>
+            </Attribute>
+            <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                <RefSemantic CorrespondingAttributePath="eclass-default"/>
+            </Attribute>
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
+                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+            </ExternalInterface>
+        </RoleClass>
+        <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+            <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                <RefSemantic CorrespondingAttributePath="eclass-default"/>
+            </Attribute>
+            <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                <RefSemantic CorrespondingAttributePath="eclass-default"/>
+            </Attribute>
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
+                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+            </ExternalInterface>
+        </RoleClass>
+    </RoleClassLib>
+    <RoleClassLib ID="14-32-34-34-5-5-1" Name="Role class Lib Name 1">
+        <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+            <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                <RefSemantic CorrespondingAttributePath="eclass-default"/>
+            </Attribute>
+            <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                <RefSemantic CorrespondingAttributePath="eclass-default"/>
+            </Attribute>
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
+                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+            </ExternalInterface>
+        </RoleClass>
+        <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+            <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                <RefSemantic CorrespondingAttributePath="eclass-default"/>
+            </Attribute>
+            <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                <RefSemantic CorrespondingAttributePath="eclass-default"/>
+            </Attribute>
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
+                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
+                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
+                </Attribute>
+            </ExternalInterface>
+        </RoleClass>
+    </RoleClassLib>
+    <SystemUnitClassLib Name="Resources">
+        <Version>1.0</Version>
+        <SystemUnitClass Name="RollerConveyor">
+            <ExternalInterface ID="{dbaad283-b832-45c5-9c13-5d158fd88488}" Name="Product" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector"/>
+            <InternalElement ID="{26ba29ca-2420-4618-8d0e-b85f4b5681f4}" Name="DriveControl">
+                <ExternalInterface ID="{f2f15585-de4a-4bc3-996a-50957b56dc17}" Name="Information" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication"/>
+                <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
+            </InternalElement>
+            <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly"/>
+        </SystemUnitClass>
+        <SystemUnitClass Name="AssemblyStation"/>
+    </SystemUnitClassLib>
+    <SystemUnitClassLib ID="11-31-31-31-1-1-0" Name="System Unit class Lib Name 0">
+        <SystemUnitClass ID="11-31-31-31-1-1-0" Name="System Unit class Name 0">
+            <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1"/>
+            <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
+            <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
+        </SystemUnitClass>
+    </SystemUnitClassLib>
 </CAEXFile>

@@ -16,8 +16,8 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
 import Test.ModelRepair;
-import edu.bonn.AMLGoldStandardGenerator.aml.GenericElement;
-import edu.bonn.AMLGoldStandardGenerator.aml.InternalElement;
+import edu.bonn.AMLGoldStandardGenerator.aml.Impl.GenerateAML;
+import edu.bonn.AMLGoldStandardGenerator.aml.util.AMLConfigManager;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.DataTypeHeterogeneity;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.GranularityHeterogeneity;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.GroupingHeterogeneity;
@@ -182,54 +182,27 @@ public class AMLGoldStandardGenerator {
 					break;
 
 				}
+				// outputs the modified XML data to file and validates
+				new XmlParser().formatXML(doc, outputFile, directory);
 
-				// outputs the modified XML data to file.
-				try {
-
-					new XmlParser().formatXML(doc, outputFile, directory);
-
-					// validates XML Schema
-					if (!new XSDValidator(directory + "\\" + outputFile).schemaValidate()) {
-						System.out.println("Repairing and Rechecking");
-						ModelRepair.testRoundTrip(directory + "\\" + outputFile);
-						if (!new XSDValidator(directory + "\\" + outputFile).schemaValidate()) {
-							logger.error("Schema did not Validated for " + outputFile);
-							break;
-						}
-					}
-
-				} catch (TransformerFactoryConfigurationError | Exception e) {
-					// TODO Auto-generated catch block
-					logger.error("Failed " + e.getLocalizedMessage());
-					e.printStackTrace();
-				}
+				validateSchema(outputFile, directory);
 
 				// renames the CAEXFile name attribute wiht new files
 				renameFiles(inputName.get(m), outputFile, directory);
 
-				// sets all elements generation
-
-				GenericElement.minimumElementsGenerated = 5;
-				GenericElement.elementChild = 5;
-
-				/** individual properties could be set like this **/
-				InternalElement.minimumInternalGenerated = 2;
-				// InternalElement.internalChild = 5;
-				// InstanceHierarchy.minimumInstanceGenerated = 10;
-				// InstanceHierarchy.instanceChild = 5;
-				// ExternalReference.minimumExternalGenerated = 5;
-				// ExternalReference.externalChild = 2;
-				// InterfaceClassLib.minimumInterfaceGenerated = 15;
-				// InterfaceClassLib.interfaceChild = 10;
-				// SystemUnitClassLib.minimumSystemUnitGenerated = 10;
-				// SystemUnitClassLib.systemChild = 10;
-				// RoleClassLib.minimumRoleGenerated = 20;
-				// RoleClassLib.roleChild = 10;
-				// RoleClass.minimum = 2;
-				// InterfaceClass.minimum = 2;
-
 				String enlargeFile = outputFile.replace(".aml", "-enlarge.aml");
-				GenericElement.generate(directory + "//" + outputFile, directory + "//", enlargeFile);
+
+				// calls the generator configuration
+				AMLConfigManager.loadConfiguration();
+				// calls the generator
+				new GenerateAML().generate(inputFile, directory + "//" + enlargeFile);
+
+				// validates the files
+				validateSchema(enlargeFile, directory + "//");
+
+				// make it look pretty.
+				new XmlParser().formatXML(new XmlParser().initInput(directory + "//" + enlargeFile), enlargeFile,
+						directory);
 
 				i++;
 			}
@@ -292,17 +265,49 @@ public class AMLGoldStandardGenerator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * Validates and repair the Aml file if its not correct.
+	 * 
+	 * @param doc
+	 * @param outputFile
+	 * @param directory
+	 */
+	void validateSchema(String outputFile, String directory) {
+		// outputs the modified XML data to file.
+		try {
+
+			// validates XML Schema
+			if (!new XSDValidator(directory + "\\" + outputFile).schemaValidate()) {
+				System.out.println("Repairing and Rechecking");
+				ModelRepair.testRoundTrip(directory + "\\" + outputFile);
+				if (!new XSDValidator(directory + "\\" + outputFile).schemaValidate()) {
+					logger.error("Schema did not Validated for " + outputFile);
+				}
+			}
+
+		} catch (TransformerFactoryConfigurationError | Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("Failed " + e.getLocalizedMessage());
+			e.printStackTrace();
+		}
 
 	}
 
 	public static void main(String[] args) {
-
 		// give input file name and heterogeneity mode
 		// 1- Granularity
 		// 2- Schema
 		AMLGoldStandardGenerator goldStandard = new AMLGoldStandardGenerator();
 		goldStandard.heterogeneityGenerator(goldStandard.inputPath, goldStandard.heterogeneityID);
 		new IntegrationValidator().validate();
+		try {
+			// ModelRepair.testRoundTrip("model.aml");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 }

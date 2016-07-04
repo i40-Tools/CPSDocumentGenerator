@@ -68,7 +68,12 @@
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
-			</xs:element>
+			</xs:element>
+			<xs:element name="AdditionalInformation" type="xs:anyType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Optional auxiliary field that may contain any additional information about a CAEX object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:group>
 	<xs:complexType name="CAEXBasicObject">
@@ -306,12 +311,12 @@ Name (required) and ID (optional).</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="CAEXObject">
 				<xs:sequence minOccurs="0">
-					<xs:element name="DefaultValue" type="xs:double" minOccurs="0">
+					<xs:element name="DefaultValue" type="xs:anyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>A predefined default value for an attribute.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Value" type="xs:double" minOccurs="0">
+					<xs:element name="Value" type="xs:anyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Element describing the value of an attribute.</xs:documentation>
 						</xs:annotation>

@@ -24,22 +24,54 @@
             <xs:attribute type="xs:float" name="AutomationMLVersion" use="optional"/>
           </xs:complexType>
         </xs:element>
-        <xs:element name="InstanceHierarchy">
+        <xs:element name="ExternalReference" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="Alias" use="optional"/>
+                <xs:attribute type="xs:string" name="Path" use="optional"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InstanceHierarchy" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="InternalElement" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
+                <xs:complexType mixed="true">
                   <xs:sequence>
-                    <xs:element name="SupportedRoleClass">
+                    <xs:element name="Attribute" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:float" name="Value"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="Name" use="optional"/>
+                        <xs:attribute type="xs:string" name="AttributeDataType" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ExternalInterface" minOccurs="0">
                       <xs:complexType>
                         <xs:simpleContent>
                           <xs:extension base="xs:string">
-                            <xs:attribute type="xs:string" name="RefRoleClassPath" use="optional"/>
+                            <xs:attribute type="xs:string" name="ID" use="optional"/>
+                            <xs:attribute type="xs:string" name="Name" use="optional"/>
+                            <xs:attribute type="xs:string" name="RefBaseClassPath" use="optional"/>
                           </xs:extension>
                         </xs:simpleContent>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="RoleRequirements">
+                    <xs:element name="InternalLink" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="Name" use="optional"/>
+                            <xs:attribute type="xs:string" name="RefPartnerSideA" use="optional"/>
+                            <xs:attribute type="xs:string" name="RefPartnerSideB" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="RoleRequirements" minOccurs="0">
                       <xs:complexType>
                         <xs:simpleContent>
                           <xs:extension base="xs:string">
@@ -49,110 +81,82 @@
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
+                  <xs:attribute type="xs:string" name="ID" use="optional"/>
                   <xs:attribute type="xs:string" name="Name" use="optional"/>
                   <xs:attribute type="xs:string" name="RefBaseSystemUnitPath" use="optional"/>
-                  <xs:attribute type="xs:string" name="ID" use="optional"/>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
-            <xs:attribute type="xs:string" name="Name"/>
+            <xs:attribute type="xs:string" name="Name" use="optional"/>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InterfaceClassLib" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InterfaceClass" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="ID" use="optional"/>
+                      <xs:attribute type="xs:string" name="Name" use="optional"/>
+                      <xs:attribute type="xs:string" name="RefBaseClassPath" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
+            <xs:attribute type="xs:string" name="Name" use="optional"/>
           </xs:complexType>
         </xs:element>
         <xs:element name="RoleClassLib" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:string" name="Description"/>
-              <xs:element type="xs:string" name="Version"/>
-              <xs:element name="RoleClass">
-                <xs:complexType mixed="true">
-                  <xs:sequence>
-                    <xs:element name="RoleClass" maxOccurs="unbounded" minOccurs="0">
-                      <xs:complexType mixed="true">
-                        <xs:sequence>
-                          <xs:element name="Attribute" maxOccurs="unbounded" minOccurs="0">
-                            <xs:complexType mixed="true">
-                              <xs:sequence>
-                                <xs:element name="Attribute" maxOccurs="unbounded" minOccurs="0">
-                                  <xs:complexType>
-                                    <xs:simpleContent>
-                                      <xs:extension base="xs:string">
-                                        <xs:attribute type="xs:string" name="Name" use="optional"/>
-                                        <xs:attribute type="xs:string" name="AttributeDataType" use="optional"/>
-                                      </xs:extension>
-                                    </xs:simpleContent>
-                                  </xs:complexType>
-                                </xs:element>
-                              </xs:sequence>
-                              <xs:attribute type="xs:string" name="Name" use="optional"/>
-                              <xs:attribute type="xs:string" name="AttributeDataType" use="optional"/>
-                            </xs:complexType>
-                          </xs:element>
-                          <xs:element name="ExternalInterface" minOccurs="0">
-                            <xs:complexType>
-                              <xs:simpleContent>
-                                <xs:extension base="xs:string">
-                                  <xs:attribute type="xs:string" name="Name"/>
-                                  <xs:attribute type="xs:string" name="RefBaseClassPath"/>
-                                  <xs:attribute type="xs:string" name="ID"/>
-                                </xs:extension>
-                              </xs:simpleContent>
-                            </xs:complexType>
-                          </xs:element>
-                          <xs:element name="RoleClass" maxOccurs="unbounded" minOccurs="0">
-                            <xs:complexType mixed="true">
-                              <xs:sequence>
-                                <xs:element name="RoleClass" maxOccurs="unbounded" minOccurs="0">
-                                  <xs:complexType>
-                                    <xs:simpleContent>
-                                      <xs:extension base="xs:string">
-                                        <xs:attribute type="xs:string" name="Name" use="optional"/>
-                                        <xs:attribute type="xs:string" name="RefBaseClassPath" use="optional"/>
-                                      </xs:extension>
-                                    </xs:simpleContent>
-                                  </xs:complexType>
-                                </xs:element>
-                              </xs:sequence>
-                              <xs:attribute type="xs:string" name="Name" use="optional"/>
-                              <xs:attribute type="xs:string" name="RefBaseClassPath" use="optional"/>
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
-                        <xs:attribute type="xs:string" name="Name" use="optional"/>
-                        <xs:attribute type="xs:string" name="RefBaseClassPath" use="optional"/>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                  <xs:attribute type="xs:string" name="Name" use="optional"/>
-                  <xs:attribute type="xs:string" name="RefBaseClassPath" use="optional"/>
+              <xs:element name="RoleClass" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="ID" use="optional"/>
+                      <xs:attribute type="xs:string" name="Name" use="optional"/>
+                      <xs:attribute type="xs:string" name="RefBaseClassPath" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
             <xs:attribute type="xs:string" name="Name" use="optional"/>
           </xs:complexType>
         </xs:element>
         <xs:element name="SystemUnitClassLib" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
+              <xs:element type="xs:float" name="Version" minOccurs="0"/>
               <xs:element name="SystemUnitClass" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
+                <xs:complexType mixed="true">
                   <xs:sequence>
-                    <xs:element name="InternalElement" maxOccurs="unbounded" minOccurs="0">
+                    <xs:element name="ExternalInterface" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="ID" use="optional"/>
+                            <xs:attribute type="xs:string" name="Name" use="optional"/>
+                            <xs:attribute type="xs:string" name="RefBaseClassPath" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="InternalElement" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="Attribute" minOccurs="0">
-                            <xs:complexType>
-                              <xs:sequence>
-                                <xs:element type="xs:string" name="Value"/>
-                              </xs:sequence>
-                              <xs:attribute type="xs:string" name="Name"/>
-                              <xs:attribute type="xs:string" name="AttributeDataType"/>
-                            </xs:complexType>
-                          </xs:element>
-                          <xs:element name="SupportedRoleClass">
+                          <xs:element name="ExternalInterface">
                             <xs:complexType>
                               <xs:simpleContent>
                                 <xs:extension base="xs:string">
-                                  <xs:attribute type="xs:string" name="RefRoleClassPath" use="optional"/>
+                                  <xs:attribute type="xs:string" name="ID" use="optional"/>
+                                  <xs:attribute type="xs:string" name="Name" use="optional"/>
+                                  <xs:attribute type="xs:string" name="RefBaseClassPath" use="optional"/>
                                 </xs:extension>
                               </xs:simpleContent>
                             </xs:complexType>
@@ -167,19 +171,8 @@
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>
-                        <xs:attribute type="xs:string" name="Name" use="optional"/>
-                        <xs:attribute type="xs:string" name="RefBaseSystemUnitPath" use="optional"/>
                         <xs:attribute type="xs:string" name="ID" use="optional"/>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="Attribute" minOccurs="0">
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:string">
-                            <xs:attribute type="xs:string" name="Name"/>
-                            <xs:attribute type="xs:string" name="AttributeDataType"/>
-                          </xs:extension>
-                        </xs:simpleContent>
+                        <xs:attribute type="xs:string" name="Name" use="optional"/>
                       </xs:complexType>
                     </xs:element>
                     <xs:element name="SupportedRoleClass" minOccurs="0">
@@ -192,11 +185,13 @@
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
+                  <xs:attribute type="xs:string" name="ID" use="optional"/>
                   <xs:attribute type="xs:string" name="Name" use="optional"/>
                   <xs:attribute type="xs:string" name="RefBaseClassPath" use="optional"/>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
             <xs:attribute type="xs:string" name="Name" use="optional"/>
           </xs:complexType>
         </xs:element>
