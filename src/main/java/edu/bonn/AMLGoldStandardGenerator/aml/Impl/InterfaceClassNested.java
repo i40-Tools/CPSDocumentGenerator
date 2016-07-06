@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
 import java.util.ArrayList;
@@ -6,16 +9,14 @@ import java.util.ArrayList;
  * @author omar
  *
  */
-public class InterfaceClass extends GenericElement {
-
-	public static int minimum = 1;
+public class InterfaceClassNested extends GenericElement {
+	public static int minimum = 0;
 	public static int setAdditionalInformation = -1;
 	public static int setCopyright = -1;
 	public static int setDescription = -1;
 	public static int setRevision = -1;
 	public static int setVersion = -1;
 	public static int setAttribute = -1;
-	public static int setInterfaceClassNested = -1;
 
 	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.InterfaceFamilyType> setObject() {
 		// TODO Auto-generated method stub
@@ -42,7 +43,6 @@ public class InterfaceClass extends GenericElement {
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());
 		type.setVersion(Version.setSingleObject());
-		type.getInterfaceClass().addAll(InterfaceClassNested.setObject());
 
 	}
 
@@ -62,9 +62,6 @@ public class InterfaceClass extends GenericElement {
 
 		if (setVersion != -1)
 			edu.bonn.AMLGoldStandardGenerator.aml.Impl.Version.minimum = setVersion;
-
-		if (setInterfaceClassNested != -1)
-			InterfaceClassNested.minimum = setInterfaceClassNested;
 
 		if (setAttribute != -1)
 			edu.bonn.AMLGoldStandardGenerator.aml.Impl.Attribute.minimum = setAttribute;

@@ -16,6 +16,7 @@ public class RoleClass extends GenericElement {
 	public static int setVersion = -1;
 	public static int setAttribute = -1;
 	public static int setExternalInterface = -1;
+	public static int setRoleClassNested = -1;
 
 	public static ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.RoleFamilyType> setObject() {
 		// TODO Auto-generated method stub
@@ -33,7 +34,7 @@ public class RoleClass extends GenericElement {
 
 	}
 
-	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.RoleClassType type, int i) {
+	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.RoleFamilyType type, int i) {
 		type.setID("143-3-3-34-5-5-" + i);
 		type.setName("Role class Name " + i);
 		type.setRefBaseClassPath("Ref base path" + i);
@@ -42,6 +43,7 @@ public class RoleClass extends GenericElement {
 		type.setDescription(Description.setSingleObject());
 		type.setVersion(Version.setSingleObject());
 		type.getExternalInterface().addAll(ExternalInterface.setObject());
+		type.getRoleClass().addAll(RoleClassNested.setObject());
 
 	}
 
@@ -64,6 +66,10 @@ public class RoleClass extends GenericElement {
 
 		else if (Description.minimum != 0)
 			Description.minimum = 1;
+
+		if (setRoleClassNested != -1) {
+			RoleClassNested.minimum = setRoleClassNested;
+		}
 
 		if (setRevision != -1)
 			RevisionImp.minimum = setRevision;

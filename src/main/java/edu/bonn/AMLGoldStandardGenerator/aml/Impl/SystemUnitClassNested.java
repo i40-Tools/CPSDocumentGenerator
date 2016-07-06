@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
 import java.util.ArrayList;
@@ -8,9 +11,9 @@ import edu.bonn.AMLGoldStandardGenerator.aml.SystemUnitFamilyType;
  * @author omar
  *
  */
-public class SystemUnitClass extends GenericElement {
+public class SystemUnitClassNested extends GenericElement {
 
-	public static int minimum = 1;
+	public static int minimum = 0;
 	public static int setAdditionalInformation = -1;
 	public static int setAttribute = -1;
 	public static int setCopyright = -1;
@@ -22,7 +25,6 @@ public class SystemUnitClass extends GenericElement {
 	public static int setRoleRequirement = -1;
 	public static int setSupportedRoleClass = -1;
 	public static int setVersion = -1;
-	public static int setSystemUnitClassNested = -1;
 
 	public static ArrayList<SystemUnitFamilyType> setObject() {
 		// TODO Auto-generated method stub
@@ -50,7 +52,6 @@ public class SystemUnitClass extends GenericElement {
 		type.getInternalLink().addAll(InternalLinkImp.setObject());
 		type.getSupportedRoleClass().addAll(SupportedRoleClassImp.setObject());
 		type.getInternalElement().addAll(InternalElement.setObject());
-		type.getSystemUnitClass().addAll(SystemUnitClassNested.setObject());
 
 	}
 
@@ -89,10 +90,6 @@ public class SystemUnitClass extends GenericElement {
 		if (setSupportedRoleClass != -1) {
 			SupportedRoleClassImp.minimum = setSupportedRoleClass;
 		}
-		if (setSystemUnitClassNested != -1) {
-			SystemUnitClassNested.minimum = setSystemUnitClassNested;
-		}
-
 		if (setVersion != -1)
 			Version.minimum = setVersion;
 

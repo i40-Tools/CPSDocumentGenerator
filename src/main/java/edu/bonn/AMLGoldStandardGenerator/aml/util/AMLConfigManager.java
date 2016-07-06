@@ -12,6 +12,7 @@ import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InternalElement;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.MappingObject;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClass;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClassLib;
+import edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClassNested;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.SystemUnitClass;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.SystemUnitClassLib;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.Version;
@@ -65,9 +66,10 @@ public class AMLConfigManager {
 		AttributeValueRequirements.minimum = 0; // disables optional
 		Attribute.setConstraint = 0; // disables optional attribute globaly
 		MappingObject.minimum = 0; // disables optional attribute
+		Attribute.minimum = 0;
 
 		// usage by objects optioanl
-		internal.setAttribute = 2;
+		// internal.setAttribute = 2;
 
 		instance.minimum = 1;
 		instance.setInternalElement = 1;
@@ -76,19 +78,19 @@ public class AMLConfigManager {
 
 		interfaceClassLib.minimum = 2;
 		interfaceClass.minimum = 2;
-		interfaceClass.setAttribute = 0;
+		// interfaceClass.setAttribute = 0;
 
 		roleClassLib.minimum = 2;
 		roleClass.minimum = 2;
-		roleClass.setAttribute = 1;
+		// roleClass.setAttribute = 1;
 
 		SystemUnitClassLib.minimum = 1;
 		systemUnit.setExternalInterface = 2;
 
 		// usage by static values
 
-		InternalElement.setAttribute = 2; // Every Internal Element will be 2
-											// attribute.
+		// InternalElement.setAttribute = 2; // Every Internal Element will be 2
+		// attribute.
 		InstanceHierarchy.minimum = 1; // generates 2 instancehierarchy
 		InstanceHierarchy.setInternalElement = 1; // generates 2 internal
 													// Element
@@ -97,14 +99,17 @@ public class AMLConfigManager {
 
 		InterfaceClassLib.minimum = 2;
 		InterfaceClass.minimum = 2;
-		InterfaceClass.setAttribute = 0; // overrides global value.
+		InterfaceClass.setInterfaceClassNested = 2;
+		// InterfaceClass.setAttribute = 0; // overrides global value.
 
 		RoleClassLib.minimum = 2;
-		edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClass.setAttribute = 2;
+		// edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClass.setAttribute =
+		// 2;
+		RoleClassNested.minimum = 4;
 
-		SystemUnitClass.minimum = 2;
 		SystemUnitClass.minimum = 1;
 		SystemUnitClass.setInternalElement = 0; // disables
+		SystemUnitClass.setSystemUnitClassNested = 2;
 	}
 
 }

@@ -73,51 +73,11 @@
     </InstanceHierarchy>
     <InstanceHierarchy ID="0000-0" Name="Instance Name-0">
         <InternalElement ChangeMode="state" ID="0000-0" Name="AML Object-0" RefBaseSystemUnitPath="RefbasePath-0">
-            <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                <RefSemantic CorrespondingAttributePath="eclass-default"/>
-            </Attribute>
-            <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                <RefSemantic CorrespondingAttributePath="eclass-default"/>
-            </Attribute>
-            <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
-                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-            </ExternalInterface>
-            <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1">
-                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-            </ExternalInterface>
+            <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1"/>
             <InternalElement ID="0000-0" Name="AML Object-0" RefBaseSystemUnitPath="RefbasePath-0">
-                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-                <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
-                    <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                        <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                    </Attribute>
-                    <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                        <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                    </Attribute>
-                </ExternalInterface>
-                <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1">
-                    <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                        <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                    </Attribute>
-                    <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                        <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                    </Attribute>
-                </ExternalInterface>
+                <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+                <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1"/>
                 <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
                 <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
             </InternalElement>
@@ -126,79 +86,87 @@
         </InternalElement>
     </InstanceHierarchy>
     <InterfaceClassLib ID="141929fsafa-34-5-5-0" Name="interface class Lib Name 0">
-        <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
-        <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+        <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0">
+            <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
+            <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+        </InterfaceClass>
+        <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1">
+            <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
+            <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+        </InterfaceClass>
     </InterfaceClassLib>
     <InterfaceClassLib ID="141929fsafa-34-5-5-1" Name="interface class Lib Name 1">
-        <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
-        <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+        <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0">
+            <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
+            <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+        </InterfaceClass>
+        <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1">
+            <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
+            <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+        </InterfaceClass>
     </InterfaceClassLib>
     <RoleClassLib ID="14-32-34-34-5-5-0" Name="Role class Lib Name 0">
         <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
-            <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                <RefSemantic CorrespondingAttributePath="eclass-default"/>
-            </Attribute>
-            <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                <RefSemantic CorrespondingAttributePath="eclass-default"/>
-            </Attribute>
-            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
-                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-            </ExternalInterface>
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-2" Name="Role class Name 2" RefBaseClassPath="Ref base path2">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-3" Name="Role class Name 3" RefBaseClassPath="Ref base path3">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
         </RoleClass>
         <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
-            <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                <RefSemantic CorrespondingAttributePath="eclass-default"/>
-            </Attribute>
-            <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                <RefSemantic CorrespondingAttributePath="eclass-default"/>
-            </Attribute>
-            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
-                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-            </ExternalInterface>
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-2" Name="Role class Name 2" RefBaseClassPath="Ref base path2">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-3" Name="Role class Name 3" RefBaseClassPath="Ref base path3">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
         </RoleClass>
     </RoleClassLib>
     <RoleClassLib ID="14-32-34-34-5-5-1" Name="Role class Lib Name 1">
         <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
-            <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                <RefSemantic CorrespondingAttributePath="eclass-default"/>
-            </Attribute>
-            <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                <RefSemantic CorrespondingAttributePath="eclass-default"/>
-            </Attribute>
-            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
-                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-            </ExternalInterface>
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-2" Name="Role class Name 2" RefBaseClassPath="Ref base path2">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-3" Name="Role class Name 3" RefBaseClassPath="Ref base path3">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
         </RoleClass>
         <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
-            <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                <RefSemantic CorrespondingAttributePath="eclass-default"/>
-            </Attribute>
-            <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                <RefSemantic CorrespondingAttributePath="eclass-default"/>
-            </Attribute>
-            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
-                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-            </ExternalInterface>
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-2" Name="Role class Name 2" RefBaseClassPath="Ref base path2">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-3" Name="Role class Name 3" RefBaseClassPath="Ref base path3">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
         </RoleClass>
     </RoleClassLib>
     <SystemUnitClassLib Name="Resources">
@@ -219,6 +187,18 @@
             <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1"/>
             <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
             <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
+            <SystemUnitClass ID="11-31-31-31-1-1-0" Name="System Unit class Name 0">
+                <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+                <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1"/>
+                <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
+                <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
+            </SystemUnitClass>
+            <SystemUnitClass ID="11-31-31-31-1-1-1" Name="System Unit class Name 1">
+                <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+                <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1"/>
+                <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
+                <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
+            </SystemUnitClass>
         </SystemUnitClass>
     </SystemUnitClassLib>
 </CAEXFile>
