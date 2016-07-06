@@ -126,7 +126,7 @@ public class AMLGoldStandardGenerator {
 					if (outputPath.get(m) != null) {
 
 						directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M1-ValueTransformation"
-								+ "\\\\" + "M1.1";
+								+ "\\\\" + "M1.2";
 					} else {
 						System.out.println("output Path not found using default c:\\output");
 						directory = "c:\\output";

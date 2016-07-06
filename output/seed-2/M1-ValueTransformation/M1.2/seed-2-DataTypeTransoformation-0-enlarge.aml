@@ -40,14 +40,6 @@
                     <RefSemantic CorrespondingAttributePath="eclass-default"/>
                 </Attribute>
             </ExternalInterface>
-            <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1">
-                <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-                <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                    <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                </Attribute>
-            </ExternalInterface>
             <InternalElement ID="0000-0" Name="AML Object-0" RefBaseSystemUnitPath="RefbasePath-0">
                 <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
                     <RefSemantic CorrespondingAttributePath="eclass-default"/>
@@ -56,14 +48,6 @@
                     <RefSemantic CorrespondingAttributePath="eclass-default"/>
                 </Attribute>
                 <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0">
-                    <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
-                        <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                    </Attribute>
-                    <Attribute AttributeDataType="xs:datatype" ID="0000-1" Name="AML Attribute-1" Unit="xs:anyUnit">
-                        <RefSemantic CorrespondingAttributePath="eclass-default"/>
-                    </Attribute>
-                </ExternalInterface>
-                <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1">
                     <Attribute AttributeDataType="xs:datatype" ID="0000-0" Name="AML Attribute-0" Unit="xs:anyUnit">
                         <RefSemantic CorrespondingAttributePath="eclass-default"/>
                     </Attribute>

@@ -10,12 +10,7 @@ aml:Heterogeneity
       rdf:type owl:Class ;
       rdfs:comment "Type of Heterogeneity in AML files"@en ;
       rdfs:label "Heterogeneity"@en.
-      
-aml:Integration    
-      rdf:type owl:Class ;
-      rdfs:comment "Contains files which has gold standard and generated files from integration process"@en ;
-      rdfs:label "Integration"@en.
-      
+            
 aml:M1 
       rdf:type aml:Heterogeneity;
       rdfs:comment "Mapping function that takes a property value on the source side as an input and returns a property value for the target side as an output"@en ;
@@ -92,7 +87,7 @@ aml:generateFiles
 aml:hasGoldStandard 
       rdf:type owl:DatatypeProperty ;
       rdfs:comment "An input path file for gold standard";
-      rdfs:domain aml:Integration ;
+      rdfs:domain aml:Heterogeneity ;
       rdfs:label "has Gold Standard Path" ;
       rdfs:range  xsd:string.    
 
@@ -125,7 +120,7 @@ aml:hasOutputPath
 aml:hasResults 
       rdf:type owl:DatatypeProperty ;
       rdfs:comment "An input folder path for integration files";
-      rdfs:domain aml:Integration ;
+      rdfs:domain aml:Heterogeneity ;
       rdfs:label "has Results" ;
       rdfs:range  xsd:string.    
 	   

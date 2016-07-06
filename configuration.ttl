@@ -21,6 +21,8 @@ aml:Document-1
      ebucore:filename        "seed-1.aml";
      aml:generateFiles       "true";
      aml:hasID               "Document-1";
+     aml:hasGoldStandard      "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-1\\M2-Granularity\\GoldStandard\\GoldStandard.aml";
+     aml:hasResults           "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\IntegrationResults\\seed-1";
 	 rdf:type                aml:Heterogeneity .
 
 
@@ -30,6 +32,8 @@ aml:Document-2
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-2.aml";
      aml:generateFiles       "true";      
+     aml:hasGoldStandard      "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-2\\M1-ValueTransformation\\M1.2\\GoldStandard\\GoldStandard.aml";
+     aml:hasResults           "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\IntegrationResults\\seed-1";
      aml:hasID               "Document-2";
      rdf:type                aml:Heterogeneity .
 
@@ -69,9 +73,3 @@ aml:Document-6
      aml:generateFiles       "true"; 
      aml:hasID               "Document-6";
      rdf:type                aml:Heterogeneity .
-
-aml:Integration-1
-    aml:hasID                "Integration-1";
-    aml:hasGoldStandard      "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M2\\seed-1.aml";
-    aml:hasResults           "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\IntegrationsFiles\\seed-1";
-    rdf:type                  aml:Integration.
