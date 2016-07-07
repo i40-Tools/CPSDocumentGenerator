@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile FileName="ExampleInterfaceClass.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AdditionalInformation AutomationMLVersion="2.0" />
+	<AdditionalInformation>
+		<WriterHeader>
+			<WriterName>AutomationML e.V.</WriterName>
+			<WriterID>AutomationML e.V.</WriterID>
+			<WriterVendor>AutomationML e.V.</WriterVendor>
+			<WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+			<WriterVersion>1.0</WriterVersion>
+			<WriterRelease>1.0</WriterRelease>
+			<LastWritingDateTime>2012-02-20
+			</LastWritingDateTime>
+			<WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+			<WriterProjectID>AutomationML Tutorial Examples
+			</WriterProjectID>
+		</WriterHeader>
+	</AdditionalInformation>
+	<ExternalReference Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml" Alias="BaseInterfaceClassLib" />
+	<InterfaceClassLib Name="TransportationInterfaces">
+		<Version>1.0</Version>
+		<InterfaceClass Name="Product" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+			<Attribute Name="Direction" AttributeDataType="xs:string" />
+	</InterfaceClass>
+	
+			<InterfaceClass Name="TakeOver" RefBaseClassPath="TransportationInterfaces/Product" />
+			<InterfaceClass Name="HandOver" RefBaseClassPath="TransportationInterfaces/Product" />
+			<InterfaceClass Name="Transport service" RefBaseClassPath="TransportationInterfaces/Product" />
+			<InterfaceClass Name="Transport devices" RefBaseClassPath="TransportationInterfaces/Product" />
+	</InterfaceClassLib>
+</CAEXFile>

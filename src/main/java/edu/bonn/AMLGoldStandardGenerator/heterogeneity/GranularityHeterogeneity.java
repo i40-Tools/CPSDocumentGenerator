@@ -39,21 +39,14 @@ public class GranularityHeterogeneity extends Heterogeneity {
 		// already based on uniform distribution
 		double probability = new Random().nextDouble();
 
-		if (probability <= 0.03) {
+		if (probability <= 0.05) {
 
 			// partitions for node having atleast two child
 			return xmlPartition(2);
 		}
 
-		if (probability > 0.03 && probability <= 0.06) {
-
-			// partitions for node having atleast 3 child
+		else // partitions for node having atleast 3 child
 			return xmlPartition(3);
-
-		} else {
-			// partitions for node having atleast six child
-			return xmlPartition(6);
-		}
 
 	}
 
