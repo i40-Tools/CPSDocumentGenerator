@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Mit XMLSpy v2011 rel. 3 (http://www.altova.com) von Josef Prinz (INPRO) bearbeitet -->
+<CAEXFile FileName="seed.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AdditionalInformation AutomationMLVersion="2.0" />
+	<AdditionalInformation>
+		<WriterHeader>
+			<WriterName>AutomationML e.V.</WriterName>
+			<WriterID>AutomationML e.V.</WriterID>
+			<WriterVendor>AutomationML e.V.</WriterVendor>
+			<WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+			<WriterVersion>1.0</WriterVersion>
+			<WriterRelease>1.0</WriterRelease>
+			<LastWritingDateTime>2012-03-27
+			</LastWritingDateTime>
+			<WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+			<WriterProjectID>AutomationML Tutorial Examples
+			</WriterProjectID>
+		</WriterHeader>
+	</AdditionalInformation>
+	<ExternalReference Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml" Alias="BaseInterfaceClassLib" />
+	<InterfaceClassLib Name="AutomationMLInterfaceClassLib">
+		<Description>Standard Automation Markup Language Interface Class Library</Description>
+		<Version>2.2.0</Version>
+		<InterfaceClass Name="AutomationMLBaseInterface">
+			<InterfaceClass Name="Order" RefBaseClassPath="AutomationMLBaseInterface">
+				<Attribute Name="Direction" AttributeDataType="xs:string" />
+			</InterfaceClass>
+			<InterfaceClass Name="PortConnector" RefBaseClassPath="AutomationMLBaseInterface" />
+			<InterfaceClass Name="InterlockingConnector" RefBaseClassPath="AutomationMLBaseInterface" />
+			<InterfaceClass Name="PPRConnector" RefBaseClassPath="AutomationMLBaseInterface" />
+			<InterfaceClass Name="ExternalDataConnector" RefBaseClassPath="AutomationMLBaseInterface">
+				<Attribute Name="refURI" AttributeDataType="xs:anyURI" />
+				<InterfaceClass Name="COLLADAInterface" RefBaseClassPath="ExternalDataConnector" />
+				<InterfaceClass Name="PLCopenXMLInterface" RefBaseClassPath="ExternalDataConnector" />
+			</InterfaceClass>
+			<InterfaceClass Name="Communication" RefBaseClassPath="AutomationMLBaseInterface">
+				<InterfaceClass Name="SignalInterface" RefBaseClassPath="Communication" />
+			</InterfaceClass>
+		</InterfaceClass>
+	</InterfaceClassLib>
+	<RoleClassLib Name="AutomationMLBaseRoleClassLib">
+		<Description>Automation Markup Language base role class library</Description>
+		<Version>2.2.0</Version>
+		<RoleClass Name="AutomationMLBaseRole">
+			<RoleClass Name="Group" RefBaseClassPath="AutomationMLBaseRole">
+				<Attribute Name="AssociatedFacet" AttributeDataType="xs:string" />
+			</RoleClass>
+			<RoleClass Name="Facet" RefBaseClassPath="AutomationMLBaseRole" />
+			<RoleClass Name="Port" RefBaseClassPath="AutomationMLBaseRole">
+				<Attribute Name="Direction" AttributeDataType="xs:string" />
+				<Attribute Name="Cardinality">
+					<Attribute Name="MinOccur" AttributeDataType="xs:unsignedInt" />
+					<Attribute Name="MaxOccur" AttributeDataType="xs:unsignedInt" />
+				</Attribute>
+				<Attribute Name="Category" AttributeDataType="xs:string" />
+				<ExternalInterface Name="ConnectionPoint" ID="9942bd9c-c19d-44e4-a197-11b9edf264e7" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector" />
+			</RoleClass>
+			<RoleClass Name="Resource" RefBaseClassPath="AutomationMLBaseRole" />
+			<RoleClass Name="Product" RefBaseClassPath="AutomationMLBaseRole" />
+			<RoleClass Name="Process" RefBaseClassPath="AutomationMLBaseRole" />
+			<RoleClass Name="Structure" RefBaseClassPath="AutomationMLBaseRole">
+				<RoleClass Name="ProductStructure" RefBaseClassPath="Structure" />
+				<RoleClass Name="ProcessStructure" RefBaseClassPath="Structure" />
+				<RoleClass Name="ResourceStructure" RefBaseClassPath="Structure" />
+			</RoleClass>
+			<RoleClass Name="PropertySet" RefBaseClassPath="AutomationMLBaseRole" />
+		</RoleClass>
+	</RoleClassLib>
+	<SystemUnitClassLib Name="Conveyors">
+		<Version>1.0</Version>
+		<SystemUnitClass Name="RollerConveyor">
+			<InternalElement Name="Connection" ID="35e07429-42a0-419d-afbf-5287b09bcce2">
+				<InternalElement Name="Conveyor1" ID="5766d559-b94b-403e-b187-ecb5679530da">
+					<Attribute Name="maxConveyingSpeed" AttributeDataType="xs:double" Unit="m/s" />
+					<Attribute Name="maxTransportationWeight" AttributeDataType="xs:double" Unit="kg" />
+					<InternalElement Name="InPort" ID="b04f0218-0a85-4333-b172-d525dcf78670">
+						<Attribute Name="Category" />
+						<Attribute Name="Cardinality">
+							<Attribute Name="MinOccur" />
+							<Attribute Name="MaxOccur" />
+						</Attribute>
+						<Attribute Name="Direction">
+							<Value>In</Value>
+						</Attribute>
+						<ExternalInterface Name="ConnectionPoint" ID="64a3dbc2-da7e-4d55-9724-67cd966c3f6d" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector" />
+						<ExternalInterface Name="Input1" ID="c7c4344c-6df3-4879-ae55-c911440018d6" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication/SignalInterface">
+							<Attribute Name="Type" AttributeDataType="xs:string">
+								<Description>The attribute „Type“ specifies the type of the signal. Permitted values are "analog" and "digital". </Description>
+								<Value>digital</Value>
+							</Attribute>
+							<Attribute Name="Direction" AttributeDataType="xs:string">
+								<Description>The attribute “Direction�? shall be used in order to specify the direction. Permitted values are “In�? or “Out�? or "InOut".</Description>
+								<Value>in</Value>
+							</Attribute>
+							<Attribute Name="BitCount" AttributeDataType="xs:unsignedInt">
+								<Description>The attribute “BitCount�? describes the number of bits in the digital signal. If BitCount=1, the digital signal is a binary signal. A higher BitCount allows the digital description of an analog signal with a resolution of 2n. If this attribute is not given, the default value is 1.</Description>
+							</Attribute>
+							<Attribute Name="Orientation" AttributeDataType="xs:string">
+								<Description>If multiple binary signals are bundled, the attribute “Orientation�? describes in which order the bits are delivered. Permitted values are “HighFirst�? or “LowFirst�?.</Description>
+							</Attribute>
+							<Attribute Name="Range">
+								<Description>The attribute “Range�? is a complex attribute comprising the sub attributes “min�? and “max�?. If required, a unit shall be defined using the CAEX attribute "Unit". With the Range attribute, signals value ranges as 4-20mA, 5-10V etc. can be described.</Description>
+								<Attribute Name="min" AttributeDataType="xs:float" />
+								<Attribute Name="max" AttributeDataType="xs:float" />
+							</Attribute>
+						</ExternalInterface>
+						<ExternalInterface Name="Input2" ID="d4e18129-b0f0-453c-95e8-d36db3f84ee4" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication/SignalInterface">
+							<Attribute Name="Type" AttributeDataType="xs:string">
+								<Description>The attribute „Type“ specifies the type of the signal. Permitted values are "analog" and "digital". </Description>
+								<Value>digital</Value>
+							</Attribute>
+							<Attribute Name="Direction" AttributeDataType="xs:string">
+								<Description>The attribute “Direction�? shall be used in order to specify the direction. Permitted values are “In�? or “Out�? or "InOut".</Description>
+								<Value>in</Value>
+							</Attribute>
+							<Attribute Name="BitCount" AttributeDataType="xs:unsignedInt">
+								<Description>The attribute “BitCount�? describes the number of bits in the digital signal. If BitCount=1, the digital signal is a binary signal. A higher BitCount allows the digital description of an analog signal with a resolution of 2n. If this attribute is not given, the default value is 1.</Description>
+							</Attribute>
+							<Attribute Name="Orientation" AttributeDataType="xs:string">
+								<Description>If multiple binary signals are bundled, the attribute “Orientation�? describes in which order the bits are delivered. Permitted values are “HighFirst�? or “LowFirst�?.</Description>
+							</Attribute>
+							<Attribute Name="Range">
+								<Description>The attribute “Range�? is a complex attribute comprising the sub attributes “min�? and “max�?. If required, a unit shall be defined using the CAEX attribute "Unit". With the Range attribute, signals value ranges as 4-20mA, 5-10V etc. can be described.</Description>
+								<Attribute Name="min" AttributeDataType="xs:float" />
+								<Attribute Name="max" AttributeDataType="xs:float" />
+							</Attribute>
+						</ExternalInterface>
+						<RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port" />
+					</InternalElement>
+					<InternalElement Name="OutPort" ID="56032d26-f1ba-4df3-a326-775ba2bad156">
+						<Attribute Name="Category" />
+						<Attribute Name="Cardinality">
+							<Attribute Name="MinOccur" />
+							<Attribute Name="MaxOccur" />
+						</Attribute>
+						<Attribute Name="Direction">
+							<Value>Out</Value>
+						</Attribute>
+						<ExternalInterface Name="ConnectionPoint" ID="85c04cf1-67a5-42f9-afb5-44b8c2aeead7" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector" />
+						<ExternalInterface Name="Output1" ID="bf348f38-2334-4ef3-8532-096a148cfd1b" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication/SignalInterface">
+							<Attribute Name="Type" AttributeDataType="xs:string">
+								<Description>The attribute „Type“ specifies the type of the signal. Permitted values are "analog" and "digital". </Description>
+								<Value>digital</Value>
+							</Attribute>
+							<Attribute Name="Direction" AttributeDataType="xs:string">
+								<Description>The attribute “Direction�? shall be used in order to specify the direction. Permitted values are “In�? or “Out�? or "InOut".</Description>
+								<Value>out</Value>
+							</Attribute>
+							<Attribute Name="BitCount" AttributeDataType="xs:unsignedInt">
+								<Description>The attribute “BitCount�? describes the number of bits in the digital signal. If BitCount=1, the digital signal is a binary signal. A higher BitCount allows the digital description of an analog signal with a resolution of 2n. If this attribute is not given, the default value is 1.</Description>
+							</Attribute>
+							<Attribute Name="Orientation" AttributeDataType="xs:string">
+								<Description>If multiple binary signals are bundled, the attribute “Orientation�? describes in which order the bits are delivered. Permitted values are “HighFirst�? or “LowFirst�?.</Description>
+							</Attribute>
+							<Attribute Name="Range">
+								<Description>The attribute “Range�? is a complex attribute comprising the sub attributes “min�? and “max�?. If required, a unit shall be defined using the CAEX attribute "Unit". With the Range attribute, signals value ranges as 4-20mA, 5-10V etc. can be described.</Description>
+								<Attribute Name="min" AttributeDataType="xs:float" />
+								<Attribute Name="max" AttributeDataType="xs:float" />
+							</Attribute>
+						</ExternalInterface>
+						<ExternalInterface Name="Output2" ID="625ccac6-4c2a-49ad-86a4-dfb1ab1c1d7a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication/SignalInterface">
+							<Attribute Name="Type" AttributeDataType="xs:string">
+								<Description>The attribute „Type“ specifies the type of the signal. Permitted values are "analog" and "digital". </Description>
+								<Value>digital</Value>
+							</Attribute>
+							<Attribute Name="Direction" AttributeDataType="xs:string">
+								<Description>The attribute “Direction�? shall be used in order to specify the direction. Permitted values are “In�? or “Out�? or "InOut".</Description>
+								<Value>out</Value>
+							</Attribute>
+							<Attribute Name="BitCount" AttributeDataType="xs:unsignedInt">
+								<Description>The attribute “BitCount�? describes the number of bits in the digital signal. If BitCount=1, the digital signal is a binary signal. A higher BitCount allows the digital description of an analog signal with a resolution of 2n. If this attribute is not given, the default value is 1.</Description>
+							</Attribute>
+							<Attribute Name="Orientation" AttributeDataType="xs:string">
+								<Description>If multiple binary signals are bundled, the attribute “Orientation�? describes in which order the bits are delivered. Permitted values are “HighFirst�? or “LowFirst�?.</Description>
+							</Attribute>
+							<Attribute Name="Range">
+								<Description>The attribute “Range�? is a complex attribute comprising the sub attributes “min�? and “max�?. If required, a unit shall be defined using the CAEX attribute "Unit". With the Range attribute, signals value ranges as 4-20mA, 5-10V etc. can be described.</Description>
+								<Attribute Name="min" AttributeDataType="xs:float" />
+								<Attribute Name="max" AttributeDataType="xs:float" />
+							</Attribute>
+						</ExternalInterface>
+						<RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port" />
+					</InternalElement>
+					<RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+				</InternalElement>
+				<InternalElement Name="Conveyor2" ID="ae56aa28-2cc2-4f55-9912-cb81191dcea7">
+					<Attribute Name="maxConveyingSpeed" AttributeDataType="xs:double" Unit="m/s" />
+					<Attribute Name="maxTransportationWeight" AttributeDataType="xs:double" Unit="kg" />
+					<InternalElement Name="InPort" ID="5e368888-ea35-414d-b76a-a15bd8bdbdc8">
+						<Attribute Name="Category" />
+						<Attribute Name="Cardinality">
+							<Attribute Name="MinOccur" />
+							<Attribute Name="MaxOccur" />
+						</Attribute>
+						<Attribute Name="Direction">
+							<Value>In</Value>
+						</Attribute>
+						<ExternalInterface Name="ConnectionPoint" ID="d68ab34e-7f68-4055-a911-a7d386747d9b" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector" />
+						<ExternalInterface Name="Input1" ID="5b83ac30-102f-4b3b-9e08-e29b4efbff1c" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication/SignalInterface">
+							<Attribute Name="Type" AttributeDataType="xs:string">
+								<Description>The attribute „Type“ specifies the type of the signal. Permitted values are "analog" and "digital". </Description>
+								<Value>digital</Value>
+							</Attribute>
+							<Attribute Name="Direction" AttributeDataType="xs:string">
+								<Description>The attribute “Direction�? shall be used in order to specify the direction. Permitted values are “In�? or “Out�? or "InOut".</Description>
+								<Value>in</Value>
+							</Attribute>
+							<Attribute Name="BitCount" AttributeDataType="xs:unsignedInt">
+								<Description>The attribute “BitCount�? describes the number of bits in the digital signal. If BitCount=1, the digital signal is a binary signal. A higher BitCount allows the digital description of an analog signal with a resolution of 2n. If this attribute is not given, the default value is 1.</Description>
+							</Attribute>
+							<Attribute Name="Orientation" AttributeDataType="xs:string">
+								<Description>If multiple binary signals are bundled, the attribute “Orientation�? describes in which order the bits are delivered. Permitted values are “HighFirst�? or “LowFirst�?.</Description>
+							</Attribute>
+							<Attribute Name="Range">
+								<Description>The attribute “Range�? is a complex attribute comprising the sub attributes “min�? and “max�?. If required, a unit shall be defined using the CAEX attribute "Unit". With the Range attribute, signals value ranges as 4-20mA, 5-10V etc. can be described.</Description>
+								<Attribute Name="min" AttributeDataType="xs:float" />
+								<Attribute Name="max" AttributeDataType="xs:float" />
+							</Attribute>
+						</ExternalInterface>
+						<ExternalInterface Name="Input2" ID="72daa197-1516-4723-85c1-aa9658a0f39c" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication/SignalInterface">
+							<Attribute Name="Type" AttributeDataType="xs:string">
+								<Description>The attribute „Type“ specifies the type of the signal. Permitted values are "analog" and "digital". </Description>
+								<Value>digital</Value>
+							</Attribute>
+							<Attribute Name="Direction" AttributeDataType="xs:string">
+								<Description>The attribute “Direction�? shall be used in order to specify the direction. Permitted values are “In�? or “Out�? or "InOut".</Description>
+								<Value>in</Value>
+							</Attribute>
+							<Attribute Name="BitCount" AttributeDataType="xs:unsignedInt">
+								<Description>The attribute “BitCount�? describes the number of bits in the digital signal. If BitCount=1, the digital signal is a binary signal. A higher BitCount allows the digital description of an analog signal with a resolution of 2n. If this attribute is not given, the default value is 1.</Description>
+							</Attribute>
+							<Attribute Name="Orientation" AttributeDataType="xs:string">
+								<Description>If multiple binary signals are bundled, the attribute “Orientation�? describes in which order the bits are delivered. Permitted values are “HighFirst�? or “LowFirst�?.</Description>
+							</Attribute>
+							<Attribute Name="Range">
+								<Description>The attribute “Range�? is a complex attribute comprising the sub attributes “min�? and “max�?. If required, a unit shall be defined using the CAEX attribute "Unit". With the Range attribute, signals value ranges as 4-20mA, 5-10V etc. can be described.</Description>
+								<Attribute Name="min" AttributeDataType="xs:float" />
+								<Attribute Name="max" AttributeDataType="xs:float" />
+							</Attribute>
+						</ExternalInterface>
+						<RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port" />
+					</InternalElement>
+					<InternalElement Name="OutPort" ID="167cb8ad-ad22-4818-8e21-7ba3ac61116d">
+						<Attribute Name="Category" />
+						<Attribute Name="Cardinality">
+							<Attribute Name="MinOccur" />
+							<Attribute Name="MaxOccur" />
+						</Attribute>
+						<Attribute Name="Direction">
+							<Value>Out</Value>
+						</Attribute>
+						<ExternalInterface Name="ConnectionPoint" ID="dbfa1528-8370-4248-a925-8385a13cb4e6" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector" />
+						<ExternalInterface Name="Output1" ID="4fb22a5d-6367-4dee-9c46-4027679ce703" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication/SignalInterface">
+							<Attribute Name="Type" AttributeDataType="xs:string">
+								<Description>The attribute „Type“ specifies the type of the signal. Permitted values are "analog" and "digital". </Description>
+								<Value>digital</Value>
+							</Attribute>
+							<Attribute Name="Direction" AttributeDataType="xs:string">
+								<Description>The attribute “Direction�? shall be used in order to specify the direction. Permitted values are “In�? or “Out�? or "InOut".</Description>
+								<Value>out</Value>
+							</Attribute>
+							<Attribute Name="BitCount" AttributeDataType="xs:unsignedInt">
+								<Description>The attribute “BitCount�? describes the number of bits in the digital signal. If BitCount=1, the digital signal is a binary signal. A higher BitCount allows the digital description of an analog signal with a resolution of 2n. If this attribute is not given, the default value is 1.</Description>
+							</Attribute>
+							<Attribute Name="Orientation" AttributeDataType="xs:string">
+								<Description>If multiple binary signals are bundled, the attribute “Orientation�? describes in which order the bits are delivered. Permitted values are “HighFirst�? or “LowFirst�?.</Description>
+							</Attribute>
+							<Attribute Name="Range">
+								<Description>The attribute “Range�? is a complex attribute comprising the sub attributes “min�? and “max�?. If required, a unit shall be defined using the CAEX attribute "Unit". With the Range attribute, signals value ranges as 4-20mA, 5-10V etc. can be described.</Description>
+								<Attribute Name="min" AttributeDataType="xs:float" />
+								<Attribute Name="max" AttributeDataType="xs:float" />
+							</Attribute>
+						</ExternalInterface>
+						<ExternalInterface Name="Output2" ID="20f2466d-045b-411f-b59e-220df755e37f" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication/SignalInterface">
+							<Attribute Name="Type" AttributeDataType="xs:string">
+								<Description>The attribute „Type“ specifies the type of the signal. Permitted values are "analog" and "digital". </Description>
+								<Value>digital</Value>
+							</Attribute>
+							<Attribute Name="Direction" AttributeDataType="xs:string">
+								<Description>The attribute “Direction�? shall be used in order to specify the direction. Permitted values are “In�? or “Out�? or "InOut".</Description>
+								<Value>out</Value>
+							</Attribute>
+							<Attribute Name="BitCount" AttributeDataType="xs:unsignedInt">
+								<Description>The attribute “BitCount�? describes the number of bits in the digital signal. If BitCount=1, the digital signal is a binary signal. A higher BitCount allows the digital description of an analog signal with a resolution of 2n. If this attribute is not given, the default value is 1.</Description>
+							</Attribute>
+							<Attribute Name="Orientation" AttributeDataType="xs:string">
+								<Description>If multiple binary signals are bundled, the attribute “Orientation�? describes in which order the bits are delivered. Permitted values are “HighFirst�? or “LowFirst�?.</Description>
+							</Attribute>
+							<Attribute Name="Range">
+								<Description>The attribute “Range�? is a complex attribute comprising the sub attributes “min�? and “max�?. If required, a unit shall be defined using the CAEX attribute "Unit". With the Range attribute, signals value ranges as 4-20mA, 5-10V etc. can be described.</Description>
+								<Attribute Name="min" AttributeDataType="xs:float" />
+								<Attribute Name="max" AttributeDataType="xs:float" />
+							</Attribute>
+						</ExternalInterface>
+						<RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port" />
+					</InternalElement>
+					<RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+				</InternalElement>
+				<InternalLink Name="PortLink" RefPartnerSideA="56032d26-f1ba-4df3-a326-775ba2bad156:ConnectionPoint" RefPartnerSideB="5e368888-ea35-414d-b76a-a15bd8bdbdc8:ConnectionPoint" />
+				<RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+			</InternalElement>
+		</SystemUnitClass>
+	</SystemUnitClassLib>
+</CAEXFile>

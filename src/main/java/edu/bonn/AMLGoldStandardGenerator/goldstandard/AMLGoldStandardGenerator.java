@@ -2,7 +2,6 @@ package edu.bonn.AMLGoldStandardGenerator.goldstandard;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -206,11 +205,12 @@ public class AMLGoldStandardGenerator {
 
 				i++;
 			}
-			outputInputFile(inputFile, directory, inputName.get(m));
+
+			// saves input file to output folder.
+			new XmlParser().formatXML(new XmlParser().initInput(inputFile), inputName.get(m), directory);
 
 			i = 0;
 
-			// saves input file to output folder.
 		}
 
 	}
@@ -240,29 +240,6 @@ public class AMLGoldStandardGenerator {
 			output.close();
 		} catch (IOException | NullPointerException e) {
 			logger.error("Error File not Found " + inputFile);
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * outputs the input file to a specified output folder.
-	 * 
-	 * @param directory
-	 */
-	private void outputInputFile(String inputFile, String directory, String inputName) {
-		// TODO Auto-generated method stub
-		InputStream res;
-		try {
-			res = new FileInputStream(new File(inputFile));
-			String xmlString = IOUtils.toString(res);
-			FileWriter output = new FileWriter((directory + "//" + inputName));
-			output.write(xmlString);
-			output.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

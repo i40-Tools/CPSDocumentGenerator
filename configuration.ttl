@@ -118,4 +118,22 @@ aml:Document-11
      aml:generateFiles       "true"; 
      aml:hasID               "Document-11";
      rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-12
+     aml:hasHeterogeneity    aml:M3;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-12\\seed-12.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-12.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-12";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-13
+     aml:hasHeterogeneity    aml:M3;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-13\\seed-13.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-13.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-13";
+     rdf:type                aml:Heterogeneity . 	 
 	     

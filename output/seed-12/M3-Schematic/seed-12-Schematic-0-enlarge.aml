@@ -3,27 +3,15 @@
     <AdditionalInformation AutomationMLVersion="2.0"/>
     <AdditionalInformation>
         <WriterHeader>
-            <WriterName>AutomationML e.V.</WriterName>
             <WriterID>AutomationML e.V.</WriterID>
-            <WriterVendor>AutomationML e.V.</WriterVendor>
             <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
-            <WriterVersion>1.0</WriterVersion>
             <WriterRelease>1.0</WriterRelease>
-            <LastWritingDateTime>2012-02-20 </LastWritingDateTime>
             <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
-            <WriterProjectID>AutomationML Tutorial Examples </WriterProjectID>
         </WriterHeader>
     </AdditionalInformation>
     <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
     <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
     <ExternalReference Alias="Alias0" Path="Path0"/>
-    <InstanceHierarchy Name="MechatronicEngineering">
-        <InternalElement ID="74d0c8ef-ab53-462a-8225-306ed22dc0f3" Name="AMLObject" RefBaseSystemUnitPath="">
-            <Attribute AttributeDataType="xs:float" Name="length">
-                <Value>35.00</Value>
-            </Attribute>
-        </InternalElement>
-    </InstanceHierarchy>
     <InstanceHierarchy ID="0000-0" Name="Instance Name-0">
         <InternalElement ChangeMode="state" ID="0000-0" Name="AML Object-0" RefBaseSystemUnitPath="RefbasePath-0">
             <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
@@ -122,6 +110,27 @@
             </RoleClass>
         </RoleClass>
     </RoleClassLib>
+    <SystemUnitClassLib Name="Conveyors">
+        <Version>1.0</Version>
+        <SystemUnitClass Name="RollerConveyor">
+            <InternalElement ID="acf9f51b-3fbd-4f30-891d-f8daca50ed17" Name="Connection">
+                <InternalElement ID="45e20f8e-7351-4af9-bdfd-3c019674de55" Name="Conveyor1">
+                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
+                    <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg"/>
+                    <ExternalInterface ID="51e272d6-0252-4ebd-b865-2ca7a202a68e" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
+                    <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+                </InternalElement>
+                <InternalElement ID="11b59bf6-44f6-4650-939f-d8e2551912a7" Name="Conveyor2">
+                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
+                    <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg"/>
+                    <ExternalInterface ID="c50f79eb-6634-4c7e-a32f-54bdef05cace" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
+                    <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+                </InternalElement>
+                <InternalLink Name="PortLink" RefPartnerSideA="45e20f8e-7351-4af9-bdfd-3c019674de55:ConnectionPoint" RefPartnerSideB="11b59bf6-44f6-4650-939f-d8e2551912a7:ConnectionPoint"/>
+                <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
+            </InternalElement>
+        </SystemUnitClass>
+    </SystemUnitClassLib>
     <SystemUnitClassLib ID="11-31-31-31-1-1-0" Name="System Unit class Lib Name 0">
         <SystemUnitClass ID="11-31-31-31-1-1-0" Name="System Unit class Name 0">
             <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
