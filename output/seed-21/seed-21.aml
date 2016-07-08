@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- Mit XMLSpy v2011 rel. 3 (http://www.altova.com) von Josef Prinz (INPRO) bearbeitet -->
-<CAEXFile FileName="StringProcessing-2.aml" SchemaVersion="2.15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Source/CAEX_ClassModel_V2.15.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile FileName="seed-21.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<AdditionalInformation AutomationMLVersion="2.0" />
 	<AdditionalInformation>
 		<WriterHeader>
@@ -17,19 +16,43 @@
 			</WriterProjectID>
 		</WriterHeader>
 	</AdditionalInformation>
-	<ExternalReference Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml" Alias="BaseRoleClassLib" />
 	<ExternalReference Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml" Alias="BaseInterfaceClassLib" />
-	<InstanceHierarchy Name="MechatronicEngineering">
-		<InternalElement ID="45e20f8e-7351-4af9-bdfd-3c019674de55" Name="Conveyor1">
-			</InternalElement>
-			<InternalElement ID="11b59bf6-44f6-4650-939f-d8e2551912a7" Name="Conveyor2">
-			</InternalElement>
-			<InternalElement ID="23e7138b-f28f-4f45-8c0b-ee7e0de7c08f" Name="Conveyor3">
-			</InternalElement>
-			<InternalElement ID="819f4954-892a-4a46-9091-b6f75ddd1332" Name="Conveyor4">
-			</InternalElement>
-			<InternalElement ID="6493b542-8aac-41c0-bb6e-eef0d2621ae0" Name="Conveyor5">
-			</InternalElement>
-		
-	</InstanceHierarchy>
+	<InterfaceClassLib Name="DistributionTransformer">
+		<Version>1.0</Version>
+		<InterfaceClass Name="BASIC_27-03-14-02 Single-phase distribution transformer (oil-cooled)">
+                	<Attribute Name="eClassVersion" AttributeDataType="xs:string">
+				<Value>9.0</Value>
+			</Attribute>
+			<Attribute Name="eClassClassificationClass" AttributeDataType="xs:string">
+				<Value>27031402</Value>
+			</Attribute>
+			<Attribute Name="eClassIRDI" AttributeDataType="xs:string">
+				<Value>0173-1---BASIC_1_1#02-ACO096#009</Value>
+			</Attribute>
+
+                        <Attribute Name="additional link address" AttributeDataType="xs:string">
+				<Description>site address where you can view information about the product or to communicate</Description>
+				<RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAQ326#001" />
+			</Attribute>
+			<Attribute Name="GTIN" AttributeDataType="xs:string">
+				<Description>internationally unique and unambiguous article number for products and services (Global Trade Item Number, formerly EAN)</Description>
+				<RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAO663#002" />
+			</Attribute>
+			<Attribute Name="Power loss, static, current-independent [Pls]" AttributeDataType="xs:string">
+				<Description>Specification of electrical heat loss in watts for a device without a load current dependent portions</Description>
+				<RefSemantic CorrespondingAttributePath="0173-1#02-BAA303#005" />
+			</Attribute>
+
+                         <Attribute Name="Manufacturer name" AttributeDataType="xs:string">
+				<Description>	legally valid designation of the natural or judicial person which is directly responsible for the design, production, packaging and labeling of a product in respect to its being brought into circulation</Description>
+				<RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAO677#001" />
+			</Attribute>
+
+			<Attribute Name="Product type description" AttributeDataType="xs:string">
+				<Description>name of the product family or variant</Description>
+				<RefSemantic CorrespondingAttributePath="0173-1#02-AAO847#002" />
+			</Attribute>
+
+	         </InterfaceClass>			
+	</InterfaceClassLib>
 </CAEXFile>

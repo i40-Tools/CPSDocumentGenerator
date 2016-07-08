@@ -17,25 +17,40 @@
 	</AdditionalInformation>
 	<ExternalReference Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml" Alias="BaseRoleClassLib" />
 	<ExternalReference Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml" Alias="BaseInterfaceClassLib" />
-	<SystemUnitClassLib Name="Conveyors">
+	<SystemUnitClassLib Name="Industry Connector">
 		<Version>1.0</Version>
-		<SystemUnitClass Name="RollerConveyor">
-	<Attribute Name="maxConveyingSpeed" AttributeDataType="xs:double" Unit="m/s">
-				<Value>1.5</Value>
-				<RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003" />
+	             <SystemUnitClass  Name="BASIC_27-44-01-05 Valve connector">
+                	<Attribute Name="eClassVersion" AttributeDataType="xs:string">
+				<Value>9.0</Value>
 			</Attribute>
-			<Attribute Name="maxTransportationWeight" AttributeDataType="xs:double" Unit="kg">
-				<Value>35.0</Value>
-				<RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAI721#002" />
+			<Attribute Name="eClassClassificationClass" AttributeDataType="xs:string">
+				<Value>27440105</Value>
 			</Attribute>
-			<Attribute Name="allowsPaper" AttributeDataType="xs:boolean">
-				<DefaultValue>true</DefaultValue>
-				<RefSemantic CorrespondingAttributePath="ECLASS:0173-1#07-CAA016#001" />
+			<Attribute Name="eClassIRDI" AttributeDataType="xs:string">
+				<Value>0173-1---BASIC_1_1#05-AFR414#002</Value>
 			</Attribute>
-			<Attribute Name="paperType" AttributeDataType="xs:string">
-				<Value>Carbon</Value>
-				<RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF818#002" />
+	         </SystemUnitClass>
+                    <SystemUnitClass  Name="BASIC_27-44-01-06 Sensor actuator adapter">
+			<Attribute Name="eClassVersion" AttributeDataType="xs:string">
+				<Value>9.0</Value>
 			</Attribute>
-		</SystemUnitClass>
+			<Attribute Name="eClassClassificationClass" AttributeDataType="xs:string">
+				<Value>27440106</Value>
+			</Attribute>
+			<Attribute Name="eClassIRDI" AttributeDataType="xs:string">
+				<Value>0173-1---BASIC_1_1#06-AFR417#002</Value>
+			</Attribute>
+	         </SystemUnitClass >
+                   <SystemUnitClass  Name="BASIC_27-44-01-92 Industry connector (accessories)">
+			<Attribute Name="eClassVersion" AttributeDataType="xs:string">
+				<Value>9.0</Value>
+			</Attribute>
+			<Attribute Name="eClassClassificationClass" AttributeDataType="xs:string">
+				<Value>27440192</Value>
+			</Attribute>
+			<Attribute Name="eClassIRDI" AttributeDataType="xs:string">
+				<Value>0173-1---BASIC_1_1#92-AFR426#002</Value>
+			</Attribute>
+	         </SystemUnitClass>
 	</SystemUnitClassLib>
 </CAEXFile>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CAEXFile FileName="ExampleRole.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CAEXFile FileName="seed-9.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <AdditionalInformation AutomationMLVersion="2.0"/>
     <AdditionalInformation>
         <WriterHeader>
@@ -15,11 +15,40 @@
         </WriterHeader>
     </AdditionalInformation>
     <ExternalReference Alias="AutomationMLBaseRoleClassLib" Path="Libs\RoleClass Libraries\AutomationMLBaseRoleClassLib.aml"/>
-    <RoleClassLib Name="BodyShopRoleClassLib">
+    <RoleClassLib Name="CommunicationCable">
         <Version>1.0</Version>
-        <RoleClass Name="AssemblyStation" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure"/>
-        <RoleClass Name="DoorAssembly" RefBaseClassPath="BodyShopRoleClassLib/AssemblyStation"/>
-        <RoleClass Name="HoodAssembly" RefBaseClassPath="BodyShopRoleClassLib/AssemblyStation"/>
-        <RoleClass Name="Assembly technology " RefBaseClassPath="BodyShopRoleClassLib/AssemblyStation"/>
+        <RoleClass Name="BASIC_27-06-18-01 Data cable">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>27061801 </Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#01-AKE197#013</Value>
+            </Attribute>
+        </RoleClass>
+        <RoleClass Name="BASIC_27-06-18-02 Coaxial cable">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>27061802</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#02-AFZ688#015</Value>
+            </Attribute>
+        </RoleClass>
+        <RoleClass Name="BASIC_27-06-18-05 Telecommunications cable">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>27061805</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#05-AKE200#015</Value>
+            </Attribute>
+        </RoleClass>
     </RoleClassLib>
 </CAEXFile>

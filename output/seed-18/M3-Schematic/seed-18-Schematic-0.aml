@@ -22,10 +22,6 @@
                     <Value>1.5</Value>
                     <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
                 </Attribute>
-                <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
-                    <Value>35.0</Value>
-                    <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAI721#002"/>
-                </Attribute>
                 <ExternalInterface ID="51e272d6-0252-4ebd-b865-2ca7a202a68e" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                 <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
             </InternalElement>
@@ -33,10 +29,6 @@
                 <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
                     <Value>1.5</Value>
                     <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
-                </Attribute>
-                <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
-                    <Value>35.0</Value>
-                    <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAI721#002"/>
                 </Attribute>
                 <ExternalInterface ID="c50f79eb-6634-4c7e-a32f-54bdef05cace" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                 <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
@@ -46,10 +38,6 @@
                     <Value>1.5</Value>
                     <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
                 </Attribute>
-                <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
-                    <Value>35.0</Value>
-                    <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAI721#002"/>
-                </Attribute>
                 <ExternalInterface ID="b0e2d6a0-2d8b-44c8-921b-bf4b43de906e" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                 <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
             </InternalElement>
@@ -57,10 +45,6 @@
                 <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
                     <Value>1.5</Value>
                     <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
-                </Attribute>
-                <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
-                    <Value>35.0</Value>
-                    <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAI721#002"/>
                 </Attribute>
                 <ExternalInterface ID="c45eca55-521a-492e-b094-472124d1ae65" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                 <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
@@ -70,10 +54,6 @@
                     <Value>1.5</Value>
                     <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
                 </Attribute>
-                <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
-                    <Value>35.0</Value>
-                    <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAI721#002"/>
-                </Attribute>
                 <ExternalInterface ID="9fc18023-1fa1-40ca-821d-7c5a67d391ce" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                 <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
             </InternalElement>
@@ -81,10 +61,6 @@
                 <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
                     <Value>1.5</Value>
                     <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
-                </Attribute>
-                <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
-                    <Value>35.0</Value>
-                    <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAI721#002"/>
                 </Attribute>
                 <ExternalInterface ID="f445e123-5a9e-4fac-ad1e-15623fe2a09b" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                 <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>

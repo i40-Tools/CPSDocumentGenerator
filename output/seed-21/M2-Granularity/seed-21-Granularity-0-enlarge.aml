@@ -14,16 +14,8 @@
             <WriterProjectID>AutomationML Tutorial Examples </WriterProjectID>
         </WriterHeader>
     </AdditionalInformation>
-    <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
     <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
     <ExternalReference Alias="Alias0" Path="Path0"/>
-    <InstanceHierarchy Name="MechatronicEngineering">
-        <InternalElement ID="45e20f8e-7351-4af9-bdfd-3c019674de55" Name="Conveyor1"/>
-        <InternalElement ID="11b59bf6-44f6-4650-939f-d8e2551912a7" Name="Conveyor2"/>
-        <InternalElement ID="23e7138b-f28f-4f45-8c0b-ee7e0de7c08f" Name="Conveyor3"/>
-        <InternalElement ID="819f4954-892a-4a46-9091-b6f75ddd1332" Name="Conveyor4"/>
-        <InternalElement ID="6493b542-8aac-41c0-bb6e-eef0d2621ae0" Name="Conveyor5"/>
-    </InstanceHierarchy>
     <InstanceHierarchy ID="0000-0" Name="Instance Name-0">
         <InternalElement ChangeMode="state" ID="0000-0" Name="AML Object-0" RefBaseSystemUnitPath="RefbasePath-0">
             <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
@@ -38,6 +30,40 @@
             <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
         </InternalElement>
     </InstanceHierarchy>
+    <InterfaceClassLib Name="DistributionTransformer">
+        <Version>1.0</Version>
+        <InterfaceClass Name="BASIC_27-03-14-02 Single-phase distribution transformer (oil-cooled)">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>27031402</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#02-ACO096#009</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="additional link address">
+                <Description>site address where you can view information about the product or to communicate</Description>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAQ326#001"/>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="GTIN">
+                <Description>internationally unique and unambiguous article number for products and services (Global Trade Item Number, formerly EAN)</Description>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAO663#002"/>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="Power loss, static, current-independent [Pls]">
+                <Description>Specification of electrical heat loss in watts for a device without a load current dependent portions</Description>
+                <RefSemantic CorrespondingAttributePath="0173-1#02-BAA303#005"/>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="Manufacturer name">
+                <Description> legally valid designation of the natural or judicial person which is directly responsible for the design, production, packaging and labeling of a product in respect to its being brought into circulation</Description>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAO677#001"/>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="Product type description">
+                <Description>name of the product family or variant</Description>
+                <RefSemantic CorrespondingAttributePath="0173-1#02-AAO847#002"/>
+            </Attribute>
+        </InterfaceClass>
+    </InterfaceClassLib>
     <InterfaceClassLib ID="141929fsafa-34-5-5-0" Name="interface class Lib Name 0">
         <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0">
             <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>

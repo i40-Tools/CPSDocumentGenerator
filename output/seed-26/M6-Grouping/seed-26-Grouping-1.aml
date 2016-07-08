@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile FileName="seed-26-Grouping-1.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <AdditionalInformation AutomationMLVersion="2.0"/>
+    <AdditionalInformation>
+        <WriterHeader>
+            <WriterName>AutomationML e.V.</WriterName>
+            <WriterID>AutomationML e.V.</WriterID>
+            <WriterVendor>AutomationML e.V.</WriterVendor>
+            <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+            <WriterVersion>1.0</WriterVersion>
+            <WriterRelease>1.0</WriterRelease>
+            <LastWritingDateTime>2012-02-20 </LastWritingDateTime>
+            <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+            <WriterProjectID>AutomationML Tutorial Examples </WriterProjectID>
+        </WriterHeader>
+    </AdditionalInformation>
+    <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
+    <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
+    <SystemUnitClassLib Name="AssembleSystem">
+        <Version>1.0</Version>
+        <SystemUnitClass Name="BASIC_36-12-04-01 Conveyor">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>36120401</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#01-AKL503#010</Value>
+            </Attribute>
+            <InternalElement ID="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" Name="LiftUpGate" RefBaseSystemUnitPath="Resources/RollerConveyor"> </InternalElement>
+            <InternalElement ID="{71fc6d29-7797-4e3f-a659-ac69198e464f}" Name="TransferToSubAssembly" RefBaseSystemUnitPath="Resources/RollerConveyor"> </InternalElement>
+            <InternalElement ID="{9facd06a-1725-4d18-95f7-4814ba2e4cf8}" Name="TransferToMainAssembly" RefBaseSystemUnitPath="Resources/RollerConveyor"> </InternalElement>
+            <InternalElement ID="{72bf71e8-15fd-4882-9d35-00a12d1aa995}" Name="EndStop" RefBaseSystemUnitPath="Resources/RollerConveyor"> </InternalElement>
+        </SystemUnitClass>
+    </SystemUnitClassLib>
+</CAEXFile>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CAEXFile FileName="ExampleInterfaceClass.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CAEXFile FileName="seed-8.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <AdditionalInformation AutomationMLVersion="2.0"/>
     <AdditionalInformation>
         <WriterHeader>
@@ -15,14 +15,40 @@
         </WriterHeader>
     </AdditionalInformation>
     <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
-    <InterfaceClassLib Name="TransportationInterfaces">
+    <InterfaceClassLib Name="DistributionTransformer">
         <Version>1.0</Version>
-        <InterfaceClass Name="Product" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
-            <Attribute AttributeDataType="xs:string" Name="Direction"/>
+        <InterfaceClass Name="BASIC_27-03-14-02 Single-phase distribution transformer (oil-cooled)">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>27031402</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#02-ACO096#009</Value>
+            </Attribute>
         </InterfaceClass>
-        <InterfaceClass Name="TakeOver" RefBaseClassPath="TransportationInterfaces/Product"/>
-        <InterfaceClass Name="HandOver" RefBaseClassPath="TransportationInterfaces/Product"/>
-        <InterfaceClass Name="Transport service" RefBaseClassPath="TransportationInterfaces/Product"/>
-        <InterfaceClass Name="Transport devices" RefBaseClassPath="TransportationInterfaces/Product"/>
+        <InterfaceClass Name="BASIC_27-03-14-03 Distribution transformer cast resin">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>27031403</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#03-ACO098#009</Value>
+            </Attribute>
+        </InterfaceClass>
+        <InterfaceClass Name="BASIC_27-03-14-01 Three-phase distribution transformer (oil-cooled)">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>27031401</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#01-ACO094#009</Value>
+            </Attribute>
+        </InterfaceClass>
     </InterfaceClassLib>
 </CAEXFile>

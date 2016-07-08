@@ -121,7 +121,7 @@ aml:Document-11
 
 aml:Document-12
      aml:hasHeterogeneity    aml:M3;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-12\\seed-12.aml";
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M3-Schematic\\seed-12.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-12.aml";
      aml:generateFiles       "true"; 
@@ -130,7 +130,7 @@ aml:Document-12
 
 aml:Document-13
      aml:hasHeterogeneity    aml:M3;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-13\\seed-13.aml";
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M3-Schematic\\seed-13.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-13.aml";
      aml:generateFiles       "true"; 
@@ -139,7 +139,7 @@ aml:Document-13
 
 aml:Document-14
      aml:hasHeterogeneity    aml:M3;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-14\\seed-14.aml";
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M3-Schematic\\seed-14.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-14.aml";
      aml:generateFiles       "true"; 
@@ -148,8 +148,8 @@ aml:Document-14
 
 aml:Document-15
      aml:hasHeterogeneity    aml:M3;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-15\\seed-15.aml";
-     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+    aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M3-Schematic\\seed-15.aml";
+      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-15.aml";
      aml:generateFiles       "true"; 
      aml:hasID               "Document-15";
@@ -157,7 +157,7 @@ aml:Document-15
 
 aml:Document-16
      aml:hasHeterogeneity    aml:M3;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-16\\seed-16.aml";
+    aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M3-Schematic\\seed-16.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-16.aml";
      aml:generateFiles       "true"; 
@@ -166,7 +166,7 @@ aml:Document-16
 
 aml:Document-17
      aml:hasHeterogeneity    aml:M3;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-17\\seed-17.aml";
+    aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M3-Schematic\\seed-17.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-17.aml";
      aml:generateFiles       "true"; 
@@ -175,7 +175,7 @@ aml:Document-17
 
 aml:Document-18
      aml:hasHeterogeneity    aml:M3;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-18\\seed-18.aml";
+    aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M3-Schematic\\seed-18.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-18.aml";
      aml:generateFiles       "true"; 
@@ -184,7 +184,7 @@ aml:Document-18
 
 aml:Document-19
      aml:hasHeterogeneity    aml:M3;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-19\\seed-19.aml";
+    aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M3-Schematic\\seed-19.aml";
      aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
      ebucore:filename        "seed-19.aml";
      aml:generateFiles       "true"; 
@@ -225,5 +225,86 @@ aml:Document-23
      ebucore:filename        "seed-23.aml";
      aml:generateFiles       "true"; 
      aml:hasID               "Document-23";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-24
+     aml:hasHeterogeneity    aml:M6;
+    aml:hasInputPath         "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M6-Grouping\\seed-24.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-24.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-24";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-25
+     aml:hasHeterogeneity    aml:M6;
+    aml:hasInputPath         "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M6-Grouping\\seed-25.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-25.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-25";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-26
+     aml:hasHeterogeneity    aml:M6;
+    aml:hasInputPath         "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M6-Grouping\\seed-26.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-26.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-26";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-27
+     aml:hasHeterogeneity    aml:M6;
+    aml:hasInputPath         "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M6-Grouping\\seed-27.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-27.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-27";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-28
+     aml:hasHeterogeneity    aml:M6;
+    aml:hasInputPath         "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M6-Grouping\\seed-28.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-28.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-28";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-29
+     aml:hasHeterogeneity    aml:M6;
+    aml:hasInputPath         "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M6-Grouping\\seed-29.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-29.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-29";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-30
+     aml:hasHeterogeneity    aml:M6;
+    aml:hasInputPath         "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M6-Grouping\\seed-30.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-30.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-30";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-31
+     aml:hasHeterogeneity    aml:M6;
+    aml:hasInputPath         "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M6-Grouping\\seed-31.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-31.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-31";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-32
+     aml:hasHeterogeneity    aml:M6;
+     aml:hasInputPath         "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M6-Grouping\\seed-32.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-32.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-32";
      rdf:type                aml:Heterogeneity . 	 
 	     

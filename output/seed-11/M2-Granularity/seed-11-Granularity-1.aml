@@ -12,16 +12,27 @@
     </AdditionalInformation>
     <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
     <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
-    <SystemUnitClassLib Name="Conveyors">
-        <Version>1.0</Version>
-        <SystemUnitClass Name="RollerConveyor">
-            <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
-                <Value>35.0</Value>
-                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAI721#002"/>
+    <SystemUnitClassLib Name="Industry Connector">
+        <SystemUnitClass Name="BASIC_27-44-01-05 Valve connector">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
             </Attribute>
-            <Attribute AttributeDataType="xs:string" Name="paperType">
-                <Value>Carbon</Value>
-                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF818#002"/>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>27440105</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#05-AFR414#002</Value>
+            </Attribute>
+        </SystemUnitClass>
+        <SystemUnitClass Name="BASIC_27-44-01-92 Industry connector (accessories)">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>27440192</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#92-AFR426#002</Value>
             </Attribute>
         </SystemUnitClass>
     </SystemUnitClassLib>

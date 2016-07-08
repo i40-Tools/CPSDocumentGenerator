@@ -19,18 +19,27 @@
     <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
     <InterfaceClassLib Name="UserDefinedClassLib">
         <Version>1.0.0</Version>
-        <InterfaceClass Name="MyDigitalInput">
-            <Attribute AttributeDataType="xs:string" Name="Type">
-                <Value>Digital</Value>
-                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAB236#006"/>
+        <InterfaceClass Name="BASIC_19-20-06-04 Digital input/output (industry microcomputer)">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
             </Attribute>
-            <Attribute AttributeDataType="xs:string" Name="Direction">
-                <Value>In</Value>
-                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF895#005"/>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>19200604</Value>
             </Attribute>
-            <Attribute AttributeDataType="xs:boolean" Name="Enabled">
-                <Value>true</Value>
-                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAL686#004 "/>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#04-AFX029#001</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="Product name">
+                <Description>designation for a product defined by manufacturer or sales organization</Description>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAP805#002 "/>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="Polystyrene weight portion of the individual packaging">
+                <Description>Mass fraction of the individual packaging for the component polysterene</Description>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAS630#001"/>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="Weight of the individual packaging">
+                <Description>Mass of the individual packaging of an article</Description>
+                <RefSemantic CorrespondingAttributePath="0173-1#02-AAS627#001"/>
             </Attribute>
         </InterfaceClass>
     </InterfaceClassLib>

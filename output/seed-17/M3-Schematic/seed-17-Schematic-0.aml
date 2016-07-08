@@ -14,17 +14,30 @@
     <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
     <SystemUnitClassLib Name="Conveyors">
         <Version>1.0</Version>
-        <SystemUnitClass Name="RollerConveyor">
+        <SystemUnitClass Name="BASIC_36-12-04-01 Conveyor">
+            <Attribute AttributeDataType="xs:string" Name="eClassVersion">
+                <Value>9.0</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassClassificationClass">
+                <Value>36120401</Value>
+            </Attribute>
+            <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
+                <Value>0173-1---BASIC_1_1#01-AKL503#010</Value>
+            </Attribute>
             <InternalElement ID="acf9f51b-3fbd-4f30-891d-f8daca50ed18" Name="Connection">
                 <InternalElement ID="45e20f8e-7351-4af9-bdfd-3c019674de55" Name="Conveyor1">
-                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
-                    <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg"/>
+                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
+                        <Value>1.5</Value>
+                        <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
+                    </Attribute>
                     <ExternalInterface ID="51e272d6-0252-4ebd-b865-2ca7a202a68e" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                     <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
                 </InternalElement>
                 <InternalElement ID="11b59bf6-44f6-4650-939f-d8e2551912a7" Name="Conveyor2">
-                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
-                    <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg"/>
+                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
+                        <Value>1.5</Value>
+                        <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
+                    </Attribute>
                     <ExternalInterface ID="c50f79eb-6634-4c7e-a32f-54bdef05cace" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                     <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
                 </InternalElement>
@@ -33,14 +46,18 @@
             </InternalElement>
             <InternalElement ID="acf9f51b-3fbd-4f30-891d-f8daca50ed17" Name="Station">
                 <InternalElement ID="23e7138b-f28f-4f45-8c0b-ee7e0de7c08f" Name="Conveyor3">
-                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
-                    <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg"/>
+                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
+                        <Value>1.5</Value>
+                        <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
+                    </Attribute>
                     <ExternalInterface ID="b0e2d6a0-2d8b-44c8-921b-bf4b43de906e" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                     <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
                 </InternalElement>
                 <InternalElement ID="819f4954-892a-4a46-9091-b6f75ddd1332" Name="Conveyor4">
-                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
-                    <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg"/>
+                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
+                        <Value>1.5</Value>
+                        <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
+                    </Attribute>
                     <ExternalInterface ID="c45eca55-521a-492e-b094-472124d1ae65" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                     <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
                 </InternalElement>

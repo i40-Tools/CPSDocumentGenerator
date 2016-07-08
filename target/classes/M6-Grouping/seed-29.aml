@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile FileName="seed-29.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <AdditionalInformation AutomationMLVersion="2.0"/>
+    <AdditionalInformation>
+        <WriterHeader>
+            <WriterName>AutomationML e.V.</WriterName>
+            <WriterID>AutomationML e.V.</WriterID>
+            <WriterVendor>AutomationML e.V.</WriterVendor>
+            <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+            <WriterVersion>1.0</WriterVersion>
+            <WriterRelease>1.0</WriterRelease>
+            <LastWritingDateTime>2012-02-20 </LastWritingDateTime>
+            <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+            <WriterProjectID>AutomationML Tutorial Examples </WriterProjectID>
+        </WriterHeader>
+    </AdditionalInformation>
+    <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
+    <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
+    <InstanceHierarchy Name="AssemblySystem">
+        <InternalElement ID="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" Name="LiftUpGate" RefBaseSystemUnitPath="Resources/RollerConveyor"> </InternalElement>
+        <InternalElement ID="{71fc6d29-7797-4e3f-a659-ac69198e464f}" Name="TransferToSubAssembly" RefBaseSystemUnitPath="Resources/RollerConveyor"> </InternalElement>
+        <InternalElement ID="{ac026999-a2e2-4a86-8c97-39685607e49a}" Name="SubAssembly" RefBaseSystemUnitPath="Resources/AssemblyStation"> </InternalElement>
+        <InternalElement ID="{9facd06a-1725-4d18-95f7-4814ba2e4cf8}" Name="TransferToMainAssembly" RefBaseSystemUnitPath="Resources/RollerConveyor"> </InternalElement>
+        <InternalElement ID="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" Name="MainAssemblyStation" RefBaseSystemUnitPath="Resources/AssemblyStation"> </InternalElement>
+        <InternalElement ID="{72bf71e8-15fd-4882-9d35-00a12d1aa995}" Name="EndStop" RefBaseSystemUnitPath="Resources/RollerConveyor"> </InternalElement>
+        <InternalElement ID="{aa490a5b-1ee8-42ea-bd48-8aff922ee835}" Name="ConveyorGroup">
+            <InternalElement ID="{8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" Name="LiftUpGate" RefBaseSystemUnitPath="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}"/>
+            <InternalElement ID="{2dd897fb-92ea-48ec-af81-84252f1d91ca}" Name="TransferToSubAssembly" RefBaseSystemUnitPath="{71fc6d29-7797-4e3f-a659-ac69198e464f}"/>
+            <InternalElement ID="{f3e48d15-571f-4376-aeea-189235f6b671}" Name="TransferToMainAssembly" RefBaseSystemUnitPath="{9facd06a-1725-4d18-95f7-4814ba2e4cf8}"/>
+            <InternalElement ID="{176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" Name="EndStop" RefBaseSystemUnitPath="{72bf71e8-15fd-4882-9d35-00a12d1aa995}"/>
+            <InternalElement ID="{eb7af72e-a31c-4b99-b627-8249d19b73bb}" Name="SubAssembly" RefBaseSystemUnitPath="{ac026999-a2e2-4a86-8c97-39685607e49a}"/>
+            <InternalElement ID="{62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" Name="MainAssemblyStation" RefBaseSystemUnitPath="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}"/>
+        </InternalElement>
+    </InstanceHierarchy>
+</CAEXFile>

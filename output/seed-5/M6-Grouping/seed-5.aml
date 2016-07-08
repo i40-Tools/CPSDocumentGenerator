@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mit XMLSpy v2011 rel. 3 (http://www.altova.com) von Josef Prinz (INPRO) bearbeitet -->
-<CAEXFile FileName="group-orignal.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CAEXFile FileName="seed-5.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <AdditionalInformation AutomationMLVersion="2.0"/>
     <AdditionalInformation>
         <WriterHeader>
@@ -17,26 +17,26 @@
     </AdditionalInformation>
     <InstanceHierarchy Name="ConveyorSystem">
         <InternalElement ID="45e20f8e-7351-4af9-bdfd-3c019674de55" Name="Conveyor1">
-            <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
-            <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
+            <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
                 <Value>10</Value>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
             </Attribute>
             <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
         </InternalElement>
         <InternalElement ID="11b59bf6-44f6-4650-939f-d8e2551912a7" Name="Conveyor2">
             <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
-                <DefaultValue>10</DefaultValue>
+                <Value>10</Value>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
             </Attribute>
-            <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg"/>
             <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
         </InternalElement>
         <InternalElement ID="33bb9cd2-e6b5-44bd-8aef-a2d25250374d" Name="ConveyorGroup">
-            <InternalElement ID="6797c68e-bdbf-485f-9292-4a3b0fe3ff23" Name="Conveyor">
-                <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
-                    <Value>20</Value>
-                </Attribute>
-                <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
-            </InternalElement>
+            <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
+                <Value>20</Value>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
+            </Attribute>
+            <InternalElement ID="1e26835f-f4e4-481f-ad41-faa04bf987da" Name="Conveyor1"/>
+            <InternalElement ID="b02c2987-dd42-4408-98c0-be0d240f1d5c" Name="Conveyor2"/>
         </InternalElement>
     </InstanceHierarchy>
 </CAEXFile>
