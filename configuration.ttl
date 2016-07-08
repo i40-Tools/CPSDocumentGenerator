@@ -208,4 +208,22 @@ aml:Document-21
      aml:generateFiles       "true"; 
      aml:hasID               "Document-21";
      rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-22
+     aml:hasHeterogeneity    aml:M2;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-22\\seed-22.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-22.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-22";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-23
+     aml:hasHeterogeneity    aml:M2;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-23\\seed-23.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-23.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-23";
+     rdf:type                aml:Heterogeneity . 	 
 	     

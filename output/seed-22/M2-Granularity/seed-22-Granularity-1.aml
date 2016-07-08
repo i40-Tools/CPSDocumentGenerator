@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mit XMLSpy v2011 rel. 3 (http://www.altova.com) von Josef Prinz (INPRO) bearbeitet -->
-<CAEXFile FileName="seed-7-Granularity-1.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CAEXFile FileName="seed-22-Granularity-1.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <AdditionalInformation AutomationMLVersion="2.0"/>
     <AdditionalInformation>
         <WriterHeader>
@@ -12,11 +12,8 @@
     </AdditionalInformation>
     <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
     <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
-    <InterfaceClassLib Name="UserDefinedClassLib">
-        <InterfaceClass Name="MyDigitalInput">
-            <Attribute AttributeDataType="xs:string" Name="Direction">
-                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF895#005"/>
-            </Attribute>
-        </InterfaceClass>
-    </InterfaceClassLib>
+    <SystemUnitClassLib Name="Conveyors">
+        <SystemUnitClass Name="RollerConveyor1"/>
+        <SystemUnitClass Name="RollerConveyor3"/>
+    </SystemUnitClassLib>
 </CAEXFile>

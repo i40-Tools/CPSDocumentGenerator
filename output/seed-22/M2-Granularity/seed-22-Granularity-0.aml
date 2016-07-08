@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2011 rel. 3 (http://www.altova.com) von Josef Prinz (INPRO) bearbeitet -->
+<CAEXFile FileName="seed-22-Granularity-0.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <AdditionalInformation AutomationMLVersion="2.0"/>
+    <AdditionalInformation>
+        <WriterHeader>
+            <WriterName>AutomationML e.V.</WriterName>
+            <WriterID>AutomationML e.V.</WriterID>
+            <WriterVendor>AutomationML e.V.</WriterVendor>
+            <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+            <WriterVersion>1.0</WriterVersion>
+            <WriterRelease>1.0</WriterRelease>
+            <LastWritingDateTime>2012-02-20</LastWritingDateTime>
+            <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+            <WriterProjectID>AutomationML Tutorial Examples</WriterProjectID>
+        </WriterHeader>
+    </AdditionalInformation>
+    <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
+    <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
+    <SystemUnitClassLib Name="Conveyors">
+        <Version>1.0</Version>
+        <SystemUnitClass Name="RollerConveyor1"/>
+        <SystemUnitClass Name="RollerConveyor2"/>
+        <SystemUnitClass Name="RollerConveyor3"/>
+        <SystemUnitClass Name="RollerConveyor4"/>
+    </SystemUnitClassLib>
+</CAEXFile>

@@ -15,11 +15,9 @@
     <InstanceHierarchy Name="MechatronicEngineering">
         <InternalElement ID="74d0c8ef-ab53-462a-8225-306ed22dc0f3" Name="RollerConveyor" RefBaseSystemUnitPath="">
             <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
-                <Value>35.0</Value>
                 <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAI721#002"/>
             </Attribute>
             <Attribute AttributeDataType="xs:string" Name="paperType">
-                <Value>Carbon</Value>
                 <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF818#002"/>
             </Attribute>
         </InternalElement>
