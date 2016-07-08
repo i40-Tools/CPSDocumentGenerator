@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile FileName="file-1.aml" SchemaVersion="2.15">
+    <AdditionalInformation AutomationMLVersion="2.0"/>
+    <AdditionalInformation>
+        <WriterHeader>
+            <WriterID>AutomationML e.V.</WriterID>
+            <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+            <WriterRelease>1.0</WriterRelease>
+            <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+        </WriterHeader>
+    </AdditionalInformation>
+    <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
+    <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
+    <ExternalReference Alias="Alias0" Path="Path0"/>
+    <InstanceHierarchy ID="0000-0" Name="Instance Name-0">
+        <InternalElement ChangeMode="state" ID="0000-0" Name="AML Object-0" RefBaseSystemUnitPath="RefbasePath-0">
+            <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1"/>
+            <InternalElement ID="0000-0" Name="AML Object-0" RefBaseSystemUnitPath="RefbasePath-0">
+                <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+                <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1"/>
+                <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
+                <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
+            </InternalElement>
+            <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
+            <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
+        </InternalElement>
+    </InstanceHierarchy>
+    <InterfaceClassLib ID="141929fsafa-34-5-5-0" Name="interface class Lib Name 0">
+        <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0">
+            <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
+            <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+        </InterfaceClass>
+        <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1">
+            <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
+            <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+        </InterfaceClass>
+    </InterfaceClassLib>
+    <InterfaceClassLib ID="141929fsafa-34-5-5-1" Name="interface class Lib Name 1">
+        <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0">
+            <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
+            <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+        </InterfaceClass>
+        <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1">
+            <InterfaceClass ID="141929fsafa-34-5-5-0" Name="interface class Name 0" RefBaseClassPath="Ref base path0"/>
+            <InterfaceClass ID="141929fsafa-34-5-5-1" Name="interface class Name 1" RefBaseClassPath="Ref base path1"/>
+        </InterfaceClass>
+    </InterfaceClassLib>
+    <RoleClassLib ID="14-32-34-34-5-5-0" Name="Role class Lib Name 0">
+        <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-2" Name="Role class Name 2" RefBaseClassPath="Ref base path2">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-3" Name="Role class Name 3" RefBaseClassPath="Ref base path3">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+        </RoleClass>
+        <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-2" Name="Role class Name 2" RefBaseClassPath="Ref base path2">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-3" Name="Role class Name 3" RefBaseClassPath="Ref base path3">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+        </RoleClass>
+    </RoleClassLib>
+    <RoleClassLib ID="14-32-34-34-5-5-1" Name="Role class Lib Name 1">
+        <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-2" Name="Role class Name 2" RefBaseClassPath="Ref base path2">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-3" Name="Role class Name 3" RefBaseClassPath="Ref base path3">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+        </RoleClass>
+        <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+            <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <RoleClass ID="143-3-3-34-5-5-0" Name="Role class Name 0" RefBaseClassPath="Ref base path0">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-1" Name="Role class Name 1" RefBaseClassPath="Ref base path1">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-2" Name="Role class Name 2" RefBaseClassPath="Ref base path2">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+            <RoleClass ID="143-3-3-34-5-5-3" Name="Role class Name 3" RefBaseClassPath="Ref base path3">
+                <ExternalInterface ID="00220-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            </RoleClass>
+        </RoleClass>
+    </RoleClassLib>
+    <SystemUnitClassLib Name="Conveyors">
+        <Version>1.0</Version>
+        <SystemUnitClass Name="RollerConveyor">
+            <InternalElement ID="acf9f51b-3fbd-4f30-891d-f8daca50ed18" Name="Connection">
+                <InternalElement ID="45e20f8e-7351-4af9-bdfd-3c019674de55" Name="Conveyor1">
+                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
+                    <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg"/>
+                    <ExternalInterface ID="51e272d6-0252-4ebd-b865-2ca7a202a68e" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
+                    <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+                </InternalElement>
+                <InternalElement ID="11b59bf6-44f6-4650-939f-d8e2551912a7" Name="Conveyor2">
+                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
+                    <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg"/>
+                    <ExternalInterface ID="c50f79eb-6634-4c7e-a32f-54bdef05cace" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
+                    <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+                </InternalElement>
+                <InternalLink Name="PortLink" RefPartnerSideA="45e20f8e-7351-4af9-bdfd-3c019674de55:ConnectionPoint" RefPartnerSideB="11b59bf6-44f6-4650-939f-d8e2551912a7:ConnectionPoint"/>
+                <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
+            </InternalElement>
+            <InternalElement ID="acf9f51b-3fbd-4f30-891d-f8daca50ed17" Name="Station">
+                <InternalElement ID="23e7138b-f28f-4f45-8c0b-ee7e0de7c08f" Name="Conveyor3">
+                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
+                    <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg"/>
+                    <ExternalInterface ID="b0e2d6a0-2d8b-44c8-921b-bf4b43de906e" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
+                    <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+                </InternalElement>
+                <InternalElement ID="819f4954-892a-4a46-9091-b6f75ddd1332" Name="Conveyor4">
+                    <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s"/>
+                    <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg"/>
+                    <ExternalInterface ID="c45eca55-521a-492e-b094-472124d1ae65" Name="ConnectionPoint" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
+                    <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+                </InternalElement>
+                <InternalLink Name="PortLink" RefPartnerSideA="23e7138b-f28f-4f45-8c0b-ee7e0de7c08f:ConnectionPoint" RefPartnerSideB="819f4954-892a-4a46-9091-b6f75ddd1332:ConnectionPoint"/>
+                <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
+            </InternalElement>
+        </SystemUnitClass>
+    </SystemUnitClassLib>
+    <SystemUnitClassLib ID="11-31-31-31-1-1-0" Name="System Unit class Lib Name 0">
+        <SystemUnitClass ID="11-31-31-31-1-1-0" Name="System Unit class Name 0">
+            <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+            <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1"/>
+            <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
+            <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
+            <SystemUnitClass ID="11-31-31-31-1-1-0" Name="System Unit class Name 0">
+                <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+                <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1"/>
+                <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
+                <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
+            </SystemUnitClass>
+            <SystemUnitClass ID="11-31-31-31-1-1-1" Name="System Unit class Name 1">
+                <ExternalInterface ID="0000-1--10" Name="External Interface0" RefBaseClassPath="RefBasePath0"/>
+                <ExternalInterface ID="0000-1--11" Name="External Interface1" RefBaseClassPath="RefBasePath1"/>
+                <SupportedRoleClass RefRoleClassPath="RefBasePath=0"/>
+                <InternalLink ID="0000-1--10" Name="connection0" RefPartnerSideA="connection A0" RefPartnerSideB="connection B0"/>
+            </SystemUnitClass>
+        </SystemUnitClass>
+    </SystemUnitClassLib>
+</CAEXFile>

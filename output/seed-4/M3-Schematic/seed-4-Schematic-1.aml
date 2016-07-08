@@ -185,6 +185,7 @@
                         <Attribute AttributeDataType="xs:float" Name="max"/>
                     </Attribute>
                 </ExternalInterface>
+                <InternalLink Name="PortLink" RefPartnerSideA="5644c22b-7f0c-4945-a899-14cc1f3bafae:ConnectionPoint" RefPartnerSideB="c56f14f2-9a68-43f2-b0a2-46204ed2a21c:ConnectionPoint"/>
                 <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
             </InternalElement>
             <InternalElement ID="5d2daba9-2cd2-4876-a9ad-bbd4e3a0b1df" Name="OutPort">
@@ -241,7 +242,6 @@
                 </ExternalInterface>
                 <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
             </InternalElement>
-            <InternalLink Name="PortLink" RefPartnerSideA="5644c22b-7f0c-4945-a899-14cc1f3bafae:ConnectionPoint" RefPartnerSideB="c56f14f2-9a68-43f2-b0a2-46204ed2a21c:ConnectionPoint"/>
             <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
         </InternalElement>
     </InstanceHierarchy>

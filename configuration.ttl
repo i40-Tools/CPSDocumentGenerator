@@ -136,4 +136,76 @@ aml:Document-13
      aml:generateFiles       "true"; 
      aml:hasID               "Document-13";
      rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-14
+     aml:hasHeterogeneity    aml:M3;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-14\\seed-14.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-14.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-14";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-15
+     aml:hasHeterogeneity    aml:M3;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-15\\seed-15.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-15.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-15";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-16
+     aml:hasHeterogeneity    aml:M3;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-16\\seed-16.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-16.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-16";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-17
+     aml:hasHeterogeneity    aml:M3;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-17\\seed-17.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-17.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-17";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-18
+     aml:hasHeterogeneity    aml:M3;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-18\\seed-18.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-18.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-18";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-19
+     aml:hasHeterogeneity    aml:M3;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-19\\seed-19.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-19.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-19";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-20
+     aml:hasHeterogeneity    aml:M2;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-20\\seed-20.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-20.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-20";
+     rdf:type                aml:Heterogeneity . 	 
+
+aml:Document-21
+     aml:hasHeterogeneity    aml:M2;
+     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-21\\seed-21.aml";
+     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     ebucore:filename        "seed-21.aml";
+     aml:generateFiles       "true"; 
+     aml:hasID               "Document-21";
+     rdf:type                aml:Heterogeneity . 	 
 	     

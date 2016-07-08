@@ -119,7 +119,7 @@ public class XmlParser {
 	 * @return
 	 */
 
-	protected ArrayList<Node> getAttribute(NamedNodeMap baseElmntAttr) {
+	public ArrayList<Node> getAttribute(NamedNodeMap baseElmntAttr) {
 		ArrayList<Node> node = new ArrayList<Node>();
 		for (int i = 0; i < baseElmntAttr.getLength(); ++i) {
 			Node attr = baseElmntAttr.item(i);
