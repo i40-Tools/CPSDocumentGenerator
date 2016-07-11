@@ -28,7 +28,7 @@
 				<RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
 			</InternalElement>
 			<InternalElement Name="Conveyor2" ID="11b59bf6-44f6-4650-939f-d8e2551912a7">
-				<InternalElement Name="InPort" ID="c56f14f2-9a68-43f2-b0a2-46204ed2a21c">
+				<InternalElement Name="InPort2" ID="c56f14f2-9a68-43f2-b0a2-46204ed2a21c">
 					<ExternalInterface Name="ConnectionPoint" ID="c50f79eb-6634-4c7e-a32f-54bdef05cace" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector" />
 					<RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port" />
 				</InternalElement>

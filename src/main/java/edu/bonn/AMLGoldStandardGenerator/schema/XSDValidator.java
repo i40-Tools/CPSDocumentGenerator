@@ -50,7 +50,6 @@ public class XSDValidator {
 			Validator xsdValidator = schema.newValidator();
 
 			xsdValidator.validate(xmlPath);
-			System.out.println(xmlPath.getSystemId() + " is valid generated file");
 		} catch (SAXException | IOException e) {
 
 			System.out.println(xmlPath.getSystemId() + " is NOT valid generated file");

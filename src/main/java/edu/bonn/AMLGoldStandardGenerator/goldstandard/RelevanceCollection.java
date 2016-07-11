@@ -242,6 +242,10 @@ public class RelevanceCollection extends XmlParser {
 		// compares if those values are inside Gold standard nodes or not.
 		for (int j = 0; j < generated.size(); j++) {
 
+			// ignores FileName
+			if (generated.get(j).equals("FileName"))
+				return true;
+
 			if (!goldStandard.contains(generated.get(j))) {
 
 				return false;

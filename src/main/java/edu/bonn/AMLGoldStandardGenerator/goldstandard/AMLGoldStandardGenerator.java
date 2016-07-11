@@ -199,6 +199,9 @@ public class AMLGoldStandardGenerator {
 				// validates the files
 				validateSchema(enlargeFile, directory + "//");
 
+				// rename enlarged files
+				renameFiles(inputName.get(m), enlargeFile, directory);
+
 				// make it look pretty.
 				new XmlParser().formatXML(new XmlParser().initInput(directory + "//" + enlargeFile), enlargeFile,
 						directory);
@@ -277,7 +280,12 @@ public class AMLGoldStandardGenerator {
 		// 1- Granularity
 		// 2- Schema
 		AMLGoldStandardGenerator goldStandard = new AMLGoldStandardGenerator();
+
+		System.out.println("Generating Files Please wait....");
+
 		goldStandard.heterogeneityGenerator(goldStandard.inputPath, goldStandard.heterogeneityID);
+
+		System.out.println("Finished SuccessFully");
 		new IntegrationValidator().validate();
 		try {
 			// ModelRepair.testRoundTrip("model.aml");

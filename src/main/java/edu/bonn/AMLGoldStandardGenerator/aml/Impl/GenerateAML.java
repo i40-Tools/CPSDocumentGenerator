@@ -26,8 +26,6 @@ public class GenerateAML {
 
 			CAEXFile caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
 
-			caex.setFileName("file-1.aml");
-			caex.setSchemaVersion("2.15");
 			caex.getInstanceHierarchy().addAll(InstanceHierarchy.setValue());
 			caex.getExternalReference()
 					.addAll(edu.bonn.AMLGoldStandardGenerator.aml.Impl.ExternalReference.setObject());

@@ -177,17 +177,17 @@ public class XmlParser {
 			node.add(n);
 		}
 
-		// for every node gets its attribute and its value.
+		// for every node gets its nodeName and its value.
 		for (int i = 0; i < node.size(); i++) {
 			NodeList children = node.get(i).getChildNodes();
 			for (int i1 = 0; i1 < children.getLength(); i1++) {
 				Node textChild = children.item(i1);
 
-				// compares if node has attribute value
+				// compares if node has value
 				if (textChild.getNodeType() == Node.TEXT_NODE) {
 					if (textChild.getNodeValue().trim().length() != 0) {
 
-						// puts attribute and its value
+						// puts Node and its value
 						result.put(node.get(i), textChild);
 					}
 
@@ -371,7 +371,7 @@ public class XmlParser {
 				for (int i = 0; i <= child; i++) {
 
 					while (baseElmnt.hasChildNodes()) {
-						if (new XmlParser().getChildCount(baseElmnt.getChildNodes()) < child) {
+						if (getChildCount(baseElmnt.getChildNodes()) < child) {
 
 							break;
 						}
