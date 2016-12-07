@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CAEXFile FileName="seed-5-Grouping-1-enlarge.aml" SchemaVersion="2.15">
+<CAEXFile FileName="seed.aml" SchemaVersion="2.15">
     <AdditionalInformation AutomationMLVersion="2.0"/>
     <AdditionalInformation>
         <WriterHeader>
@@ -16,27 +16,27 @@
     </AdditionalInformation>
     <ExternalReference Alias="Alias0" Path="Path0"/>
     <InstanceHierarchy Name="ConveyorSystem">
-        <InternalElement ID="45e20f8e-7351-4af9-bdfd-3c019674de55" Name="Conveyor1">
+        <InternalElement ID="45e20f8e-7351-4af9-bdfd-3c019674de55" Name="Conveyor1" RefBaseSystemUnitPath="Resources/RollerConveyor">
             <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
                 <Value>10</Value>
                 <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
             </Attribute>
             <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
         </InternalElement>
-        <InternalElement ID="11b59bf6-44f6-4650-939f-d8e2551912a7" Name="Conveyor2">
-            <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
-                <Value>10</Value>
-                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
+        <InternalElement ID="11b59bf6-44f6-4650-939f-d8e2551912a7" Name="Conveyor2" RefBaseSystemUnitPath="Resources/RollerConveyor">
+            <Attribute AttributeDataType="xs:double" Name=" Max.load capacity" Unit="kg">
+                <Value>2</Value>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF316#002"/>
             </Attribute>
             <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
         </InternalElement>
-        <InternalElement ID="33bb9cd2-e6b5-44bd-8aef-a2d25250374d" Name="ConveyorGroup">
-            <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
-                <Value>20</Value>
-                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
-            </Attribute>
-            <InternalElement ID="1e26835f-f4e4-481f-ad41-faa04bf987da" Name="Conveyor1"/>
-            <InternalElement ID="b02c2987-dd42-4408-98c0-be0d240f1d5c" Name="Conveyor2"/>
+        <InternalElement ID="33bb9cd2-e6b5-44bd-8aef-a2d25250374d" Name="ConveyorGroup" RefBaseSystemUnitPath="{45e20f8e-7351-4af9-bdfd-3c019674de55}">
+            <InternalElement ID="1e26835f-f4e4-481f-ad41-faa04bf987da" Name="Conveyor1">
+                <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+            </InternalElement>
+            <InternalElement ID="b02c2987-dd42-4408-98c0-be0d240f1d5c" Name="Conveyor2" RefBaseSystemUnitPath="{11b59bf6-44f6-4650-939f-d8e2551912a7}">
+                <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+            </InternalElement>
         </InternalElement>
     </InstanceHierarchy>
     <InstanceHierarchy ID="0000-0" Name="Instance Name-0">

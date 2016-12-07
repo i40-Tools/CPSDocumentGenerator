@@ -57,7 +57,7 @@ public class AMLGoldStandardGenerator {
 
 		ConfigManager con = ConfigManager.getInstance();
 
-		con.loadConfig("configuration.ttl");
+		con.loadConfig("conf.ttl");
 
 		heterogeneityID = con.getHeterogeneityID();
 
@@ -88,6 +88,7 @@ public class AMLGoldStandardGenerator {
 			String inputFile = inputFiles.get(m).toString();
 
 			// Twice loop because for integration we need two files.
+			int j = 0;
 			while (i < 2) {
 
 				if (inputFile == null) {
@@ -100,86 +101,97 @@ public class AMLGoldStandardGenerator {
 				Document doc = new XmlParser().initInput(inputFile);
 
 				// calls the type of heterogeneity function
-				switch (input) {
+				j = m;
+				directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\";
+				String fileHetro = null;
 
-				// calls granularity heterogeneity generator
-				case "M2":
-					doc = new GranularityHeterogeneity(doc, i).granularityGenerator();
+				while (j < mod.size() && inputFile.equals(inputFiles.get(j).toString())) {
+					if (fileHetro == null) {
+						fileHetro = mod.get(j).toString();
 
-					// formats the output file
-					outputFile = fileName + "-" + "Granularity" + "-" + i + ".aml";
-					if (outputPath.get(m) != null) {
-						directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M2-Granularity";
 					} else {
-						System.out.println("output Path not found using default c:\\output");
-						directory = "c:\\output";
+						fileHetro += mod.get(j).toString();
 					}
-					break;
+					switch (mod.get(j).toString()) {
+					// calls granularity heterogeneity generator
+					case "M2":
+						doc = new GranularityHeterogeneity(doc, i).granularityGenerator();
 
-				case "M1":
+						// formats the output file
+						outputFile = fileName + "-" + fileHetro + "-" + i + ".aml";
+						if (outputPath.get(m) != null) {
+							directory += mod.get(j).toString() + "-";
+						} else {
+							System.out.println("output Path not found using default c:\\output");
+							directory = "c:\\output";
+						}
+						break;
 
-					doc = new DataTypeHeterogeneity(doc, i).dataTypeGenerator();
+					case "M1":
 
-					// formats the output file
-					outputFile = fileName + "-" + "DataTypeTransoformation" + "-" + i + ".aml";
-					if (outputPath.get(m) != null) {
+						doc = new DataTypeHeterogeneity(doc, i).dataTypeGenerator();
 
-						directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M1-ValueTransformation"
-								+ "\\\\" + "M1.2";
-					} else {
-						System.out.println("output Path not found using default c:\\output");
-						directory = "c:\\output";
+						// formats the output file
+						outputFile = fileName + "-" + fileHetro + "-" + i + ".aml";
+						if (outputPath.get(m) != null) {
+
+							directory += mod.get(j).toString() + "-";
+						} else {
+							System.out.println("output Path not found using default c:\\output");
+							directory = "c:\\output";
+						}
+
+						break;
+
+					case "M1.2":
+
+						doc = new DataTypeHeterogeneity(doc, i).dataTypeGenerator();
+						// formats the output file
+						outputFile = fileName + "-" + "DataTypeTransoformation" + "-" + i + ".aml";
+						if (outputPath.get(m) != null) {
+
+							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\"
+									+ "M1-ValueTransformation" + "\\\\" + "M1.1";
+						} else {
+							System.out.println("output Path not found using default c:\\output");
+							directory = "c:\\output";
+						}
+
+						break;
+
+					// calls schematic heterogeneity generator
+					case "M3":
+						doc = new SchematicHeterogeneity(doc, i).schematicGenerator();
+
+						// formats the output file
+						outputFile = fileName + "-" + "Schematic" + "-" + i + ".aml";
+						if (outputPath.get(m) != null) {
+							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M3-Schematic";
+						} else {
+							System.out.println("output Path not found using default c:\\output");
+							directory = "c:\\output";
+						}
+						doc = new XmlParser().sortXML(doc, outputFile, directory);
+
+						break;
+
+					// calls Grouping/Aggregation heterogeneity generator
+
+					case "M6":
+						doc = new GroupingHeterogeneity(doc, i).groupingGenerator();
+
+						// formats the output file
+						outputFile = fileName + "-" + "Grouping" + "-" + i + ".aml";
+						if (outputPath.get(m) != null) {
+							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M6-Grouping";
+						} else {
+							System.out.println("output Path not found using default c:\\output");
+							directory = "c:\\output";
+						}
+						break;
+
 					}
-
-					break;
-
-				case "M1.2":
-
-					doc = new DataTypeHeterogeneity(doc, i).dataTypeGenerator();
-					// formats the output file
-					outputFile = fileName + "-" + "DataTypeTransoformation" + "-" + i + ".aml";
-					if (outputPath.get(m) != null) {
-
-						directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M1-ValueTransformation"
-								+ "\\\\" + "M1.1";
-					} else {
-						System.out.println("output Path not found using default c:\\output");
-						directory = "c:\\output";
-					}
-
-					break;
-
-				// calls schematic heterogeneity generator
-				case "M3":
-					doc = new SchematicHeterogeneity(doc, i).schematicGenerator();
-
-					// formats the output file
-					outputFile = fileName + "-" + "Schematic" + "-" + i + ".aml";
-					if (outputPath.get(m) != null) {
-						directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M3-Schematic";
-					} else {
-						System.out.println("output Path not found using default c:\\output");
-						directory = "c:\\output";
-					}
-					doc = new XmlParser().sortXML(doc, outputFile, directory);
-
-					break;
-
-				// calls Grouping/Aggregation heterogeneity generator
-
-				case "M6":
-					doc = new GroupingHeterogeneity(doc, i).groupingGenerator();
-
-					// formats the output file
-					outputFile = fileName + "-" + "Grouping" + "-" + i + ".aml";
-					if (outputPath.get(m) != null) {
-						directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M6-Grouping";
-					} else {
-						System.out.println("output Path not found using default c:\\output");
-						directory = "c:\\output";
-					}
-					break;
-
+					j++;
 				}
 				// outputs the modified XML data to file and validates
 				new XmlParser().formatXML(doc, outputFile, directory);
@@ -211,7 +223,7 @@ public class AMLGoldStandardGenerator {
 
 			// saves input file to output folder.
 			new XmlParser().formatXML(new XmlParser().initInput(inputFile), inputName.get(m), directory);
-
+			m = j - 1;
 			i = 0;
 
 		}

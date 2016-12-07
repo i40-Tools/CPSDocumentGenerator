@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mit XMLSpy v2011 rel. 3 (http://www.altova.com) von Josef Prinz (INPRO) bearbeitet -->
-<CAEXFile FileName="seedsss.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CAEXFile FileName="seed.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <AdditionalInformation AutomationMLVersion="2.0"/>
     <AdditionalInformation>
         <WriterHeader>
@@ -31,6 +31,10 @@
             <InternalElement ID="acf9f51b-3fbd-4f30-891d-f8daca50ed17" Name="Connection">
                 <InternalElement ID="45e20f8e-7351-4af9-bdfd-3c019674de55" Name="Conveyor1">
                     <InternalElement ID="eff50f8d-bc86-403b-a17b-08356b15485a" Name="InPort">
+                        <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
+                            <Value>1.5</Value>
+                            <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
+                        </Attribute>
                         <ExternalInterface ID="51e272d6-0252-4ebd-b865-2ca7a202a68e" Name="ConnectionPoint" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                         <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
                     </InternalElement>
@@ -38,6 +42,10 @@
                 </InternalElement>
                 <InternalElement ID="11b59bf6-44f6-4650-939f-d8e2551912a7" Name="Conveyor2">
                     <InternalElement ID="c56f14f2-9a68-43f2-b0a2-46204ed2a21c" Name="InPort2">
+                        <Attribute AttributeDataType="xs:double" Name=" Max.load capacity" Unit="kg">
+                            <Value>2</Value>
+                            <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF316#002"/>
+                        </Attribute>
                         <ExternalInterface ID="c50f79eb-6634-4c7e-a32f-54bdef05cace" Name="ConnectionPoint" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector"/>
                         <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
                     </InternalElement>

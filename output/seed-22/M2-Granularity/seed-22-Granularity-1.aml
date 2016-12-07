@@ -13,7 +13,6 @@
     <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
     <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
     <SystemUnitClassLib Name="Connector System">
-        <Version>1.0</Version>
         <SystemUnitClass Name="BASIC_27-44-01-05 Valve connector">
             <Attribute AttributeDataType="xs:string" Name="eClassVersion">
                 <Value>9.0</Value>
@@ -25,11 +24,9 @@
                 <Value>0173-1---BASIC_1_1#05-AFR414#002</Value>
             </Attribute>
             <Attribute AttributeDataType="xs:string" Name="Combustibility class">
-                <Description>Classification of insulation in combustibility classes pursuant to UL 94 for construction element serial terminals</Description>
                 <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAC140#008"/>
             </Attribute>
             <Attribute AttributeDataType="xs:string" Name="Rated voltage">
-                <Description>Manufacturer's value for the voltage, which is derived from measured values that have been obtained under established conditions and rules</Description>
                 <RefSemantic CorrespondingAttributePath="0173-1#02-BAH005#003"/>
             </Attribute>
         </SystemUnitClass>

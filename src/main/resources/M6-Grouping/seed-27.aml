@@ -1,44 +1,66 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CAEXFile FileName="seed.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<AdditionalInformation AutomationMLVersion="2.0" />
-	<AdditionalInformation>
-		<WriterHeader>
-			<WriterName>AutomationML e.V.</WriterName>
-			<WriterID>AutomationML e.V.</WriterID>
-			<WriterVendor>AutomationML e.V.</WriterVendor>
-			<WriterVendorURL>www.AutomationML.org</WriterVendorURL>
-			<WriterVersion>1.0</WriterVersion>
-			<WriterRelease>1.0</WriterRelease>
-			<LastWritingDateTime>2012-02-20
-			</LastWritingDateTime>
-			<WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
-			<WriterProjectID>AutomationML Tutorial Examples
-			</WriterProjectID>
-		</WriterHeader>
-	</AdditionalInformation>
-	<ExternalReference Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml" Alias="BaseRoleClassLib" />
-	<ExternalReference Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml" Alias="BaseInterfaceClassLib" />
-
-             <InstanceHierarchy Name="AssemblySystem">
-		<InternalElement Name="LiftUpGate" ID="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" RefBaseSystemUnitPath="Resources/RollerConveyor">
-		</InternalElement>
-		<InternalElement Name="TransferToSubAssembly" ID="{71fc6d29-7797-4e3f-a659-ac69198e464f}" RefBaseSystemUnitPath="Resources/RollerConveyor">
-		</InternalElement>
-		<InternalElement Name="SubAssembly" ID="{ac026999-a2e2-4a86-8c97-39685607e49a}" RefBaseSystemUnitPath="Resources/AssemblyStation">
-		</InternalElement>
-		<InternalElement Name="MainAssemblyStation" ID="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" RefBaseSystemUnitPath="Resources/AssemblyStation">
-		</InternalElement>
-		
-               <InternalElement Name="ConveyorGroup" ID="{aa490a5b-1ee8-42ea-bd48-8aff922ee835}">
-			<Attribute Name="AssociatedFacet" />
-			<InternalElement Name="LiftUpGate" ID="{8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" RefBaseSystemUnitPath="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" />
-			<InternalElement Name="TransferToSubAssembly" ID="{2dd897fb-92ea-48ec-af81-84252f1d91ca}" RefBaseSystemUnitPath="{71fc6d29-7797-4e3f-a659-ac69198e464f}" />
-		</InternalElement>
-		<InternalElement Name="AssemblyStationGroup" ID="{7b74d01b-de35-43a4-96bc-4897276adada}">
-			<Attribute Name="AssociatedFacet" />
-			<InternalElement Name="SubAssembly" ID="{eb7af72e-a31c-4b99-b627-8249d19b73bb}" RefBaseSystemUnitPath="{ac026999-a2e2-4a86-8c97-39685607e49a}" />
-			<InternalElement Name="MainAssemblyStation" ID="{62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" RefBaseSystemUnitPath="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" />
-		</InternalElement>
-	</InstanceHierarchy>
-	
+    <AdditionalInformation AutomationMLVersion="2.0"/>
+    <AdditionalInformation>
+        <WriterHeader>
+            <WriterName>AutomationML e.V.</WriterName>
+            <WriterID>AutomationML e.V.</WriterID>
+            <WriterVendor>AutomationML e.V.</WriterVendor>
+            <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+            <WriterVersion>1.0</WriterVersion>
+            <WriterRelease>1.0</WriterRelease>
+            <LastWritingDateTime>2012-02-20 </LastWritingDateTime>
+            <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+            <WriterProjectID>AutomationML Tutorial Examples </WriterProjectID>
+        </WriterHeader>
+    </AdditionalInformation>
+    <ExternalReference Alias="BaseRoleClassLib" Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml"/>
+    <ExternalReference Alias="BaseInterfaceClassLib" Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml"/>
+    <InstanceHierarchy Name="AssemblySystem">
+        <InternalElement ID="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" Name="LiftUpGate" RefBaseSystemUnitPath="Resources/RollerConveyor">
+            <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
+                <Value>1.5</Value>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
+            </Attribute>
+            <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+        </InternalElement>
+        <InternalElement ID="{71fc6d29-7797-4e3f-a659-ac69198e464f}" Name="TransferToSubAssembly" RefBaseSystemUnitPath="Resources/RollerConveyor">
+            <Attribute AttributeDataType="xs:double" Name=" Max.load capacity" Unit="kg">
+                <Value>2</Value>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF316#002"/>
+            </Attribute>
+            <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+        </InternalElement>
+        <InternalElement ID="{ac026999-a2e2-4a86-8c97-39685607e49a}" Name="SubAssembly" RefBaseSystemUnitPath="Resources/AssemblyStation">
+               <Attribute AttributeDataType="xs:double" Name="Min. speed of the drive" Unit="m/s">
+                <Value>1.5</Value>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAH608#004"/>
+            </Attribute>
+         
+           <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+        </InternalElement>
+        <InternalElement ID="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" Name="MainAssemblyStation" RefBaseSystemUnitPath="Resources/AssemblyStation">
+          <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
+                <Value>35.0</Value>
+                <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAI721#002"/>
+            </Attribute>   
+         <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+        </InternalElement>
+        <InternalElement ID="{aa490a5b-1ee8-42ea-bd48-8aff922ee835}" Name="ConveyorGroup">
+            <InternalElement ID="{8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" Name="LiftUpGate" RefBaseSystemUnitPath="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}">
+                <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+            </InternalElement>
+            <InternalElement ID="{2dd897fb-92ea-48ec-af81-84252f1d91ca}" Name="TransferToSubAssembly" RefBaseSystemUnitPath="{71fc6d29-7797-4e3f-a659-ac69198e464f}">
+                <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+            </InternalElement>
+        </InternalElement>
+        <InternalElement ID="{7b74d01b-de35-43a4-96bc-4897276adada}" Name="AssemblyStationGroup">
+            <InternalElement ID="{eb7af72e-a31c-4b99-b627-8249d19b73bb}" Name="SubAssembly" RefBaseSystemUnitPath="{ac026999-a2e2-4a86-8c97-39685607e49a}">
+                <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+            </InternalElement>
+            <InternalElement ID="{62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" Name="MainAssemblyStation" RefBaseSystemUnitPath="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}">
+                <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+            </InternalElement>
+        </InternalElement>
+    </InstanceHierarchy>
 </CAEXFile>

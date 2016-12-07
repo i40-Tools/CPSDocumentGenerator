@@ -42,11 +42,11 @@ public class GranularityHeterogeneity extends Heterogeneity {
 		if (probability <= 0.05) {
 
 			// partitions for node having atleast two child
-			return xmlPartition(2);
+			return xmlPartition(3);
 		}
 
 		else // partitions for node having atleast 3 child
-			return xmlPartition(3);
+			return xmlPartition(4);
 
 	}
 

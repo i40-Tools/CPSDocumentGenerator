@@ -28,10 +28,34 @@
             <Attribute AttributeDataType="xs:string" Name="eClassIRDI">
                 <Value>0173-1---BASIC_1_1#01-AKL503#010</Value>
             </Attribute>
-            <InternalElement ID="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" Name="LiftUpGate" RefBaseSystemUnitPath="Resources/RollerConveyor"> </InternalElement>
-            <InternalElement ID="{71fc6d29-7797-4e3f-a659-ac69198e464f}" Name="TransferToSubAssembly" RefBaseSystemUnitPath="Resources/RollerConveyor"> </InternalElement>
-            <InternalElement ID="{ac026999-a2e2-4a86-8c97-39685607e49a}" Name="SubAssembly" RefBaseSystemUnitPath="Resources/AssemblyStation"> </InternalElement>
-            <InternalElement ID="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" Name="MainAssemblyStation" RefBaseSystemUnitPath="Resources/AssemblyStation"> </InternalElement>
+            <InternalElement ID="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" Name="LiftUpGate" RefBaseSystemUnitPath="Resources/RollerConveyor">
+                <Attribute AttributeDataType="xs:double" Name="maxConveyingSpeed" Unit="m/s">
+                    <Value>1.5</Value>
+                    <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF685#003"/>
+                </Attribute>
+                <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+            </InternalElement>
+            <InternalElement ID="{71fc6d29-7797-4e3f-a659-ac69198e464f}" Name="TransferToSubAssembly" RefBaseSystemUnitPath="Resources/RollerConveyor">
+                <Attribute AttributeDataType="xs:double" Name=" Max.load capacity" Unit="kg">
+                    <Value>2</Value>
+                    <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAF316#002"/>
+                </Attribute>
+                <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+            </InternalElement>
+            <InternalElement ID="{ac026999-a2e2-4a86-8c97-39685607e49a}" Name="SubAssembly" RefBaseSystemUnitPath="Resources/AssemblyStation">
+                <Attribute AttributeDataType="xs:double" Name="Min. speed of the drive" Unit="m/s">
+                    <Value>1.5</Value>
+                    <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-BAH608#004"/>
+                </Attribute>
+                <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+            </InternalElement>
+            <InternalElement ID="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" Name="MainAssemblyStation" RefBaseSystemUnitPath="Resources/AssemblyStation">
+                <Attribute AttributeDataType="xs:double" Name="maxTransportationWeight" Unit="kg">
+                    <Value>35.0</Value>
+                    <RefSemantic CorrespondingAttributePath="ECLASS:0173-1#02-AAI721#002"/>
+                </Attribute>
+                <RoleRequirements RefBaseRoleClassPath="BaseInterfaceClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Port"/>
+            </InternalElement>
         </SystemUnitClass>
     </SystemUnitClassLib>
 </CAEXFile>
