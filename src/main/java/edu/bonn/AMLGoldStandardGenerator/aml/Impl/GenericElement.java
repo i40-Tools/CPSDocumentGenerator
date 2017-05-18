@@ -14,10 +14,11 @@ public class GenericElement {
 	// protected static ArrayList<AttributeType> attribute;
 	// generate random id
 	static String getID(){
+		
 		// Generate random id, for example 283952-V8M32
-		char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789OPQRSTUVWXYZ0123456789OPQRSTUVWXYZ0123456789".toCharArray();
+		char[] chars = "0123456789".toCharArray();
 		Random rnd = new Random();
-		StringBuilder sb = new StringBuilder((10000000 + rnd.nextInt(900000)) + "-");
+		StringBuilder sb = new StringBuilder((20000000 + rnd.nextInt(900000)) + "-");
 		for (int i = 0; i < 4; i++){
 		    sb.append(chars[rnd.nextInt(chars.length)]);
 		}
@@ -30,11 +31,6 @@ public class GenericElement {
 		    sb.append(chars[rnd.nextInt(chars.length)]);
 		}
 
-		sb.append("-");
-
-		for (int i = 0; i < 4; i++){
-		    sb.append(chars[rnd.nextInt(chars.length)]);
-		}
 		sb.append("-");
 
 		for (int i = 0; i < 12; i++){
@@ -62,7 +58,7 @@ public class GenericElement {
 	
 	static String getRef(){
 		// Generate random id, for example 283952-V8M32
-		char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
+		char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
 		Random rnd = new Random();
 		StringBuilder sb = new StringBuilder((10000000 + rnd.nextInt(900000)) + "-");
 		for (int i = 0; i < 4; i++){
