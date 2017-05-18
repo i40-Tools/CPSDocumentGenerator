@@ -32,8 +32,8 @@ public class InterfaceClassLib extends GenericElement {
 	}
 
 	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InterfaceClassLib type, int i) {
-		type.setID("141929fsafa-34-5-5-" + i);
-		type.setName("interface class Lib Name " + i);
+		type.setID(getID());
+		type.setName(getName());
 		type.getInterfaceClass().addAll(InterfaceClass.setObject());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());

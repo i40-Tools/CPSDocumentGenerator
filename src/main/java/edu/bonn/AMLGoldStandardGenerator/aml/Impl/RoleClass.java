@@ -35,9 +35,9 @@ public class RoleClass extends GenericElement {
 	}
 
 	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.RoleFamilyType type, int i) {
-		type.setID("143-3-3-34-5-5-" + i);
-		type.setName("Role class Name " + i);
-		type.setRefBaseClassPath("Ref base path" + i);
+		type.setID(getID());
+		type.setName("Role class Name " + getName());
+		type.setRefBaseClassPath("Ref base path" + getName());
 		type.getAttribute().addAll(Attribute.setValue());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());

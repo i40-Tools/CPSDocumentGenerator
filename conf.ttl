@@ -21,32 +21,12 @@
 
 aml:Document-1
      aml:hasHeterogeneity     aml:M2,aml:M1;
-     aml:hasInputPath        "C:\\HeterogeneityExampleData\\AutomationML\\M2\\Testbeds-1\\seed.aml";
-     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
+     aml:hasInputPath        "C:\\HeterogeneityExampleData\\AutomationML\\Single-Heterogeneity\\M2\\Testbeds-1\\seed.aml";
+     aml:hasOutputPath       "C:\\HeterogeneityExampleData\\AutomationML\\Single-Heterogeneity\\M2\\Testbeds-1";
      ebucore:filename        "seed.aml";
      aml:generateFiles       "true";
      aml:hasID               "Document-1";
-     aml:hasGoldStandard      "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-1\\M2-Granularity\\GoldStandard\\GoldStandard.aml";
-     aml:hasResults           "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\IntegrationResults\\seed-1";
+     aml:hasGoldStandard      "C:\\HeterogeneityExampleData\\AutomationML\\Single-Heterogeneity\\M2\\Testbeds-1\\GoldStandard\\GoldStandard.aml";
+     aml:hasResults           "C:\\HeterogeneityExampleData\\AutomationML\\Single-Heterogeneity\\M2\\Testbeds-1\\IntegrationResults\\seed-1";
 	 rdf:type                aml:Heterogeneity .
-
-aml:Document-2
-     aml:hasHeterogeneity    aml:M1;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M1\\seed-2.aml";
-     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
-     ebucore:filename        "seed-2.aml";
-     aml:generateFiles       "true";      
-     aml:hasGoldStandard      "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\output\\seed-2\\M1-ValueTransformation\\M1.2\\GoldStandard\\GoldStandard.aml";
-     aml:hasResults           "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\IntegrationResults\\seed-1";
-     aml:hasID               "Document-2";
-     rdf:type                aml:Heterogeneity .
-
-aml:Document-3
-     aml:hasHeterogeneity    aml:M3;
-     aml:hasInputPath        "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator\\src\\main\\resources\\M3-Schematic\\seed-3.aml";
-     aml:hasOutputPath       "C:\\Users\\omar\\Documents\\workspace-sts-3.7.0.RELEASE\\AMLGoldStandardGenerator";
-     ebucore:filename        "seed-3.aml";
-     aml:generateFiles       "true"; 
-     aml:hasID               "Document-3";
-     rdf:type                aml:Heterogeneity .
-	     	     
+ 

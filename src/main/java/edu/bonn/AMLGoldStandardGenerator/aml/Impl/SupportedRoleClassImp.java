@@ -35,7 +35,7 @@ public class SupportedRoleClassImp extends GenericElement {
 	public static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.SystemUnitClassType.SupportedRoleClass type,
 			int i) {
 
-		type.setRefRoleClassPath("RefBasePath=" + i);
+		type.setRefRoleClassPath(getName());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());
 		type.setVersion(Version.setSingleObject());

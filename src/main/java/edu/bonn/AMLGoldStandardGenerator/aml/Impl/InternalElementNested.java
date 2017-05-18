@@ -41,12 +41,12 @@ public class InternalElementNested extends GenericElement {
 
 	private static void setValues(InternalElementType internal, int i) {
 		// TODO Auto-generated method stub
-		internal.setID("0000-" + i);
-		internal.setName("AML Object-" + i);
-		internal.setRefBaseSystemUnitPath("RefbasePath-" + i);
-		internal.setID("0000-" + i);
-		internal.setName("AML Object-" + i);
-		internal.setRefBaseSystemUnitPath("RefbasePath-" + i);
+		internal.setID(getID());
+		internal.setName(getName());
+		internal.setRefBaseSystemUnitPath(getName());
+		internal.setID(getName());
+		internal.setName(getName());
+		internal.setRefBaseSystemUnitPath(getName());
 		internal.getAttribute().addAll(Attribute.setValue());
 		internal.getExternalInterface().addAll(ExternalInterfaceType.setObject());
 		internal.getInternalLink().addAll(InternalLinkImp.setObject());

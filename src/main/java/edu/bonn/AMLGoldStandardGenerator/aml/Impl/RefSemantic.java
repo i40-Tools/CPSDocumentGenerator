@@ -9,7 +9,7 @@ import edu.bonn.AMLGoldStandardGenerator.aml.AttributeType;
  * @author omar
  *
  */
-public class RefSemantic {
+public class RefSemantic extends GenericElement{
 
 	public static int minimum = 1;
 	public static int setCopyright = -1;
@@ -34,7 +34,7 @@ public class RefSemantic {
 	public static void setValues(AttributeType.RefSemantic type, int j) {
 		// TODO Auto-generated method stub
 
-		type.setCorrespondingAttributePath("eclass-default");
+		type.setCorrespondingAttributePath(getRef());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());
 		type.setVersion(Version.setSingleObject());

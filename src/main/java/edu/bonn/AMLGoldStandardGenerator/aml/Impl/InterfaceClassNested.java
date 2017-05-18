@@ -36,9 +36,9 @@ public class InterfaceClassNested extends GenericElement {
 	}
 
 	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.InterfaceFamilyType type, int i) {
-		type.setID("141929fsafa-34-5-5-" + i);
-		type.setName("interface class Name " + i);
-		type.setRefBaseClassPath("Ref base path" + i);
+		type.setID(getID());
+		type.setName(getName());
+		type.setRefBaseClassPath(getName());
 		type.getAttribute().addAll(Attribute.setValue());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());

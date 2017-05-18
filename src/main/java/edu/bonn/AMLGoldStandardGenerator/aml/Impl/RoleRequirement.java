@@ -22,7 +22,7 @@ public class RoleRequirement extends GenericElement {
 		if (minimum != 0) {
 
 			RoleRequirements type = factory.createInternalElementTypeRoleRequirements();
-			type.setRefBaseRoleClassPath("RebaseRoleClassPath-");
+			type.setRefBaseRoleClassPath(getName());
 			type.setCopyright(Copyright.setSingleObject());
 			type.setDescription(Description.setSingleObject());
 			type.setVersion(Version.setSingleObject());
@@ -36,7 +36,7 @@ public class RoleRequirement extends GenericElement {
 
 	public static void setValues(RoleRequirements type, int i) {
 
-		type.setRefBaseRoleClassPath("RebaseRoleClassPath-" + i);
+		type.setRefBaseRoleClassPath(getName());
 
 	}
 

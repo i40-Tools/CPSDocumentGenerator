@@ -15,7 +15,7 @@ public class Description extends GenericElement {
 
 			edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Description desc = factory
 					.createCAEXBasicObjectDescription();
-			desc.setValue("Eis 2016");
+			desc.setValue(getName());
 			return desc;
 
 		} else

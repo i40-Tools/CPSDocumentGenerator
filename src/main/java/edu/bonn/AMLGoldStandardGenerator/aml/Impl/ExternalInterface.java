@@ -33,9 +33,9 @@ public class ExternalInterface extends GenericElement {
 	}
 
 	public static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.RoleClassType.ExternalInterface type, int i) {
-		type.setID("00220-1--1" + i);
-		type.setName("External Interface" + i);
-		type.setRefBaseClassPath("RefBasePath" + i);
+		type.setID(getID());
+		type.setName(getName());
+		type.setRefBaseClassPath(getName());
 		type.getAttribute().addAll(Attribute.setValue());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());

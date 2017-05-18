@@ -28,10 +28,10 @@ public class RevisionImp extends GenericElement {
 
 	public static void setValues(CAEXBasicObject.Revision type, int i) {
 
-		type.setAuthorName("Author-" + i);
-		type.setComment("this is comment" + i);
-		type.setNewVersion("new version" + i);
-		type.setOldVersion("oldversion" + i);
+		type.setAuthorName("Author-" + getName());
+		type.setComment("this is comment" + getName());
+		type.setNewVersion("new version" + getName());
+		type.setOldVersion("oldversion" + getName());
 	}
 
 }

@@ -37,9 +37,9 @@ public class ExternalInterfaceType extends GenericElement {
 	}
 
 	public static void setValues(InterfaceClassType type, int i) {
-		type.setID("0000-1--1" + i);
-		type.setName("External Interface" + i);
-		type.setRefBaseClassPath("RefBasePath" + i);
+		type.setID(getID());
+		type.setName(getName());
+		type.setRefBaseClassPath(getName());
 		type.getAttribute().addAll(Attribute.setValue());
 
 	}

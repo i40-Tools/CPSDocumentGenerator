@@ -16,7 +16,7 @@ public class Version extends GenericElement {
 
 			edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Version version = factory
 					.createCAEXBasicObjectVersion();
-			version.setValue("Eis 2016 version 1.0");
+			version.setValue("Eis 2016 version 1.0"+getName());
 			return version;
 
 		} else

@@ -32,8 +32,8 @@ public class ExternalReference extends GenericElement {
 
 	private static void setAttributeValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.ExternalReference type,
 			int i) {
-		type.setAlias("Alias" + i);
-		type.setPath("Path" + i);
+		type.setAlias(getName());
+		type.setPath(getName());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());
 		type.setVersion(Version.setSingleObject());

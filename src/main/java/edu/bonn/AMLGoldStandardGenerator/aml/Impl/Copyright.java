@@ -16,7 +16,7 @@ public class Copyright extends GenericElement {
 
 			edu.bonn.AMLGoldStandardGenerator.aml.CAEXBasicObject.Copyright copy = factory
 					.createCAEXBasicObjectCopyright();
-			copy.setValue("Eis 2016");
+			copy.setValue(getName());
 			return copy;
 
 		} else

@@ -36,8 +36,8 @@ public class InterfaceNameMapping extends GenericElement {
 		interfaceNameMapping.setCopyright(Copyright.setSingleObject());
 		interfaceNameMapping.setDescription(Description.setSingleObject());
 		interfaceNameMapping.setVersion(Version.setSingleObject());
-		interfaceNameMapping.setSystemUnitInterfaceName("System Unit interface class" + i);
-		interfaceNameMapping.setRoleInterfaceName("Role interface Name" + i);
+		interfaceNameMapping.setSystemUnitInterfaceName(getName());
+		interfaceNameMapping.setRoleInterfaceName(getName());
 
 	}
 

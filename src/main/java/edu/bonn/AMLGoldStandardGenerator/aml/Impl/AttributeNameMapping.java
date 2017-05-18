@@ -32,8 +32,8 @@ public class AttributeNameMapping extends GenericElement {
 	public static void setAttributeValues(edu.bonn.AMLGoldStandardGenerator.aml.MappingType.AttributeNameMapping type,
 			int i) {
 
-		type.setRoleAttributeName("RoleAttribute-Name" + i);
-		type.setSystemUnitAttributeName("System Unit Attribute" + i);
+		type.setRoleAttributeName(getName());
+		type.setSystemUnitAttributeName(getName());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());
 		type.setVersion(Version.setSingleObject());

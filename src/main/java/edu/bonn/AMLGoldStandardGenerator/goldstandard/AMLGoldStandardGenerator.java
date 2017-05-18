@@ -17,6 +17,7 @@ import org.w3c.dom.Document;
 import Test.ModelRepair;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.GenerateAML;
 import edu.bonn.AMLGoldStandardGenerator.aml.util.AMLConfigManager;
+import edu.bonn.AMLGoldStandardGenerator.aml.util.FileManager;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.DataTypeHeterogeneity;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.GranularityHeterogeneity;
 import edu.bonn.AMLGoldStandardGenerator.heterogeneity.GroupingHeterogeneity;
@@ -286,19 +287,56 @@ public class AMLGoldStandardGenerator {
 		}
 
 	}
+	
+	/**
+	 * Generates the files
+	 * @param args
+	 * @return 
+	 * @throws Exception
+	 */
+	static void generateFiles() throws Exception {
+		ReadFiles files = new ReadFiles();
+		ArrayList<File> amlFiles = files.readFiles(FileManager.getFilePath(), ".aml", ".opcua",
+				".xml");
+		File dir = new File(FileManager.getFilePath() + "Generated/");
+		if (!dir.exists())
+			dir.mkdirs();
+		GenerateAML load=new GenerateAML();
+		for (File file : amlFiles) {
+			load.generate(file.getAbsolutePath(),
+					FileManager.getFilePath() + "Generated/" + file.getName());
+			break;
+		}
+		for (File file : amlFiles) {
+			load.getMarshaller().marshal(load.getCaex(), new File(FileManager.getFilePath()
+					+ "Generated/" + file.getName()));
+		}
+		
+		
+		
 
-	public static void main(String[] args) {
+	}
+
+	public static void main(String[] args) throws Exception {
 		// give input file name and heterogeneity mode
 		// 1- Granularity
 		// 2- Schema
-		AMLGoldStandardGenerator goldStandard = new AMLGoldStandardGenerator();
-
-		System.out.println("Generating Files Please wait....");
-
-		goldStandard.heterogeneityGenerator(goldStandard.inputPath, goldStandard.heterogeneityID);
-
+				
+		// calls the generator configuration
+		AMLConfigManager.loadConfiguration();
+		generateFiles();
+		
+//		AMLGoldStandardGenerator goldStandard = new AMLGoldStandardGenerator();
+//
+//		
+//		
+//		
+//		System.out.println("Generating Files Please wait....");
+//
+//		goldStandard.heterogeneityGenerator(goldStandard.inputPath, goldStandard.heterogeneityID);
+//
 		System.out.println("Finished SuccessFully");
-		new IntegrationValidator().validate();
+//		new IntegrationValidator().validate();
 		try {
 			// ModelRepair.testRoundTrip("model.aml");
 		} catch (Exception e) {

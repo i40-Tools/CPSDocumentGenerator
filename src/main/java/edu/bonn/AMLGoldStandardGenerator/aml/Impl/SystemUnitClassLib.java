@@ -41,8 +41,8 @@ public class SystemUnitClassLib extends GenericElement {
 	}
 
 	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.SystemUnitClassLib type, int i) {
-		type.setID("11-31-31-31-1-1-" + i);
-		type.setName("System Unit class Lib Name " + i);
+		type.setID(getID());
+		type.setName(getName());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());
 		type.setVersion(Version.setSingleObject());

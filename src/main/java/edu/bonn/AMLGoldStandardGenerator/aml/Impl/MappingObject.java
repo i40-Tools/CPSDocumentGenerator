@@ -37,7 +37,7 @@ public class MappingObject extends GenericElement {
 
 	public static void setValues(RoleRequirements type, int i) {
 
-		type.setRefBaseRoleClassPath("RebaseRoleClassPath-" + i);
+		type.setRefBaseRoleClassPath(getName());
 
 	}
 

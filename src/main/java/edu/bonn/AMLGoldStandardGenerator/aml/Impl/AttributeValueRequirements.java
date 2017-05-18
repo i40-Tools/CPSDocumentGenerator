@@ -37,7 +37,7 @@ public class AttributeValueRequirements extends GenericElement {
 
 	public static void setAttributeValues(AttributeValueRequirementType type, int i) {
 
-		type.setName("AML Attribute Value Requirements-" + i);
+		type.setName(getName());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());
 		type.setVersion(Version.setSingleObject());

@@ -36,8 +36,8 @@ public class Attribute extends GenericElement {
 
 	public static void setAttributeValues(AttributeType type, int i) {
 
-		type.setID("0000-" + i);
-		type.setName("AML Attribute-" + i);
+		type.setID(getID());
+		type.setName(getName());
 		type.setUnit("xs:anyUnit");
 		type.setAttributeDataType("xs:datatype");
 		type.getRefSemantic().addAll(RefSemantic.setObject());

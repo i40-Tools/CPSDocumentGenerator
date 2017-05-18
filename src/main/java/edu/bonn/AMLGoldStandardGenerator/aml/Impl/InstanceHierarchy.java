@@ -138,8 +138,8 @@ public class InstanceHierarchy extends GenericElement {
 
 	public static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InstanceHierarchy type, int i) {
 
-		type.setID("0000-" + i);
-		type.setName("Instance Name-" + i);
+		type.setID(getID());
+		type.setName(getName());
 		type.getInternalElement().addAll(InternalElement.setObject());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());

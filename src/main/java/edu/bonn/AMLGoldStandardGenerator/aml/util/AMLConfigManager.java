@@ -1,5 +1,8 @@
 package edu.bonn.AMLGoldStandardGenerator.aml.util;
 
+import cern.jet.random.Poisson;
+import cern.jet.random.engine.DRand;
+import cern.jet.random.engine.RandomEngine;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.Attribute;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.AttributeNameMapping;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.AttributeValueRequirements;
@@ -8,13 +11,10 @@ import edu.bonn.AMLGoldStandardGenerator.aml.Impl.Description;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InstanceHierarchy;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InterfaceClass;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InterfaceClassLib;
-import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InternalElement;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.MappingObject;
-import edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClass;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClassLib;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClassNested;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.SystemUnitClass;
-import edu.bonn.AMLGoldStandardGenerator.aml.Impl.SystemUnitClassLib;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.Version;
 
 /**
@@ -30,6 +30,20 @@ public class AMLConfigManager {
 	 * method. By default every element is set to occurance of 1. 0 means the
 	 * element is disabled.
 	 **/
+
+	static int getPoissonDistribution(String range) {
+
+		if (!range.contains("-")) {
+			return Integer.parseInt(range);
+		}
+		String[] a = range.split("-");
+		int mean = (Integer.parseInt(a[0]) + Integer.parseInt(a[1])) / 2;
+		RandomEngine engine = new DRand();
+		Poisson poisson = new Poisson(mean, engine);
+		int poissonObs = poisson.nextInt();
+
+		return poissonObs;
+	}
 
 	public static void loadConfiguration() {
 		// TODO Auto-generated method stub
@@ -48,68 +62,61 @@ public class AMLConfigManager {
 		// RoleClass.minimum = 2;
 		// InterfaceClass.minimum = 2;
 
-		// configuration can be used by object or directly calling static
-		// functions
-		InternalElement internal = new InternalElement();
-		InstanceHierarchy instance = new InstanceHierarchy();
-		InterfaceClassLib interfaceClassLib = new InterfaceClassLib();
-		InterfaceClass interfaceClass = new InterfaceClass();
-		RoleClassLib roleClassLib = new RoleClassLib();
-		RoleClass roleClass = new RoleClass();
-		SystemUnitClassLib systemLib = new SystemUnitClassLib();
-		SystemUnitClass systemUnit = new SystemUnitClass();
-
-		Copyright.minimum = 0; // disables optional attribute
-		Description.minimum = 0; // disables optional attribute
-		Version.minimum = 0; // disables optional attribute
-		AttributeNameMapping.minimum = 0; // disables optional attribute
-		AttributeValueRequirements.minimum = 0; // disables optional
-		Attribute.setConstraint = 0; // disables optional attribute globaly
-		MappingObject.minimum = 0; // disables optional attribute
-		Attribute.minimum = 0;
-
-		// usage by objects optioanl
-		// internal.setAttribute = 2;
-
-		instance.minimum = 1;
-		instance.setInternalElement = 1;
-		instance.setInternalElementNested = 1;
-		instance.setInternalRoleRequirement = 0;
-
-		interfaceClassLib.minimum = 2;
-		interfaceClass.minimum = 2;
-		// interfaceClass.setAttribute = 0;
-
-		roleClassLib.minimum = 2;
-		roleClass.minimum = 2;
-		// roleClass.setAttribute = 1;
-
-		SystemUnitClassLib.minimum = 1;
-		systemUnit.setExternalInterface = 2;
+		Copyright.minimum = getPoissonDistribution(FileManager.Copyright()); // disables
+																				// optional
+																				// attribute
+		Description.minimum = getPoissonDistribution(FileManager.Description()); // disables
+																					// optional
+																					// attribute
+		Version.minimum = getPoissonDistribution(FileManager.Version()); // disables
+																			// optional
+																			// attribute
+		AttributeNameMapping.minimum = getPoissonDistribution(FileManager.AttributeNameMapping()); // disables
+																									// optional
+																									// attribute
+		AttributeValueRequirements.minimum = getPoissonDistribution(
+				FileManager.AttributeValueRequirements()); // disables optional
+		Attribute.setConstraint = getPoissonDistribution(FileManager.AttributesetConstraint()); // disables
+																								// optional
+																								// attribute
+																								// globaly
+		MappingObject.minimum = getPoissonDistribution(FileManager.MappingObject()); // disables
+																						// optional
+																						// attribute
+		Attribute.minimum = getPoissonDistribution(FileManager.Attribute());
 
 		// usage by static values
 
 		// InternalElement.setAttribute = 2; // Every Internal Element will be 2
 		// attribute.
-		InstanceHierarchy.minimum = 1; // generates 2 instancehierarchy
-		InstanceHierarchy.setInternalElement = 1; // generates 2 internal
-													// Element
-		InstanceHierarchy.setInternalElementNested = 1; // sets nesting
-		InstanceHierarchy.setInternalRoleRequirement = 0; // disables
+		InstanceHierarchy.minimum = getPoissonDistribution(FileManager.InstanceHierarchy());
+		; // generates 2 instancehierarchy
+		InstanceHierarchy.setInternalElement = getPoissonDistribution(
+				FileManager.InstanceHierarchysetInternalElement());
+		; // generates 2 internal
+		// Element
+		InstanceHierarchy.setInternalElementNested = getPoissonDistribution(
+				FileManager.InstanceHierarchysetInternalElementNested()); // sets
+																			// nesting
+		InstanceHierarchy.setInternalRoleRequirement = getPoissonDistribution(
+				FileManager.InstanceHierarchysetInternalRoleRequirement()); // disables
 
-		InterfaceClassLib.minimum = 2;
-		InterfaceClass.minimum = 2;
-		InterfaceClass.setInterfaceClassNested = 2;
+		InterfaceClassLib.minimum = getPoissonDistribution(FileManager.InterfaceClassLib());
+		;
+		InterfaceClass.minimum = getPoissonDistribution(FileManager.InterfaceClass());
+		;
+		InterfaceClass.setInterfaceClassNested = getPoissonDistribution(
+				FileManager.InterfaceClasssetInterfaceClassNested());
+		
 		// InterfaceClass.setAttribute = 0; // overrides global value.
 
-		RoleClassLib.minimum = 2;
-		// edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClass.setAttribute =
-		// 2;
-		RoleClassNested.minimum = 4;
-
-		SystemUnitClass.minimum = 1;
-		SystemUnitClass.setInternalElement = 0; // disables
-		SystemUnitClass.setSystemUnitClassNested = 2;
+		RoleClassLib.minimum = getPoissonDistribution(FileManager.RoleClassLib());
+		RoleClassNested.minimum = getPoissonDistribution(FileManager.RoleClassNested());
+		SystemUnitClass.minimum = getPoissonDistribution(FileManager.SystemUnitClass());
+		SystemUnitClass.setInternalElement = getPoissonDistribution(
+				FileManager.SystemUnitClasssetInternalElement());
+		SystemUnitClass.setSystemUnitClassNested = getPoissonDistribution(
+				FileManager.SystemUnitClasssetSystemUnitClassNested());
 	}
 
 }

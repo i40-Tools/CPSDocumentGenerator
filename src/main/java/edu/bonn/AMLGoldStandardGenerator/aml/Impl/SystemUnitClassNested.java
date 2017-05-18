@@ -42,8 +42,8 @@ public class SystemUnitClassNested extends GenericElement {
 	}
 
 	private static void setValues(SystemUnitFamilyType type, int i) {
-		type.setID("11-31-31-31-1-1-" + i);
-		type.setName("System Unit class Name " + i);
+		type.setID(getID());
+		type.setName(getName());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());
 		type.setVersion(Version.setSingleObject());

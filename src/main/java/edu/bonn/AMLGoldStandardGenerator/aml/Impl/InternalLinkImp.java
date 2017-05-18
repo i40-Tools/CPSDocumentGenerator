@@ -29,10 +29,10 @@ public class InternalLinkImp extends GenericElement {
 	}
 
 	public static void setValues(SystemUnitClassType.InternalLink type, int i) {
-		type.setID("0000-1--1" + i);
-		type.setName("connection" + i);
-		type.setRefPartnerSideA("connection A" + i);
-		type.setRefPartnerSideB("connection B" + i);
+		type.setID(getID());
+		type.setName(getName());
+		type.setRefPartnerSideA("connection A" + getID());
+		type.setRefPartnerSideB("connection B" + getID());
 
 	}
 

@@ -33,8 +33,8 @@ public class RoleClassLib extends GenericElement {
 	}
 
 	private static void setValues(edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.RoleClassLib type, int i) {
-		type.setID("14-32-34-34-5-5-" + i);
-		type.setName("Role class Lib Name " + i);
+		type.setID(getID());
+		type.setName("Role class Lib Name " + getName());
 		type.getRoleClass().addAll(RoleClass.setObject());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());

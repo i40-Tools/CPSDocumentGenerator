@@ -15,16 +15,37 @@ import edu.bonn.AMLGoldStandardGenerator.aml.ObjectFactory;
  *         configuration
  * 
  **/
-public class GenerateAML {
-	public static ObjectFactory factory = new ObjectFactory();
 
+
+
+public class GenerateAML {
+
+	/**
+	 * @return the caex
+	 */
+	public CAEXFile getCaex() {
+		return caex;
+	}
+
+
+	/**
+	 * @return the marshaller
+	 */
+	public Marshaller getMarshaller() {
+		return marshaller;
+	}
+
+	public static ObjectFactory factory = new ObjectFactory();	
+	public CAEXFile caex;
+	Marshaller marshaller;
+	
 	public void generate(String inputPath, String outputPath) {
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance("edu.bonn.AMLGoldStandardGenerator.aml");
-			Marshaller marshaller = jaxbContext.createMarshaller();
+			marshaller = jaxbContext.createMarshaller();
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
-			CAEXFile caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
+			caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
 
 			caex.getInstanceHierarchy().addAll(InstanceHierarchy.setValue());
 			caex.getExternalReference()
@@ -36,8 +57,8 @@ public class GenerateAML {
 
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-			marshaller.marshal(caex, new File(outputPath));
-
+		//	marshaller.marshal(caex, new File(outputPath));
+			
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
