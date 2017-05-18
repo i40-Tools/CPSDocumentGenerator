@@ -11,6 +11,7 @@ import edu.bonn.AMLGoldStandardGenerator.aml.Impl.Description;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InstanceHierarchy;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InterfaceClass;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InterfaceClassLib;
+import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InternalElement;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.MappingObject;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClassLib;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClassNested;
@@ -78,7 +79,6 @@ public class AMLConfigManager {
 				FileManager.AttributeValueRequirements()); // disables optional
 		Attribute.setConstraint = getPoissonDistribution(FileManager.AttributesetConstraint()); // disables
 																								// optional
-																								// attribute
 																								// globaly
 		MappingObject.minimum = getPoissonDistribution(FileManager.MappingObject()); // disables
 																						// optional
@@ -87,14 +87,16 @@ public class AMLConfigManager {
 
 		// usage by static values
 
-		// InternalElement.setAttribute = 2; // Every Internal Element will be 2
+		InternalElement.setAttribute = getPoissonDistribution(
+				FileManager.InternalElementsetAttribute()); // Every Internal
+															// Element will be 2
 		// attribute.
 		InstanceHierarchy.minimum = getPoissonDistribution(FileManager.InstanceHierarchy());
 		; // generates 2 instancehierarchy
 		InstanceHierarchy.setInternalElement = getPoissonDistribution(
 				FileManager.InstanceHierarchysetInternalElement());
 		; // generates 2 internal
-		// Element
+			// Element
 		InstanceHierarchy.setInternalElementNested = getPoissonDistribution(
 				FileManager.InstanceHierarchysetInternalElementNested()); // sets
 																			// nesting
@@ -107,7 +109,7 @@ public class AMLConfigManager {
 		;
 		InterfaceClass.setInterfaceClassNested = getPoissonDistribution(
 				FileManager.InterfaceClasssetInterfaceClassNested());
-		
+
 		// InterfaceClass.setAttribute = 0; // overrides global value.
 
 		RoleClassLib.minimum = getPoissonDistribution(FileManager.RoleClassLib());
