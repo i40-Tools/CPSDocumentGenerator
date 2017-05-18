@@ -1,4 +1,4 @@
-package edu.bonn.AMLGoldStandardGenerator.goldstandard;
+package main;
 
 import java.util.ArrayList;
 import java.util.Collections;
