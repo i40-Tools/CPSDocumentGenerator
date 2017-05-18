@@ -12,7 +12,11 @@ http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 AMLGoldStandardGenerator  is a Java based tool , which generates Gold standard for heterogeneity AML files (XML) based on probability and number of child nodes in an AML document. For heterogeneity such as  different Granularity, It perform XML data partition in to two files keeping syntactical consistency of the obtained files against the AutomationML XSD schema. 
 The goal of this project is to automate process of creating data heterogeneity in AML files based on randomness and probability.The tool takes input an 'AML file' and outputs 2 files with different heterogeneity which can be used as input for data integration. The integration tool output can then be compared with the orignal input of this tool thus making the process to achieve recall and precision for the obtatined result.
-'""
+To create folders manually before running, you can create and put Goldstandard.txt and training data.           
+
+Please include this config.ttl if you want to generate data
+
+```
 
 @prefix aml:     <http://vocab.cs.uni-bonn.de/aml#> .
 @prefix het:     <http://vocab.cs.uni-bonn.de/het#> .
@@ -53,8 +57,7 @@ aml:conf
 	aml:SystemUnitClasssetInternalElement "1"; 
 	aml:SystemUnitClassLib "2";
 	aml:SystemUnitClasssetSystemUnitClassNested  "0".
-
-''""
+```
 
 
 
