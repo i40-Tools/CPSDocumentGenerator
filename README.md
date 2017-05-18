@@ -12,6 +12,53 @@ http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 AMLGoldStandardGenerator  is a Java based tool , which generates Gold standard for heterogeneity AML files (XML) based on probability and number of child nodes in an AML document. For heterogeneity such as  different Granularity, It perform XML data partition in to two files keeping syntactical consistency of the obtained files against the AutomationML XSD schema. 
 The goal of this project is to automate process of creating data heterogeneity in AML files based on randomness and probability.The tool takes input an 'AML file' and outputs 2 files with different heterogeneity which can be used as input for data integration. The integration tool output can then be compared with the orignal input of this tool thus making the process to achieve recall and precision for the obtatined result.
+To create folders manually before running, you can create and put Goldstandard.txt and training data.           
+
+Please include this config.ttl if you want to generate data
+
+```
+
+@prefix aml:     <http://vocab.cs.uni-bonn.de/aml#> .
+@prefix het:     <http://vocab.cs.uni-bonn.de/het#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema:  <http://schema.org/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml:     <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix uri:     <http://uri4uri.net/vocab.html/#>
+@prefix sto:     <https://w3id.org/i40/sto#>.
+@prefix ontosec: <http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#>
+
+aml:conf 
+    rdfs:label "General Configuration"@en ;
+    uri:path "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/M2/Testbeds-3/";  
+    aml:Copyright  "0"; 
+	aml:Description "0"; 
+	aml:Version "0"; 
+	aml:AttributeNameMapping "0"; 
+	aml:AttributeValueRequirements "0"; 
+	aml:AttributesetConstraint  "0"; 
+	aml:MappingObject "0"; 
+	aml:Attribute "0";
+    aml:InstanceHierarchy "1-2";
+	aml:InstanceHierarchysetInternalElement "1";
+	aml:InstanceHierarchysetInternalElementNested  "0";
+	aml:InstanceHierarchysetInternalRoleRequirement "1";
+    aml:InternalElementsetAttribute "2"; 
+	aml:InterfaceClassLib "2";
+	aml:InterfaceClass "2";
+	aml:InterfaceClasssetInterfaceClassNested "0";
+	aml:InterfaceClasssetAttribute "1"; 
+    aml:RoleClassLib "1";
+	aml:RoleClassNested "1";
+    aml:SystemUnitClass "1-2";
+	aml:SystemUnitClasssetInternalElement "1"; 
+	aml:SystemUnitClassLib "2";
+	aml:SystemUnitClasssetSystemUnitClassNested  "0".
+```
+
 
 
 ## Build and Setup  
