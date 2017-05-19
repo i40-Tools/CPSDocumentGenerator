@@ -15,7 +15,12 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import main.ReadFiles;
 
-
+/*
+ * @author Omar Rana
+ * @author Irlan Grangel
+ * 
+ * Class to generated the Gold Standard based on the randomly generated files
+ */
 public class GoldStandard extends ReadFiles {
 
 	public GoldStandard() {
@@ -23,8 +28,9 @@ public class GoldStandard extends ReadFiles {
 	}
 
 	/**
-	 * Adds a better turtle format for the obtained RDF files
-	 * 
+	 * Creating the GoldStandard based on the randomly generated files. 
+	 * Writes the elements in the GoldStandard text file by just repeating the corresponding 
+	 * element and adding a 1 at the end. 
 	 * @throws IOException
 	 */
 	public void addGoldStandard(String path) throws IOException {
@@ -49,19 +55,19 @@ public class GoldStandard extends ReadFiles {
 					object = stmt.getObject();
 
 					if (predicate.asNode().getLocalName().equals("hasAttributeName")
-							|| predicate.asNode().getLocalName()
-									.equals("hasCorrespondingAttributePath")
+							|| predicate.asNode().getLocalName().equals("hasCorrespondingAttributePath")
 							|| predicate.asNode().getLocalName().equals("refBaseClassPath")
 							|| predicate.asNode().getLocalName().equals("hasFileName")
-							|| predicate.asNode().getLocalName().equals("identifier")) {
-						if (!object.asLiteral().toString()
-								.equals("eClassIRDI^^http://www.w3.org/2001/XMLSchema#string")
-								&& !object.asLiteral().toString()
-										.equals("eClassClassificationClass^^http://www.w3.org/2001/XMLSchema#string")
-								&& !object.asLiteral().toString().equals(
-										"eClassVersion^^http://www.w3.org/2001/XMLSchema#string")) {
-							goldStandardList.add("aml1:" + object.asLiteral().toString() + "\t"
-									+ "aml2:" + object.asLiteral().toString() + "\t" + "1");
+							|| predicate.asNode().getLocalName().equals("identifier")) 
+					{
+						if (!object.asLiteral().getLexicalForm().equals("eClassIRDI")
+								&& !object.asLiteral().equals("eClassClassificationClass")
+								&& !object.asLiteral().equals("eClassVersion")) 
+						{
+							goldStandardList.add(
+									"aml1:" + object.asLiteral().getLexicalForm() + "\t" + 
+									"aml2:" + object.asLiteral().getLexicalForm() + "\t" + "1"
+									);
 						}
 					}
 				}
@@ -69,15 +75,13 @@ public class GoldStandard extends ReadFiles {
 				for (String val : goldStandardList) {
 					if(!duplicateCheck.contains(val)){
 						duplicateCheck.add(val);
-					// remove annotation to make it a literal value
-					GoldStandard.println(val);
+						// remove annotation to make it a literal value
+						GoldStandard.println(val);
 					}
 				}
 				GoldStandard.close();
-
 			}
 		}
 	}
-
 
 }
