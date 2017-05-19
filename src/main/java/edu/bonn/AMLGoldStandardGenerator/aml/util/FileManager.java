@@ -132,10 +132,10 @@ public class FileManager {
 	 * @return
 	 */
 
-	public static boolean createDataPath() {
+	public static boolean createDataPath(String path) {
 		String filePath = loadConfig().getProperty(URI_NAMESPACE + "path");
-		boolean dir = new File(filePath + "PSL/test/Precision").mkdirs();
-		dir = new File(filePath + "PSL/train/").mkdirs();
+		boolean dir = new File(path + "PSL/test/Precision").mkdirs();
+		dir = new File(path + "PSL/train/").mkdirs();
 		return dir;
 	}
 

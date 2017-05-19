@@ -89,18 +89,18 @@ public class ReadFiles {
 	 * @param input
 	 * @param output
 	 */
-	public void convert2RDF() {
+	public void convert2RDF(String path) {
 		int i = 0;
 		Krextor krextor = new Krextor();
 		for (File file : files) {			
 			if (file.getName().endsWith(".aml")) {
 				if (file.getName().equals("seed.aml")) {
 					krextor.convertRdf(file.getAbsolutePath(), "aml", "turtle",
-							FileManager.getFilePath()+"Generated/" + "seed" + ".ttl");
+							path + "seed" + ".ttl");
 
 				} else {
 					krextor.convertRdf(file.getAbsolutePath(), "aml", "turtle",
-							FileManager.getFilePath()+"Generated/" + "plfile" + i + ".ttl");
+							path + "plfile" + i + ".ttl");
 				}
 			} else {
 				krextor.convertRdf(file.getAbsolutePath(), "opcua", "turtle",

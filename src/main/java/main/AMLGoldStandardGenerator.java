@@ -324,13 +324,24 @@ public class AMLGoldStandardGenerator {
 	 * @throws Exception
 	 */
 	public static void generateGoldStandard() throws Exception {
+		// add GoldStandard For Orignal files
 		GoldStandard goldStandard = new GoldStandard();
-		goldStandard.readFiles(FileManager.getFilePath() + "Generated/", ".aml", ".opcua", ".xml");
-		goldStandard.convert2RDF();
+		goldStandard.readFiles(FileManager.getFilePath(), ".aml", ".opcua", ".xml");
+		goldStandard.convert2RDF(FileManager.getFilePath());
 		goldStandard.readFiles(FileManager.getFilePath(), ".ttl", ".rdf", ".owl");
-		FileManager.createDataPath();// creates folders if not there
-		goldStandard.addGoldStandard();
-
+		FileManager.createDataPath(FileManager.getFilePath());// creates folders if not there
+		goldStandard.addGoldStandard(FileManager.getFilePath());
+  
+		// adding Gold Standard for Generated Files
+		goldStandard = new GoldStandard();
+		goldStandard.readFiles(FileManager.getFilePath()+"Generated/", ".aml", ".opcua", ".xml");
+		goldStandard.convert2RDF(FileManager.getFilePath()+"Generated/");
+		goldStandard.readFiles(FileManager.getFilePath()+"Generated/", ".ttl", ".rdf", ".owl");
+		FileManager.createDataPath(FileManager.getFilePath()+"Generated/");// creates folders if not there
+		goldStandard.addGoldStandard(FileManager.getFilePath()+"Generated/");
+		
+		
+		
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -343,6 +354,7 @@ public class AMLGoldStandardGenerator {
 
 		generateFiles();
 		generateGoldStandard();
+		System.out.println("Gold Standard Generated for Orignal and Generated Files");
 		System.out.println("Finished SuccessFully");
 
 		// AMLGoldStandardGenerator goldStandard = new
