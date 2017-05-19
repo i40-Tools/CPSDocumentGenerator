@@ -63,45 +63,36 @@ public class AMLConfigManager {
 		// RoleClass.minimum = 2;
 		// InterfaceClass.minimum = 2;
 
-		Copyright.minimum = getPoissonDistribution(FileManager.Copyright()); // disables
-																				// optional
-																				// attribute
-		Description.minimum = getPoissonDistribution(FileManager.Description()); // disables
-																					// optional
-																					// attribute
-		Version.minimum = getPoissonDistribution(FileManager.Version()); // disables
-																			// optional
-																			// attribute
-		AttributeNameMapping.minimum = getPoissonDistribution(FileManager.AttributeNameMapping()); // disables
-																									// optional
-																									// attribute
+		// optional Attributes
+		Copyright.minimum = getPoissonDistribution(FileManager.Copyright());
+		Description.minimum = getPoissonDistribution(FileManager.Description());
+		Version.minimum = getPoissonDistribution(FileManager.Version());
+		AttributeNameMapping.minimum = getPoissonDistribution(FileManager.AttributeNameMapping());
 		AttributeValueRequirements.minimum = getPoissonDistribution(
 				FileManager.AttributeValueRequirements()); // disables optional
-		Attribute.setConstraint = getPoissonDistribution(FileManager.AttributesetConstraint()); // disables
-																								// optional
-																								// globaly
-		MappingObject.minimum = getPoissonDistribution(FileManager.MappingObject()); // disables
-																						// optional
-																						// attribute
+
+		// Attribute option
+		Attribute.setConstraint = getPoissonDistribution(FileManager.AttributesetConstraint());
+		MappingObject.minimum = getPoissonDistribution(FileManager.MappingObject());
 		Attribute.minimum = getPoissonDistribution(FileManager.Attribute());
 
 		// usage by static values
-
 		InternalElement.setAttribute = getPoissonDistribution(
-				FileManager.InternalElementsetAttribute()); // Every Internal
-															// Element will be 2
+				FileManager.InternalElementsetAttribute());
+
 		// attribute.
 		InstanceHierarchy.minimum = getPoissonDistribution(FileManager.InstanceHierarchy());
-		; // generates 2 instancehierarchy
+
+		// generates 2 instancehierarchy
 		InstanceHierarchy.setInternalElement = getPoissonDistribution(
 				FileManager.InstanceHierarchysetInternalElement());
-		; // generates 2 internal
-			// Element
+
+		// generates 2 internal Element
 		InstanceHierarchy.setInternalElementNested = getPoissonDistribution(
-				FileManager.InstanceHierarchysetInternalElementNested()); // sets
-																			// nesting
+				FileManager.InstanceHierarchysetInternalElementNested());
+		// sets nesting
 		InstanceHierarchy.setInternalRoleRequirement = getPoissonDistribution(
-				FileManager.InstanceHierarchysetInternalRoleRequirement()); // disables
+				FileManager.InstanceHierarchysetInternalRoleRequirement());
 
 		InterfaceClassLib.minimum = getPoissonDistribution(FileManager.InterfaceClassLib());
 		;

@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
 import Test.ModelRepair;
+import edu.bonn.AMLGoldStandardGenerator.GoldStandard.GoldStandard;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.GenerateAML;
 import edu.bonn.AMLGoldStandardGenerator.aml.util.AMLConfigManager;
 import edu.bonn.AMLGoldStandardGenerator.aml.util.FileManager;
@@ -167,7 +168,8 @@ public class AMLGoldStandardGenerator {
 						// formats the output file
 						outputFile = fileName + "-" + "Schematic" + "-" + i + ".aml";
 						if (outputPath.get(m) != null) {
-							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M3-Schematic";
+							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\"
+									+ "M3-Schematic";
 						} else {
 							System.out.println("output Path not found using default c:\\output");
 							directory = "c:\\output";
@@ -184,7 +186,8 @@ public class AMLGoldStandardGenerator {
 						// formats the output file
 						outputFile = fileName + "-" + "Grouping" + "-" + i + ".aml";
 						if (outputPath.get(m) != null) {
-							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\" + "M6-Grouping";
+							directory = outputPath.get(m) + "\\\\output\\\\" + fileName + "\\\\"
+									+ "M6-Grouping";
 						} else {
 							System.out.println("output Path not found using default c:\\output");
 							directory = "c:\\output";
@@ -216,14 +219,15 @@ public class AMLGoldStandardGenerator {
 				renameFiles(inputName.get(m), enlargeFile, directory);
 
 				// make it look pretty.
-				new XmlParser().formatXML(new XmlParser().initInput(directory + "//" + enlargeFile), enlargeFile,
-						directory);
+				new XmlParser().formatXML(new XmlParser().initInput(directory + "//" + enlargeFile),
+						enlargeFile, directory);
 
 				i++;
 			}
 
 			// saves input file to output folder.
-			new XmlParser().formatXML(new XmlParser().initInput(inputFile), inputName.get(m), directory);
+			new XmlParser().formatXML(new XmlParser().initInput(inputFile), inputName.get(m),
+					directory);
 			m = j - 1;
 			i = 0;
 
@@ -287,11 +291,12 @@ public class AMLGoldStandardGenerator {
 		}
 
 	}
-	
+
 	/**
 	 * Generates the files
+	 * 
 	 * @param args
-	 * @return 
+	 * @return
 	 * @throws Exception
 	 */
 	static void generateFiles() throws Exception {
@@ -301,19 +306,30 @@ public class AMLGoldStandardGenerator {
 		File dir = new File(FileManager.getFilePath() + "Generated/");
 		if (!dir.exists())
 			dir.mkdirs();
-		GenerateAML load=new GenerateAML();
+		GenerateAML load = new GenerateAML();
 		for (File file : amlFiles) {
 			load.generate(file.getAbsolutePath(),
 					FileManager.getFilePath() + "Generated/" + file.getName());
 			break;
 		}
 		for (File file : amlFiles) {
-			load.getMarshaller().marshal(load.getCaex(), new File(FileManager.getFilePath()
-					+ "Generated/" + file.getName()));
+			load.getMarshaller().marshal(load.getCaex(),
+					new File(FileManager.getFilePath() + "Generated/" + file.getName()));
 		}
-		
-		
-		
+
+	}
+
+	/**
+	 * 
+	 * @throws Exception
+	 */
+	public static void generateGoldStandard() throws Exception {
+		GoldStandard goldStandard = new GoldStandard();
+		goldStandard.readFiles(FileManager.getFilePath() + "Generated/", ".aml", ".opcua", ".xml");
+		goldStandard.convert2RDF();
+		goldStandard.readFiles(FileManager.getFilePath(), ".ttl", ".rdf", ".owl");
+		FileManager.createDataPath();// creates folders if not there
+		goldStandard.addGoldStandard();
 
 	}
 
@@ -321,22 +337,20 @@ public class AMLGoldStandardGenerator {
 		// give input file name and heterogeneity mode
 		// 1- Granularity
 		// 2- Schema
-				
+
 		// calls the generator configuration
 		AMLConfigManager.loadConfiguration();
+
 		generateFiles();
-		
-//		AMLGoldStandardGenerator goldStandard = new AMLGoldStandardGenerator();
-//
-//		
-//		
-//		
-//		System.out.println("Generating Files Please wait....");
-//
-//		goldStandard.heterogeneityGenerator(goldStandard.inputPath, goldStandard.heterogeneityID);
-//
+		generateGoldStandard();
 		System.out.println("Finished SuccessFully");
-//		new IntegrationValidator().validate();
+
+		// AMLGoldStandardGenerator goldStandard = new
+		// AMLGoldStandardGenerator();
+		// System.out.println("Generating Files Please wait....");
+		// goldStandard.heterogeneityGenerator(goldStandard.inputPath,
+		// goldStandard.heterogeneityID);
+		// new IntegrationValidator().validate();
 		try {
 			// ModelRepair.testRoundTrip("model.aml");
 		} catch (Exception e) {
