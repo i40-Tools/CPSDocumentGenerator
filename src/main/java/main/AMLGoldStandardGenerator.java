@@ -308,15 +308,32 @@ public class AMLGoldStandardGenerator {
 			dir.mkdirs();
 		GenerateAML load = new GenerateAML();
 		
+		// gets generated data
 		for (File file : amlFiles) {
+			if(file.getName().equals("seed.aml")){
 			load.generate(file.getAbsolutePath(),
 					FileManager.getFilePath() + "Generated/" + file.getName());
 			break;
+			}
 		}
-				
+		
+		// adds splitted data into other documents
+		int count = 0;
 		for (File file : amlFiles) {
-			load.getMarshaller().marshal(load.getCaex(file.getAbsolutePath()),
-					new File(FileManager.getFilePath() + "Generated/" + file.getName()));
+			if (file.getName().equals("seed.aml")) {
+				load.getMarshaller().marshal(load.getdefault(file.getAbsolutePath()),
+						new File(FileManager.getFilePath() + "Generated/" + file.getName()));
+			} else {
+				if (count % 2 == 0) {
+					load.getMarshaller().marshal(load.getCaexElementsSplit(file.getAbsolutePath()),
+							new File(FileManager.getFilePath() + "Generated/" + file.getName()));
+				} else {
+					load.getMarshaller().marshal(load.getdefault(file.getAbsolutePath()),
+							new File(FileManager.getFilePath() + "Generated/" + file.getName()));
+
+				}
+			}
+			count++;
 		}
 
 	}

@@ -23,20 +23,19 @@ public class GenerateAML {
 
 	public static ObjectFactory factory = new ObjectFactory();
 	public CAEXFile caex;
-	Marshaller marshaller;
-	Unmarshaller unmarshaller;
-
-	ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InstanceHierarchy> instance;
-	ArrayList<ExternalReference> external;
-	ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.RoleClassLib> roleclassLib;
-	ArrayList<InterfaceClassLib> interfaceClassLib;
-	ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.SystemUnitClassLib> systemUnitClassLib;
+	public Marshaller marshaller;
+	public Unmarshaller unmarshaller;
+	public ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InstanceHierarchy> instance;
+	public ArrayList<ExternalReference> external;
+	public ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.RoleClassLib> roleclassLib;
+	public ArrayList<InterfaceClassLib> interfaceClassLib;
+	public ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.SystemUnitClassLib> systemUnitClassLib;
 
 	/**
 	 * @return the caex
 	 * @throws JAXBException
 	 */
-	public CAEXFile getCaex(String inputPath) throws JAXBException {
+	public CAEXFile getdefault(String inputPath) throws JAXBException {
 		caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
 		caex.getInstanceHierarchy().addAll(instance);
 		caex.getExternalReference().addAll(external);
@@ -46,6 +45,14 @@ public class GenerateAML {
 		return caex;
 	}
 
+	public CAEXFile getCaexElementsSplit(String inputPath) throws JAXBException {
+		caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
+			caex.getRoleClassLib().addAll(roleclassLib);
+			caex.getInterfaceClassLib().addAll(interfaceClassLib);
+			caex.getSystemUnitClassLib().addAll(systemUnitClassLib);
+		return caex;
+	}	
+	
 	public CAEXFile getCaex() {
 		return caex;
 	}
