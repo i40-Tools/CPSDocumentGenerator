@@ -1,5 +1,7 @@
 package edu.bonn.AMLGoldStandardGenerator.aml.util;
 
+import java.util.Random;
+
 import cern.jet.random.Poisson;
 import cern.jet.random.engine.DRand;
 import cern.jet.random.engine.RandomEngine;
@@ -42,27 +44,31 @@ public class AMLConfigManager {
 		RandomEngine engine = new DRand();
 		Poisson poisson = new Poisson(mean, engine);
 		int poissonObs = poisson.nextInt();
-
+		
+		System.out.println(poissonObs + " Poisson");
 		return poissonObs;
 	}
+	
+	static int getNormalDistribution(String range){
+		if (!range.contains("-")) {
+			return Integer.parseInt(range);
+		}
+		String[] a = range.split("-");
+		
+		Random r = new Random();
+		double mySample = r.nextGaussian() * Double.parseDouble(a[0]) + 
+				                             Double.parseDouble(a[1]);
+		double d = mySample;
+		Long L = Math.round(d);
+		int toReturn = Integer.valueOf(L.intValue());
+		System.out.println(toReturn + " Value");
+		return toReturn;
+	}
 
-	public static void loadConfiguration() {
-		// TODO Auto-generated method stub
-		/** individual properties could be set like this **/
-
-		// Default configuration is every element occurance =1;
-		// Use ClassName .set<attribute>= no of value
-		// InternalElement.minimum = 2;
-		// InternalElement.setAttribute = 2;
-		// InstanceHierarchy.minimum = 2;
-		// InstanceHierarchy.setInternalElement = 2;
-		// ExternalReference.minimum = 1;
-		// InterfaceClassLib.minimum= 10;
-		// SystemUnitClassLib.minimum= 10;
-		// RoleClassLib.minimumR= 20;
-		// RoleClass.minimum = 2;
-		// InterfaceClass.minimum = 2;
-
+	/**
+	 * Default configuration is every element occurrence = 1;
+	 */
+	public static void loadConfigurationP() {
 		// optional Attributes
 		Copyright.minimum = getPoissonDistribution(FileManager.Copyright());
 		Description.minimum = getPoissonDistribution(FileManager.Description());
@@ -109,6 +115,56 @@ public class AMLConfigManager {
 		SystemUnitClass.setInternalElement = getPoissonDistribution(
 				FileManager.SystemUnitClasssetInternalElement());
 		SystemUnitClass.setSystemUnitClassNested = getPoissonDistribution(
+				FileManager.SystemUnitClasssetSystemUnitClassNested());
+	}
+	
+	public static void loadConfiguration() {
+		// optional Attributes
+		Copyright.minimum = getNormalDistribution(FileManager.Copyright());
+		Description.minimum = getNormalDistribution(FileManager.Description());
+		Version.minimum = getNormalDistribution(FileManager.Version());
+		AttributeNameMapping.minimum = getNormalDistribution(FileManager.AttributeNameMapping());
+		AttributeValueRequirements.minimum = getNormalDistribution(
+				FileManager.AttributeValueRequirements()); // disables optional
+
+		// Attribute option
+		Attribute.setConstraint = getNormalDistribution(FileManager.AttributesetConstraint());
+		MappingObject.minimum = getNormalDistribution(FileManager.MappingObject());
+		Attribute.minimum = getNormalDistribution(FileManager.Attribute());
+
+		// usage by static values
+		InternalElement.setAttribute = getNormalDistribution(
+				FileManager.InternalElementsetAttribute());
+
+		// attribute.
+		InstanceHierarchy.minimum = getNormalDistribution(FileManager.InstanceHierarchy());
+
+		// generates 2 instancehierarchy
+		InstanceHierarchy.setInternalElement = getNormalDistribution(
+				FileManager.InstanceHierarchysetInternalElement());
+
+		// generates 2 internal Element
+		InstanceHierarchy.setInternalElementNested = getNormalDistribution(
+				FileManager.InstanceHierarchysetInternalElementNested());
+		// sets nesting
+		InstanceHierarchy.setInternalRoleRequirement = getNormalDistribution(
+				FileManager.InstanceHierarchysetInternalRoleRequirement());
+
+		InterfaceClassLib.minimum = getNormalDistribution(FileManager.InterfaceClassLib());
+		;
+		InterfaceClass.minimum = getNormalDistribution(FileManager.InterfaceClass());
+		;
+		InterfaceClass.setInterfaceClassNested = getNormalDistribution(
+				FileManager.InterfaceClasssetInterfaceClassNested());
+
+		// InterfaceClass.setAttribute = 0; // overrides global value.
+
+		RoleClassLib.minimum = getNormalDistribution(FileManager.RoleClassLib());
+		RoleClassNested.minimum = getNormalDistribution(FileManager.RoleClassNested());
+		SystemUnitClass.minimum = getNormalDistribution(FileManager.SystemUnitClass());
+		SystemUnitClass.setInternalElement = getNormalDistribution(
+				FileManager.SystemUnitClasssetInternalElement());
+		SystemUnitClass.setSystemUnitClassNested = getNormalDistribution(
 				FileManager.SystemUnitClasssetSystemUnitClassNested());
 	}
 
