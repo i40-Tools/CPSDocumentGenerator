@@ -307,13 +307,15 @@ public class AMLGoldStandardGenerator {
 		if (!dir.exists())
 			dir.mkdirs();
 		GenerateAML load = new GenerateAML();
+		
 		for (File file : amlFiles) {
 			load.generate(file.getAbsolutePath(),
 					FileManager.getFilePath() + "Generated/" + file.getName());
 			break;
 		}
+				
 		for (File file : amlFiles) {
-			load.getMarshaller().marshal(load.getCaex(),
+			load.getMarshaller().marshal(load.getCaex(file.getAbsolutePath()),
 					new File(FileManager.getFilePath() + "Generated/" + file.getName()));
 		}
 
@@ -350,7 +352,7 @@ public class AMLGoldStandardGenerator {
 		// 2- Schema
 
 		// calls the generator configuration
-		AMLConfigManager.loadConfiguration();
+		AMLConfigManager.loadConfigurationP();
 
 		generateFiles();
 		generateGoldStandard();
