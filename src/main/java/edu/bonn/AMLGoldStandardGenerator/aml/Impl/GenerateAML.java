@@ -2,6 +2,9 @@ package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -46,12 +49,54 @@ public class GenerateAML {
 	}
 
 	public CAEXFile getCaexElementsSplit(String inputPath) throws JAXBException {
+
 		caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
-		caex.getRoleClassLib().addAll(roleclassLib);
-		caex.getInterfaceClassLib().addAll(interfaceClassLib);
-		caex.getSystemUnitClassLib().addAll(systemUnitClassLib);
+
+		ArrayList<String> name = new ArrayList<String>();
+		name.add("RoleClassLib");
+		name.add("InstanceHierarchy");
+		name.add("ExternalReference");
+		name.add("InterfaceClassLib");
+		name.add("SystemUnitClassLib");
+
+		// shuffles the arrayList
+		long seed = System.nanoTime();
+		Collections.shuffle(name, new Random(seed));
+
+		// pick randomly how many elements should be selected
+		int randomNum = ThreadLocalRandom.current().nextInt(2, name.size());
+
+		// adds numbers of elements to list so always unique values
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		for (int i = 0; i < name.size(); i++) {
+			list.add(new Integer(i));
+		}
+		Collections.shuffle(list);
+		
+		// randomly selects elements
+		for (int i = 0; i < randomNum; i++) {
+
+			// picks a random element
+			int random = list.get(i);
+			if (name.get(random).contains("Roleclass")) {
+				caex.getRoleClassLib().addAll(roleclassLib);
+			}
+			if (name.get(random).contains("InterfaceClassLib")) {
+				caex.getInterfaceClassLib().addAll(interfaceClassLib);
+			}
+			if (name.get(random).contains("SystemUnitClassLib")) {
+				caex.getSystemUnitClassLib().addAll(systemUnitClassLib);
+			}
+			if (name.get(random).contains("InstanceHierarchy")) {
+				caex.getInstanceHierarchy().addAll(instance);
+			}
+			if (name.get(random).contains("ExternalReference")) {
+				caex.getExternalReference().addAll(external);
+			}
+		}
+
 		return caex;
-	}	
+	}
 
 	public CAEXFile getCaex() {
 		return caex;

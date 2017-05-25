@@ -327,6 +327,8 @@ public class AMLGoldStandardGenerator {
 	 * @param amlFiles
 	 * @throws JAXBException 
 	 */
+	
+		
 	public static void splitData(GenerateAML load, ArrayList<File> amlFiles) throws JAXBException{
 		int count = 0;
 		for (File file : amlFiles) {
@@ -334,14 +336,40 @@ public class AMLGoldStandardGenerator {
 				load.getMarshaller().marshal(load.getdefault(file.getAbsolutePath()),
 						new File(FileManager.getFilePath() + "Generated/" + file.getName()));
 			} else {
-				if (count % 2 == 0) {
-					load.getMarshaller().marshal(load.getCaexElementsSplit(file.getAbsolutePath()),
-							new File(FileManager.getFilePath() + "Generated/" + file.getName()));
-				} else {
-					load.getMarshaller().marshal(load.getdefault(file.getAbsolutePath()),
-							new File(FileManager.getFilePath() + "Generated/" + file.getName()));
+				if (FileManager.getRandomize().equals("true")) {
+					// both seeds are randomized
+
+					if (count % 2 == 0) {
+
+						load.getMarshaller().marshal(
+								load.getCaexElementsSplit(file.getAbsolutePath()), new File(
+										FileManager.getFilePath() + "Generated/" + file.getName()));
+					} else {
+
+						load.getMarshaller().marshal(
+								load.getCaexElementsSplit(file.getAbsolutePath()), new File(
+										FileManager.getFilePath() + "Generated/" + file.getName()));
+					}
 				}
+
+				// only one seed is randomized
+				else {
+					if (count % 2 == 0) {
+
+						load.getMarshaller().marshal(
+								load.getCaexElementsSplit(file.getAbsolutePath()), new File(
+										FileManager.getFilePath() + "Generated/" + file.getName()));
+					} else {
+
+						load.getMarshaller().marshal(load.getdefault(file.getAbsolutePath()),
+								new File(
+										FileManager.getFilePath() + "Generated/" + file.getName()));
+					}
+
+				}
+
 			}
+
 			count++;
 		}
 	}

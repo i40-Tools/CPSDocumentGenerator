@@ -325,4 +325,10 @@ System.out.println("helo"+value);
 	
 	}
 
+	public static String getRandomize() {
+		String value = loadConfig().getProperty(AML_NAMESPACE + "RandomizeAllSeeds");
+		return value;
+	
+	}
+		
 }
