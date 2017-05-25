@@ -55,19 +55,19 @@ public class GoldStandard extends ReadFiles {
 					object = stmt.getObject();
 
 					if (predicate.asNode().getLocalName().equals("hasAttributeName")
-							|| predicate.asNode().getLocalName().equals("hasCorrespondingAttributePath")
-							|| predicate.asNode().getLocalName().equals("refBaseClassPath")
-							|| predicate.asNode().getLocalName().equals("hasFileName")
-							|| predicate.asNode().getLocalName().equals("identifier")) 
+						|| predicate.asNode().getLocalName().equals("hasCorrespondingAttributePath")
+						|| predicate.asNode().getLocalName().equals("refBaseClassPath")
+						|| predicate.asNode().getLocalName().equals("hasFileName")
+						|| predicate.asNode().getLocalName().equals("identifier")) 
 					{
 						if (!object.asLiteral().getLexicalForm().equals("eClassIRDI")
-								&& !object.asLiteral().equals("eClassClassificationClass")
-								&& !object.asLiteral().equals("eClassVersion")) 
+							&& !object.asLiteral().getLexicalForm().equals("eClassClassificationClass")
+							&& !object.asLiteral().getLexicalForm().equals("eClassVersion")) 
 						{
 							goldStandardList.add(
-									"aml1:" + object.asLiteral().getLexicalForm() + "\t" + 
-									"aml2:" + object.asLiteral().getLexicalForm() + "\t" + "1"
-									);
+								"aml1:" + object.asLiteral().getLexicalForm() + "\t" + 
+								"aml2:" + object.asLiteral().getLexicalForm() + "\t" + "1"
+							);
 						}
 					}
 				}

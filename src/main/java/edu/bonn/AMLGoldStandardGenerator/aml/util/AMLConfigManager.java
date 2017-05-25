@@ -49,6 +49,20 @@ public class AMLConfigManager {
 		return poissonObs;
 	}
 	
+	static int getUniformDistribution(String range){
+		if (!range.contains("-")) {
+			return Integer.parseInt(range);
+		}
+		String[] a = range.split("-");
+		
+		Random r = new Random();
+		int mySample = r.nextInt(Integer.parseInt(a[1]));
+		
+		System.out.println(mySample + " Value");
+		return mySample;
+	}
+	
+	
 	static int getNormalDistribution(String range){
 		if (!range.contains("-")) {
 			return Integer.parseInt(range);
@@ -68,7 +82,7 @@ public class AMLConfigManager {
 	/**
 	 * Default configuration is every element occurrence = 1;
 	 */
-	public static void loadConfigurationP() {
+	public static void loadConfigurationPoisson() {
 		// optional Attributes
 		Copyright.minimum = getPoissonDistribution(FileManager.Copyright());
 		Description.minimum = getPoissonDistribution(FileManager.Description());
@@ -118,7 +132,61 @@ public class AMLConfigManager {
 				FileManager.SystemUnitClasssetSystemUnitClassNested());
 	}
 	
-	public static void loadConfiguration() {
+	/**
+	 * Default configuration is every element occurrence = 1;
+	 */
+	public static void loadConfigurationUniform() {
+		// optional Attributes
+		Copyright.minimum = getUniformDistribution(FileManager.Copyright());
+		Description.minimum = getUniformDistribution(FileManager.Description());
+		Version.minimum = getUniformDistribution(FileManager.Version());
+		AttributeNameMapping.minimum = getUniformDistribution(FileManager.AttributeNameMapping());
+		AttributeValueRequirements.minimum = getUniformDistribution(
+				FileManager.AttributeValueRequirements()); // disables optional
+
+		// Attribute option
+		Attribute.setConstraint = getUniformDistribution(FileManager.AttributesetConstraint());
+		MappingObject.minimum = getUniformDistribution(FileManager.MappingObject());
+		Attribute.minimum = getUniformDistribution(FileManager.Attribute());
+
+		// usage by static values
+		InternalElement.setAttribute = getUniformDistribution(
+				FileManager.InternalElementsetAttribute());
+
+		// attribute.
+		InstanceHierarchy.minimum = getUniformDistribution(FileManager.InstanceHierarchy());
+
+		// generates 2 instancehierarchy
+		InstanceHierarchy.setInternalElement = getUniformDistribution(
+				FileManager.InstanceHierarchysetInternalElement());
+
+		// generates 2 internal Element
+		InstanceHierarchy.setInternalElementNested = getUniformDistribution(
+				FileManager.InstanceHierarchysetInternalElementNested());
+		// sets nesting
+		InstanceHierarchy.setInternalRoleRequirement = getUniformDistribution(
+				FileManager.InstanceHierarchysetInternalRoleRequirement());
+
+		InterfaceClassLib.minimum = getUniformDistribution(FileManager.InterfaceClassLib());
+		;
+		InterfaceClass.minimum = getUniformDistribution(FileManager.InterfaceClass());
+		;
+		InterfaceClass.setInterfaceClassNested = getUniformDistribution(
+				FileManager.InterfaceClasssetInterfaceClassNested());
+
+		// InterfaceClass.setAttribute = 0; // overrides global value.
+
+		RoleClassLib.minimum = getUniformDistribution(FileManager.RoleClassLib());
+		RoleClassNested.minimum = getUniformDistribution(FileManager.RoleClassNested());
+		SystemUnitClass.minimum = getUniformDistribution(FileManager.SystemUnitClass());
+		SystemUnitClass.setInternalElement = getUniformDistribution(
+				FileManager.SystemUnitClasssetInternalElement());
+		SystemUnitClass.setSystemUnitClassNested = getUniformDistribution(
+				FileManager.SystemUnitClasssetSystemUnitClassNested());
+	}
+
+	
+	public static void loadConfigurationNormal() {
 		// optional Attributes
 		Copyright.minimum = getNormalDistribution(FileManager.Copyright());
 		Description.minimum = getNormalDistribution(FileManager.Description());
