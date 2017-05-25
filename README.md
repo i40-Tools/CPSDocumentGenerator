@@ -32,31 +32,42 @@ Please include this config.ttl if you want to generate data
 @prefix ontosec: <http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#>
 
 aml:conf 
-    rdfs:label "General Configuration"@en ;
-    uri:path "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/M2/Testbeds-3/";  
-    aml:Copyright  "0"; 
-	aml:Description "0"; 
-	aml:Version "0"; 
-	aml:AttributeNameMapping "0"; 
-	aml:AttributeValueRequirements "0"; 
-	aml:AttributesetConstraint  "0"; 
-	aml:MappingObject "0"; 
-	aml:Attribute "0";
-    aml:InstanceHierarchy "1-2";
-	aml:InstanceHierarchysetInternalElement "1";
-	aml:InstanceHierarchysetInternalElementNested  "0";
-	aml:InstanceHierarchysetInternalRoleRequirement "1";
-    aml:InternalElementsetAttribute "2"; 
-	aml:InterfaceClassLib "2";
-	aml:InterfaceClass "2";
-	aml:InterfaceClasssetInterfaceClassNested "0";
-	aml:InterfaceClasssetAttribute "1"; 
-    aml:RoleClassLib "1";
-	aml:RoleClassNested "1";
-    aml:SystemUnitClass "1-2";
-	aml:SystemUnitClasssetInternalElement "1"; 
-	aml:SystemUnitClassLib "2";
-	aml:SystemUnitClasssetSystemUnitClassNested  "0".
+rdfs:label "General Configuration"@en ;
+uri:path "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/M2/Testbeds-1/";  
+aml:Copyright  "0"; 
+aml:Description "0"; 
+aml:Version "0"; 
+aml:AttributeNameMapping "0"; 
+aml:AttributeValueRequirements "0"; 
+aml:AttributesetConstraint  "0"; 
+aml:MappingObject "0"; 
+aml:Attribute "0";
+
+aml:InstanceHierarchy "1";
+aml:InstanceHierarchysetInternalElement "1-4";
+aml:InstanceHierarchysetInternalElementNested  "2-4";
+aml:InstanceHierarchysetInternalRoleRequirement "0";
+
+aml:InternalElementsetAttribute "1"; 
+
+aml:InterfaceClassLib "1";
+aml:InterfaceClass "1";
+aml:InterfaceClasssetInterfaceClassNested "0";
+aml:InterfaceClasssetAttribute "2"; 
+
+aml:RoleClassLib "1";
+aml:RoleClass "1";
+aml:RoleClassSetAttribute "2";
+aml:RoleClassNested "0";
+aml:RoleClassSetExternalInterface "0";
+
+aml:SystemUnitClass "1";
+aml:SystemUnitClassSetAttribute "1";
+aml:SystemUnitClasssetInternalElement "1"; 
+aml:SystemUnitClassLib "2";
+aml:SystemUnitClasssetSystemUnitClassNested  "0".
+ 
+
 ```
 
 
