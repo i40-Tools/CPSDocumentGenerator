@@ -208,7 +208,7 @@ public class AMLGoldStandardGenerator {
 				String enlargeFile = outputFile.replace(".aml", "-enlarge.aml");
 
 				// calls the generator configuration
-				AMLConfigManager.loadConfiguration();
+				AMLConfigManager.loadConfigurationUniform();
 				// calls the generator
 				new GenerateAML().generate(inputFile, directory + "//" + enlargeFile);
 
@@ -369,7 +369,7 @@ public class AMLGoldStandardGenerator {
 		// 2- Schema
 
 		// calls the generator configuration
-		AMLConfigManager.loadConfigurationP();
+		AMLConfigManager.loadConfigurationUniform();
 
 		generateFiles();
 		generateGoldStandard();
