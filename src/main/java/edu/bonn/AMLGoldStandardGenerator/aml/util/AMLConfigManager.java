@@ -15,9 +15,11 @@ import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InterfaceClass;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InterfaceClassLib;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InternalElement;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.MappingObject;
+import edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClass;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClassLib;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.RoleClassNested;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.SystemUnitClass;
+import edu.bonn.AMLGoldStandardGenerator.aml.Impl.SystemUnitClassLib;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.Version;
 
 /**
@@ -160,8 +162,14 @@ public class AMLConfigManager {
 		// InterfaceClass.setAttribute = 0; // overrides global value.
 
 		RoleClassLib.minimum = getNormalDistribution(FileManager.RoleClassLib());
+		RoleClass.minimum = getNormalDistribution(FileManager.RoleClass());
+		RoleClass.setAttribute = getNormalDistribution(FileManager.RoleClassSetAttribute());
 		RoleClassNested.minimum = getNormalDistribution(FileManager.RoleClassNested());
+
+		SystemUnitClassLib.minimum = getNormalDistribution(FileManager.SystemUnitClassLib());
 		SystemUnitClass.minimum = getNormalDistribution(FileManager.SystemUnitClass());
+		SystemUnitClass.setAttribute = getNormalDistribution(
+				FileManager.SystemUnitClassSetAttribute());
 		SystemUnitClass.setInternalElement = getNormalDistribution(
 				FileManager.SystemUnitClasssetInternalElement());
 		SystemUnitClass.setSystemUnitClassNested = getNormalDistribution(

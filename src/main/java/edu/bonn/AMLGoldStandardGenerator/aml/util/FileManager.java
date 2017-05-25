@@ -302,4 +302,19 @@ System.out.println("helo"+value);
 		return value;
 	}
 
+	public static String RoleClass() {
+		String value = loadConfig().getProperty(AML_NAMESPACE + " RoleClass");
+		return value;
+	}
+
+	public static String RoleClassSetAttribute() {
+		String value = loadConfig().getProperty(AML_NAMESPACE + " RoleClassSetAttribute");
+		return value;
+	}
+
+	public static String SystemUnitClassSetAttribute() {
+		String value = loadConfig().getProperty(AML_NAMESPACE + " SystemUnitClassSetAttribute");
+		return value;
+	}
+
 }
