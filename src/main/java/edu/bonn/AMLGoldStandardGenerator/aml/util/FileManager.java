@@ -298,23 +298,31 @@ System.out.println("helo"+value);
 	}
 
 	public static String SystemUnitClassLib() {
-		String value = loadConfig().getProperty(AML_NAMESPACE + "	SystemUnitClassLib");
+		String value = loadConfig().getProperty(AML_NAMESPACE + "SystemUnitClassLib");
+		return value;
+	}
+	
+
+	public static String RoleClassSetAttribute() {
+		String value = loadConfig().getProperty(AML_NAMESPACE + "RoleClassSetAttribute");
 		return value;
 	}
 
 	public static String RoleClass() {
-		String value = loadConfig().getProperty(AML_NAMESPACE + " RoleClass");
-		return value;
-	}
-
-	public static String RoleClassSetAttribute() {
-		String value = loadConfig().getProperty(AML_NAMESPACE + " RoleClassSetAttribute");
+		String value = loadConfig().getProperty(AML_NAMESPACE + "RoleClass");
 		return value;
 	}
 
 	public static String SystemUnitClassSetAttribute() {
-		String value = loadConfig().getProperty(AML_NAMESPACE + " SystemUnitClassSetAttribute");
+		String value = loadConfig().getProperty(AML_NAMESPACE + "SystemUnitClassSetAttribute");
 		return value;
+	
+	}
+
+	public static String RoleClassSetExternalInterface() {
+		String value = loadConfig().getProperty(AML_NAMESPACE + "RoleClassSetExternalInterface");
+		return value;
+	
 	}
 
 }

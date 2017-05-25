@@ -90,8 +90,7 @@ public class RoleClass extends GenericElement {
 			Attribute.minimum = 1;
 
 		if (setExternalInterface != -1)
-			ExternalInterfaceType.minimum = setExternalInterface;
-
+			ExternalInterface.minimum=setExternalInterface;
 	}
 
 }
