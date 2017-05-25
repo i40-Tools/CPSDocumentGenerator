@@ -47,12 +47,12 @@ public class GenerateAML {
 
 	public CAEXFile getCaexElementsSplit(String inputPath) throws JAXBException {
 		caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
-			caex.getRoleClassLib().addAll(roleclassLib);
-			caex.getInterfaceClassLib().addAll(interfaceClassLib);
-			caex.getSystemUnitClassLib().addAll(systemUnitClassLib);
+		caex.getRoleClassLib().addAll(roleclassLib);
+		caex.getInterfaceClassLib().addAll(interfaceClassLib);
+		caex.getSystemUnitClassLib().addAll(systemUnitClassLib);
 		return caex;
 	}	
-	
+
 	public CAEXFile getCaex() {
 		return caex;
 	}

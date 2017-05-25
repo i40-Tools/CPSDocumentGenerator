@@ -301,5 +301,10 @@ System.out.println("helo"+value);
 		String value = loadConfig().getProperty(AML_NAMESPACE + "	SystemUnitClassLib");
 		return value;
 	}
+	
+	public static String RoleClassAttributes() {
+		String value = loadConfig().getProperty(AML_NAMESPACE + "	RoleClassAttributes");
+		return value;
+	}
 
 }

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import javax.xml.bind.JAXBException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 
 import org.apache.commons.io.IOUtils;
@@ -161,7 +162,7 @@ public class AMLGoldStandardGenerator {
 
 						break;
 
-					// calls schematic heterogeneity generator
+						// calls schematic heterogeneity generator
 					case "M3":
 						doc = new SchematicHeterogeneity(doc, i).schematicGenerator();
 
@@ -178,7 +179,7 @@ public class AMLGoldStandardGenerator {
 
 						break;
 
-					// calls Grouping/Aggregation heterogeneity generator
+						// calls Grouping/Aggregation heterogeneity generator
 
 					case "M6":
 						doc = new GroupingHeterogeneity(doc, i).groupingGenerator();
@@ -307,17 +308,26 @@ public class AMLGoldStandardGenerator {
 		if (!dir.exists())
 			dir.mkdirs();
 		GenerateAML load = new GenerateAML();
-		
+
 		// gets generated data
 		for (File file : amlFiles) {
 			if(file.getName().equals("seed.aml")){
-			load.generate(file.getAbsolutePath(),
-					FileManager.getFilePath() + "Generated/" + file.getName());
-			break;
+				load.generate(file.getAbsolutePath(),
+						FileManager.getFilePath() + "Generated/" + file.getName());
+				break;
 			}
 		}
-		
-		// adds splitted data into other documents
+
+		// adds split data into other documents
+		splitData(load, amlFiles);
+	}
+
+	/**
+	 * 
+	 * @param amlFiles
+	 * @throws JAXBException 
+	 */
+	public static void splitData(GenerateAML load, ArrayList<File> amlFiles) throws JAXBException{
 		int count = 0;
 		for (File file : amlFiles) {
 			if (file.getName().equals("seed.aml")) {
@@ -330,12 +340,10 @@ public class AMLGoldStandardGenerator {
 				} else {
 					load.getMarshaller().marshal(load.getdefault(file.getAbsolutePath()),
 							new File(FileManager.getFilePath() + "Generated/" + file.getName()));
-
 				}
 			}
 			count++;
 		}
-
 	}
 
 	/**
@@ -350,7 +358,7 @@ public class AMLGoldStandardGenerator {
 		goldStandard.readFiles(FileManager.getFilePath(), ".ttl", ".rdf", ".owl");
 		FileManager.createDataPath(FileManager.getFilePath());// creates folders if not there
 		goldStandard.addGoldStandard(FileManager.getFilePath());
-  
+
 		// adding Gold Standard for Generated Files
 		goldStandard = new GoldStandard();
 		goldStandard.readFiles(FileManager.getFilePath()+"Generated/", ".aml", ".opcua", ".xml");
@@ -358,9 +366,6 @@ public class AMLGoldStandardGenerator {
 		goldStandard.readFiles(FileManager.getFilePath()+"Generated/", ".ttl", ".rdf", ".owl");
 		FileManager.createDataPath(FileManager.getFilePath()+"Generated/");// creates folders if not there
 		goldStandard.addGoldStandard(FileManager.getFilePath()+"Generated/");
-		
-		
-		
 	}
 
 	public static void main(String[] args) throws Exception {
