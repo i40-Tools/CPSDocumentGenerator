@@ -34,6 +34,8 @@ Please include this config.ttl if you want to generate data
 aml:conf 
 rdfs:label "General Configuration"@en ;
 uri:path "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/M2/Testbeds-1/";  
+aml:RandomizeAllSeeds   "false";          
+
 aml:Copyright  "0"; 
 aml:Description "0"; 
 aml:Version "0"; 
