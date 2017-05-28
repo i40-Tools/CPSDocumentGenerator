@@ -15,6 +15,7 @@ import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile;
 import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.ExternalReference;
 import edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.InterfaceClassLib;
 import edu.bonn.AMLGoldStandardGenerator.aml.ObjectFactory;
+import edu.bonn.AMLGoldStandardGenerator.aml.util.FileManager;
 
 /**
  * @author omar This class generates Automation ML files based on JAXB
@@ -22,7 +23,7 @@ import edu.bonn.AMLGoldStandardGenerator.aml.ObjectFactory;
  * 
  **/
 
-public class GenerateAML {
+public class GenerateAML extends GenericElement{
 
 	public static ObjectFactory factory = new ObjectFactory();
 	public CAEXFile caex;
@@ -40,6 +41,9 @@ public class GenerateAML {
 	 */
 	public CAEXFile getdefault(String inputPath) throws JAXBException {
 		caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
+		if (FileManager.ContaminateData() == "1") {
+			contaminateAttributeName();
+		}
 		caex.getInstanceHierarchy().addAll(instance);
 		caex.getExternalReference().addAll(external);
 		caex.getRoleClassLib().addAll(roleclassLib);
@@ -48,9 +52,51 @@ public class GenerateAML {
 		return caex;
 	}
 
+	void contaminateAttributeName(){
+		// contaminates Attribute Names
+		for (int i = 0; i < roleclassLib.size(); i++) {
+			for (int j = 0; j < roleclassLib.get(i).getRoleClass().size(); j++) {
+				for (int k = 0; k < roleclassLib.get(i).getRoleClass().get(j).getAttribute()
+						.size(); k++) {
+
+					roleclassLib.get(i).getRoleClass().get(j).getAttribute().get(k)
+							.setName(getNameSeed());
+				}
+			}
+		}
+		
+//		for (int i = 0; i < instance.size(); i++) {
+//			instance.get(i).getInternalElement().get(i).getAttribute().get(i).setName(getNameSeed());
+//		}
+//
+//		for (int i = 0; i < interfaceClassLib.size(); i++) {
+//			interfaceClassLib.get(i).getInterfaceClass().get(i).getAttribute().get(i)
+//					.setName(getNameSeed());
+//		}
+//
+//		for (int i = 0; i < systemUnitClassLib.size(); i++) {
+//			systemUnitClassLib.get(i).getSystemUnitClass().get(i).getAttribute().get(i)
+//					.setName(getNameSeed());
+//			systemUnitClassLib.get(i).getSystemUnitClass().get(i).getInternalElement().get(i)
+//					.getAttribute().get(i).setName(getNameSeed());
+//		}		
+//		
+		
+	}
+	
+	public CAEXFile setContaminatedData(String inputPath) throws JAXBException {
+		caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
+		contaminateAttributeName();
+		caex.getRoleClassLib().addAll(roleclassLib);
+		return caex;
+	}
+	
+	
+
 	public CAEXFile getCaexElementsSplit(String inputPath) throws JAXBException {
 
 		caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
+		contaminateAttributeName();
 
 		ArrayList<String> name = new ArrayList<String>();
 		name.add("RoleClassLib");
@@ -115,6 +161,15 @@ public class GenerateAML {
 					.newInstance("edu.bonn.AMLGoldStandardGenerator.aml");
 			marshaller = jaxbContext.createMarshaller();
 			unmarshaller = jaxbContext.createUnmarshaller();
+			
+			instance = InstanceHierarchy.setValue();
+			external = edu.bonn.AMLGoldStandardGenerator.aml.Impl.ExternalReference.setObject();
+			roleclassLib = RoleClassLib.setObject();
+			interfaceClassLib = edu.bonn.AMLGoldStandardGenerator.aml.Impl.InterfaceClassLib
+					.setObject();
+			systemUnitClassLib = SystemUnitClassLib.setObject();
+
+		
 			caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
 			caex.getInstanceHierarchy().addAll(InstanceHierarchy.setValue());
 			caex.getExternalReference().addAll(
@@ -124,12 +179,7 @@ public class GenerateAML {
 					edu.bonn.AMLGoldStandardGenerator.aml.Impl.InterfaceClassLib.setObject());
 			caex.getSystemUnitClassLib().addAll(SystemUnitClassLib.setObject());
 
-			instance = InstanceHierarchy.setValue();
-			external = edu.bonn.AMLGoldStandardGenerator.aml.Impl.ExternalReference.setObject();
-			roleclassLib = RoleClassLib.setObject();
-			interfaceClassLib = edu.bonn.AMLGoldStandardGenerator.aml.Impl.InterfaceClassLib
-					.setObject();
-			systemUnitClassLib = SystemUnitClassLib.setObject();
+			
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
 			// marshaller.marshal(caex, new File(outputPath));

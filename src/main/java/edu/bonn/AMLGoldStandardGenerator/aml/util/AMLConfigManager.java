@@ -202,7 +202,6 @@ public class AMLConfigManager {
 		SystemUnitClass.setAttribute = getUniformDistribution(
 				FileManager.SystemUnitClassSetAttribute());
 
-		
 	}
 
 	
@@ -263,6 +262,7 @@ public class AMLConfigManager {
 				FileManager.SystemUnitClasssetInternalElement());
 		SystemUnitClass.setSystemUnitClassNested = getPoissonDistribution(
 				FileManager.SystemUnitClasssetSystemUnitClassNested());
+		
 	}
 
 }

@@ -11,6 +11,7 @@ import edu.bonn.AMLGoldStandardGenerator.aml.ObjectFactory;
 public class GenericElement {
 
 	public static ObjectFactory factory = new ObjectFactory();
+	int count=0;
 	// protected static ArrayList<AttributeType> attribute;
 	// generate random id
 	static String getID(){
@@ -56,6 +57,20 @@ public class GenericElement {
 	}
 
 	
+	static String getNameSeed(){
+		// Generate random id, for example 283952-V8M32
+		char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
+		Random rnd = new Random();
+		StringBuilder sb = new StringBuilder((1 + rnd.nextInt(900000)) + "-");
+
+		for (int i = 0; i < 4; i++){
+		    sb.append(chars[rnd.nextInt(chars.length)]);
+		}
+
+
+		return sb.toString();
+	}
+	
 	static String getRef(){
 		// Generate random id, for example 283952-V8M32
 		char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
@@ -73,6 +88,9 @@ public class GenericElement {
 		return sb.toString();
 	}
 	
+	 int getCount(){
+		return count++;
+	}
 	
 	
 }

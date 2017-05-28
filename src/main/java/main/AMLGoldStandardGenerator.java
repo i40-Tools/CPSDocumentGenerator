@@ -357,11 +357,11 @@ public class AMLGoldStandardGenerator {
 					if (count % 2 == 0) {
 
 						load.getMarshaller().marshal(
-								load.getCaexElementsSplit(file.getAbsolutePath()), new File(
+								load.setContaminatedData(file.getAbsolutePath()), new File(
 										FileManager.getFilePath() + "Generated/" + file.getName()));
 					} else {
 
-						load.getMarshaller().marshal(load.getdefault(file.getAbsolutePath()),
+						load.getMarshaller().marshal(load.setContaminatedData(file.getAbsolutePath()),
 								new File(
 										FileManager.getFilePath() + "Generated/" + file.getName()));
 					}

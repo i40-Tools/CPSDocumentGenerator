@@ -330,5 +330,13 @@ System.out.println("helo"+value);
 		return value;
 	
 	}
+	
+	
+	public static String ContaminateData() {
+		String value = loadConfig().getProperty(AML_NAMESPACE + "ContaminateRoleClassAttribute");
+		return value;
+	
+	}
+
 		
 }
