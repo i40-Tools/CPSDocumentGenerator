@@ -35,6 +35,7 @@ aml:conf
 rdfs:label "General Configuration"@en ;
 uri:path "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/M2/Testbeds-1/";  
 aml:RandomizeAllSeeds   "false";          
+aml:ContaminateRoleClassAttribute "1";
 
 aml:Copyright  "0"; 
 aml:Description "0"; 
