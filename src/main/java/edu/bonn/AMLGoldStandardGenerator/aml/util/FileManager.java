@@ -338,5 +338,20 @@ System.out.println("helo"+value);
 	
 	}
 
-		
+	public static int getMultiHeterogeneity() {
+		String value = loadConfig().getProperty(AML_NAMESPACE + "MultiHeterogeneity");
+		return Integer.parseInt(value);
+	
+	}
+
+	
+	public static String getRoot() {
+		String value = loadConfig().getProperty(URI_NAMESPACE + "root");
+		return value;
+	
+	}
+
+	
+	
+
 }

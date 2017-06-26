@@ -35,6 +35,28 @@ public class GenerateAML extends GenericElement{
 	public ArrayList<InterfaceClassLib> interfaceClassLib;
 	public ArrayList<edu.bonn.AMLGoldStandardGenerator.aml.CAEXFile.SystemUnitClassLib> systemUnitClassLib;
 
+	
+	
+	
+	public CAEXFile getMulti(String inputPath,ArrayList<File> amlFiles) throws JAXBException {
+		//caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
+		if (FileManager.ContaminateData() == "1") {
+			contaminateAttributeName();
+		}
+		for(int i=0;i<amlFiles.size();i++){			
+		CAEXFile caex2 = (CAEXFile) unmarshaller.unmarshal(new File(amlFiles.get(i).getAbsolutePath()));		
+		caex.getInstanceHierarchy().addAll(caex2.getInstanceHierarchy());
+		caex.getExternalReference().addAll(caex2.getExternalReference());
+		caex.getRoleClassLib().addAll(caex2.getRoleClassLib());
+		caex.getInterfaceClassLib().addAll(caex2.getInterfaceClassLib());
+		caex.getSystemUnitClassLib().addAll(caex2.getSystemUnitClassLib());
+		}
+		return caex;
+	}
+
+	
+	
+	
 	/**
 	 * @return the caex
 	 * @throws JAXBException
@@ -44,6 +66,7 @@ public class GenerateAML extends GenericElement{
 		if (FileManager.ContaminateData() == "1") {
 			contaminateAttributeName();
 		}
+				
 		caex.getInstanceHierarchy().addAll(instance);
 		caex.getExternalReference().addAll(external);
 		caex.getRoleClassLib().addAll(roleclassLib);
@@ -96,8 +119,10 @@ public class GenerateAML extends GenericElement{
 	public CAEXFile getCaexElementsSplit(String inputPath) throws JAXBException {
 
 		caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
-		contaminateAttributeName();
-
+		
+		if (FileManager.ContaminateData() == "1") {
+			contaminateAttributeName();
+		}
 		ArrayList<String> name = new ArrayList<String>();
 		name.add("RoleClassLib");
 		name.add("InstanceHierarchy");

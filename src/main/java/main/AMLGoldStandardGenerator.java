@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
@@ -40,6 +41,9 @@ public class AMLGoldStandardGenerator {
 	private ArrayList<String> heterogeneityID;
 
 	private static ArrayList<String> inputName;
+	private static ArrayList<File> seedFiles;
+	private static ArrayList<File> seedOne;
+	private static ArrayList<File> seedTwo;
 
 	final static Logger logger = LoggerFactory.getLogger(AMLGoldStandardGenerator.class);
 	private String fileName;
@@ -162,7 +166,7 @@ public class AMLGoldStandardGenerator {
 
 						break;
 
-						// calls schematic heterogeneity generator
+					// calls schematic heterogeneity generator
 					case "M3":
 						doc = new SchematicHeterogeneity(doc, i).schematicGenerator();
 
@@ -179,7 +183,7 @@ public class AMLGoldStandardGenerator {
 
 						break;
 
-						// calls Grouping/Aggregation heterogeneity generator
+					// calls Grouping/Aggregation heterogeneity generator
 
 					case "M6":
 						doc = new GroupingHeterogeneity(doc, i).groupingGenerator();
@@ -300,10 +304,10 @@ public class AMLGoldStandardGenerator {
 	 * @return
 	 * @throws Exception
 	 */
-	static void generateFiles() throws Exception {
+
+	static void generateFiles(String path) throws Exception {
 		ReadFiles files = new ReadFiles();
-		ArrayList<File> amlFiles = files.readFiles(FileManager.getFilePath(), ".aml", ".opcua",
-				".xml");
+		ArrayList<File> amlFiles = files.readFiles(path, ".aml", ".opcua", ".xml");
 		File dir = new File(FileManager.getFilePath() + "Generated/");
 		if (!dir.exists())
 			dir.mkdirs();
@@ -311,7 +315,7 @@ public class AMLGoldStandardGenerator {
 
 		// gets generated data
 		for (File file : amlFiles) {
-			if(file.getName().equals("seed.aml")){
+			if (file.getName().equals("seed.aml")) {
 				load.generate(file.getAbsolutePath(),
 						FileManager.getFilePath() + "Generated/" + file.getName());
 				break;
@@ -320,50 +324,197 @@ public class AMLGoldStandardGenerator {
 
 		// adds split data into other documents
 		splitData(load, amlFiles);
+
+	}
+
+	/**
+	 * Here we get all the multi heterogeneites based on config.ttl We take
+	 * testbesd 2 for all the multiheterogenties and stor all the file names in
+	 * a single array and return it.
+	 * 
+	 * @param num
+	 * @return
+	 */
+	static ArrayList<File> getRandomizedMultiHeterogenetiesPaths(int num) {
+
+		ReadFiles files = new ReadFiles();
+
+		// Random heterogeneties starts here
+		// adds numbers of elements to list so always unique values
+		// we knows maximum heterogeneties are 7
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		for (int i = 1; i < 8; i++) {
+			// makes sure its not the current heterogeneity
+			if (!FileManager.getFilePath().contains(FileManager.getRoot() + "M" + i)) {
+				list.add(new Integer(i));
+			}
+		}
+		Collections.shuffle(list);
+
+		// here we store all multi heterogeneties files
+		ArrayList<File> allFiles = new ArrayList<File>();
+
+		// for multi heterogeneties we are taking Testbeds-2
+		try {
+			for (int i = 0; i < num; i++) {
+				int randomNum = list.get(i);
+				System.out.println("M"+randomNum);
+
+				if (randomNum == 1) {
+					allFiles = files.readFiles(
+							FileManager.getRoot() + "M" + randomNum + "/M1.2/Testbeds-2/", ".aml",
+							".opcua", ".xml");
+
+				} else {
+					allFiles = files.readFiles(
+							FileManager.getRoot() + "M" + randomNum + "/Testbeds-2/", ".aml",
+							".opcua", ".xml");
+				}
+			}
+
+		} catch (Exception e) {
+			System.out.println("Maximum heterogenities available 6");
+		}
+
+		return allFiles;
+
+	}
+
+	/**
+	 * Gets multi heterogeneity and splits them in array according to there name
+	 * 
+	 * @throws Exception
+	 */
+	public static void getMultiHeterogeneity() throws Exception {
+
+		int num = FileManager.getMultiHeterogeneity();
+
+		// get randomized paths
+		ArrayList<File> allFiles = getRandomizedMultiHeterogenetiesPaths(num);
+
+		// splits the paths into seperate files arrays
+		seedFiles = new ArrayList<File>();
+		seedOne = new ArrayList<File>();
+		seedTwo = new ArrayList<File>();
+
+		for (int i = 0; i < allFiles.size(); i++) {
+
+
+			if (allFiles.get(i).getName().equals("seed.aml"))
+				seedFiles.add(allFiles.get(i));
+
+			if (allFiles.get(i).getName().contains("-0.aml")
+					&& !allFiles.get(i).getName().contains("enlarge"))
+				seedOne.add(allFiles.get(i));
+
+			if (allFiles.get(i).getName().contains("-1.aml")
+					&& !allFiles.get(i).getName().contains("enlarge"))
+				seedTwo.add(allFiles.get(i));
+		}
+
 	}
 
 	/**
 	 * 
 	 * @param amlFiles
-	 * @throws JAXBException 
+	 * @throws JAXBException
+	 * @throws Exception
+	 *   Default means nothing is randomized
 	 */
+
+	static void addDefault(GenerateAML load, File file, ArrayList<File> seedFile)
+			throws JAXBException {
+		load.getMarshaller().marshal(load.getdefault(file.getAbsolutePath()),
+				new File(FileManager.getFilePath() + "Generated/" + file.getName()));
+
+		if (FileManager.getMultiHeterogeneity() != 0) {
+			load.getMarshaller().marshal(load.getMulti(file.getAbsolutePath(), seedFile),
+					new File(FileManager.getFilePath() + "Generated/" + file.getName()));
+		}
+	}
+
+	/**
+	 * Both files are randomized and added
+	 * The data is splitted in both files.
+	 * @param load
+	 * @param file
+	 * @param seedFile
+	 * @throws JAXBException
+	 */
+	static void addRandom(GenerateAML load, File file, ArrayList<File> seedFile)
+			throws JAXBException {
+
+		load.getMarshaller().marshal(load.getCaexElementsSplit(file.getAbsolutePath()),
+				new File(FileManager.getFilePath() + "Generated/" + file.getName()));
+
+		// for multi heterogeneties
+		if (FileManager.getMultiHeterogeneity() != 0) {
+			load.getMarshaller().marshal(load.getMulti(file.getAbsolutePath(), seedFile),
+					new File(FileManager.getFilePath() + "Generated/" + file.getName()));
+		}
+
+	}
+
 	
-		
-	public static void splitData(GenerateAML load, ArrayList<File> amlFiles) throws JAXBException{
+	/**
+	 * Adds randmization to the files with multiheterogeneties
+	 * @param load
+	 * @param amlFiles
+	 * @throws Exception
+	 */ 
+	public static void splitData(GenerateAML load, ArrayList<File> amlFiles) throws Exception {
 		int count = 0;
+
+		// checks if multiheterogeneity is required
+		if (FileManager.getMultiHeterogeneity() != 0) {
+			getMultiHeterogeneity();
+		}
+
 		for (File file : amlFiles) {
 			if (file.getName().equals("seed.aml")) {
-				load.getMarshaller().marshal(load.getdefault(file.getAbsolutePath()),
-						new File(FileManager.getFilePath() + "Generated/" + file.getName()));
+
+				addDefault(load, file, seedFiles);
+
 			} else {
+
+				// both seeds are randomized
 				if (FileManager.getRandomize().equals("true")) {
-					// both seeds are randomized
 
 					if (count % 2 == 0) {
 
-						load.getMarshaller().marshal(
-								load.getCaexElementsSplit(file.getAbsolutePath()), new File(
-										FileManager.getFilePath() + "Generated/" + file.getName()));
+						addRandom(load, file, seedOne);
+
 					} else {
 
-						load.getMarshaller().marshal(
-								load.getCaexElementsSplit(file.getAbsolutePath()), new File(
-										FileManager.getFilePath() + "Generated/" + file.getName()));
+						addRandom(load, file, seedTwo);
+
 					}
 				}
 
 				// only one seed is randomized
+				else if (FileManager.getRandomize().equals("one")) {
+					if (count % 2 == 0) {
+
+						addDefault(load, file, seedOne);
+
+					} else {
+
+						addRandom(load, file, seedTwo);
+
+					}
+
+				}
+				
+               // none is randomized
 				else {
 					if (count % 2 == 0) {
 
-						load.getMarshaller().marshal(
-								load.setContaminatedData(file.getAbsolutePath()), new File(
-										FileManager.getFilePath() + "Generated/" + file.getName()));
+						addDefault(load, file, seedOne);
+
 					} else {
 
-						load.getMarshaller().marshal(load.setContaminatedData(file.getAbsolutePath()),
-								new File(
-										FileManager.getFilePath() + "Generated/" + file.getName()));
+						addDefault(load, file, seedTwo);
+
 					}
 
 				}
@@ -384,16 +535,22 @@ public class AMLGoldStandardGenerator {
 		goldStandard.readFiles(FileManager.getFilePath(), ".aml", ".opcua", ".xml");
 		goldStandard.convert2RDF(FileManager.getFilePath());
 		goldStandard.readFiles(FileManager.getFilePath(), ".ttl", ".rdf", ".owl");
-		FileManager.createDataPath(FileManager.getFilePath());// creates folders if not there
+
+		// creates folders if not there
+		FileManager.createDataPath(FileManager.getFilePath());
+
 		goldStandard.addGoldStandard(FileManager.getFilePath());
 
 		// adding Gold Standard for Generated Files
 		goldStandard = new GoldStandard();
-		goldStandard.readFiles(FileManager.getFilePath()+"Generated/", ".aml", ".opcua", ".xml");
-		goldStandard.convert2RDF(FileManager.getFilePath()+"Generated/");
-		goldStandard.readFiles(FileManager.getFilePath()+"Generated/", ".ttl", ".rdf", ".owl");
-		FileManager.createDataPath(FileManager.getFilePath()+"Generated/");// creates folders if not there
-		goldStandard.addGoldStandard(FileManager.getFilePath()+"Generated/");
+		goldStandard.readFiles(FileManager.getFilePath() + "Generated/", ".aml", ".opcua", ".xml");
+		goldStandard.convert2RDF(FileManager.getFilePath() + "Generated/");
+		goldStandard.readFiles(FileManager.getFilePath() + "Generated/", ".ttl", ".rdf", ".owl");
+
+		// creates folders if not there
+		FileManager.createDataPath(FileManager.getFilePath() + "Generated/");
+
+		goldStandard.addGoldStandard(FileManager.getFilePath() + "Generated/");
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -404,7 +561,8 @@ public class AMLGoldStandardGenerator {
 		// calls the generator configuration
 		AMLConfigManager.loadConfigurationUniform();
 
-		generateFiles();
+		generateFiles(FileManager.getFilePath());
+
 		generateGoldStandard();
 		System.out.println("Gold Standard Generated for Orignal and Generated Files");
 		System.out.println("Finished SuccessFully");
