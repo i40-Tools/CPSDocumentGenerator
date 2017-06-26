@@ -33,7 +33,8 @@ Please include this config.ttl if you want to generate data
 
 aml:conf 
 rdfs:label "General Configuration"@en ;
-uri:path "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/M2/Testbeds-1/";  
+uri:path "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/M2/Testbeds-1/";
+uri:root "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/"; 
 aml:RandomizeAllSeeds   "false";          
 aml:ContaminateRoleClassAttribute "1";
 
