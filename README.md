@@ -39,6 +39,7 @@ uri:path "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/M2/Testb
 uri:root "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/"; 
 aml:RandomizeAllSeeds   "false";          
 aml:ContaminateRoleClassAttribute "1";
+aml:Multiheterogeneity "2";
 
 aml:Copyright  "0"; 
 aml:Description "0"; 
