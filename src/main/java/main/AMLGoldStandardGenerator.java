@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
@@ -350,7 +351,7 @@ public class AMLGoldStandardGenerator {
 			}
 		}
 		Collections.shuffle(list);
-
+ 	
 		// here we store all multi heterogeneties files
 		ArrayList<File> allFiles = new ArrayList<File>();
 
@@ -358,16 +359,19 @@ public class AMLGoldStandardGenerator {
 		try {
 			for (int i = 0; i < num; i++) {
 				int randomNum = list.get(i);
-				System.out.println("M"+randomNum);
+								
+				// testbed randomization
+				int seedRand=ThreadLocalRandom.current().nextInt(1, 10 + 1);
+				System.out.println("M"+randomNum+"-Testbeds-"+seedRand);
 
 				if (randomNum == 1) {
 					allFiles = files.readFiles(
-							FileManager.getRoot() + "M" + randomNum + "/M1.2/Testbeds-2/", ".aml",
+							FileManager.getRoot() + "M" + randomNum + "/M1.2/Testbeds-"+seedRand+"/", ".aml",
 							".opcua", ".xml");
 
 				} else {
 					allFiles = files.readFiles(
-							FileManager.getRoot() + "M" + randomNum + "/Testbeds-2/", ".aml",
+							FileManager.getRoot() + "M" + randomNum + "/Testbeds-"+seedRand+"/", ".aml",
 							".opcua", ".xml");
 				}
 			}
