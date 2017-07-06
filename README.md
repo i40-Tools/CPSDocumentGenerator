@@ -19,6 +19,17 @@ To create folders manually before running, you can create and put Goldstandard.t
 
 Please include this config.ttl if you want to generate data
 
+The following paramters can be configured.
+
+```
+RandomizeAllSeeds   "false" , "true", "one"                       
+aml:ContaminateRoleClassAttribute   "0" , "1"          
+aml:MultiHeterogeneity    "0.... 7"   use 0 to disable      
+All other aml attributes can have values in range (min, max)/
+```
+
+Example :
+
 ```
 
 @prefix aml:     <http://vocab.cs.uni-bonn.de/aml#> .
