@@ -34,6 +34,7 @@ public class FileManager {
 	private static RDFNode predicate;
 	private static ArrayList<RDFNode> literals, predicates;
 	private static Model model;
+	public static String filePath;
 
 	public final static String HET_NAMESPACE = "http://vocab.cs.uni-bonn.de/het#";
 	public final static String URI_NAMESPACE = "http://uri4uri.net/vocab.html/#";
@@ -112,7 +113,11 @@ public class FileManager {
 	 * @return
 	 */
 	public static String getFilePath() {
-		String filePath = loadConfig().getProperty(URI_NAMESPACE + "path");
+		
+		if(filePath!=null){
+			return filePath;
+		}
+		filePath = loadConfig().getProperty(URI_NAMESPACE + "path");
 		return filePath;
 	}
 
@@ -318,6 +323,13 @@ System.out.println("helo"+value);
 		return value;
 	
 	}
+	
+	public static String SetExternalReference() {
+		String value = loadConfig().getProperty(AML_NAMESPACE + "SetExternalReference");
+		return value;
+	
+	}
+
 
 	public static String RoleClassSetExternalInterface() {
 		String value = loadConfig().getProperty(AML_NAMESPACE + "RoleClassSetExternalInterface");
@@ -340,8 +352,9 @@ System.out.println("helo"+value);
 
 	public static int getMultiHeterogeneity() {
 		String value = loadConfig().getProperty(AML_NAMESPACE + "MultiHeterogeneity");
-		return Integer.parseInt(value);
-	
+		//return Integer.parseInt(value);
+		return AMLConfigManager.getPoissonDistribution(value);
+		
 	}
 
 	

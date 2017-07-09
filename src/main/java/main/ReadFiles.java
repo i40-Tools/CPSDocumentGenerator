@@ -47,6 +47,7 @@ public class ReadFiles {
 		
 		File originalFilesFolder = new File(path);
 		if (originalFilesFolder.isDirectory()) {
+
 			for (File amlFile : originalFilesFolder.listFiles()) {
 				if (amlFile.isFile()
 						&& (amlFile.getName().endsWith(type) || amlFile.getName().endsWith(type2)
@@ -76,6 +77,8 @@ public class ReadFiles {
 			}
 		} else {
 			System.out.println("Error in the directory that you provided");
+			System.out.println(originalFilesFolder.getAbsolutePath());
+
 			System.exit(0);
 		}
 

@@ -557,20 +557,35 @@ public class AMLGoldStandardGenerator {
 		goldStandard.addGoldStandard(FileManager.getFilePath() + "Generated/");
 	}
 
+	/**
+	 * running generator in bulk
+	 * @throws Exception
+	 */
+	void runBulk() throws Exception {
+		int i = 1;
+		while (i <= 10) {
+			FileManager.filePath = "C:/HeterogeneityExampleData/AutomationML"
+					+ "/Single-Heterogeneity/M7/Testbeds-" + i + "/";
+			generateFiles(FileManager.getFilePath());
+			generateGoldStandard();
+			System.out.println("Gold Standard Generated for Orignal and Generated Files");
+			System.out.println("Finished SuccessFully");
+			i++;
+		}
+
+	}
+	
 	public static void main(String[] args) throws Exception {
 		// give input file name and heterogeneity mode
 		// 1- Granularity
 		// 2- Schema
-
+		//runBulk();
 		// calls the generator configuration
-		AMLConfigManager.loadConfigurationUniform();
-
+		AMLConfigManager.loadConfigurationPoisson();
 		generateFiles(FileManager.getFilePath());
-
 		generateGoldStandard();
 		System.out.println("Gold Standard Generated for Orignal and Generated Files");
 		System.out.println("Finished SuccessFully");
-
 		// AMLGoldStandardGenerator goldStandard = new
 		// AMLGoldStandardGenerator();
 		// System.out.println("Generating Files Please wait....");

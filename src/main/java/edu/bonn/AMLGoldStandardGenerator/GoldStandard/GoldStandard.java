@@ -55,9 +55,9 @@ public class GoldStandard extends ReadFiles {
 					object = stmt.getObject();
 
 					if (predicate.asNode().getLocalName().equals("hasAttributeName")
-						|| predicate.asNode().getLocalName().equals("hasCorrespondingAttributePath")
+//						|| predicate.asNode().getLocalName().equals("hasCorrespondingAttributePath")
 						|| predicate.asNode().getLocalName().equals("refBaseClassPath")
-						|| predicate.asNode().getLocalName().equals("hasFileName")
+//						|| predicate.asNode().getLocalName().equals("hasFileName")
 						|| predicate.asNode().getLocalName().equals("identifier")) 
 					{
 						if (!object.asLiteral().getLexicalForm().equals("eClassIRDI")

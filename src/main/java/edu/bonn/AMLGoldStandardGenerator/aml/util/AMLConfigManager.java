@@ -2,14 +2,12 @@ package edu.bonn.AMLGoldStandardGenerator.aml.util;
 
 import java.util.Random;
 
-import cern.jet.random.Poisson;
-import cern.jet.random.engine.DRand;
-import cern.jet.random.engine.RandomEngine;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.Attribute;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.AttributeNameMapping;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.AttributeValueRequirements;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.Copyright;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.Description;
+import edu.bonn.AMLGoldStandardGenerator.aml.Impl.ExternalReference;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InstanceHierarchy;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InterfaceClass;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.InterfaceClassLib;
@@ -43,12 +41,23 @@ public class AMLConfigManager {
 		}
 		String[] a = range.split("-");
 		int mean = (Integer.parseInt(a[0]) + Integer.parseInt(a[1])) / 2;
-		RandomEngine engine = new DRand();
-		Poisson poisson = new Poisson(mean, engine);
-		int poissonObs = poisson.nextInt();
-		
-		System.out.println(poissonObs + " Poisson");
-		return poissonObs;
+				
+			  double L = Math.exp(-mean);
+			  double p = 1.0;
+			  int k = 0;
+
+			  do {
+			    k++;
+			    p *= Math.random();
+			  } while (p > L);
+
+			  return k - 1;
+				
+//		RandomEngine engine = new DRand();
+//		Poisson poisson = new Poisson(mean, engine);
+//		int poissonObs = poisson.nextInt();
+//		
+//		return poissonObs;
 	}
 	
 	static int getUniformDistribution(String range){
@@ -60,7 +69,6 @@ public class AMLConfigManager {
 		Random r = new Random();
 		int mySample = r.nextInt(Integer.parseInt(a[1]));
 		
-		System.out.println(mySample + " Value");
 		return mySample;
 	}
 	
@@ -84,7 +92,7 @@ public class AMLConfigManager {
 	/**
 	 * Default configuration is every element occurrence = 1;
 	 */
-	public static void loadConfigurationPoisson() {
+	public static void loadConfigurationNormal() {
 		Copyright.minimum = getNormalDistribution(FileManager.Copyright());
 		Description.minimum = getNormalDistribution(FileManager.Description());
 		Version.minimum = getNormalDistribution(FileManager.Version());
@@ -140,6 +148,8 @@ public class AMLConfigManager {
 				FileManager.SystemUnitClasssetInternalElement());
 		SystemUnitClass.setSystemUnitClassNested = getNormalDistribution(
 				FileManager.SystemUnitClasssetSystemUnitClassNested());
+		ExternalReference.minimum=getNormalDistribution(
+				FileManager.SetExternalReference());
 	}
 	
 	/**
@@ -201,11 +211,12 @@ public class AMLConfigManager {
 				FileManager.SystemUnitClasssetSystemUnitClassNested());
 		SystemUnitClass.setAttribute = getUniformDistribution(
 				FileManager.SystemUnitClassSetAttribute());
-
+		ExternalReference.minimum=getNormalDistribution(
+				FileManager.SetExternalReference());
 	}
 
 	
-	public static void loadConfigurationNormal() {
+	public static void loadConfigurationPoisson() {
 		// optional Attributes
 		Copyright.minimum = getPoissonDistribution(FileManager.Copyright());
 		Description.minimum = getPoissonDistribution(FileManager.Description());
@@ -262,7 +273,8 @@ public class AMLConfigManager {
 				FileManager.SystemUnitClasssetInternalElement());
 		SystemUnitClass.setSystemUnitClassNested = getPoissonDistribution(
 				FileManager.SystemUnitClasssetSystemUnitClassNested());
-		
+		ExternalReference.minimum=getNormalDistribution(
+				FileManager.SetExternalReference());
 	}
 
 }

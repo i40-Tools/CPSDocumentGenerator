@@ -40,9 +40,6 @@ public class GenerateAML extends GenericElement{
 	
 	public CAEXFile getMulti(String inputPath,ArrayList<File> amlFiles) throws JAXBException {
 		//caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
-		if (FileManager.ContaminateData() == "1") {
-			contaminateAttributeName();
-		}
 		for(int i=0;i<amlFiles.size();i++){			
 		CAEXFile caex2 = (CAEXFile) unmarshaller.unmarshal(new File(amlFiles.get(i).getAbsolutePath()));		
 		caex.getInstanceHierarchy().addAll(caex2.getInstanceHierarchy());
@@ -51,6 +48,11 @@ public class GenerateAML extends GenericElement{
 		caex.getInterfaceClassLib().addAll(caex2.getInterfaceClassLib());
 		caex.getSystemUnitClassLib().addAll(caex2.getSystemUnitClassLib());
 		}
+		
+//		if (FileManager.ContaminateData().equals("1")) {
+//			contaminateAttributeName();
+//		}
+
 		return caex;
 	}
 
@@ -62,16 +64,17 @@ public class GenerateAML extends GenericElement{
 	 * @throws JAXBException
 	 */
 	public CAEXFile getdefault(String inputPath) throws JAXBException {
-		caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));
-		if (FileManager.ContaminateData() == "1") {
-			contaminateAttributeName();
-		}
-				
+		caex = (CAEXFile) unmarshaller.unmarshal(new File(inputPath));			
 		caex.getInstanceHierarchy().addAll(instance);
 		caex.getExternalReference().addAll(external);
 		caex.getRoleClassLib().addAll(roleclassLib);
 		caex.getInterfaceClassLib().addAll(interfaceClassLib);
 		caex.getSystemUnitClassLib().addAll(systemUnitClassLib);
+	
+		if (FileManager.ContaminateData().equals("1")) {
+			contaminateAttributeName();
+		}
+	
 		return caex;
 	}
 
