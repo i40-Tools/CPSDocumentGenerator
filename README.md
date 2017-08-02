@@ -89,6 +89,66 @@ aml:SystemUnitClasssetSystemUnitClassNested  "0".
  
 
 ```
+if you want to reproduce results from published paper , please add the below config.ttl and make changes to path where possible.
+```
+
+@prefix aml:     <http://vocab.cs.uni-bonn.de/aml#> .
+@prefix het:     <http://vocab.cs.uni-bonn.de/het#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema:  <http://schema.org/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml:     <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix uri:     <http://uri4uri.net/vocab.html/#>
+@prefix sto:     <https://w3id.org/i40/sto#>.
+@prefix ontosec: <http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#>
+
+aml:conf 
+rdfs:label "General Configuration"@en ;
+uri:path "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/M1/M1.1/Testbeds-1/";
+uri:root "C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/"; 
+
+aml:MultiHeterogeneity "1-10";
+aml:RandomizeAllSeeds   "false";
+aml:ContaminateRoleClassAttribute "1";
+
+aml:Copyright  "0"; 
+aml:Description "0"; 
+aml:Version "0"; 
+aml:AttributeNameMapping "0"; 
+aml:AttributeValueRequirements "0"; 
+aml:AttributesetConstraint  "0"; 
+aml:MappingObject "0"; 
+aml:Attribute "0";
+aml:SetExternalReference "0";
+
+aml:InstanceHierarchy "1";
+aml:InstanceHierarchysetInternalElement "1-5";
+aml:InstanceHierarchysetInternalElementNested  "0";
+aml:InstanceHierarchysetInternalRoleRequirement "0";
+
+aml:InternalElementsetAttribute "0"; 
+
+aml:InterfaceClassLib "0";
+aml:InterfaceClass "0";
+aml:InterfaceClasssetInterfaceClassNested "0";
+aml:InterfaceClasssetAttribute "0"; 
+
+aml:RoleClassLib "2";
+aml:RoleClass "2";
+aml:RoleClassSetAttribute "2";
+aml:RoleClassNested "0";
+aml:RoleClassSetExternalInterface "0";
+
+aml:SystemUnitClass "2";
+aml:SystemUnitClassSetAttribute "2";
+aml:SystemUnitClasssetInternalElement "1"; 
+aml:SystemUnitClassLib "2";
+aml:SystemUnitClasssetSystemUnitClassNested  "0"
+```
+ 
 
 
 ## Build and Setup  
