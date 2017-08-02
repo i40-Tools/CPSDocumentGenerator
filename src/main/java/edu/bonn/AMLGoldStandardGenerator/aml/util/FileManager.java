@@ -35,6 +35,7 @@ public class FileManager {
 	private static ArrayList<RDFNode> literals, predicates;
 	private static Model model;
 	public static String filePath;
+	public static int hetCount=0;
 
 	public final static String HET_NAMESPACE = "http://vocab.cs.uni-bonn.de/het#";
 	public final static String URI_NAMESPACE = "http://uri4uri.net/vocab.html/#";
@@ -138,7 +139,6 @@ public class FileManager {
 	 */
 
 	public static boolean createDataPath(String path) {
-		String filePath = loadConfig().getProperty(URI_NAMESPACE + "path");
 		boolean dir = new File(path + "PSL/test/Precision").mkdirs();
 		dir = new File(path + "PSL/train/").mkdirs();
 		return dir;
@@ -353,6 +353,9 @@ System.out.println("helo"+value);
 	public static int getMultiHeterogeneity() {
 		String value = loadConfig().getProperty(AML_NAMESPACE + "MultiHeterogeneity");
 		//return Integer.parseInt(value);
+		if(hetCount!=0){
+			return hetCount;
+		}
 		return AMLConfigManager.getPoissonDistribution(value);
 		
 	}
