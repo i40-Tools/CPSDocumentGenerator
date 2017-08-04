@@ -610,7 +610,7 @@ public class AMLGoldStandardGenerator {
 		sCount=1;
 		while (sCount <= 10) {
 			if(k==1){
-				FileManager.filePath = "C:/Users/omar/Desktop/examples/run -2/M"+k+"/"
+				FileManager.filePath = "C:/Users/omar/Desktop/examples/run -7/M"+k+"/"
 						+ "M1.1/Testbeds-" + sCount + "/";
 				// creates folders if not there
 				FileManager.createDataPath(FileManager.getFilePath()+"Generated/");
@@ -626,7 +626,7 @@ public class AMLGoldStandardGenerator {
 //				
 			}
 			else{
-			FileManager.filePath = "C:/Users/omar/Desktop/examples/run -2/"
+			FileManager.filePath = "C:/Users/omar/Desktop/examples/run -7/"
 					+ "M"+k+"/Testbeds-" + sCount + "/";
 			// creates folders if not there
 			FileManager.createDataPath(FileManager.getFilePath()+"Generated/");
