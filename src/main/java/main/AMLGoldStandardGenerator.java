@@ -598,7 +598,7 @@ public class AMLGoldStandardGenerator {
 
 		int k = 1;
 		while (k <= 1) {
-			FileManager.hetCount = 0;
+			//FileManager.hetCount = 0;
 			num = FileManager.hetCount;
 			sCount = 1;
 			while (sCount <= 10) {
