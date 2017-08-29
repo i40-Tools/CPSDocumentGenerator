@@ -38,6 +38,7 @@ public class AMLGoldStandardGenerator {
 	private ArrayList<String> outputPath;
 	private ArrayList<String> inputPath;
 	private ArrayList<String> heterogeneityID;
+
 	private static ArrayList<String> inputName;
 	private static ArrayList<File> seedFiles;
 	private static ArrayList<File> seedOne;
@@ -602,17 +603,19 @@ public class AMLGoldStandardGenerator {
 			sCount = 1;
 			while (sCount <= 10) {
 				if (k == 1) {
+					FileManager.filePath = FileManager.getRoot() + "M" + k + "/" + "M1.1/Testbeds-"
+							+ sCount + "/";
 					// creates folders if not there
-					FileManager.createDataPath(FileManager.getRoot() + "M" + k + "/"
-							+ "M1.1/Testbeds-" + sCount + "/Generated/");
+					FileManager.createDataPath(FileManager.getFilePath() + "Generated/");
 
 					AMLConfigManager.loadConfigurationPoisson();
 					generateFiles(FileManager.getFilePath());
 					generateGoldStandard();
 				} else {
+					FileManager.filePath = FileManager.getRoot() + "M" + k + "/Testbeds-" + sCount
+							+ "/Generated/";
 					// creates folders if not there
-					FileManager.createDataPath(FileManager.getRoot() + "M" + k + "/Testbeds-"
-							+ sCount + "/Generated/");
+					FileManager.createDataPath(FileManager.getFilePath() + "Generated/");
 
 					AMLConfigManager.loadConfigurationPoisson();
 					generateFiles(FileManager.getFilePath());
