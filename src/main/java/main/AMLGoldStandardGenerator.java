@@ -13,8 +13,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 
 import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
 import Test.ModelRepair;
@@ -40,7 +38,6 @@ public class AMLGoldStandardGenerator {
 	private ArrayList<String> outputPath;
 	private ArrayList<String> inputPath;
 	private ArrayList<String> heterogeneityID;
-
 	private static ArrayList<String> inputName;
 	private static ArrayList<File> seedFiles;
 	private static ArrayList<File> seedOne;
@@ -48,7 +45,6 @@ public class AMLGoldStandardGenerator {
 	private static int sCount;
 	private static int num;
 
-	final static Logger logger = LoggerFactory.getLogger(AMLGoldStandardGenerator.class);
 	private String fileName;
 
 	/**
@@ -100,12 +96,6 @@ public class AMLGoldStandardGenerator {
 			// Twice loop because for integration we need two files.
 			int j = 0;
 			while (i < 2) {
-
-				if (inputFile == null) {
-					logger.error("cannot find inputfile");
-					logger.error("Please check configuration file");
-					System.exit(0);
-				}
 
 				// Initialized input file to read its nodes and elements.
 				Document doc = new XmlParser().initInput(inputFile);
@@ -267,7 +257,6 @@ public class AMLGoldStandardGenerator {
 			output.write(xmlString);
 			output.close();
 		} catch (IOException | NullPointerException e) {
-			logger.error("Error File not Found " + inputFile);
 			e.printStackTrace();
 		}
 	}
@@ -288,13 +277,11 @@ public class AMLGoldStandardGenerator {
 				System.out.println("Repairing and Rechecking");
 				ModelRepair.testRoundTrip(directory + "\\" + outputFile);
 				if (!new XSDValidator(directory + "\\" + outputFile).schemaValidate()) {
-					logger.error("Schema did not Validated for " + outputFile);
 				}
 			}
 
 		} catch (TransformerFactoryConfigurationError | Exception e) {
 			// TODO Auto-generated catch block
-			logger.error("Failed " + e.getLocalizedMessage());
 			e.printStackTrace();
 		}
 
@@ -310,9 +297,11 @@ public class AMLGoldStandardGenerator {
 
 	static void generateFiles(String path) throws Exception {
 		ReadFiles files = new ReadFiles();
-		ArrayList<File> amlFiles = files.readFiles(FileManager.getFilePath()+"Generated/",".aml", ".opcua", ".xml");
-//		ArrayList<File> amlFiles = files.readFiles("C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/M1/M1.1/other/",
-//				".aml", ".opcua", ".xml");
+		ArrayList<File> amlFiles = files.readFiles(FileManager.getFilePath(), ".aml", ".opcua",
+				".xml");
+		// ArrayList<File> amlFiles =
+		// files.readFiles("C:/HeterogeneityExampleData/AutomationML/Single-Heterogeneity/M1/M1.1/other/",
+		// ".aml", ".opcua", ".xml");
 		File dir = new File(FileManager.getFilePath() + "Generated/");
 		if (!dir.exists())
 			dir.mkdirs();
@@ -339,7 +328,7 @@ public class AMLGoldStandardGenerator {
 	 * 
 	 * @param num
 	 * @return
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	static ArrayList<File> getRandomizedMultiHeterogenetiesPaths(int nums) throws IOException {
 
@@ -351,17 +340,19 @@ public class AMLGoldStandardGenerator {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		for (int i = 1; i < 8; i++) {
 			// makes sure its not the current heterogeneity
-//			if (!FileManager.getFilePath().contains(FileManager.getRoot() + "M" + i)) {
-				list.add(new Integer(i));
-//		      }
-//			
+			// if (!FileManager.getFilePath().contains(FileManager.getRoot() +
+			// "M" + i)) {
+			list.add(new Integer(i));
+			// }
+			//
 		}
-		//Collections.shuffle(list);
- 	
+		// Collections.shuffle(list);
+
 		// here we store all multi heterogeneties files
 		ArrayList<File> allFiles = new ArrayList<File>();
-		
-		PrintWriter pr=new PrintWriter(FileManager.getFilePath()+"Generated/PSL/test/Precision/multi.txt");
+
+		PrintWriter pr = new PrintWriter(
+				FileManager.getFilePath() + "Generated/PSL/test/Precision/multi.txt");
 		// for multi heterogeneties we are taking Testbeds-2
 		try {
 			for (int i = 0; i < num; i++) {
@@ -369,48 +360,51 @@ public class AMLGoldStandardGenerator {
 
 				// testbed randomization
 				int seedRand = ThreadLocalRandom.current().nextInt(1, 10 + 1);
-//				System.out.println("M" + randomNum + "-Testbeds-" + seedRand);
+				// System.out.println("M" + randomNum + "-Testbeds-" +
+				// seedRand);
 				System.out.println("M" + randomNum);
-
 
 				if (randomNum == 1) {
 					int random = ThreadLocalRandom.current().nextInt(1, 3);
-					random=2;
+					random = 2;
 					if (random == 2) {
 						allFiles = files.readFiles(FileManager.getRoot() + "M" + randomNum
 								+ "/M1.1/Testbeds-" + sCount + "/", ".aml", ".opcua", ".xml");
 						allFiles = files.readFiles(FileManager.getRoot() + "M" + randomNum
 								+ "/M1.2/Testbeds-" + sCount + "/", ".aml", ".opcua", ".xml");
-						
-//						allFiles = files.readFiles(FileManager.getRoot() + "M" + randomNum
-//								+ "/M1.1/Testbeds-3/", ".aml", ".opcua", ".xml");
+
+						// allFiles = files.readFiles(FileManager.getRoot() +
+						// "M" + randomNum
+						// + "/M1.1/Testbeds-3/", ".aml", ".opcua", ".xml");
 
 						pr.println("M1.1");
 						pr.println("M1.2");
-						
+
 					} else {
-//						allFiles = files.readFiles(FileManager.getRoot() + "M" + randomNum
-//								+ "/M1.2/Testbeds-" + seedRand + "/", ".aml", ".opcua", ".xml");
-						allFiles = files.readFiles(FileManager.getRoot() + "M" + randomNum
-								+ "/M1.2/Testbeds-3/", ".aml", ".opcua", ".xml");
+						// allFiles = files.readFiles(FileManager.getRoot() +
+						// "M" + randomNum
+						// + "/M1.2/Testbeds-" + seedRand + "/", ".aml",
+						// ".opcua", ".xml");
+						allFiles = files.readFiles(
+								FileManager.getRoot() + "M" + randomNum + "/M1.2/Testbeds-3/",
+								".aml", ".opcua", ".xml");
 						pr.println("M1.2");
 
 					}
 
 				} else {
 					allFiles = files.readFiles(
-							FileManager.getRoot() + "M" + randomNum + "/Testbeds-"+sCount+"/", ".aml",
-							".opcua", ".xml");
-//							FileManager.getRoot() + "M" + randomNum + "/Testbeds-3/", ".aml",
-//							".opcua", ".xml");
+							FileManager.getRoot() + "M" + randomNum + "/Testbeds-" + sCount + "/",
+							".aml", ".opcua", ".xml");
+					// FileManager.getRoot() + "M" + randomNum + "/Testbeds-3/",
+					// ".aml",
+					// ".opcua", ".xml");
 					pr.println("M" + randomNum);
 
 				}
 			}
 			pr.close();
 
-			
-			
 		} catch (Exception e) {
 			System.out.println("Maximum heterogenities available 6");
 			pr.close();
@@ -439,7 +433,6 @@ public class AMLGoldStandardGenerator {
 
 		for (int i = 0; i < allFiles.size(); i++) {
 
-
 			if (allFiles.get(i).getName().equals("seed.aml"))
 				seedFiles.add(allFiles.get(i));
 
@@ -458,9 +451,9 @@ public class AMLGoldStandardGenerator {
 	 * 
 	 * @param amlFiles
 	 * @throws JAXBException
-	 * @throws IOException 
+	 * @throws IOException
 	 * @throws Exception
-	 *   Default means nothing is randomized
+	 *             Default means nothing is randomized
 	 */
 
 	static void addDefault(GenerateAML load, File file, ArrayList<File> seedFile)
@@ -472,13 +465,12 @@ public class AMLGoldStandardGenerator {
 			load.getMarshaller().marshal(load.getMulti(file.getAbsolutePath(), seedFile),
 					new File(FileManager.getFilePath() + "Generated/" + file.getName()));
 		}
-		
-		
+
 	}
 
 	/**
-	 * Both files are randomized and added
-	 * The data is splitted in both files.
+	 * Both files are randomized and added The data is splitted in both files.
+	 * 
 	 * @param load
 	 * @param file
 	 * @param seedFile
@@ -498,13 +490,13 @@ public class AMLGoldStandardGenerator {
 
 	}
 
-	
 	/**
 	 * Adds randmization to the files with multiheterogeneties
+	 * 
 	 * @param load
 	 * @param amlFiles
 	 * @throws Exception
-	 */ 
+	 */
 	public static void splitData(GenerateAML load, ArrayList<File> amlFiles) throws Exception {
 		int count = 0;
 
@@ -547,8 +539,8 @@ public class AMLGoldStandardGenerator {
 					}
 
 				}
-				
-               // none is randomized
+
+				// none is randomized
 				else {
 					if (count % 2 == 0) {
 
@@ -598,60 +590,53 @@ public class AMLGoldStandardGenerator {
 
 	/**
 	 * running generator in bulk
+	 * 
 	 * @throws Exception
 	 */
 	static void runBulk() throws Exception {
-		
-	int k=1;
-		while(k<=7){
 
-		FileManager.hetCount=0;
-		num=FileManager.hetCount;
-		sCount=1;
-		while (sCount <= 10) {
-			if(k==1){
-				FileManager.filePath = "C:/Users/omar/Desktop/examples/run -7/M"+k+"/"
-						+ "M1.1/Testbeds-" + sCount + "/";
-				// creates folders if not there
-				FileManager.createDataPath(FileManager.getFilePath()+"Generated/");
+		int k = 1;
+		while (k <= 1) {
+			FileManager.hetCount = 0;
+			num = FileManager.hetCount;
+			sCount = 1;
+			while (sCount <= 10) {
+				if (k == 1) {
+					// creates folders if not there
+					FileManager.createDataPath(FileManager.getRoot() + "M" + k + "/"
+							+ "M1.1/Testbeds-" + sCount + "/Generated/");
 
-				AMLConfigManager.loadConfigurationPoisson();			
-				generateFiles(FileManager.getFilePath());
-				generateGoldStandard();
-//				FileManager.filePath = "C:/HeterogeneityExampleData/AutomationML"
-//						+ "/Single-Heterogeneity/M"+k+"/M1.2/Testbeds-" + i + "/";
-//				AMLConfigManager.loadConfigurationPoisson();				
-//				generateFiles(FileManager.getFilePath());
-//				generateGoldStandard();
-//				
+					AMLConfigManager.loadConfigurationPoisson();
+					generateFiles(FileManager.getFilePath());
+					generateGoldStandard();
+				} else {
+					// creates folders if not there
+					FileManager.createDataPath(FileManager.getRoot() + "M" + k + "/Testbeds-"
+							+ sCount + "/Generated/");
+
+					AMLConfigManager.loadConfigurationPoisson();
+					generateFiles(FileManager.getFilePath());
+					generateGoldStandard();
+				}
+
+				System.out.println("Gold Standard Generated for Orignal and Generated Files");
+				System.out.println("Finished SuccessFully");
+				sCount++;
 			}
-			else{
-			FileManager.filePath = "C:/Users/omar/Desktop/examples/run -7/"
-					+ "M"+k+"/Testbeds-" + sCount + "/";
-			// creates folders if not there
-			FileManager.createDataPath(FileManager.getFilePath()+"Generated/");
-
-			AMLConfigManager.loadConfigurationPoisson();			
-			generateFiles(FileManager.getFilePath());
-			generateGoldStandard();
-			}
-			
-			System.out.println("Gold Standard Generated for Orignal and Generated Files");
-			System.out.println("Finished SuccessFully");
-			sCount++;
+			k++;
 		}
-		k++;
-	  }
 	}
-	
+
 	public static void main(String[] args) throws Exception {
 		// give input file name and heterogeneity mode
 		// 1- Granularity
 		// 2- Schema
-		runBulk();
-		System.exit(0);
+		// runBulk();
+		// System.exit(0);
 		// calls the generator configuration
+		FileManager.createDataPath(FileManager.getFilePath() + "Generated/");
 		AMLConfigManager.loadConfigurationPoisson();
+		;
 		generateFiles(FileManager.getFilePath());
 		generateGoldStandard();
 		System.out.println("Gold Standard Generated for Orignal and Generated Files");

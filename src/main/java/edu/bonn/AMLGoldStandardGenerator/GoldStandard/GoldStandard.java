@@ -27,20 +27,13 @@ public class GoldStandard extends ReadFiles {
 
 	}
 
-	/**
-	 * Creating the GoldStandard based on the randomly generated files. 
-	 * Writes the elements in the GoldStandard text file by just repeating the corresponding 
-	 * element and adding a 1 at the end. 
-	 * @throws IOException
-	 */
-	public void addGoldStandard(String path) throws IOException {
-
-		ArrayList<String> duplicateCheck=new ArrayList<String>();
-		PrintWriter GoldStandard = new PrintWriter(
-				path + "PSL/test/GoldStandard.txt");
+	
+	
+	
+	public LinkedHashSet<String> addGoldStandard(String path,String seed) throws IOException {
 		LinkedHashSet<String> goldStandardList = new LinkedHashSet<String>();
 		for (File file : files) {
-			if (file.getName().equals("seed.ttl")) {
+			if (file.getName().equals(seed)) {
 				InputStream inputStream = com.hp.hpl.jena.util.FileManager.get().open(file.getAbsolutePath());
 				Model model = null;
 				model = ModelFactory.createDefaultModel();
@@ -72,7 +65,30 @@ public class GoldStandard extends ReadFiles {
 					}
 				}
 
+			}
+		}
+		return goldStandardList;
+
+	}
+	
+	
+	/**
+	 * Creating the GoldStandard based on the randomly generated files. 
+	 * Writes the elements in the GoldStandard text file by just repeating the corresponding 
+	 * element and adding a 1 at the end. 
+	 * @throws IOException
+	 */
+	public void addGoldStandard(String path) throws IOException {
+		ArrayList<String> duplicateCheck=new ArrayList<String>();
+		PrintWriter GoldStandard = new PrintWriter(
+				path + "PSL/test/GoldStandard.txt");
+		LinkedHashSet<String> goldStandardList = addGoldStandard(path,"seed.ttl");;
+		LinkedHashSet<String> seed1List = addGoldStandard(path,"plfile0.ttl");;
+		LinkedHashSet<String> seed2List = addGoldStandard(path,"plfile1.ttl");;
+		
+		
 				for (String val : goldStandardList) {
+					if(seed1List.contains(val)&& seed2List.contains(val))
 					if(!duplicateCheck.contains(val)){
 						duplicateCheck.add(val);
 						// remove annotation to make it a literal value
@@ -80,8 +96,5 @@ public class GoldStandard extends ReadFiles {
 					}
 				}
 				GoldStandard.close();
-			}
 		}
-	}
-
 }
