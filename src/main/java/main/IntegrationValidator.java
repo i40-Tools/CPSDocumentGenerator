@@ -71,7 +71,6 @@ public class IntegrationValidator {
 
 				} catch (IOException e) {
 					System.out.println("file not found" + e.getMessage());
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -90,14 +89,10 @@ public class IntegrationValidator {
 		System.out.println("Precision and Recal for File :" + file.getName());
 		System.out.println("Recall is:=" + getRecall());
 		System.out.println("Precision is:=" + getPrecision());
-
 		System.out.println("Relevant Text Found=" + rc.getRelevantTextFound());
-
 		System.out.println("Total Text=" + rc.getTotalTextFound());
-
 		System.out.println("Relevant Text=" + rc.getRelevantText());
 		System.out.println("**************************************************");
-
 	}
 
 	/**
@@ -113,22 +108,17 @@ public class IntegrationValidator {
 		// true positive denotes relevant text found
 		double tp = rc.getRelevantTextFound();
 
-		// false positives, denotes texts that were marked relevant when they
-		// were not.
+		// false positives, denotes texts that were marked relevant when they were not.
 		double fp = rc.getTotalTextFound() - tp;
-
 		double precision = tp / (tp + fp);
-
 		return precision;
 	}
 
 	/**
-	 * measures recall recall = number of relevant texts retrieved /total number
+	 * Measures recall recall = number of relevant texts retrieved /total number
 	 * of relevant texts
-	 * 
 	 * @return
 	 */
-
 	double getRecall() {
 
 		// true positive
@@ -150,7 +140,6 @@ public class IntegrationValidator {
 	 * @return
 	 */
 	double fScore() {
-
 		double fScore = 2 * getPrecision() * getRecall() / (getPrecision() + getRecall());
 		return fScore;
 	}
@@ -162,11 +151,9 @@ public class IntegrationValidator {
 	 * @return
 	 */
 	File[] getFiles(String path) {
-
 		File folder = new File(path);
 		File[] listOfFiles = folder.listFiles();
 		return listOfFiles;
-
 	}
 
 }
