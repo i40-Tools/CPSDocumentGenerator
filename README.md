@@ -29,6 +29,7 @@ RandomizeAllSeeds   "false" , "true", "one"
 aml:ContaminateRoleClassAttribute   "0" , "1"          
 aml:MultiHeterogeneity    "0.... 7"         
 All other aml attributes can have values in range (min, max)
+If there is no range , and a single value for generation then randomization will be disabled and fixed number of elements will be generated.
 ```
 
 Example :
