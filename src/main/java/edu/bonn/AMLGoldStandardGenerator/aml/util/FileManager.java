@@ -141,6 +141,7 @@ public class FileManager {
 	public static boolean createDataPath(String path) {
 		boolean dir = new File(path + "PSL/test/Precision").mkdirs();
 		dir = new File(path + "PSL/train/").mkdirs();
+		dir = new File(path + "Alligator").mkdirs();
 		return dir;
 	}
 

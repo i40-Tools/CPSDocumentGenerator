@@ -561,6 +561,22 @@ public class AMLGoldStandardGenerator {
 		}
 	}
 
+	public static void cleanUp() {
+		File file1 = new File(FileManager.getFilePath() + "Generated/plfile0.ttl");
+		File file2 = new File(FileManager.getFilePath() + "Generated/plfile1.ttl");
+		file1.delete();
+		file2.delete();
+		file1 = new File(FileManager.getFilePath() + "plfile0.ttl");
+		file2 = new File(FileManager.getFilePath() + "plfile1.ttl");
+		file1.delete();
+		file2.delete();
+		file1 = new File(FileManager.getFilePath() + "seed.ttl");
+		file2 = new File(FileManager.getFilePath() + "Generated/seed.ttl");
+		file1.delete();
+		file2.delete();
+
+	}
+
 	/**
 	 * 
 	 * @throws Exception
@@ -575,8 +591,8 @@ public class AMLGoldStandardGenerator {
 		// creates folders if not there
 		FileManager.createDataPath(FileManager.getFilePath());
 
-		goldStandard.addGoldStandard(FileManager.getFilePath());
-
+		goldStandard.addGoldStandard(FileManager.getFilePath() + "Alligator/GoldStandard.txt");
+		goldStandard.addGoldStandard(FileManager.getFilePath() + "PSL/test/GoldStandard.txt");
 		// adding Gold Standard for Generated Files
 		goldStandard = new GoldStandard();
 		goldStandard.readFiles(FileManager.getFilePath() + "Generated/", ".aml", ".opcua", ".xml");
@@ -586,7 +602,11 @@ public class AMLGoldStandardGenerator {
 		// creates folders if not there
 		FileManager.createDataPath(FileManager.getFilePath() + "Generated/");
 
-		goldStandard.addGoldStandard(FileManager.getFilePath() + "Generated/");
+		goldStandard.addGoldStandard(
+				FileManager.getFilePath() + "Generated/Alligator/GoldStandard.txt");
+		goldStandard
+				.addGoldStandard(FileManager.getFilePath() + "Generated/PSL/test/GoldStandard.txt");
+
 	}
 
 	/**
@@ -596,9 +616,9 @@ public class AMLGoldStandardGenerator {
 	 */
 	static void runBulk() throws Exception {
 
-		int k = 1;
-		while (k <= 1) {
-			//FileManager.hetCount = 0;
+		int k = 7;
+		while (k <= 7) {
+			FileManager.hetCount = 6;
 			num = FileManager.hetCount;
 			sCount = 1;
 			while (sCount <= 10) {
@@ -612,14 +632,17 @@ public class AMLGoldStandardGenerator {
 					generateFiles(FileManager.getFilePath());
 					generateGoldStandard();
 				} else {
+
 					FileManager.filePath = FileManager.getRoot() + "M" + k + "/Testbeds-" + sCount
-							+ "/Generated/";
+							+ "/";
 					// creates folders if not there
 					FileManager.createDataPath(FileManager.getFilePath() + "Generated/");
 
 					AMLConfigManager.loadConfigurationPoisson();
 					generateFiles(FileManager.getFilePath());
 					generateGoldStandard();
+					cleanUp();
+
 				}
 
 				System.out.println("Gold Standard Generated for Orignal and Generated Files");
@@ -639,7 +662,6 @@ public class AMLGoldStandardGenerator {
 		// calls the generator configuration
 		FileManager.createDataPath(FileManager.getFilePath() + "Generated/");
 		AMLConfigManager.loadConfigurationPoisson();
-		;
 		generateFiles(FileManager.getFilePath());
 		generateGoldStandard();
 		System.out.println("Gold Standard Generated for Orignal and Generated Files");

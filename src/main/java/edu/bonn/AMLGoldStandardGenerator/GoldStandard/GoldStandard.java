@@ -13,6 +13,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 
+import edu.bonn.AMLGoldStandardGenerator.aml.util.FileManager;
 import main.ReadFiles;
 
 /*
@@ -81,10 +82,10 @@ public class GoldStandard extends ReadFiles {
 	public void addGoldStandard(String path) throws IOException {
 		ArrayList<String> duplicateCheck=new ArrayList<String>();
 		PrintWriter GoldStandard = new PrintWriter(
-				path + "PSL/test/GoldStandard.txt");
-		LinkedHashSet<String> goldStandardList = addGoldStandard(path,"seed.ttl");;
-		LinkedHashSet<String> seed1List = addGoldStandard(path,"plfile0.ttl");;
-		LinkedHashSet<String> seed2List = addGoldStandard(path,"plfile1.ttl");;
+				path);
+		LinkedHashSet<String> goldStandardList = addGoldStandard(FileManager.getFilePath() + "Generated/","seed.ttl");;
+		LinkedHashSet<String> seed1List = addGoldStandard(FileManager.getFilePath() + "Generated/","plfile0.ttl");;
+		LinkedHashSet<String> seed2List = addGoldStandard(FileManager.getFilePath() + "Generated/","plfile1.ttl");;
 		
 		
 				for (String val : goldStandardList) {
@@ -95,6 +96,7 @@ public class GoldStandard extends ReadFiles {
 						GoldStandard.println(val);
 					}
 				}
+				
 				GoldStandard.close();
 		}
 }
