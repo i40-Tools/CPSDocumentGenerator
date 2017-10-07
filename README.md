@@ -1,5 +1,6 @@
-# AMLGoldStandardGenerator   
-Tool to generate Gold Standard for AML files containing different heterogeneity.
+# CPSDocumentGenerator   
+Tool to generate CPS documents containing different heterogeneity.
+It creates the Gold Standard documents based on the initial document. 
 
 
 ## Important Dependencies
@@ -8,9 +9,9 @@ AMLGoldStandardGenerator needs Java 1.7, Maven 3.0. Download Java SE from
 http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 
-## What is AMLGoldStandardGenerator?
+## What is CPSDocumentGenerator?
 
-AMLGoldStandardGenerator is a Java-based tool, which generates Gold standard documents for heterogeneity AML files (XML-based) based on probability and number of child nodes in an AML document. 
+CPSDocumentGenerator is a Java-based tool, which generates Gold standard documents for heterogeneity AML files (XML-based) based on probability and number of child nodes in an AML document. 
 For heterogeneity such as different Granularity, it performs XML data partition into two files, keeping syntactical consistency of the obtained files against the AutomationML XSD schema. 
 The goal of this project is to automate process of creating data heterogeneity in AML files based on probability distributions, e.g, Poisson Distribution. 
 The tool takes as an input an 'AML file' and outputs 2 files with different heterogeneity which can be used as input for data integration. 
@@ -28,6 +29,14 @@ RandomizeAllSeeds   "false" , "true", "one"
 aml:ContaminateRoleClassAttribute   "0" , "1"          
 aml:MultiHeterogeneity    "0.... 7"         
 All other aml attributes can have values in range (min, max)
+If there is no range , and a single value is given for Element generation then 
+randomization will be disabled and fixed number of elements will be generated.
+for e.g 
+aml:InstanceHierarchysetInternalElement "1-10"; generates elements between 1-10
+randomly
+
+aml:InstanceHierarchysetInternalElement "5"; generated exactly 5 elements.
+
 ```
 
 Example :
@@ -89,7 +98,7 @@ aml:SystemUnitClasssetSystemUnitClassNested  "0".
  
 
 ```
-if you want to reproduce results from published paper , please add the below config.ttl and make changes to path where possible.
+if you want to reproduce results, please add the below config.ttl and make changes to path where possible.
 ```
 
 @prefix aml:     <http://vocab.cs.uni-bonn.de/aml#> .
@@ -173,4 +182,4 @@ https://docs.google.com/document/d/1RwsLnVYC9ZFuBUpTo2p_v73yrWLIhxh-xIuTWWdb9dc/
 
 ##License
 
-Copyright (C) 2016 EIS University of Bonn
+Copyright (C) 2017 EIS University of Bonn
