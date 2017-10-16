@@ -142,6 +142,9 @@ public class FileManager {
 		boolean dir = new File(path + "PSL/test/Precision").mkdirs();
 		dir = new File(path + "PSL/train/").mkdirs();
 		dir = new File(path + "Alligator").mkdirs();
+		dir = new File(path + "Silk").mkdirs();
+		dir = new File(path + "Edoal").mkdirs();
+
 		return dir;
 	}
 
