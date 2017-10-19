@@ -132,21 +132,6 @@ public class FileManager {
 		return filePath;
 	}
 
-	/**
-	 * Get the general file path where all the test data files are located
-	 * 
-	 * @return
-	 */
-
-	public static boolean createDataPath(String path) {
-		boolean dir = new File(path + "PSL/test/Precision").mkdirs();
-		dir = new File(path + "PSL/train/").mkdirs();
-		dir = new File(path + "Alligator").mkdirs();
-		dir = new File(path + "Silk").mkdirs();
-		dir = new File(path + "Edoal").mkdirs();
-
-		return dir;
-	}
 
 	public static String getTestDataPath() {
 		String filePath = loadConfig().getProperty(URI_NAMESPACE + "testDataPath");
