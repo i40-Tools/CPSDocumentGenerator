@@ -22,7 +22,7 @@ import edu.bonn.AMLGoldStandardGenerator.schema.XSDValidator;
  *         types of heterogeneity in AutomationML files
  */
 
-public class AMLGoldStandardGenerator {
+public class CPSDocumentGenerator {
 
 	protected ArrayList<String> outputPath;
 	protected ArrayList<String> inputPath;
@@ -37,7 +37,7 @@ public class AMLGoldStandardGenerator {
 	/**
 	 * Constructor to initialize values
 	 */
-	public AMLGoldStandardGenerator() {
+	public CPSDocumentGenerator() {
 
 		ConfigManager con = ConfigManager.getInstance();
 		con.loadConfig("conf.ttl");
@@ -79,8 +79,7 @@ public class AMLGoldStandardGenerator {
 	 */
 	static void generateFiles(String path) throws Exception {
 		ReadFiles files = new ReadFiles();
-		ArrayList<File> amlFiles = files.readFiles(FileManager.getFilePath(), ".aml", ".opcua",
-				".xml");
+		ArrayList<File> amlFiles = files.readFiles(FileManager.getFilePath(), ".aml");
 		File dir = new File(FileManager.getFilePath() + "Generated/");
 		if (!dir.exists())
 			dir.mkdirs();
@@ -144,23 +143,23 @@ public class AMLGoldStandardGenerator {
 					random = 2;
 					if (random == 2) {
 						allFiles = files.readFiles(FileManager.getRoot() + "M" + randomNum
-								+ "/M1.1/Testbeds-" + sCount + "/", ".aml", ".opcua", ".xml");
+								+ "/M1.1/Testbeds-" + sCount + "/", ".aml");
 						allFiles = files.readFiles(FileManager.getRoot() + "M" + randomNum
-								+ "/M1.2/Testbeds-" + sCount + "/", ".aml", ".opcua", ".xml");
+								+ "/M1.2/Testbeds-" + sCount + "/", ".aml");
 						pr.println("M1.1");
 						pr.println("M1.2");
 
 					} else {
 						allFiles = files.readFiles(
 								FileManager.getRoot() + "M" + randomNum + "/M1.2/Testbeds-3/",
-								".aml", ".opcua", ".xml");
+								".aml");
 						pr.println("M1.2");
 					}
 
 				} else {
 					allFiles = files.readFiles(
 							FileManager.getRoot() + "M" + randomNum + "/Testbeds-" + sCount + "/",
-							".aml", ".opcua", ".xml");
+							".aml");
 					pr.println("M" + randomNum);
 				}
 			}
@@ -205,7 +204,6 @@ public class AMLGoldStandardGenerator {
 					&& !allFiles.get(i).getName().contains("enlarge"))
 				seedTwo.add(allFiles.get(i));
 		}
-
 	}
 
 	/**
@@ -321,18 +319,18 @@ public class AMLGoldStandardGenerator {
 	 * @throws Exception
 	 */
 	public static void generateGoldStandard() throws Exception {
-		// add GoldStandard For Orignal files
+		// adding GoldStandard For Original files
 		GoldStandard goldStandard = new GoldStandard();
-		goldStandard.readFiles(FileManager.getFilePath(), ".aml", ".opcua", ".xml");
+		goldStandard.readFiles(FileManager.getFilePath(), ".aml");
 		goldStandard.convert2RDF(FileManager.getFilePath());
-		goldStandard.readFiles(FileManager.getFilePath(), ".ttl", ".rdf", ".owl");
+		goldStandard.readFiles(FileManager.getFilePath(), ".ttl");
 
 		goldStandard.addGoldStandard(FileManager.getFilePath() + "GoldStandard.txt");
 		// adding Gold Standard for Generated Files
 		goldStandard = new GoldStandard();
-		goldStandard.readFiles(FileManager.getFilePath() + "Generated/", ".aml", ".opcua", ".xml");
+		goldStandard.readFiles(FileManager.getFilePath() + "Generated/", ".aml");
 		goldStandard.convert2RDF(FileManager.getFilePath() + "Generated/");
-		goldStandard.readFiles(FileManager.getFilePath() + "Generated/", ".ttl", ".rdf", ".owl");
+		goldStandard.readFiles(FileManager.getFilePath() + "Generated/", ".ttl");
 
 		goldStandard.addGoldStandard(FileManager.getFilePath() + "Generated/GoldStandard.txt");
 

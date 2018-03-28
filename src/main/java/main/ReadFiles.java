@@ -42,16 +42,15 @@ public class ReadFiles {
 	 * @return
 	 * @throws Exception
 	 */
-	public ArrayList<File> readFiles(String path, String type, String type2, String type3)
+	public ArrayList<File> readFiles(String path, String type)
 			throws Exception {
-		
+
 		File originalFilesFolder = new File(path);
 		if (originalFilesFolder.isDirectory()) {
 
 			for (File amlFile : originalFilesFolder.listFiles()) {
 				if (amlFile.isFile()
-						&& (amlFile.getName().endsWith(type) || amlFile.getName().endsWith(type2)
-								|| amlFile.getName().endsWith(type3))) {
+						&& (amlFile.getName().endsWith(type))) {
 					if (amlFile.getName().endsWith(".aml")) {
 						String name = amlFile.getName().replace(".aml", "");
 						if (name.endsWith("0") || name.endsWith("1") || name.equals("seed")) {
@@ -85,7 +84,7 @@ public class ReadFiles {
 		return files;
 	}
 
-	
+
 	/**
 	 * Converts the file to turtle format based on Krextor
 	 * 
@@ -113,9 +112,6 @@ public class ReadFiles {
 		}
 	}
 
-
-	
-	
 	/**
 	 * Adds aml Values
 	 * @param amlList
@@ -124,29 +120,29 @@ public class ReadFiles {
 	 * @return
 	 */
 	protected ArrayList<String> addAmlValues(ArrayList<?> amlList,ArrayList<String> amlValue,String aml,String predicate){	
-			for(int i=0;i<amlList.size();i++){	
-				StmtIterator iterator = model.listStatements();
-				while (iterator.hasNext()) {
-					Statement stmt = iterator.nextStatement();
-					subject = stmt.getSubject();
-					if(subject.asResource().getLocalName().equals(amlList.get(i))){
-						
-						String value=getValue(subject,predicate);					
-						if(value!=null){
+		for(int i=0;i<amlList.size();i++){	
+			StmtIterator iterator = model.listStatements();
+			while (iterator.hasNext()) {
+				Statement stmt = iterator.nextStatement();
+				subject = stmt.getSubject();
+				if(subject.asResource().getLocalName().equals(amlList.get(i))){
+
+					String value=getValue(subject,predicate);					
+					if(value!=null){
 						amlValue.add(aml +value);
 						break;
-						}
+					}
 				}
-			 }
-	     }
-	return amlValue;
+			}
+		}
+		return amlValue;
 	}
-		
+
 	/**
-     * get predicate Value
-     * @param name
-     * @return
-     */
+	 * get predicate Value
+	 * @param name
+	 * @return
+	 */
 	String getValue(RDFNode name, String predicate) {
 		String type = null;
 		StmtIterator stmts = model.listStatements(name.asResource(), null, (RDFNode) null);
@@ -159,6 +155,6 @@ public class ReadFiles {
 		}
 		return type;
 	}
-	
-	
+
+
 }

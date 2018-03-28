@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.GenerateAML;
 import edu.bonn.AMLGoldStandardGenerator.aml.util.AMLConfigManager;
 import edu.bonn.AMLGoldStandardGenerator.xml.XmlParser;
-import main.AMLGoldStandardGenerator;
+import main.CPSDocumentGenerator;
 
 /**
  * This is top level class for Heterogeneity generation, used to generate
@@ -27,7 +27,7 @@ import main.AMLGoldStandardGenerator;
  *
  */
 
-public class Heterogeneity extends AMLGoldStandardGenerator {
+public class Heterogeneity extends CPSDocumentGenerator {
 
 	private String fileName;
 	protected Element element;

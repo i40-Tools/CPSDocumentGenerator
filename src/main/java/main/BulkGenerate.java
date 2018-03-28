@@ -10,7 +10,7 @@ import edu.bonn.AMLGoldStandardGenerator.aml.util.FileManager;
  * @author omar
  *
  */
-public class BulkGenerate extends AMLGoldStandardGenerator {
+public class BulkGenerate extends CPSDocumentGenerator {
 
 	/**
 	 * Running generator in bulk.

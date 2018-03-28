@@ -28,6 +28,13 @@ public class GoldStandard extends ReadFiles {
 
 	}
 
+	/**
+	 * 
+	 * @param path
+	 * @param seed
+	 * @return
+	 * @throws IOException
+	 */
 	public LinkedHashSet<String> addGoldStandard(String path, String seed) throws IOException {
 		LinkedHashSet<String> goldStandardList = new LinkedHashSet<String>();
 		for (File file : files) {
