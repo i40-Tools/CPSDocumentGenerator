@@ -344,8 +344,9 @@ public class CPSDocumentGenerator {
 		AMLConfigManager.loadConfigurationPoisson();
 		generateFiles(FileManager.getFilePath());
 		generateGoldStandard();
-		System.out.println("Gold Standard Generated for Orignal and Generated Files");
-		System.out.println("Finished SuccessFully");
+		System.out.println("Gold Standard Generated for Original file in " + FileManager.getFilePath() + 
+				           "Generated/GoldStandard.txt");
+		System.out.println("Finished Successfully");
 		try {
 			// ModelRepair.testRoundTrip("model.aml");
 		} catch (Exception e) {
