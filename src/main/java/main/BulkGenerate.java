@@ -21,7 +21,7 @@ public class BulkGenerate extends AMLGoldStandardGenerator {
 	 */
 	static void runBulk() throws Exception {
 		int k = 2;
-		while (k <= 2) {
+		while (k <= 7) {
 			FileManager.hetCount = k - 1;
 			num = FileManager.hetCount;
 			sCount = 1;

@@ -1,6 +1,7 @@
 package edu.bonn.AMLGoldStandardGenerator.GoldStandard;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -13,6 +14,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 
+import edu.bonn.AMLGoldStandardGenerator.aml.Impl.GenericElement;
 import edu.bonn.AMLGoldStandardGenerator.aml.util.FileManager;
 import main.ReadFiles;
 
@@ -82,7 +84,7 @@ public class GoldStandard extends ReadFiles {
 		PrintWriter GoldStandard = new PrintWriter(path);
 		LinkedHashSet<String> goldStandardList = addGoldStandard(
 				FileManager.getFilePath() + "Generated/", "seed.ttl");
-		
+
 		LinkedHashSet<String> seed1List = addGoldStandard(FileManager.getFilePath() + "Generated/",
 				"plfile0.ttl");
 		;
@@ -97,6 +99,27 @@ public class GoldStandard extends ReadFiles {
 					// remove annotation to make it a literal value
 					GoldStandard.println(val);
 				}
+		}
+
+		GoldStandard.close();
+	}
+
+	/**
+	 * Creating the GoldStandard based on contaminated values
+	 * 
+	 * @throws IOException
+	 */
+	public void addGoldStandardContaminate(String path) throws IOException {
+		PrintWriter GoldStandard = new PrintWriter(new FileOutputStream(new File(path), true));
+
+		String gs = "";
+
+		for (int i = 0; i < GenericElement.GoldStandardValue.size(); i++) {
+			gs += GenericElement.GoldStandardValue.get(i).toString()
+					+ GenericElement.GoldStandardValue2.get(i).toString() + "1";
+			GoldStandard.println(gs);
+			gs = "";
+
 		}
 
 		GoldStandard.close();

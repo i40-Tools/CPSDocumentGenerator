@@ -302,6 +302,11 @@ System.out.println("helo"+value);
 		return value;
 	}
 
+	public static String RoleClassSetEclassAttribute() {
+		String value = loadConfig().getProperty(AML_NAMESPACE + "RoleClassSetEclassAttribute");
+		return value;
+	}
+
 	public static String RoleClass() {
 		String value = loadConfig().getProperty(AML_NAMESPACE + "RoleClass");
 		return value;

@@ -217,7 +217,7 @@ public class AMLGoldStandardGenerator {
 	 */
 	static void addDefault(GenerateAML load, File file, ArrayList<File> seedFile)
 			throws JAXBException, IOException {
-		load.getMarshaller().marshal(load.getdefault(file.getAbsolutePath()),
+		load.getMarshaller().marshal(load.getdefault(file.getAbsolutePath(),file),
 				new File(FileManager.getFilePath() + "Generated/" + file.getName()));
 
 		if (FileManager.getMultiHeterogeneity() != 0) {
@@ -238,7 +238,7 @@ public class AMLGoldStandardGenerator {
 	static void addRandom(GenerateAML load, File file, ArrayList<File> seedFile)
 			throws JAXBException {
 
-		load.getMarshaller().marshal(load.getCaexElementsSplit(file.getAbsolutePath()),
+		load.getMarshaller().marshal(load.getCaexElementsSplit(file.getAbsolutePath(),file),
 				new File(FileManager.getFilePath() + "Generated/" + file.getName()));
 
 		// for multi heterogeneties
@@ -335,7 +335,9 @@ public class AMLGoldStandardGenerator {
 		goldStandard.readFiles(FileManager.getFilePath() + "Generated/", ".ttl", ".rdf", ".owl");
 
 		goldStandard.addGoldStandard(FileManager.getFilePath() + "Generated/GoldStandard.txt");
-
+		
+		goldStandard.addGoldStandardContaminate(FileManager.getFilePath() + "Generated/GoldStandard.txt");
+		
 	}
 
 	public static void main(String[] args) throws Exception {

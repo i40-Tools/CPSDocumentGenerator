@@ -3,6 +3,7 @@ package edu.bonn.AMLGoldStandardGenerator.aml.util;
 import java.util.Random;
 
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.Attribute;
+import edu.bonn.AMLGoldStandardGenerator.aml.Impl.AttributeEclass;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.AttributeNameMapping;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.AttributeValueRequirements;
 import edu.bonn.AMLGoldStandardGenerator.aml.Impl.Copyright;
@@ -229,7 +230,7 @@ public class AMLConfigManager {
 		Attribute.setConstraint = getPoissonDistribution(FileManager.AttributesetConstraint());
 		MappingObject.minimum = getPoissonDistribution(FileManager.MappingObject());
 		Attribute.minimum = getPoissonDistribution(FileManager.Attribute());
-
+		AttributeEclass.minimum = getPoissonDistribution(FileManager.Attribute());
 		// usage by static values
 		InternalElement.setAttribute = getPoissonDistribution(
 				FileManager.InternalElementsetAttribute());
@@ -260,6 +261,7 @@ public class AMLConfigManager {
 		RoleClassLib.minimum = getPoissonDistribution(FileManager.RoleClassLib());
 		RoleClass.minimum = getPoissonDistribution(FileManager.RoleClass());
 		RoleClass.setAttribute = getPoissonDistribution(FileManager.RoleClassSetAttribute());
+		RoleClass.setEclassAttribute = getPoissonDistribution(FileManager.RoleClassSetEclassAttribute());
 		RoleClass.setExternalInterface = getPoissonDistribution(
 				FileManager.RoleClassSetExternalInterface());
 

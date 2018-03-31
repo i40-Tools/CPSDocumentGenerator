@@ -15,6 +15,7 @@ public class RoleClass extends GenericElement {
 	public static int setRevision = -1;
 	public static int setVersion = -1;
 	public static int setAttribute = -1;
+	public static int setEclassAttribute = -1;
 	public static int setExternalInterface = -1;
 	public static int setRoleClassNested = -1;
 
@@ -39,6 +40,7 @@ public class RoleClass extends GenericElement {
 		type.setName("Role class Name " + getName());
 		type.setRefBaseClassPath("Ref base path" + getName());
 		type.getAttribute().addAll(Attribute.setValue());
+		type.getAttribute().addAll(AttributeEclass.setValue());
 		type.setCopyright(Copyright.setSingleObject());
 		type.setDescription(Description.setSingleObject());
 		type.setVersion(Version.setSingleObject());
@@ -88,6 +90,12 @@ public class RoleClass extends GenericElement {
 
 		else if (Attribute.minimum != 0)
 			Attribute.minimum = 1;
+
+		if (setEclassAttribute != -1)
+			edu.bonn.AMLGoldStandardGenerator.aml.Impl.AttributeEclass.minimum = 4;
+
+		else if (AttributeEclass.minimum != 0)
+			AttributeEclass.minimum = 1;
 
 		if (setExternalInterface != -1)
 			ExternalInterface.minimum=setExternalInterface;

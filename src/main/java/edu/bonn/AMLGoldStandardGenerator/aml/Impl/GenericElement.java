@@ -1,5 +1,6 @@
 package edu.bonn.AMLGoldStandardGenerator.aml.Impl;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import edu.bonn.AMLGoldStandardGenerator.aml.ObjectFactory;
@@ -12,6 +13,8 @@ public class GenericElement {
 
 	public static ObjectFactory factory = new ObjectFactory();
 	int count=0;
+	public static ArrayList GoldStandardValue=new ArrayList<String>();
+	public static ArrayList GoldStandardValue2=new ArrayList<String>();
 	// protected static ArrayList<AttributeType> attribute;
 	// generate random id
 	static String getID(){
@@ -55,6 +58,7 @@ public class GenericElement {
 
 		return sb.toString();
 	}
+
 
 	
 	static String getNameSeed(){

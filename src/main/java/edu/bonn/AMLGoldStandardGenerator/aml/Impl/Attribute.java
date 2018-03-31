@@ -27,6 +27,7 @@ public class Attribute extends GenericElement {
 
 			attribute.add(GenerateAML.factory.createAttributeType());
 
+			
 			setAttributeValues(attribute.get(j), j);
 		}
 
@@ -37,7 +38,7 @@ public class Attribute extends GenericElement {
 	public static void setAttributeValues(AttributeType type, int i) {
 
 		type.setID(getID());
-		type.setName(getName());
+		type.setName(getName());		
 		type.setUnit("xs:anyUnit");
 		type.setAttributeDataType("xs:datatype");
 		type.getRefSemantic().addAll(RefSemantic.setObject());
