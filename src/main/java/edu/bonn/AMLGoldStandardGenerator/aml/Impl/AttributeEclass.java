@@ -42,12 +42,12 @@ public class AttributeEclass extends GenericElement {
 		}
 		if (i == 2) {
 			type.setName("eClassClassificationClass");
-			type.setValue(getName());
+			type.setValue(geteClassClassificationClass());
 		}
 
 		if (i == 3) {
 			type.setName("eClassIRDI");
-			type.setValue(getName());
+			type.setValue(geteClassIRDI());
 		}
 
 	}

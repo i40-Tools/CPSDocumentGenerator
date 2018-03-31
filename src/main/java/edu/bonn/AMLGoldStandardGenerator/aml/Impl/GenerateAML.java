@@ -78,7 +78,6 @@ public class GenerateAML extends GenericElement {
 		// contaminates Attribute Names
 		for (int i = 0; i < roleclassLib.size(); i++) {
 			for (int j = 0; j < roleclassLib.get(i).getRoleClass().size(); j++) {
-				for (int k = 0; k < roleclassLib.get(i).getRoleClass().size(); k++) {
 					String value = getNameSeed();
 					roleclassLib.get(i).getRoleClass().get(j).setName("RoleClass-" + value);
 					if (!file.getName().equals("seed.aml"))
@@ -88,7 +87,6 @@ public class GenerateAML extends GenericElement {
 							GoldStandardValue2.add("aml2:RoleClass-" + value + "\t");
 				}
 			}
-		}
 
 		// for (int i = 0; i < instance.size(); i++) {
 		// instance.get(i).getInternalElement().get(i).getAttribute().get(i).setName(getNameSeed());

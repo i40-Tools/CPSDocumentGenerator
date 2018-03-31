@@ -119,6 +119,7 @@ public class GoldStandard extends ReadFiles {
 	public void addGoldStandardContaminate(String path) throws IOException {
 		PrintWriter GoldStandard = new PrintWriter(new FileOutputStream(new File(path), true));
 
+		
 		String gs = "";
 
 		for (int i = 0; i < GenericElement.GoldStandardValue.size(); i++) {

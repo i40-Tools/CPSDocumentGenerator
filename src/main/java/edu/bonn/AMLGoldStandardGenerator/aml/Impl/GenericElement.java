@@ -59,7 +59,56 @@ public class GenericElement {
 		return sb.toString();
 	}
 
+	static String geteClassClassificationClass(){
+		// Generate random id, for example 283952-V8M32
+		char[] chars = "01234567".toCharArray();
+		Random rnd = new Random();
+		StringBuilder sb = new StringBuilder((1 + rnd.nextInt(900000)));
 
+		for (int i = 0; i < 8; i++){
+		    sb.append(chars[rnd.nextInt(chars.length)]);
+		}
+
+
+		return sb.toString();
+	}
+
+	static String geteClassIRDI(){
+		
+		// Generate random id, for example 283952-V8M32
+		char[] chars = "0123456789".toCharArray();
+		Random rnd = new Random();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < 4; i++){
+		    sb.append(chars[rnd.nextInt(chars.length)]);
+		}
+		sb.append("-");
+		for (int i = 0; i < 1; i++){
+		    sb.append(chars[rnd.nextInt(chars.length)]);
+		}
+		sb.append("---BASIC_1_1#");
+		for (int i = 0; i < 2; i++){
+		    sb.append(chars[rnd.nextInt(chars.length)]);
+		}
+
+		sb.append("-");
+		chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+		for (int i = 0; i < 3; i++){
+		    sb.append(chars[rnd.nextInt(chars.length)]);
+		}
+		chars = "0123456789".toCharArray();
+		for (int i = 0; i < 3; i++){
+		    sb.append(chars[rnd.nextInt(chars.length)]);
+		}
+		
+		sb.append("#");
+		for (int i = 0; i < 3; i++){
+		    sb.append(chars[rnd.nextInt(chars.length)]);
+		}
+		return sb.toString();
+	}
+
+	
 	
 	static String getNameSeed(){
 		// Generate random id, for example 283952-V8M32
