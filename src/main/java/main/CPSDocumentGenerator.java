@@ -39,12 +39,6 @@ public class CPSDocumentGenerator {
 	 */
 	public CPSDocumentGenerator() {
 
-		ConfigManager con = ConfigManager.getInstance();
-		con.loadConfig("conf.ttl");
-		heterogeneityID = con.getHeterogeneityID();
-		outputPath = con.getOutputPath();
-		inputName = con.getInputName();
-		inputPath = con.getInputPath();
 	}
 
 	/**
@@ -96,7 +90,6 @@ public class CPSDocumentGenerator {
 
 		// adds split data into other documents
 		splitData(load, amlFiles);
-
 	}
 
 	/**
@@ -116,6 +109,8 @@ public class CPSDocumentGenerator {
 			sCount = ThreadLocalRandom.current().nextInt(1, 10);
 		}
 		ReadFiles files = new ReadFiles();
+		
+		//sCount = 4;
 
 		// Random heterogeneties starts here
 		// adds numbers of elements to list so always unique values
@@ -134,7 +129,7 @@ public class CPSDocumentGenerator {
 		try {
 			for (int i = 0; i < nums; i++) {
 				int randomNum = list.get(i);
-
+				
 				// testbed randomization
 				System.out.println("Adding M" + randomNum + " testbed-" + sCount);
 
@@ -186,7 +181,7 @@ public class CPSDocumentGenerator {
 		// get randomized paths
 		ArrayList<File> allFiles = getRandomizedMultiHeterogenetiesPaths(num);
 
-		// splits the paths into seperate files arrays
+		// splits the paths into separate files arrays
 		seedFiles = new ArrayList<File>();
 		seedOne = new ArrayList<File>();
 		seedTwo = new ArrayList<File>();
@@ -226,7 +221,7 @@ public class CPSDocumentGenerator {
 	}
 
 	/**
-	 * Both files are randomized and added The data is splitted in both files.
+	 * Both files are randomized and added The data is split in both files.
 	 * 
 	 * @param load
 	 * @param file
@@ -239,7 +234,7 @@ public class CPSDocumentGenerator {
 		load.getMarshaller().marshal(load.getCaexElementsSplit(file.getAbsolutePath(),file),
 				new File(FileManager.getFilePath() + "Generated/" + file.getName()));
 
-		// for multi heterogeneties
+		// for multiheterogeneity
 		if (FileManager.getMultiHeterogeneity() != 0) {
 			load.getMarshaller().marshal(load.getMulti(file.getAbsolutePath(), seedFile),
 					new File(FileManager.getFilePath() + "Generated/" + file.getName()));
